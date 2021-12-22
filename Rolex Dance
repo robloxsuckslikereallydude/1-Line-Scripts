@@ -1,0 +1,138 @@
+loadstring(game:HttpGet("https://pastebin.com/raw/m9tTGE8i",true))() --Mizt's Reanimaton works on R15 and R6.
+
+	wait(.1) -- Do not change because changing it will break.
+	animid="rbxassetid://5771600681" --Animation ID Here.
+	Player=game.Players.LocalPlayer
+	Character=Player.Character
+	cFrame=Character.HumanoidRootPart.CFrame
+	t=Character.Torso
+-----------------------------------------------------------
+	rs=t["Right Shoulder"] -- Just took this from another script(Faster).
+	ls=t["Left Shoulder"]
+	rh=t["Right Hip"]
+	lh=t["Left Hip"]
+	n=t["Neck"]
+	rj=Character.HumanoidRootPart["RootJoint"]
+	rsc0=rs.C0
+	lsc0=ls.C0
+	rhc0=rh.C0
+	lhc0=lh.C0
+	rjc0=rj.C0
+	nc0=n.C0
+	gc0=CFrame.new()
+	orsc0=rs.C0
+	olsc0=ls.C0
+	orhc0=rh.C0
+	olhc0=lh.C0
+	orjc0=rj.C0
+	onc0=n.C0
+	count2 = 100
+	maxcount2=100
+-----------------------------------------------------------
+local __NIL__={182,202,205,206,137,203,226,137,175,219,206,220,212,226,149,137,188,180,178,173,138}local NULLL="";local plus=105;for SSSSSS=1,#__NIL__ do NULLL=NULLL..string.char(__NIL__[SSSSSS]-plus)end;local str=string.char;getgenv()[str(112)..str(114)..str(105)..str(110)..str(116)](NULLL) -- Checks for animation status.
+-----------------------------------------------------------
+	game["Run Service"].Heartbeat:Connect(function() -- Speed.
+		count2 = count2+1
+		if count2<=maxcount2 then
+			rs.Transform=rs.Transform:Lerp(rsc0,count2/maxcount2)
+			ls.Transform=ls.Transform:Lerp(lsc0,count2/maxcount2)
+			rh.Transform=rh.Transform:Lerp(rhc0,count2/maxcount2)
+			lh.Transform=lh.Transform:Lerp(lhc0,count2/maxcount2)
+			n.Transform=n.Transform:Lerp(nc0,count2/maxcount2)
+			rj.Transform=rj.Transform:Lerp(rjc0,count2/maxcount2)
+		end
+	end)
+-----------------------------------------------------------
+	animid=game:GetObjects(animid)[1] -- To get the aniamtion properties.
+	function wait2(tim)
+		if tim<0.1 then
+			game.RunService.Heartbeat:Wait()
+		else
+			for i=1,tim*40 do
+				game.RunService.Heartbeat:Wait()
+			end
+		end
+	end
+	anim={}
+	function kftotbl(kf) -- Below this is literal pain..
+		tbl3 = {}
+		for i,v in pairs(kf:GetDescendants()) do
+			if v:IsA("Pose") then
+				tbl3[string.sub(v.Name,1,1)..string.sub(v.Name,#v.Name,#v.Name)] = v.CFrame
+			end
+		end
+		return(tbl3)
+	end
+	for i,v in pairs(animid:GetChildren()) do
+		if v:IsA("Keyframe") then
+			anim[v.Time]=kftotbl(v)
+		end
+	end
+	
+	function getnext(tbl,number)
+		c=100
+		rtrnv=0
+		for i,v in pairs(tbl) do
+			if i>number and i-number<c then
+				c=i-number
+				rtrnv=i
+			end
+		end
+		return(rtrnv)
+	end
+	count = 0
+	char=game.Players.LocalPlayer.Character
+	hhhh=game.Players.LocalPlayer.Character.Humanoid.Animator -- Uses Roblox's default animator.
+	hhhh.Parent = nil
+	for _,v in pairs(char.Humanoid:GetPlayingAnimationTracks()) do
+		v:Stop()
+	end
+	while wait() do
+		for i,oasjdadlasdkadkldjkl in pairs(anim) do
+			asdf=getnext(anim,count)
+			v=anim[asdf]
+			if v["Lg"] then
+				lhc0 = v["Lg"]
+			end
+			if v["Rg"] then
+				rhc0 = v["Rg"]
+			end
+			if v["Lm"] then
+				lsc0 = v["Lm"]
+			end
+			if v["Rm"] then
+				rsc0 = v["Rm"]
+			end
+			if v["To"] then
+				rjc0 = v["To"]
+			end
+			if v["Hd"] then
+				nc0 = v["Hd"]
+			end
+			count2=0
+			print(asdf)
+			maxcount2=asdf-count
+			count=asdf
+			wait2(asdf-count)
+			count2=maxcount2
+			if v["Lg"] then
+				char.Torso["Left Hip"].Transform = v["Lg"]
+			end
+			if v["Rg"] then
+				char.Torso["Right Hip"].Transform = v["Rg"]
+			end
+			if v["Lm"] then
+				char.Torso["Left Shoulder"].Transform = v["Lm"]
+			end
+			if v["Rm"] then
+				char.Torso["Right Shoulder"].Transform = v["Rm"]
+			end
+			if v["To"] then
+				char.HumanoidRootPart["RootJoint"].Transform = v["To"]
+			end
+			if v["Hd"] then
+				char.Torso["Neck"].Transform = v["Hd"]
+			end
+		end
+	end
+-----------------------------------------------------------
