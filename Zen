@@ -2075,8 +2075,6 @@ function OrbOfHealing(Target)
 	OrbOfHealingEquipped = false
 end
 Mau5.KeyDown:connect(function(key)
-	if key == "g" then
-	TailedBeastBombAttack()
 	elseif key == "q" then
 	SpawnRasenShurikan(workspace)
 	end
