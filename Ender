@@ -1,21 +1,37 @@
--- _______      _________      _____       ______     _
-  --   / _____ \    |____ ____|    / ___ \     | ____ \   | |
-    --/ /     \_\       | |       / /   \ \    | |   \ \  | |
-   -- | |               | |      / /     \ \   | |   | |  | |
-  --  \ \______         | |      | |     | |   | |___/ /  | |
-   --  \______ \        | |      | |     | |   |  ____/   | |
-  --          \ \       | |      | |     | |   | |        | |
-  --   _      | |       | |      \ \     / /   | |        |_|
-  --  \ \_____/ /       | |       \ \___/ /    | |         _
-  --   \_______/        |_|        \_____/     |_|        |_|
-  -- Credits to Tescalus#5736 For doing almost everything!
-  -- BEFORE EXECUTING THE SCRIPT YOU NEED TO DO SOME THINGS!
-  -- DO NOT WEAR ANY HATS WHEN USING THIS SCRIPT!
-  --YOUR TORSO WILL BE USED TO FLING!
-  -- IF YOU WISH TO CHANGE THE POWER GO TO LINE 84!
-  --YOUR EXECUTOR DOESN'T MATTER! IT WORKS EVEN WITH JJSPLOIT LMFAO!
-  --I AM GOING TO CREDIT MIZT FOR THE PERAM DEATH REANIMATION HOWEVER HE DIDN'T DO WHAT I DID AND MADE IT SO THE TORSO WOULD FLING!
-  --Credits to my mom for getting me taco bell while I was working on this.
+--Subscribe to OrPlayz on YouTube: https://www.youtube.com/channel/UC1UwUVxrjM2Sb4duUoR6zfA
+--Join The Discord: https://discord.gg/ZrMZt5tbu4
+
+
+
+
+
+local player = game.Players.LocalPlayer
+local character1 = player.Character
+local mouse = player:GetMouse()
+
+local fakebody = Instance.new("Part", character1)
+fakebody.Transparency = 1
+fakebody.Anchored = true
+fakebody.CanCollide = false
+fakebody.Position = character1.Head.Position
+wait()
+_G.ReanimationType = "PDeath" --PDeath, Fling, Simple
+_G.Velocity = Vector3.new(36,0,0)
+_G.FlingBlock = true
+_G.FlingBlockTransparency = 1
+_G.HighlightFlingBlock = true
+_G.FlingBlockPosition = "Part"
+_G.HighlightFlingBlockColor = Color3.fromRGB(255,0,0)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GelatekWasTaken/Reanimation.lua/main/Main/Main.lua"))()
+wait(1)
+
+mouse.KeyDown:connect(function(key)
+    if key == "e" then
+    character1.Reanimate.Part.Position = mouse.Hit.p
+    end
+end)
+
 FELOADLIBRARY = {}
 loadstring(game:GetObjects("rbxassetid://5209815302")[1].Source)()
 local FavIDs = {
@@ -32,12 +48,12 @@ local FavIDs = {
 	595230126 --Robot Language
 	}
 
-Bypass = "death"
+Bypass = "a"
 loadstring(game:GetObjects("rbxassetid://5325226148")[1].Source)()
 wait()
 local plr = game:service'Players'.LocalPlayer
 print('Local User is '..plr.Name)
-local char = workspace.non
+local char = character1.Reanimate
 local hum = char.Humanoid
 local ra = char["Right Arm"]
 local la= char["Left Arm"]
@@ -68,30 +84,6 @@ local Asin = math.asin
 local Abs = math.abs
 local Mrandom = math.random
 local Floor = math.floor
-for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
-if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
-game:GetService("RunService").Heartbeat:connect(function()
-v.Velocity = Vector3.new(0,45,0)
-wait(0.5)
-end)
-end
-end
-warn("Netless Activated!")
- -- FLING BELOW!
-
-power = 7500 -- The lower the number, the more stable the torso is, but less fling power.
-
-game:GetService('RunService').Stepped:connect(function()
-game.Players.LocalPlayer.Character.Head.CanCollide = false
-game.Players.LocalPlayer.Character["Left Leg"].CanCollide = false
-game.Players.LocalPlayer.Character["Right Leg"].CanCollide = false
-end)
-
-wait(.1)
-local bambam = Instance.new("BodyThrust")
-bambam.Parent = game.Players.LocalPlayer.Character.Torso
-bambam.Force = Vector3.new(power,0,power)
-bambam.Location = game.Players.LocalPlayer.Character.Torso.Position
 -------------------------------------------------------
 --End Good Stuff--
 -------------------------------------------------------
@@ -217,6 +209,7 @@ function rayCast(Position, Direction, Range, Ignore)
 end
 
 local Create = FELOADLIBRARY.Create
+
 -------------------------------------------------------
 --Start Damage Function--
 -------------------------------------------------------
@@ -1347,23 +1340,27 @@ mouse.Button1Down:connect(function(key)
       wait2 = true
 		for i = 0, 1.2, 0.1 do
         swait()
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
         rootj.C0 = clerp(rootj.C0, RootCF * CFrame.new(0, -0.5, 0) * angles(math.rad(-5), math.rad(0), math.rad(-65)), 0.3)
         tors.Neck.C0 = clerp(tors.Neck.C0, necko * angles(math.rad(-10), math.rad(0), math.rad(-65)), 0.1)
         RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0.8) * angles(math.rad(90), math.rad(0), math.rad(20)), 0.1)
         LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, 0) * angles(math.rad(-25), math.rad(0), math.rad(40)), 0.3)
         RH.C0 = clerp(RH.C0, CFrame.new(1, -1, -0.2) * RHCF * angles(math.rad(-2.5), math.rad(0), math.rad(-0)), 0.3)
         LH.C0 = clerp(LH.C0, CFrame.new(-1, -1, 0) * LHCF * angles(math.rad(-2.5), math.rad(15), math.rad(-20)), 0.3)
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
 		  end
 		CreateSound("138097048", ra, 3, .8)
 		HitboxFunction(ra.CFrame, 0.01, 1, 1, 1, 7, 6, 9, 3, "Normal")
       for i = 0, 1.2, 0.1 do
         swait()
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
         rootj.C0 = clerp(rootj.C0, RootCF * CFrame.new(0, -0.5, 0) * angles(math.rad(5), math.rad(0), math.rad(55)), 0.3)
         tors.Neck.C0 = clerp(tors.Neck.C0, necko * angles(math.rad(10), math.rad(0), math.rad(0)), 0.1)
         RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, -0.8) * angles(math.rad(95), math.rad(0), math.rad(40)), 0.1)
         LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, 0) * angles(math.rad(-25), math.rad(0), math.rad(-10)), 0.3)
         RH.C0 = clerp(RH.C0, CFrame.new(1, -1, 0) * RHCF * angles(math.rad(-2.5), math.rad(-25), math.rad(-17)), 0.3)
         LH.C0 = clerp(LH.C0, CFrame.new(-1, -1, 0) * LHCF * angles(math.rad(-2.5), math.rad(-0), math.rad(0)), 0.3)
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
       end
       combo = 2
     end
@@ -1371,23 +1368,27 @@ mouse.Button1Down:connect(function(key)
       wait2 = true
    for i = 0, 1.2, 0.1 do
         swait()
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
         rootj.C0 = clerp(rootj.C0, RootCF * CFrame.new(0, -0.5, 0) * angles(math.rad(-5), math.rad(0), math.rad(65)), 0.3)
         tors.Neck.C0 = clerp(tors.Neck.C0, necko * angles(math.rad(-10), math.rad(0), math.rad(65)), 0.1)
         RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0.8) * angles(math.rad(-25), math.rad(0), math.rad(40)), 0.1)
         LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, 0) * angles(math.rad(90), math.rad(0), math.rad(20)), 0.3)
         RH.C0 = clerp(RH.C0, CFrame.new(1, -1, -0.2) * RHCF * angles(math.rad(-2.5), math.rad(0), math.rad(-0)), 0.3)
         LH.C0 = clerp(LH.C0, CFrame.new(-1, -1, 0) * LHCF * angles(math.rad(-2.5), math.rad(15), math.rad(-20)), 0.3)
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
 		  end
 		CreateSound("138097048", ra, 3, .8)
 		HitboxFunction(ra.CFrame, 0.01, 1, 1, 1, 7, 6, 9, 3, "Normal")
       for i = 0, 1.2, 0.1 do
         swait()
+character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
         rootj.C0 = clerp(rootj.C0, RootCF * CFrame.new(0, -0.5, 0) * angles(math.rad(5), math.rad(0), math.rad(-55)), 0.3)
         tors.Neck.C0 = clerp(tors.Neck.C0, necko * angles(math.rad(10), math.rad(0), math.rad(0)), 0.1)
         RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(-25), math.rad(0), math.rad(10)), 0.1)
         LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, -0.8) * angles(math.rad(95), math.rad(0), math.rad(-40)), 0.3)
         RH.C0 = clerp(RH.C0, CFrame.new(1, -1, 0) * RHCF * angles(math.rad(-2.5), math.rad(-25), math.rad(-17)), 0.3)
         LH.C0 = clerp(LH.C0, CFrame.new(-1, -1, 0) * LHCF * angles(math.rad(-2.5), math.rad(-0), math.rad(0)), 0.3)
+character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
       end
       combo = 3
     end
@@ -1395,23 +1396,27 @@ mouse.Button1Down:connect(function(key)
 	wait2 = true
     for i = 0, 1.2, 0.1 do
         swait()
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
         rootj.C0 = clerp(rootj.C0, RootCF * CFrame.new(0, -0.5, 0) * angles(math.rad(-5), math.rad(0), math.rad(-35)), 0.3)
         tors.Neck.C0 = clerp(tors.Neck.C0, necko * angles(math.rad(-10), math.rad(0), math.rad(0)), 0.1)
         RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0.8) * angles(math.rad(90), math.rad(0), math.rad(20)), 0.1)
         LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, 0) * angles(math.rad(-25), math.rad(0), math.rad(-10)), 0.3)
         RH.C0 = clerp(RH.C0, CFrame.new(1, -1, -0.2) * RHCF * angles(math.rad(-2.5), math.rad(0), math.rad(-0)), 0.3)
         LH.C0 = clerp(LH.C0, CFrame.new(-1, -1, 0) * LHCF * angles(math.rad(-2.5), math.rad(15), math.rad(-20)), 0.3)
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
       end
 	CreateSound("138097048", ra, 3, .8)
       HitboxFunction(ra.CFrame, 0.01, 1, 1, 1, 7, 24, 36, 3, "Normal")
       for i = 0, 1.2, 0.1 do
         swait()
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
         rootj.C0 = clerp(rootj.C0, RootCF * CFrame.new(0, -0.5, 0) * angles(math.rad(5), math.rad(0), math.rad(35)), 0.3)
         tors.Neck.C0 = clerp(tors.Neck.C0, necko * angles(math.rad(10), math.rad(0), math.rad(0)), 0.1)
         RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, -0.8) * angles(math.rad(96), math.rad(0), math.rad(10)), 0.1)
         LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, 0) * angles(math.rad(-25), math.rad(0), math.rad(-10)), 0.3)
         RH.C0 = clerp(RH.C0, CFrame.new(1, -1, 0) * RHCF * angles(math.rad(-2.5), math.rad(-25), math.rad(-0)), 0.3)
         LH.C0 = clerp(LH.C0, CFrame.new(-1, -1, 0) * LHCF * angles(math.rad(-2.5), math.rad(-0), math.rad(0)), 0.3)
+	character1.Reanimate.Part.Position = character1.Reanimate["Torso"].Position
       end
 		Effects.Sphere.Create(maincolor, ra.CFrame * CFrame.new(0,-2,0) , 85, 85, 85, 1.1, 1.1, 1.1, 0.02)
 		Effects.Ring.Create(maincolor, ra.CFrame * CFrame.new(0,-2,0) , 2, 2, 2, 1.1, 1.1, 1.1, 0.03)
@@ -1522,7 +1527,8 @@ function Destruction()
 		LH.C0 = clerp(LH.C0, CF(-1, -0.9 - 0.1 * Cos(sine / 20), 0.025 * Cos(sine / 20)) * LHCF * angles(Rad(-2.5 + 3 * Sin(sine / 20)), Rad(0), Rad(0 + 2.5 * Sin(sine / 20))), 0.15)
 		RW.C0 = clerp(RW.C0, CF(1.1, 0.5 + 0.05 * Sin(sine / 30), 0.025 * Cos(sine / 20)) * angles(Rad(90), Rad(0), Rad(-25)), 0.1)
 		LW.C0 = clerp(LW.C0, CF(-1.1, 0.5 + 0.05 * Sin(sine / 30), 0.025 * Cos(sine / 20)) * angles(Rad(90), Rad(0), Rad(25)), 0.1)
-		root.CFrame = FaceMouse()[1]
+		character1.Reanimate.Part.Position = mouse.Hit.p
+	root.CFrame = FaceMouse()[1]
 	end
 	InnerRing1.Transparency = 1
 	InnerRing1.CFrame = root.CFrame * CF(0, 0.5, 0) + root.CFrame.lookVector * 5
@@ -1577,6 +1583,7 @@ function Destruction()
 	msh2.Scale = Vector3.new(1, 30, 30)
 	for i = 0, 10, 0.1 do
 		swait()
+		character1.Reanimate.Part.Position = mouse.Hit.p
 		root.CFrame = FaceMouse()[1]
 		hum.CameraOffset = Vector3.new(Mrandom(-1,1),0,Mrandom(-1,1))
 		a2.Color = maincolor.Color
@@ -1814,4 +1821,6 @@ tecks2.TextStrokeColor3 = maincolor.Color
 		end
 	end
 end
-root:Destroy()
+-------------------------------------------------------
+--End Animations And Script--
+-------------------------------------------------------
