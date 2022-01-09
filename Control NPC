@@ -1,0 +1,90 @@
+--[[ 
+Hold LeftControl and Click an npc to control
+
+Press Quote to return to your player
+
+Hold LeftShift and press a Numpad key to save your current npc
+
+Hold LeftControl and press a Numpad key to control the saved npc
+]]
+
+spawn(function()
+  while wait() do
+    game.Players.LocalPlayer.MaximumSimulationRadius = math.huge;
+    setsimulationradius(math.huge);
+  end
+end)
+
+local OGPN = game.Players.LocalPlayer.Name
+local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+
+function Ctrl(NPC)
+  Char = NPC
+  Player.Character = Char
+  workspace.CurrentCamera.CameraSubject = Char
+  Char.Animate.Disabled = true
+ wait(0.1)
+  Char.Animate.Disabled = false
+end
+
+Mouse.Button1Down:connect(function()
+  if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and Mouse.Target ~= nil and Mouse.Target.Parent.Name ~= "Workspace" and Mouse.Target.Parent:FindFirstChildOfClass("Humanoid") ~= nil then
+    Char = Mouse.Target.Parent
+    Player.Character = Mouse.Target.Parent
+    workspace.CurrentCamera.CameraSubject = Char
+    Char.Animate.Disabled = true
+   wait(0.1)
+    Char.Animate.Disabled = false
+  end
+end)
+
+Mouse.KeyDown:connect(function()
+  if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadOne) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+    a = Char
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadTwo) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+    b = Char
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadThree) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+    c = Char
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadFour) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+    d = Char
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadFive) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+    e = Char
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadSix) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+    f = Char
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadSeven) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+    g = Char
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadEight) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+    h = Char
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadNine) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then
+    i = Char
+  end
+end)
+
+Mouse.KeyDown:connect(function()
+  if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.Quote) then
+    for i,v in pairs(game.Workspace:GetDescendants()) do
+      if v.Name == OGPN and v.ClassName == 'Model' then
+        Ctrl(v)
+      end
+    end
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadOne) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+    Ctrl(a)
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadTwo) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+    Ctrl(b)
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadThree) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+    Ctrl(c)
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadFour) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+    Ctrl(d)
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadFive) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+    Ctrl(e)
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadSix) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+    Ctrl(f)
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadSeven) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+    Ctrl(g)
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadEight) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+    Ctrl(h)
+  elseif game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.KeypadNine) and game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) and not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then
+    Ctrl(i)
+  end
+end)
