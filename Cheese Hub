@@ -2,7 +2,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib("Cheese Hub", "Synapse")
 local Tab = Window:NewTab("Scripts")
 local Section = Tab:NewSection("Scripts")
-Section:NewButton("Powers", "Makes your character cool.", function()
+Section:NewButton("Energy", "Makes your character cool.", function()
     for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
     if v:IsA("Accessory") then
         if v.Handle:FindFirstChildOfClass("Mesh") or v.Handle:FindFirstChildOfClass("SpecialMesh") then
