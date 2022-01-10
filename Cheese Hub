@@ -71,7 +71,7 @@ game:GetService("Players").LocalPlayer.Character["Hat1"].Handle:FindFirstChildOf
 game:GetService("Players").LocalPlayer.Character["Kate Hair"].Handle:FindFirstChildOfClass("SpecialMesh"):Destroy()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Thruster'))()
 end)
-Section:NewButton("Thruster", "Gives your character a thruster.", function()
+Section:NewButton("Cannon", "Gives your character an arm cannon.", function()
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
 game:GetService("Players").LocalPlayer.Character["LavanderHair"].Handle:FindFirstChildOfClass("SpecialMesh"):Destroy()
 game:GetService("Players").LocalPlayer.Character["PirateCaptain_HatAccessory"].Handle:FindFirstChildOfClass("SpecialMesh"):Destroy()
