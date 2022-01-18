@@ -1,3 +1,5 @@
+game:GetService("Players").LocalPlayer.Character["WDW_FoamFinger"].Handle:FindFirstChildOfClass("SpecialMesh"):Destroy()
+game:GetService("Players").LocalPlayer.Character["InternationalFedora"].Handle:FindFirstChildOfClass("SpecialMesh"):Destroy()
 power = 500
 
 game:GetService("RunService").Stepped:connect(function()
@@ -20,8 +22,7 @@ game.Players.LocalPlayer.Character["Kate Hair"].Handle.Mesh:Destroy()
 game.Players.LocalPlayer.Character["LavanderHair"].Handle.Mesh:Destroy()
 game.Players.LocalPlayer.Character["Hat1"].Handle.Mesh:Destroy()
 game.Players.LocalPlayer.Character["Robloxclassicred"].Handle.Mesh:Destroy()
-game.Players.LocalPlayer.Character["WDW_FoamFinger"].Handle.Mesh:Destroy()
-game.Players.LocalPlayer.Character["InternationalFedora"].Handle.Mesh:Destroy()
+
 
 local Animate = game.Players.LocalPlayer.Character.Animate
 HumanDied = false
