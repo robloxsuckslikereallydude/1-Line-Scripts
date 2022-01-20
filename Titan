@@ -1,4 +1,3 @@
-
 HumanDied = false
 _G.ClickFling=false -- Set this to true if u want.
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/XeneonPlays/Nexo/main/NexoPD'),true))()
@@ -91,7 +90,7 @@ sine = sine + speed
 if Root.Velocity.y > 1 then -- jump
 hatset('AFunRead','Head',CFrame.new(),reanim['AFunRead'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-3.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
 NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),2.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),2.5+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RS.C0 = RS.C0:Lerp(CF(1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(-180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(-20+0*math.cos(sine/13))),.3)
 LS.C0 = LS.C0:Lerp(CF(-1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(20+0*math.cos(sine/13))),.3)
 RH.C0 = RH.C0:Lerp(CF(0.75+0*math.cos(sine/13),-1.6+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
@@ -100,9 +99,9 @@ reanim['AFunRead'].Handle.AccessoryWeld.C0 = reanim['AFunRead'].Handle.Accessory
 elseif Root.Velocity.y < -1 then -- fall
 hatset('AFunRead','Head',CFrame.new(),reanim['AFunRead'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),6+0*math.cos(sine/13),6+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
 NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),2.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RS.C0 = RS.C0:Lerp(CF(1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(-180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(-20+0*math.cos(sine/13))),.3)
-LS.C0 = LS.C0:Lerp(CF(-1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(20+0*math.cos(sine/13))),.3)
+RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),2.5+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+RS.C0 = RS.C0:Lerp(CF(1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(45+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(-20+0*math.cos(sine/13))),.3)
+LS.C0 = LS.C0:Lerp(CF(-1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(45+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(20+0*math.cos(sine/13))),.3)
 RH.C0 = RH.C0:Lerp(CF(0.75+0*math.cos(sine/13),-1.6+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LH.C0 = LH.C0:Lerp(CF(-0.75+0*math.cos(sine/13),-1.6+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 reanim['AFunRead'].Handle.AccessoryWeld.C0 = reanim['AFunRead'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),6+0*math.cos(sine/13),6+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
@@ -118,7 +117,7 @@ hatset('Pal Hair','Right Leg',CFrame.new(),reanim['Pal Hair'].Handle.AccessoryWe
 hatset('Hat1','Left Leg',CFrame.new(),reanim['Hat1'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),1.9+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
 hatset('AFunRead','Torso',CFrame.new(),reanim['AFunRead'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),7.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
 NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),2.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),2.5+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RS.C0 = RS.C0:Lerp(CF(1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LS.C0 = LS.C0:Lerp(CF(-1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RH.C0 = RH.C0:Lerp(CF(0.75+0*math.cos(sine/13),-1.6+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
@@ -134,12 +133,14 @@ reanim['Pal Hair'].Handle.AccessoryWeld.C0 = reanim['Pal Hair'].Handle.Accessory
 reanim['Hat1'].Handle.AccessoryWeld.C0 = reanim['Hat1'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),1.9+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 reanim['AFunRead'].Handle.AccessoryWeld.C0 = reanim['AFunRead'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),7.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 elseif Root.Velocity.Magnitude < 20 then -- walk
+hatset('AFunRead','Torso',CFrame.new(),reanim['AFunRead'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),7.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
 NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),2.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),2.5+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RS.C0 = RS.C0:Lerp(CF(1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+-35*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LS.C0 = LS.C0:Lerp(CF(-1.6+0*math.cos(sine/13),1.1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+35*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RH.C0 = RH.C0:Lerp(CF(0.75+0*math.cos(sine/13),-1.6+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+35*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LH.C0 = LH.C0:Lerp(CF(-0.75+0*math.cos(sine/13),-1.6+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+-35*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['AFunRead'].Handle.AccessoryWeld.C0 = reanim['AFunRead'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),7.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 elseif Root.Velocity.Magnitude > 20 then -- run
 
 end
