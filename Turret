@@ -3,10 +3,10 @@ HumanDied = false
 _G.ClickFling=false -- Set this to true if u want.
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/XeneonPlays/Nexo/main/NexoPD'),true))()
 
------------------------------------- 
 local Modes = { ---- add modes here when you add them make sure it equals to false
     [1] = true ,
-    [2] = false
+    [2] = false ,
+    [3] = false
 } 
 local function Select(Mode) 
     for i=1,#Modes do 
@@ -14,7 +14,6 @@ local function Select(Mode)
     end 
     Modes[Mode] = true 
 end 
-------------------------------------
 
 IT = Instance.new
 CF = CFrame.new
@@ -52,14 +51,18 @@ end
 
 game:GetService("UserInputService").InputEnded:Connect(function(inp,gp) 
     if not gp then 
-        if inp.KeyCode == Enum.KeyCode.F then 
+        if inp.KeyCode == Enum.KeyCode.Z then 
             srv.RenderStepped:Wait() 
             Select(1) 
         end 
-        if inp.KeyCode == Enum.KeyCode.Z then 
+        if inp.KeyCode == Enum.KeyCode.X then 
             srv.RenderStepped:Wait() 
             Select(2) 
-        end  
+        end 
+        if inp.KeyCode == Enum.KeyCode.C then 
+            srv.RenderStepped:Wait() 
+            Select(3) 
+        end 
     end 
 end)
 
@@ -116,81 +119,72 @@ if HumanDied then break end
 sine = sine + speed
     if Root.Velocity.y > 1 then -- jump
         if Modes[1] == true then 
-             
+            --clerp 
         elseif Modes[2] == true then 
-             NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.9+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),-3+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(-90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RS.C0 = RS.C0:Lerp(CF(0.25+0*math.cos(sine/13),2+1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LS.C0 = LS.C0:Lerp(CF(-0.25+0*math.cos(sine/13),2+-1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RH.C0 = RH.C0:Lerp(CF(0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+
+        elseif Modes[3] == true then
+            --clerp 
         end
     elseif Root.Velocity.y < -1 then -- fall
         if Modes[1] == true then 
-             
+            --clerp 
         elseif Modes[2] == true then 
-             NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.9+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),-3+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(-90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RS.C0 = RS.C0:Lerp(CF(0.25+0*math.cos(sine/13),2+1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LS.C0 = LS.C0:Lerp(CF(-0.25+0*math.cos(sine/13),2+-1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RH.C0 = RH.C0:Lerp(CF(0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+            --clerp 
+        elseif Modes[3] == true then
+            --clerp 
         end
     elseif Root.Velocity.Magnitude < 2 then -- idle
         if Modes[1] == true then 
-            hatset('AFunRead','Torso',CFrame.new(),reanim['AFunRead'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
-hatset('PirateCaptain_HatAccessory','Torso',CFrame.new(),reanim['PirateCaptain_HatAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.8+0*math.cos(sine/13),0.8+0*math.cos(sine/13),-1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
-hatset('CityLifeWoman_HairAccessory','Torso',CFrame.new(),reanim['CityLifeWoman_HairAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.8+0*math.cos(sine/13),-0.8+0*math.cos(sine/13),-1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
-hatset('MSN_MaleRthroHair_AccAccessory','Torso',CFrame.new(),reanim['MSN_MaleRthroHair_AccAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(-0.84+0*math.cos(sine/13),-0.8+0*math.cos(sine/13),-1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
-hatset('MSH_RthroFemaleHair_AccAccessory','Torso',CFrame.new(),reanim['MSH_RthroFemaleHair_AccAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(-0.84+0*math.cos(sine/13),0.8+0*math.cos(sine/13),-1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
-hatset('LavanderHair','Right Arm',CFrame.new(),reanim['LavanderHair'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),-1.9+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
-hatset('Kate Hair','Left Arm',CFrame.new(),reanim['Kate Hair'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),-1.9+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
-hatset('HandleAccessory','Torso',CFrame.new(),reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/90),0+0*math.cos(sine/90),9+0*math.cos(sine/90))*ANGLES(RAD(0+0*math.cos(sine/90)),RAD(0+0*math.cos(sine/90)),RAD(0+0*math.cos(sine/90))),1),false)
-NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.9+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),-3+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(-90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RS.C0 = RS.C0:Lerp(CF(0.25+0*math.cos(sine/13),3+0*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LS.C0 = LS.C0:Lerp(CF(-0.25+0*math.cos(sine/13),3+0*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+hatset('PirateCaptain_HatAccessory','Torso',CFrame.new(),reanim['PirateCaptain_HatAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-13.4+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
+hatset('CityLifeWoman_HairAccessory','Torso',CFrame.new(),reanim['CityLifeWoman_HairAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-15+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
+hatset('VarietyShades10','Torso',CFrame.new(),reanim['VarietyShades10'].Handle.AccessoryWeld.C0:Lerp(CF(12.05+0*math.cos(sine/13),0+0*math.cos(sine/13),1+0*math.cos(sine/13))*ANGLES(RAD(-45+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),1),true)
+hatset('VarietyShades02','Torso',CFrame.new(),reanim['VarietyShades02'].Handle.AccessoryWeld.C0:Lerp(CF(12.05+0*math.cos(sine/13),0+0*math.cos(sine/13),-1+0*math.cos(sine/13))*ANGLES(RAD(223+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),1),true)
+hatset('RobloxVisor2019','Torso',CFrame.new(),reanim['RobloxVisor2019'].Handle.AccessoryWeld.C0:Lerp(CF(12.1+0*math.cos(sine/13),0+0*math.cos(sine/13),-0.9+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),1),true)
+hatset('RunningBull','Torso',CFrame.new(),reanim['RunningBull'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-0.5+0*math.cos(sine/13),-14+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),false)
+hatset('WDW_FoamFinger','Torso',CFrame.new(),reanim['WDW_FoamFinger'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-14.25+0*math.cos(sine/13),-0.6+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
+hatset('MeshPartAccessory','Torso',CFrame.new(),reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-14.25+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
+hatset('HandleAccessory','Torso',CFrame.new(),reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),false)
+NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),-11.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+RS.C0 = RS.C0:Lerp(CF(0+0*math.cos(sine/13),0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+LS.C0 = LS.C0:Lerp(CF(0+0*math.cos(sine/13),0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RH.C0 = RH.C0:Lerp(CF(0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['AFunRead'].Handle.AccessoryWeld.C0 = reanim['AFunRead'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['PirateCaptain_HatAccessory'].Handle.AccessoryWeld.C0 = reanim['PirateCaptain_HatAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.8+0*math.cos(sine/13),0.8+0*math.cos(sine/13),-1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['CityLifeWoman_HairAccessory'].Handle.AccessoryWeld.C0 = reanim['CityLifeWoman_HairAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.8+0*math.cos(sine/13),-0.8+0*math.cos(sine/13),-1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['MSN_MaleRthroHair_AccAccessory'].Handle.AccessoryWeld.C0 = reanim['MSN_MaleRthroHair_AccAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(-0.84+0*math.cos(sine/13),-0.8+0*math.cos(sine/13),-1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['MSH_RthroFemaleHair_AccAccessory'].Handle.AccessoryWeld.C0 = reanim['MSH_RthroFemaleHair_AccAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(-0.84+0*math.cos(sine/13),0.8+0*math.cos(sine/13),-1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['LavanderHair'].Handle.AccessoryWeld.C0 = reanim['LavanderHair'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),-1.9+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['Kate Hair'].Handle.AccessoryWeld.C0 = reanim['Kate Hair'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),-1.9+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['HandleAccessory'].Handle.AccessoryWeld.C0 = reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/90),0+0*math.cos(sine/90),9+0*math.cos(sine/90))*ANGLES(RAD(0+0*math.cos(sine/90)),RAD(0+0*math.cos(sine/90)),RAD(0+0*math.cos(sine/90))),.3)
+reanim['PirateCaptain_HatAccessory'].Handle.AccessoryWeld.C0 = reanim['PirateCaptain_HatAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-3.4+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['CityLifeWoman_HairAccessory'].Handle.AccessoryWeld.C0 = reanim['CityLifeWoman_HairAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['VarietyShades10'].Handle.AccessoryWeld.C0 = reanim['VarietyShades10'].Handle.AccessoryWeld.C0:Lerp(CF(2.05+0*math.cos(sine/13),0+0*math.cos(sine/13),1+0*math.cos(sine/13))*ANGLES(RAD(-45+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),.3)
+reanim['VarietyShades02'].Handle.AccessoryWeld.C0 = reanim['VarietyShades02'].Handle.AccessoryWeld.C0:Lerp(CF(2.05+0*math.cos(sine/13),0+0*math.cos(sine/13),-1+0*math.cos(sine/13))*ANGLES(RAD(223+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),.3)
+reanim['RobloxVisor2019'].Handle.AccessoryWeld.C0 = reanim['RobloxVisor2019'].Handle.AccessoryWeld.C0:Lerp(CF(2.1+0*math.cos(sine/13),0+0*math.cos(sine/13),-0.9+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),.3)
+reanim['RunningBull'].Handle.AccessoryWeld.C0 = reanim['RunningBull'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-0.5+0*math.cos(sine/13),-4+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['WDW_FoamFinger'].Handle.AccessoryWeld.C0 = reanim['WDW_FoamFinger'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-4.25+0*math.cos(sine/13),-0.6+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0 = reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-4.25+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['HandleAccessory'].Handle.AccessoryWeld.C0 = reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
         elseif Modes[2] == true then 
-hatset('HandleAccessory','Torso',CFrame.new(),reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-2+0*math.cos(sine/13),-5.5+0*math.cos(sine/13))*ANGLES(RAD(-90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13))),1),false)
-NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.9+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),-3+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(-90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RS.C0 = RS.C0:Lerp(CF(0.25+0*math.cos(sine/13),2+1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LS.C0 = LS.C0:Lerp(CF(-0.25+0*math.cos(sine/13),2+-1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RH.C0 = RH.C0:Lerp(CF(0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['HandleAccessory'].Handle.AccessoryWeld.C0 = reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-2+0*math.cos(sine/13),-5.5+0*math.cos(sine/13))*ANGLES(RAD(-90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/90)),RAD(180+0*math.cos(sine/13))),.3)
+hatset('WDW_FoamFinger','Torso',CFrame.new(),reanim['WDW_FoamFinger'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-14.25+0*math.cos(sine/13),-1.5+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true) 
+hatset('MeshPartAccessory','Torso',CFrame.new(),reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-14.25+0*math.cos(sine/13),-1+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),true)
+hatset('HandleAccessory','Torso',CFrame.new(),reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),false)
+reanim['WDW_FoamFinger'].Handle.AccessoryWeld.C0 = reanim['WDW_FoamFinger'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-4.25+0*math.cos(sine/13),-1.5+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0 = reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-4.25+0*math.cos(sine/13),-1+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['HandleAccessory'].Handle.AccessoryWeld.C0 = reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+	elseif Modes[3] == true then
+hatset('HandleAccessory','Torso',CFrame.new(),reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(-1.1+0*math.cos(sine/13),-14.75+0*math.cos(sine/13),-1.5+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),false) 
+reanim['HandleAccessory'].Handle.AccessoryWeld.C0 = reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(-1.1+0*math.cos(sine/13),-4.75+0*math.cos(sine/13),-1.5+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3) 
         end
     elseif Root.Velocity.Magnitude < 20 then -- walk
         if Modes[1] == true then 
              
         elseif Modes[2] == true then 
-          NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.9+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),-3+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(-90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RS.C0 = RS.C0:Lerp(CF(0.25+0*math.cos(sine/13),2+1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LS.C0 = LS.C0:Lerp(CF(-0.25+0*math.cos(sine/13),2+-1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RH.C0 = RH.C0:Lerp(CF(0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)   
+            --clerp 
+        elseif Modes[3] == true then
+            --clerp 
         end
     elseif Root.Velocity.Magnitude > 20 then -- run
         if Modes[1] == true then 
-                 
+                --clerp 
             elseif Modes[2] == true then 
-                NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.9+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),-3+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(-90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RS.C0 = RS.C0:Lerp(CF(0.25+0*math.cos(sine/13),2+1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LS.C0 = LS.C0:Lerp(CF(-0.25+0*math.cos(sine/13),2+-1*math.cos(sine/13),1.8+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-RH.C0 = RH.C0:Lerp(CF(0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+                --clerp 
+            elseif Modes[3] == true then
+                --clerp 
             end
         end
         srv.RenderStepped:Wait()
