@@ -145,7 +145,8 @@ reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0 = reanim['MeshPartAccessory'
         elseif Modes[2] == true then 
 
         elseif Modes[3] == true then
-            --clerp 
+            hatset('HandleAccessory','Torso',CFrame.new(),reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.6+0*math.cos(sine/13),-2.25+0*math.cos(sine/13),-7+1*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),false)
+reanim['HandleAccessory'].Handle.AccessoryWeld.C0 = reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.6+0*math.cos(sine/13),-2.25+0*math.cos(sine/13),-7+1*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3) 
         end
     elseif Root.Velocity.y < -1 then -- fall
         if Modes[1] == true then 
@@ -175,7 +176,8 @@ reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0 = reanim['MeshPartAccessory'
         elseif Modes[2] == true then 
             --clerp 
         elseif Modes[3] == true then
-            --clerp 
+            hatset('HandleAccessory','Torso',CFrame.new(),reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.6+0*math.cos(sine/13),-2.25+0*math.cos(sine/13),-7+1*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),false)
+reanim['HandleAccessory'].Handle.AccessoryWeld.C0 = reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.6+0*math.cos(sine/13),-2.25+0*math.cos(sine/13),-7+1*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3) 
         end
     elseif Root.Velocity.Magnitude < 2 then -- idle
         if Modes[1] == true then 
@@ -275,12 +277,14 @@ LS.C0 = LS.C0:Lerp(CF(-1+0*math.cos(sine/13),0.5+0*math.cos(sine/13),0+0*math.co
 RH.C0 = RH.C0:Lerp(CF(0.5+0*math.cos(sine/13),-1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+-35*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),-1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+36*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
         elseif Modes[3] == true then
-            NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+hatset('HandleAccessory','Torso',CFrame.new(),reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.6+0*math.cos(sine/13),-2.25+0*math.cos(sine/13),-7+1*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),1),false)
+ NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),0+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RS.C0 = RS.C0:Lerp(CF(-2+0*math.cos(sine/13),0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LS.C0 = LS.C0:Lerp(CF(-1+0*math.cos(sine/13),0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RH.C0 = RH.C0:Lerp(CF(0.5+0*math.cos(sine/13),-1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+-35*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),-1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+36*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['HandleAccessory'].Handle.AccessoryWeld.C0 = reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0.6+0*math.cos(sine/13),-2.25+0*math.cos(sine/13),-7+1*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
         end
     elseif Root.Velocity.Magnitude > 20 then -- run
         if Modes[1] == true then 
