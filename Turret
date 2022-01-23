@@ -183,13 +183,19 @@ LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.co
 reanim['HandleAccessory'].Handle.AccessoryWeld.C0 = reanim['HandleAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(-1.1+0*math.cos(sine/13),-4.75+0*math.cos(sine/13),-1.5+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(180+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3) 
         end
     elseif Root.Velocity.Magnitude < 20 then -- walk
-        if Modes[1] == true then 
-             NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+	if Modes[1] == true then
+hatset('VarietyShades10','Torso',CFrame.new(),reanim['VarietyShades10'].Handle.AccessoryWeld.C0:Lerp(CF(12.05+0.1*math.cos(sine/13),0+0*math.cos(sine/13),1+0.25*math.cos(sine/13))*ANGLES(RAD(-45+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),1),true)
+hatset('VarietyShades02','Torso',CFrame.new(),reanim['VarietyShades02'].Handle.AccessoryWeld.C0:Lerp(CF(12.05+-0.1*math.cos(sine/13),0+0*math.cos(sine/13),-1+0.25*math.cos(sine/13))*ANGLES(RAD(223+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),1),true)
+hatset('RobloxVisor2019','Torso',CFrame.new(),reanim['RobloxVisor2019'].Handle.AccessoryWeld.C0:Lerp(CF(12.1+0.1*math.cos(sine/13),0+0*math.cos(sine/13),-0.9+-0.25*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),1),true)
+NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),-11.5+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RS.C0 = RS.C0:Lerp(CF(0+0*math.cos(sine/13),0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LS.C0 = LS.C0:Lerp(CF(0+0*math.cos(sine/13),0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RH.C0 = RH.C0:Lerp(CF(0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 LH.C0 = LH.C0:Lerp(CF(-0.5+0*math.cos(sine/13),1+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['VarietyShades10'].Handle.AccessoryWeld.C0 = reanim['VarietyShades10'].Handle.AccessoryWeld.C0:Lerp(CF(2.05+0.1*math.cos(sine/13),0+0*math.cos(sine/13),1+0.25*math.cos(sine/13))*ANGLES(RAD(-45+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),.3)
+reanim['VarietyShades02'].Handle.AccessoryWeld.C0 = reanim['VarietyShades02'].Handle.AccessoryWeld.C0:Lerp(CF(2.05+-0.1*math.cos(sine/13),0+0*math.cos(sine/13),-1+0.25*math.cos(sine/13))*ANGLES(RAD(223+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),.3)
+reanim['RobloxVisor2019'].Handle.AccessoryWeld.C0 = reanim['RobloxVisor2019'].Handle.AccessoryWeld.C0:Lerp(CF(2.1+0.1*math.cos(sine/13),0+0*math.cos(sine/13),-0.9+-0.25*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(90+0*math.cos(sine/13))),.3)
         elseif Modes[2] == true then 
             NECK.C0 = NECK.C0:Lerp(CF(0+0*math.cos(sine/13),-0.5+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 RJ.C0 = RJ.C0:Lerp(CF(0+0*math.cos(sine/13),-11.5+0.05*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
