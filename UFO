@@ -185,9 +185,9 @@ reanim['Kate Hair'].Handle.AccessoryWeld.C0 = reanim['Kate Hair'].Handle.Accesso
 reanim['Hat1'].Handle.AccessoryWeld.C0 = reanim['Hat1'].Handle.AccessoryWeld.C0:Lerp(CF(0.9+0*math.cos(sine/13),0+0*math.cos(sine/13),0+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0 = reanim['MeshPartAccessory'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),-0.1+0*math.cos(sine/13),1+0*math.cos(sine/13))*ANGLES(RAD(90+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
 reanim['BrownCharmerHair'].Handle.AccessoryWeld.C0 = reanim['BrownCharmerHair'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),1+0*math.cos(sine/13),10+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['Necklace'].Handle.AccessoryWeld.C0 = reanim['Necklace'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),1+0*math.cos(sine/13),9+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
-reanim['Pink Hair'].Handle.AccessoryWeld.C0 = reanim['Pink Hair'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.sin(sine/13),1+0*math.sin(sine/13),9+0*math.sin(sine/13))*ANGLES(RAD(0+0*math.sin(sine/13)),RAD(0+0*math.sin(sine/13)),RAD(0+0*math.sin(sine/13))),.3)
-reanim['MessyHair'].Handle.AccessoryWeld.C0 = reanim['MessyHair'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.sin(sine/13),1+0*math.sin(sine/13),9+0*math.sin(sine/13))*ANGLES(RAD(0+0*math.sin(sine/13)),RAD(0+0*math.sin(sine/13)),RAD(0+0*math.sin(sine/13))),.3)
+reanim['Necklace'].Handle.AccessoryWeld.C0 = reanim['Necklace'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.cos(sine/13),1+0*math.cos(sine/13),10+0*math.cos(sine/13))*ANGLES(RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13)),RAD(0+0*math.cos(sine/13))),.3)
+reanim['Pink Hair'].Handle.AccessoryWeld.C0 = reanim['Pink Hair'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.sin(sine/13),1+0*math.sin(sine/13),10+0*math.sin(sine/13))*ANGLES(RAD(0+0*math.sin(sine/13)),RAD(0+0*math.sin(sine/13)),RAD(0+0*math.sin(sine/13))),.3)
+reanim['MessyHair'].Handle.AccessoryWeld.C0 = reanim['MessyHair'].Handle.AccessoryWeld.C0:Lerp(CF(0+0*math.sin(sine/13),1+0*math.sin(sine/13),10+0*math.sin(sine/13))*ANGLES(RAD(0+0*math.sin(sine/13)),RAD(0+0*math.sin(sine/13)),RAD(0+0*math.sin(sine/13))),.3)
 elseif Root.Velocity.Magnitude > 20 then -- run
 
 end
