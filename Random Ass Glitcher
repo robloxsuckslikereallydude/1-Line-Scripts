@@ -1567,12 +1567,6 @@ function VaporTaunt()
 end
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-	Title = "189hi is trash 🤡";
-	Text = "";
-	Icon = "rbxthumb://type=Asset&id=0&w=150&h=150"})
-Duration = 31;
-
-game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Mobile Support By $Krew";
 	Text = "Enjoy homies";
 	Icon = "rbxthumb://type=Asset&id=0&w=150&h=150"})
