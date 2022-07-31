@@ -130,7 +130,7 @@ end
 local Player = game.Players.LocalPlayer
 
 Player.Chatted:connect(function(cht)
-    if cht:match("/on") then
+    if cht:match("/e on") then
 game.Players.LocalPlayer.Character["VANS_Umbrella"].Handle.Anchored = false
 game.Players.LocalPlayer.Character["PirateCaptain_HatAccessory"].Handle.Anchored = false
 game.Players.LocalPlayer.Character["CityLifeWoman_HairAccessory"].Handle.Anchored = false
@@ -142,7 +142,7 @@ game.Players.LocalPlayer.Character["MSH_RthroFemaleHair_AccAccessory"].Handle.An
 game.Players.LocalPlayer.Character["HairAccessory"].Handle.Anchored = false
 game.Players.LocalPlayer.Character["MeshPartAccessory"].Handle.Anchored = false
 game.Players.LocalPlayer.Character.Humanoid.HipHeight = 1.3
-    elseif cht:match("/off") then
+    elseif cht:match("/e off") then
 game.Players.LocalPlayer.Character["VANS_Umbrella"].Handle.Anchored = true
 game.Players.LocalPlayer.Character["PirateCaptain_HatAccessory"].Handle.Anchored = true
 game.Players.LocalPlayer.Character["CityLifeWoman_HairAccessory"].Handle.Anchored = true
@@ -161,3 +161,8 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Title = "Happy Exploiting!";
 	Text = "NIGHTWARE SERVER";
 Duration = 16})
+
+           game.StarterGui:SetCore("ChatMakeSystemMessage", {
+               Text = "/e off to take off the suit and /e on to put it back on";
+               Color = Color3.fromRGB(0, 255, 0);
+           })
