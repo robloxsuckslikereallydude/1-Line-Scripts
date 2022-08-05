@@ -150,7 +150,7 @@ end)
 
 local cc;cc = plr.Chatted:Connect(function(msg)
     local spaceSplit = msg:split(" ")
-    if spaceSplit[1] == "/e bring" then
+    if spaceSplit[1] == "/bring" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -160,7 +160,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         tool.AncestryChanged:Wait()
         wait(.25)
         attWeld:Destroy()
-    elseif spaceSplit[1] == "/e control" then
+    elseif spaceSplit[1] == "/control" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -176,7 +176,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "/e uncontrol" then
+    elseif spaceSplit[1] == "/uncontrol" then
         if getChar()["Right Arm"]:FindFirstChild("RightGrip") then
             getChar()["Right Arm"]:FindFirstChild("RightGrip"):Destroy()
             getChar().Humanoid.HipHeight = 0
@@ -184,7 +184,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             getChar().Animate.Disabled = false
             getChar().HumanoidRootPart.CFrame = getChar().HumanoidRootPart.CFrame * CFrame.new(0,-90,0)
         end
-    elseif spaceSplit[1] == "/e hold" then
+    elseif spaceSplit[1] == "/hold" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -201,7 +201,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "/e carry" then
+    elseif spaceSplit[1] == "/carry" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -210,7 +210,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "/e void" or spaceSplit[1] == "/e kill" then
+    elseif spaceSplit[1] == "/void" or spaceSplit[1] == "/kill" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -228,7 +228,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         attWeld:Destroy()
         wait(.5)
         getChar().HumanoidRootPart.CFrame = old
-    elseif spaceSplit[1] == "/e grabknife" or spaceSplit[1] == "/e grab" then
+    elseif spaceSplit[1] == "/grabknife" or spaceSplit[1] == "/grab" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         local knife = getChar():FindFirstChild("Red SS") or getChar():FindFirstChild("White SS") or getChar():FindFirstChild("Yellow SS") or getChar():FindFirstChild("Purple SS")
@@ -262,7 +262,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             plr.CharacterAdded:Wait()
             getChar():WaitForChild("HumanoidRootPart").CFrame = old
         end)
-    elseif spaceSplit[1] == "/e bang" then
+    elseif spaceSplit[1] == "/bang" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         if target == nil or tool == nil then return end
@@ -280,27 +280,27 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         target.Character.Humanoid.PlatformStand = true
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
         firetouchinterest(target.Character.Humanoid.RootPart,tool.Handle,0)
-    elseif spaceSplit[1] == "/e walkspeed" or spaceSplit[1] == "/e ws" then
+    elseif spaceSplit[1] == "/walkspeed" or spaceSplit[1] == "/ws" then
         local val = tonumber(spaceSplit[2])
         if val == nil then return end 
         getChar().Humanoid.WalkSpeed = val
-    elseif spaceSplit[1] == "/e jumppower" or spaceSplit[1] == "/e jp" then
+    elseif spaceSplit[1] == "/jumppower" or spaceSplit[1] == "/jp" then
         local val = tonumber(spaceSplit[2])
         if val == nil then return end 
         getChar().Humanoid.JumpPower = val
-    elseif spaceSplit[1] == "/e hipheight" or spaceSplit[1] == "/e hh" then
+    elseif spaceSplit[1] == "/hipheight" or spaceSplit[1] == "/hh" then
         local val = tonumber(spaceSplit[2])
         if val == nil then return end 
         getChar().Humanoid.HipHeight = val
-    elseif spaceSplit[1] == "/e noclip" or spaceSplit[1] == "/e nc" then
+    elseif spaceSplit[1] == "/noclip" or spaceSplit[1] == "/nc" then
         nc = true
-    elseif spaceSplit[1] == "/e clip" or spaceSplit[1] == "/e c" then
+    elseif spaceSplit[1] == "/clip" or spaceSplit[1] == "/c" then
         nc = false
-    elseif spaceSplit[1] == "/e goto" or spaceSplit[1] == "/e to" then
+    elseif spaceSplit[1] == "/goto" or spaceSplit[1] == "/to" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart
-    elseif spaceSplit[1] == "/e respawn" or spaceSplit[1] == "/e re" then
+    elseif spaceSplit[1] == "/respawn" or spaceSplit[1] == "/re" then
         local c = getChar()
         plr.Character = nil
         plr.Character = c
@@ -315,7 +315,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
                 v.Parent = getChar()
             end
         end
-    elseif spaceSplit[1] == "/e fling" then
+    elseif spaceSplit[1] == "/fling" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         
@@ -378,11 +378,11 @@ local cc;cc = plr.Chatted:Connect(function(msg)
             end
         end
         hum:UnequipTools()
-    elseif spaceSplit[1] == "/e toolflingall" then
+    elseif spaceSplit[1] == "/toolflingall" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Tool%20Loop%20Fling%20All"))()
-    elseif spaceSplit[1] == "/e loopflingall" then
+    elseif spaceSplit[1] == "/loopflingall" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/loop%20fling%20all"))()
-    elseif spaceSplit[1] == "/e netlag" or spaceSplit[1] == "/e netsleep" then
+    elseif spaceSplit[1] == "/netlag" or spaceSplit[1] == "/netsleep" then
         if spaceSplit[2] and (spaceSplit[2] == "all" or spaceSplit[2] == "others") then
             for i,v in pairs(players:Getplayers()) do
                 if v ~= plr then
@@ -394,7 +394,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil then return end
         table.insert(netsleepTargets,target)
-    elseif spaceSplit[1] == "/e unnetlag" or spaceSplit[1] == "/e unnetsleep"  then
+    elseif spaceSplit[1] == "/unnetlag" or spaceSplit[1] == "/unnetsleep"  then
         if spaceSplit[2] and (spaceSplit[2] == "all" or spaceSplit[2] == "others") then
             netsleepTargets = {}
             return
@@ -402,13 +402,13 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         local target = getPlr(tostring(spaceSplit[2]):lower())
         if target == nil or table.find(netsleepTargets,target) == nil then return end
         table.remove(netsleepTargets,table.find(netsleepTargets,target))
-    elseif spaceSplit[1] == "/e rejoin" or spaceSplit[1] == "/e rj" then
+    elseif spaceSplit[1] == "/rejoin" or spaceSplit[1] == "/rj" then
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, plr)
-    elseif spaceSplit[1] == "/e cmds" then
+    elseif spaceSplit[1] == "/cmds" then
         print([[
         
         -------------------------------------------
-        Commands (Prefix = /e):
+        Commands (Prefix = /):
             [*] = requires tool
             *kill/void [target]
             *hold [target]
@@ -500,6 +500,6 @@ print([[
                          Neutron Admin                 
                  Made by quirky anime boy#5506         
             "Inspired" by Digitality's Proton Admin
-                       Say /e cmds to begin    
+                       Say /cmds to begin    
      --------------------------------------------------
 ]])
