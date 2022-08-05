@@ -1,3 +1,8 @@
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+               Text = "Press F9 or type /console to get started!";
+               Color = Color3.fromRGB(255, 0, 0);
+           })
+	   
 local players = game:GetService("Players")
 local plr = players.LocalPlayer
 
