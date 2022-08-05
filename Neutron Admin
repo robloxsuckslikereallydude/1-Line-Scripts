@@ -231,7 +231,8 @@ local cc;cc = plr.Chatted:Connect(function(msg)
     elseif spaceSplit[1] == "/grabknife" or spaceSplit[1] == "/grab" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
-        local knife = getChar():FindFirstChild("Red SS") or getChar():FindFirstChild("White SS") or getChar():FindFirstChild("Yellow SS") or getChar():FindFirstChild("Purple SS")
+        local knife = getChar():FindFirstChild("WDW_FoamFinger")
+	game:GetService("Players").LocalPlayer.Character["WDW_FoamFinger"].Handle:FindFirstChildOfClass("SpecialMesh"):Destroy()
         if target == nil or tool == nil or knife == nil then return end
         local anim = Instance.new("Animation")
         anim.AnimationId = "rbxassetid://182393478"
@@ -240,7 +241,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         k:AdjustSpeed(0)
         tool.Handle.CanCollide = false
         knife.Handle:BreakJoints()
-        align(knife.Handle,getChar()["Head"],Vector3.new(0.75,-.75,-1.6), Vector3.new(35,-20,90))
+        align(knife.Handle,getChar()["Head"],Vector3.new(0.75,-.75,-1.6), Vector3.new(0,90,90))
         wait(.5)
         local attWeld = attachTool(tool,CFrame.new(0,-2,0) * CFrame.Angles(math.rad(-90),0,0))
         target.Character.Humanoid.PlatformStand = true
