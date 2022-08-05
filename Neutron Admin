@@ -233,7 +233,7 @@ local cc;cc = plr.Chatted:Connect(function(msg)
         attWeld:Destroy()
         wait(.5)
         getChar().HumanoidRootPart.CFrame = old
-    elseif spaceSplit[1] == "/grabknife" or spaceSplit[1] == "/grab" then
+    elseif spaceSplit[1] == "/grabknife" or spaceSplit[1] == "/grab" or spaceSplit[1] == "/gk" then
         local target = getPlr(tostring(spaceSplit[2]):lower())
         local tool = getBp():FindFirstChildOfClass("Tool") or getChar():FindFirstChildOfClass("Tool")
         local knife = getChar():FindFirstChild("WDW_FoamFinger")
