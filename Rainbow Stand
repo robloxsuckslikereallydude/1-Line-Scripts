@@ -1,0 +1,1692 @@
+--[[
+required hats
+https://www.roblox.com/catalog/62724852/Chestnut-Bun 
+https://www.roblox.com/catalog/48474294/ROBLOX-Girl-Hair 
+https://www.roblox.com/catalog/451220849/Lavender-Updo 
+https://www.roblox.com/catalog/48474313/Red-Roblox-Cap 
+https://www.roblox.com/catalog/4094878701/International-Fedora-Mexico 
+https://www.roblox.com/catalog/62234425/Brown-Hair 
+https://www.roblox.com/catalog/63690008/Pal-Hair 
+https://www.roblox.com/catalog/6594369919/Dev-Deck (optional)
+]]
+
+--&gt;Made By XDavodioX&lt;--
+
+--=(Category = Very Quick, Unfair, Overpowered, Abusive)=--
+
+--:Rainbow Puncher Stand:--
+
+--//Unknown\\--
+
+
+--[[
+ Basically this stand has all my other stand abilities.
+ Pretty normal.
+--]]
+--
+function loadhttp(link)
+ return loadstring(game:HttpGet(link))
+end
+--
+_G.FlingType = 1
+local clone,fling,char,hum,clonehum,hbeat,step,rstep,raycast,acs,resetBindable = loadhttp("https://pastebin.com/raw/D3VgMZXE")()
+getgenv().Figure = clone
+loadhttp("https://pastebin.com/raw/2APX6uJi")()
+--
+local cons = {}
+local docf = true
+function disconnect()
+ for i,v in pairs(cons) do
+  v:Disconnect()
+ end
+ cons = {}
+end
+function cfram(p0,p1,pos,ang)
+ cons[#cons+1] = hbeat(function()
+  p0.Velocity = Vector3.new()
+  local cf = p1.CFrame
+  if pos then
+   cf = cf * CFrame.new(pos)
+  end
+  if ang then
+   cf = cf * CFrame.Angles(math.rad(ang.X),math.rad(ang.Y),math.rad(ang.Z))
+  end
+  p0.CFrame = cf
+ end)
+ return cons[#cons]
+end
+function align(p0,p1,pos,ang)
+ local con = cfram(p0,p1,pos,ang)
+ return {
+  remove = function()
+   if con then
+    con:Disconnect()
+   end
+  end,
+  set = function(p0,p1,pos,ang)
+   if con then
+    con:Disconnect()
+   end
+   if docf then
+    con = cfram(p0,p1,pos,ang)
+   end
+  end,
+ }
+end
+--
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+local Character = clone
+local RCharacter = char
+if Character:FindFirstChild("HasStand") then
+ return
+end
+
+local assets = game:GetObjects("rbxassetid://10319227287")[1]
+assets:WaitForChild("Stand")
+local OriginalStand = assets["Stand"]:Clone()
+wait(0.25)
+--
+local la
+local ra
+local ll
+local rl
+local hed
+local trs
+local trs1 
+local gun 
+local aligners = {}
+function remove()
+ for i,v in pairs(aligners) do
+  v:remove()
+ end
+ aligners = {}
+end
+for i2,v2 in pairs(acs) do
+ pcall(function()
+  local v = v2[2].Handle
+  if v.Size == Vector3.new(1,1,2) then
+
+   if trs == nil then
+    trs = {v,v.Parent,v2[1]}
+   elseif trs1 == nil then
+    trs1 = {v,v.Parent,v2[1]}
+   elseif la == nil then
+    la = {v,v.Parent,v2[1]}
+   elseif ra == nil then
+    ra = {v,v.Parent,v2[1]}
+   elseif ll == nil then
+    ll = {v,v.Parent,v2[1]}
+   elseif rl == nil then
+    rl = {v,v.Parent,v2[1]}
+   end
+
+  end
+  if v.Size == Vector3.new(1,1,1) then
+   if hed == nil then
+    hed = {v,v.Parent,v2[1]}
+   end
+
+  end
+ end)
+end
+for i2,v2 in pairs(acs) do
+ pcall(function()
+  if v2[2].Name == "Keyboard" then
+   gun = {v2[2].Handle,v2[2],v2[1]}
+  end
+ end)
+end
+for i,v in pairs({la,ra,ll,rl,hed,trs,trs1,gun}) do
+ if v[3] and v ~= gun then
+  pcall(function()
+   v[3]:FindFirstChildWhichIsA("SpecialMesh",true):Destroy()
+  end)
+  pcall(function()
+   v[3]:FindFirstChildWhichIsA("FileMesh",true):Destroy()
+  end)
+ end
+ if v[1] then
+  pcall(function()
+   workspace:UnjoinFromOutsiders({v[1]})
+  end)
+ end
+end
+--
+
+
+local StandName = "Rainbow Puncher"
+
+Instance.new("IntValue",Character).Name = "HasStand"
+local Root = Character.HumanoidRootPart
+
+local LArm = Character:FindFirstChild("Left Arm") or Character:FindFirstChild("LeftUpperArm")
+local LLeg = Character:FindFirstChild("Left Leg") or Character:FindFirstChild("LeftUpperLeg")
+local RArm = Character:FindFirstChild("Right Arm") or Character:FindFirstChild("RightUpperArm")
+local RLeg = Character:FindFirstChild("Right Leg") or Character:FindFirstChild("RightUpperLeg")
+local Torso = Character:FindFirstChild("Torso") or Character:FindFirstChild("UpperTorso")
+local Head = Character.Head
+local Hum = Character:FindFirstChildOfClass("Humanoid")
+local RJ = Root:FindFirstChild("RootJoint") or Torso:FindFirstChild("Waist")
+local LAJ = Torso:FindFirstChild("Left Shoulder") or LArm:FindFirstChild("LeftShoulder")
+local LLJ = Torso:FindFirstChild("Left Hip") or LLeg:FindFirstChild("LeftHip")
+local RAJ = Torso:FindFirstChild("Right Shoulder") or RArm:FindFirstChild("RightShoulder")
+local RLJ = Torso:FindFirstChild("Right Hip") or RLeg:FindFirstChild("RightHip")
+local Neck = Torso:FindFirstChild("Neck") or Head:FindFirstChild("Neck")
+
+--
+function add()
+ for i,v in pairs({la,ra,ll,rl,hed,trs,trs1,gun}) do
+  if v[1] then
+   --velocity(v[1])
+   v[4] = align(v[1],Root)
+   table.insert(aligners,{
+    align = v[4],
+    part = v[1]
+   })
+  end
+ end
+end
+add()
+--
+
+local MoveList = assets["MoveList"]
+MoveList.Parent = Player:FindFirstChildOfClass("PlayerGui")
+MoveList.Enabled = true
+
+warn("Big Credit to Player_57 for being so kind on giving me their Bubble Table Sorting code!")
+
+local AttackSpeed = 1.35
+local Sine = 0
+
+local CurrentStand = nil
+local Move = false
+local BarrageDown = false
+local Anim = "Idle"
+local TimeStopped = false
+local TimeErased = false
+local TimeAccelerateSeconds = 60 -- Time Accelerate Time - In seconds, just normal numbers no .2 stuff
+local TimeEraseSeconds = 1000 -- Time Erase Time - In seconds, just normal numbers no .2 stuff
+local TimeStopSeconds = 1000 -- Time Stop Time - In seconds, just normal numbers no .2 stuff
+local TimeStopImmunity = "Infinity"
+local TimeStopHits = {}
+local StrongOra = false
+local NormalPunch = false
+local StarFingerMove = false
+local cR = 255
+local cG = 0
+local cB = 0
+local OnColor = "Green" 
+local add = 7.5
+local N_A = {"a","A"}
+local N_B = {"b","B"}
+local N_C = {"c","C"}
+local N_D = {"d","D"}
+local N_E = {"e","E"}
+local N_F = {"f","F"}
+local N_G = {"g","G"}
+local N_H = {"h","H"}
+local N_I = {"i","I"}
+local N_J = {"j","J"}
+local N_K = {"k","K"}
+local N_L = {"l","L"}
+local N_M = {"m","M"}
+local N_N = {"n","N"}
+local N_O = {"o","O"}
+local N_P = {"p","P"}
+local N_Q = {"q","Q"}
+local N_R = {"r","R"}
+local N_S = {"s","S"}
+local N_T = {"t","T"}
+local N_U = {"u","U"}
+local N_V = {"v","V"}
+local N_W = {"w","W"}
+local N_X = {"x","X"}
+local N_Y = {"y","Y"}
+local N_Z = {"z","Z"}
+local OLDTimeErased = false
+local TimeEraseTime = 0
+local MusicTPOS = 0
+local BackupData
+local LastOrientation = 0
+local LightDashing = false
+local MusicOn = false
+local AllowClockMovment = false
+local ClockTime = 0
+local TSConnections = {}
+local TimeStopKnifes = {}
+local CurrentDisc = nil
+local GunHold = false
+local OgAttackSpeed = 0
+local OgWalkSpeed = 0
+local AccelerateSeconds = 0
+local AccelerateWalkSpeed = 0
+local TimeAccelerating = false
+local StandUsers = {
+ Player
+}
+
+local AnimDefaults = {
+ ["head"] = CFrame.new(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 1, -0),
+ ["head1"] = CFrame.new(0, -0.5, 0, -1, 0, 0, 0, 0, 1, 0, 1, -0),
+ ["tors"] = CFrame.new(0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 1, -0),
+ ["tors0"] = CFrame.new(0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 1, -0),
+ ["rarm"] = CFrame.new(1, 0.5, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0),
+ ["rarm1"] = CFrame.new(-0.5, 0.5, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0),
+ ["larm"] = CFrame.new(-1, 0.5, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+ ["larm1"] = CFrame.new(0.5, 0.5, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+ ["rleg"] = CFrame.new(1, -1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0),
+ ["rleg1"] = CFrame.new(0.5, 1, 0, 0, 0, 1, 0, 1, -0, -1, 0, 0),
+ ["lleg"] = CFrame.new(-1, -1, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+ ["lleg1"] = CFrame.new(-0.5, 1, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+}
+
+Hum.WalkSpeed = 22
+Hum.MaxHealth = 1500
+Hum.Health = Hum.MaxHealth
+
+function CreateSound(ID, Parent, Volume, Pitch, TimePos, Loop, StayForever, CustomName)
+ local New = nil
+ coroutine.resume(coroutine.create(function()
+  New = Instance.new("Sound")
+  New.Name = CustomName
+  New.Parent = Parent
+  New.Volume = Volume
+  if (OLDTimeErased == true or TimeErased == true) and CustomName ~= "Hit SFX" then
+   New.Volume = 0
+  end
+  New.SoundId = "rbxassetid://"..ID
+  New.Pitch = Pitch
+  New.TimePosition = TimePos
+  New.Looped = Loop
+  if StayForever == false then
+   New.Ended:Connect(function()
+    New:Destroy()
+   end)
+  end
+  New:Play()
+ end))
+ return New
+end
+
+function CreateClientSound(ID, Parent, Volume, TimePosition, Pitch, DebrisTime)
+ local NEWCLIENTSOUND = nil
+ local NEWCLIENTSOUNDDATA = nil
+ coroutine.resume(coroutine.create(function()
+  NEWCLIENTSOUNDDATA = script["ClientSound"]
+  local pt = NEWCLIENTSOUNDDATA:WaitForChild("SoundParent")
+  local si = NEWCLIENTSOUNDDATA:WaitForChild("SoundID")
+  local vo = NEWCLIENTSOUNDDATA:WaitForChild("SoundVolume")
+  local pi = NEWCLIENTSOUNDDATA:WaitForChild("SoundPitch")
+  local dt = NEWCLIENTSOUNDDATA:WaitForChild("DestroyTime")
+  local tpo = NEWCLIENTSOUNDDATA:WaitForChild("TimePos")
+  pt.Value = Parent
+  si.Value = tonumber(ID)
+  vo.Value = tonumber(Volume)
+  pi.Value = tonumber(Pitch)
+  dt.Value = tonumber(DebrisTime)
+  tpo.Value = tonumber(TimePosition)
+  NEWCLIENTSOUND = script["ClientSound"]:Clone()
+  NEWCLIENTSOUND.Parent = Player:FindFirstChildOfClass("PlayerGui")
+  NEWCLIENTSOUND.Disabled = false
+ end))
+end
+
+function Glue(a, b)
+ local weldd = Instance.new("ManualWeld")
+ weldd.Part0 = a
+ weldd.Part1 = b
+ weldd.C0 = CFrame.new()
+ weldd.C1 = b.CFrame:inverse() * a.CFrame
+ weldd.Parent = a
+ return weldd
+end
+
+function CheckTable(Table, Value, ValueIndex, Return)
+ for Index,Val in pairs(Table) do
+  if Val == Value then
+   if Return == "Index" then
+    return Index
+   else
+    if ValueIndex == 0 or ValueIndex == nil then
+     return Val
+    else
+     return Val[ValueIndex]
+    end
+   end
+  end
+ end
+ return nil
+end
+
+function CheckTableWithValueIndex(Table, Value, ValueIndex, Return)
+ for Index,Val in pairs(Table) do
+  if Val[ValueIndex] == Value then
+   if Return == "Index" then
+    return Index
+   else
+    return Val[ValueIndex]
+   end
+  end
+ end
+ return nil
+end
+
+function IsAHumanoid(Part)
+ if Part:FindFirstAncestorWhichIsA("Model") then
+  if Part:FindFirstAncestorWhichIsA("Model"):FindFirstChildOfClass("Humanoid") then
+   return Part:FindFirstAncestorWhichIsA("Model")
+  else
+   return nil
+  end
+ else
+  return nil
+ end
+end
+
+function IsAStand(Part)
+ if Part:FindFirstAncestorWhichIsA("Model") then
+  if Part:FindFirstAncestorWhichIsA("Model"):FindFirstChild("IsAStand") then
+   if Part:FindFirstAncestorWhichIsA("Model").IsAStand.Value == true then
+    return Part:FindFirstAncestorWhichIsA("Model")
+   else
+    return nil
+   end
+  else
+   return nil
+  end
+ else
+  return nil
+ end
+end
+
+function Lock(Character)
+ for Index,Child in next, Character:GetChildren() do
+  if Child:IsA("BasePart") then
+   Child.Anchored = true
+  end
+ end
+end
+
+function Unlock(Character)
+ for Index,Child in next, Character:GetChildren() do
+  if Child:IsA("BasePart") then
+   Child.Anchored = false
+  end
+ end
+end
+
+function CreateEffect(Parent, EffectType, EffectColor)
+ if EffectType == "Ball" then
+  local Ball = Instance.new("Part")
+  Ball.Shape = Enum.PartType.Ball
+  Ball.Name = StandName.."'s Effect"
+  Ball.Color = EffectColor
+  Ball.Material = Enum.Material.Neon
+  Ball.Anchored = true
+  Ball.CanCollide = false
+  Ball.Transparency = 0
+  Ball.Parent = Parent
+  Ball.Size = Vector3.new(0.1,0.1,0.1)
+  Ball.CFrame = Parent.CFrame * CFrame.new(math.random(-7,7)/10,math.random(-7,7)/10,math.random(-7,7)/10)
+  coroutine.resume(coroutine.create(function()
+   while Ball do
+    game:GetService("RunService").RenderStepped:Wait()
+    Ball.Color = Color3.fromRGB(cR,cG,cB)
+   end
+  end))
+  coroutine.resume(coroutine.create(function()
+   for i = 1, 50 do
+    game:GetService("RunService").RenderStepped:Wait()
+    Ball.Size = Ball.Size + Vector3.new(0.05,0.05,0.05)
+    Ball.Transparency = Ball.Transparency + 0.02
+   end
+   Ball:Destroy()
+  end))
+ elseif EffectType == "Slice" then
+  coroutine.resume(coroutine.create(function()
+   for i = 1, 2 do
+    local ZC = Instance.new("Part")
+    ZC.Parent = Parent
+    ZC.Size = Vector3.new(1,1,1)
+    ZC.CanCollide = false
+    ZC.Anchored = true
+    ZC.Name = StandName.."'s Effect"
+    ZC.CFrame = Parent.CFrame * CFrame.new(0,0,0) * CFrame.Angles(math.random(-4,4),math.random(-4,4),math.random(-4,4))
+    ZC.Shape = Enum.PartType.Ball
+    ZC.Material = Enum.Material.Neon
+    ZC.Color = EffectColor
+    local ZC2 = Instance.new("SpecialMesh",ZC)
+    ZC2.MeshType = Enum.MeshType.Sphere
+    ZC2.Scale = Vector3.new(2,0.7,0.3)
+    coroutine.resume(coroutine.create(function()
+     while ZC do
+      game:GetService("RunService").RenderStepped:Wait()
+      ZC.Color = Color3.fromRGB(cR,cG,cB)
+     end
+    end))
+    coroutine.resume(coroutine.create(function()
+     for i = 1,35 do
+      game:GetService("RunService").RenderStepped:Wait()
+      ZC2.Scale = ZC2.Scale + Vector3.new(0,0,0.4)
+      ZC.Transparency = ZC.Transparency + 0.03
+     end
+     ZC:Destroy()
+    end))
+   end
+  end))
+ elseif EffectType == "BarrageArm" then
+  if TimeErased == false then
+   local FadeArm = Parent:Clone()
+   FadeArm.Anchored = true
+   FadeArm.Color = EffectColor
+   FadeArm.CFrame = FadeArm.CFrame * CFrame.new(math.random(-1,1), 0, math.random(-1.5,1.5))
+   FadeArm.Name = StandName.."'s Barrage Arm"
+   FadeArm:ClearAllChildren()
+   FadeArm.Parent = CurrentStand
+   coroutine.resume(coroutine.create(function()
+    for i = 1,27 do
+     game:GetService("RunService").RenderStepped:Wait()
+     FadeArm.Transparency = FadeArm.Transparency + 0.06
+    end
+    FadeArm:Destroy()
+   end))
+  end
+ elseif EffectType == "PunchWave" then
+  local WavePart = Instance.new("Part")
+  WavePart.Anchored = true
+  WavePart.CanCollide = false
+  WavePart.Transparency = 0
+  WavePart.Size = Vector3.new(0.5,0.5,0.5)
+  WavePart.CFrame = Parent.CFrame * CFrame.new(math.random(-1,1), 0, math.random(-1.5,1.5))
+  WavePart.Orientation = Vector3.new(90, CurrentStand.StandTorso.Orientation.Y, CurrentStand.StandTorso.Orientation.Z)
+  WavePart.Name = StandName.."'s Wave Effect"
+  WavePart.Parent = Parent
+  WavePart.Color = EffectColor
+  local Wave = Instance.new("SpecialMesh")
+  Wave.Parent = WavePart
+  Wave.MeshId = "rbxassetid://989468093"
+  Wave.Scale = Vector3.new(0.35,0.05,0.35)
+  coroutine.resume(coroutine.create(function()
+   for i = 1,15 do
+    game:GetService("RunService").RenderStepped:Wait()
+    Wave.Scale = Wave.Scale + Vector3.new(0.25, 0, 0.25)
+   end
+   for i = 1,20 do
+    game:GetService("RunService").RenderStepped:Wait()
+    Wave.Scale = Wave.Scale + Vector3.new(0.17, 0, 0.17)
+    WavePart.Transparency = WavePart.Transparency + 0.05
+   end
+   WavePart:Destroy()
+  end))
+ elseif EffectType == "Star" then
+  local StarEffect = Instance.new("Part")
+  StarEffect.Size = Vector3.new(1,1,1)
+  StarEffect.CanCollide = false
+  StarEffect.Anchored = true
+  StarEffect.Name = StandName.."'s Star Effect"
+  StarEffect.Parent = CurrentStand
+  local StarEffectMesh = Instance.new("SpecialMesh")
+  StarEffectMesh.Parent = StarEffect
+  StarEffectMesh.MeshId = "rbxassetid://451932889"
+  StarEffectMesh.Scale = Vector3.new(0.69,0.7,0.75)
+ elseif EffectType == "Star2" then
+  local StarEffect = Instance.new("Part")
+  StarEffect.Size = Vector3.new(1,1,1)
+  StarEffect.CanCollide = false
+  StarEffect.Anchored = true
+  StarEffect.Name = StandName.."'s Star Effect 2"
+  StarEffect.Parent = CurrentStand
+  local StarEffectMesh = Instance.new("SpecialMesh")
+  StarEffectMesh.Parent = StarEffect
+  StarEffectMesh.MeshId = "rbxassetid://451932889"
+  StarEffectMesh.Scale = Vector3.new(0.69,0.7,0.75)
+ elseif EffectType == "Star3" then
+  local StarEffect = Instance.new("Part")
+  StarEffect.Size = Vector3.new(1,1,1)
+  StarEffect.CanCollide = false
+  StarEffect.Anchored = true
+  StarEffect.Name = StandName.."'s Star Effect 3"
+  StarEffect.CFrame = Parent.CFrame * CFrame.new(math.random(-7,7)/5,math.random(-7,7)/3.5,math.random(-7,7)/4.5)
+  StarEffect.Parent = CurrentStand
+  local StarEffectMesh = Instance.new("SpecialMesh")
+  StarEffectMesh.Parent = StarEffect
+  StarEffectMesh.MeshId = "rbxassetid://451932889"
+  StarEffectMesh.Scale = Vector3.new(0.69,0.7,0.75)
+  coroutine.resume(coroutine.create(function()
+   for i = 1,20 do
+    game:GetService("RunService").RenderStepped:Wait()
+    StarEffectMesh.Scale = StarEffectMesh.Scale - Vector3.new(0.1,0.14,0.16)
+    StarEffect.Transparency = StarEffect.Transparency + 0.05
+   end
+   StarEffect:Destroy()
+  end))
+ end
+end
+
+function HitEffect(OriginalHit, Character, RootFrame, HitType)
+ local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+ local HitTorso = Humanoid.Parent:FindFirstChild("Torso") or Humanoid.Parent:FindFirstChild("UpperTorso")
+ CreateEffect(OriginalHit, "PunchWave", Color3.fromRGB(255, 255, 255))
+ if HitType == "Barrage" then
+  Humanoid.WalkSpeed = 3.5
+  Unlock(Humanoid.Parent)
+  local Velo = Instance.new("BodyVelocity")
+  Velo.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+  Velo.P = 3000
+  Velo.Velocity = RootFrame * CFrame.new(0,45,-195).p
+  Velo.Parent = HitTorso
+  coroutine.resume(coroutine.create(function()
+   wait(0.085)
+   Velo:Destroy()
+  end))
+  coroutine.resume(coroutine.create(function()
+   wait(1.5)
+   Humanoid.WalkSpeed = 16
+  end))
+ else
+  Unlock(Humanoid.Parent)
+  local Velo = Instance.new("BodyVelocity")
+  Velo.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+  Velo.P = 3000
+  Velo.Velocity = RootFrame * CFrame.new(0,95,-750).p
+  Velo.Parent = HitTorso
+  coroutine.resume(coroutine.create(function()
+   wait(0.1275)
+   Velo:Destroy()
+  end))
+ end
+end
+
+function CreatePopUpGui(Parent, AnimationType, Text, TextColor)
+ local RandomText = math.random(1,3)
+ if AnimationType == "FadeOut" then
+  local txt = Instance.new("BillboardGui")
+  txt.Parent = Parent
+  txt.Adornee = Parent
+  txt.Name = StandName.."'s PopUp"
+  txt.Size = UDim2.new(2, 0, 1.2, 0)
+  txt.StudsOffset = Vector3.new(math.random(-5,-1) , math.random(0,2), math.random(-2,2))
+  local text = Instance.new("TextLabel", txt)
+  text.Size = UDim2.new(4, 0, 1.25, 0)
+  text.TextScaled = true
+  text.FontSize = Enum.FontSize.Size24
+  text.TextSize = 26
+  text.TextTransparency = 0
+  text.BackgroundTransparency = 1
+  text.TextStrokeTransparency = 1
+  text.Font = Enum.Font.Fantasy
+  text.Text = Text
+  text.TextColor3 = TextColor
+  coroutine.resume(coroutine.create(function()
+   while text and text.Text ~= "Miss" do
+    game:GetService("RunService").RenderStepped:Wait()
+    text.TextColor3 = Color3.fromRGB(cR,cG,cB)
+    if RandomText == 1 then
+     text.Text = ""..N_U[math.random(#N_U)]..""..N_N[math.random(#N_N)]..""..N_I[math.random(#N_I)]..""..N_M[math.random(#N_M)]..""..N_A[math.random(#N_A)]..""..N_G[math.random(#N_G)]..""..N_I[math.random(#N_I)]..""..N_N[math.random(#N_N)]..""..N_A[math.random(#N_A)]..""..N_B[math.random(#N_B)]..""..N_L[math.random(#N_L)]..""..N_E[math.random(#N_E)].."!"
+    elseif RandomText == 2 then
+     text.Text = ""..N_I[math.random(#N_I)]..""..N_N[math.random(#N_N)]..""..N_F[math.random(#N_F)]..""..N_I[math.random(#N_I)]..""..N_N[math.random(#N_N)]..""..N_I[math.random(#N_I)]..""..N_T[math.random(#N_T)]..""..N_E[math.random(#N_E)].."!"
+    elseif RandomText == 3 then
+     text.Text = ""..N_E[math.random(#N_E)]..""..N_N[math.random(#N_N)]..""..N_D[math.random(#N_D)]..""..N_L[math.random(#N_L)]..""..N_E[math.random(#N_E)]..""..N_S[math.random(#N_S)]..""..N_S[math.random(#N_S)].."!"
+    end
+   end
+  end))
+  coroutine.resume(coroutine.create(function()
+   for i = 1,22 do
+    game:GetService("RunService").RenderStepped:Wait()
+    txt.StudsOffset = txt.StudsOffset + Vector3.new(0, 0.05, 0)
+   end
+   for i = 1,20 do
+    game:GetService("RunService").RenderStepped:Wait()
+    text.TextTransparency = text.TextTransparency + 0.05
+    txt.StudsOffset = txt.StudsOffset - Vector3.new(0, 0.015, 0)
+   end
+   txt:Destroy()
+  end))
+ elseif AnimationType == "Jump" then
+  local JumpDirection = math.random(1,2)
+  local txt = Instance.new("BillboardGui")
+  txt.Parent = Parent
+  txt.Adornee = Parent
+  txt.Name = StandName.."'s PopUp"
+  txt.Size = UDim2.new(2, 0, 1.2, 0)
+  txt.StudsOffset = Vector3.new(math.random(-5,-1) , math.random(3,5), math.random(-2,2))
+  local text = Instance.new("TextLabel", txt)
+  text.Size = UDim2.new(4, 0, 1.25, 0)
+  text.TextScaled = true
+  text.FontSize = Enum.FontSize.Size24
+  text.TextSize = 26
+  text.TextTransparency = 0
+  text.BackgroundTransparency = 1
+  text.TextStrokeTransparency = 1
+  text.Font = Enum.Font.Fantasy
+  text.Text = Text
+  text.TextColor3 = TextColor
+  coroutine.resume(coroutine.create(function()
+   while text and text.Text ~= "Miss" do
+    game:GetService("RunService").RenderStepped:Wait()
+    text.TextColor3 = Color3.fromRGB(cR,cG,cB)
+    if RandomText == 1 then
+     text.Text = ""..N_U[math.random(#N_U)]..""..N_N[math.random(#N_N)]..""..N_I[math.random(#N_I)]..""..N_M[math.random(#N_M)]..""..N_A[math.random(#N_A)]..""..N_G[math.random(#N_G)]..""..N_I[math.random(#N_I)]..""..N_N[math.random(#N_N)]..""..N_A[math.random(#N_A)]..""..N_B[math.random(#N_B)]..""..N_L[math.random(#N_L)]..""..N_E[math.random(#N_E)].."!"
+    elseif RandomText == 2 then
+     text.Text = ""..N_I[math.random(#N_I)]..""..N_N[math.random(#N_N)]..""..N_F[math.random(#N_F)]..""..N_I[math.random(#N_I)]..""..N_N[math.random(#N_N)]..""..N_I[math.random(#N_I)]..""..N_T[math.random(#N_T)]..""..N_E[math.random(#N_E)].."!"
+    elseif RandomText == 3 then
+     text.Text = ""..N_E[math.random(#N_E)]..""..N_N[math.random(#N_N)]..""..N_D[math.random(#N_D)]..""..N_L[math.random(#N_L)]..""..N_E[math.random(#N_E)]..""..N_S[math.random(#N_S)]..""..N_S[math.random(#N_S)].."!"
+    end
+   end
+  end))
+  if JumpDirection == 1 then
+   coroutine.resume(coroutine.create(function()
+    for i = 1,15 do
+     game:GetService("RunService").RenderStepped:Wait()
+     txt.StudsOffset = txt.StudsOffset + Vector3.new(0, 0.12, 0)
+    end
+    for i = 1,3 do
+     game:GetService("RunService").RenderStepped:Wait()
+     txt.StudsOffset = txt.StudsOffset - Vector3.new(0.009, -0.015, 0)
+     text.Rotation = text.Rotation - 1.15
+    end
+    for i = 1,7 do
+     game:GetService("RunService").RenderStepped:Wait()
+     txt.StudsOffset = txt.StudsOffset - Vector3.new(0.045, 0.085, 0)
+     text.TextTransparency = text.TextTransparency + 0.01
+     text.Rotation = text.Rotation - 1.3
+    end
+    for i = 1,35 do
+     game:GetService("RunService").RenderStepped:Wait()
+     text.TextTransparency = text.TextTransparency + 0.05
+     txt.StudsOffset = txt.StudsOffset - Vector3.new(0.055, 0.19, 0)
+     text.Rotation = text.Rotation - 1.75
+    end
+    txt:Destroy()
+   end))
+  else
+   coroutine.resume(coroutine.create(function()
+    for i = 1,15 do
+     game:GetService("RunService").RenderStepped:Wait()
+     txt.StudsOffset = txt.StudsOffset + Vector3.new(0, 0.12, 0)
+    end
+    for i = 1,3 do
+     game:GetService("RunService").RenderStepped:Wait()
+     txt.StudsOffset = txt.StudsOffset - Vector3.new(-0.009, -0.015, 0)
+     text.Rotation = text.Rotation + 1.15
+    end
+    for i = 1,7 do
+     game:GetService("RunService").RenderStepped:Wait()
+     txt.StudsOffset = txt.StudsOffset - Vector3.new(-0.045, 0.085, 0)
+     text.TextTransparency = text.TextTransparency + 0.01
+     text.Rotation = text.Rotation + 1.3
+    end
+    for i = 1,35 do
+     game:GetService("RunService").RenderStepped:Wait()
+     text.TextTransparency = text.TextTransparency + 0.04
+     txt.StudsOffset = txt.StudsOffset - Vector3.new(-0.055, 0.19, 0)
+     text.Rotation = text.Rotation + 1.75
+    end
+    txt:Destroy()
+   end))
+  end
+ end
+end
+
+function CreateHitBox(Cframe, Damage, Size, DebrisTime, Overwrite, Effect, HitSound, HitType, EffectColor, DoSteal)
+ if Overwrite == true then
+  if CurrentStand:FindFirstChild(StandName.."'s Hit Box") then
+   CurrentStand[StandName.."'s Hit Box"]:Destroy()
+  end
+ end
+ local Stealing = DoSteal or false
+ local HB = Instance.new("Part")
+ HB.Orientation = Vector3.new(0, 90, 0)
+ HB.Name = StandName.."'s Hit Box"
+ HB.CanCollide = false
+ HB.Massless = true
+ HB.Size = Size
+ HB.CFrame = Cframe
+ HB.BrickColor = BrickColor.new("Really red")
+ HB.Transparency = 1
+ HB.Parent = CurrentStand
+ local AnchoredV1 = Instance.new("BodyVelocity")
+ AnchoredV1.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+ AnchoredV1.Parent = HB
+ AnchoredV1.P = 3e9
+ AnchoredV1.Velocity = Vector3.new(Cframe)
+ local AnchoredV2 = Instance.new("BodyPosition")
+ AnchoredV2.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+ AnchoredV2.Parent = HB
+ AnchoredV2.Position = Vector3.new(Cframe)
+ AnchoredV2.P = 3e9
+ AnchoredV2.D = 3e9
+ HB.Touched:Connect(function(Toucher)
+  if IsAHumanoid(Toucher) and IsAHumanoid(Toucher) ~= Character and IsAHumanoid(Toucher) ~= RCharacter then
+   HB:Destroy()
+   local Humanoid = IsAHumanoid(Toucher):FindFirstChildOfClass("Humanoid")
+   local HitTorso = Humanoid.Parent:FindFirstChild("Torso") or Humanoid.Parent:FindFirstChild("UpperTorso")
+   if TimeStopped == false then
+    local function DoDamageFunc()
+     fling(Humanoid.Parent)
+     CreateSound(HitSound, Toucher, 3, math.random(95,113)/100, 0, false, false, "Hit SFX")
+     CreatePopUpGui(Toucher, "Jump", tostring(Damage), Color3.fromRGB(188, 0, 0))
+
+     local Val = Instance.new("BoolValue")
+     Val.Name = "GotHitBy"..StandNameVal.Value = trueVal.Parent = Humanoid.Parent
+     coroutine.resume(coroutine.create(function()
+      CreateEffect(Toucher, Effect, EffectColor)
+     end))
+     HitEffect(Toucher, Humanoid.Parent, CurrentStand.RootPart.CFrame, HitType)
+    end
+    DoDamageFunc()
+   else
+    table.insert(TimeStopHits, {Humanoid, Damage, HitSound, Effect, EffectColor, CurrentStand.RootPart.CFrame, HitType})
+   end
+  end
+ end)
+ game:GetService("Debris"):AddItem(HB, DebrisTime)
+ return HB
+end
+
+function Stand()
+ Move = true
+ if CurrentStand == nil then
+
+  CurrentStand = OriginalStand:Clone()
+  for Index,Child in next, CurrentStand:GetDescendants() do
+   if Child:IsA("BasePart") or Child:IsA("Decal") then
+    Child.Transparency = 1
+   end
+  end
+  CurrentStand:SetPrimaryPartCFrame(Root.CFrame)
+
+  CurrentStand.Parent = Head
+  if trs then
+   trs[4].set(trs[1],CurrentStand.StandTorso,Vector3.new(0,.5,0),Vector3.new(0,90,0))
+  end
+  if trs1 then
+   trs1[4].set(trs1[1],CurrentStand.StandTorso,Vector3.new(0,-.5,0),Vector3.new(0,90,0))
+  end
+  if la then
+   la[4].set(la[1],CurrentStand['Left Arm'],Vector3.zero,Vector3.new(90,0,0))
+  end
+  if ra then
+   ra[4].set(ra[1],CurrentStand['Right Arm'],Vector3.zero,Vector3.new(90,0,0))
+  end
+  if ll then
+   ll[4].set(ll[1],CurrentStand['Left Leg'],Vector3.zero,Vector3.new(90,0,0))
+  end
+  if rl then
+   rl[4].set(rl[1],CurrentStand['Right Leg'],Vector3.zero,Vector3.new(90,0,0))
+  end
+  if hed then
+   hed[4].set(hed[1],CurrentStand['Head'])
+  end
+  for Index,Child in next, CurrentStand:GetDescendants() do
+   if (Child:IsA("BasePart") or Child:IsA("Decal")) and Child.Name ~= "RootPart" and Child.Name ~= "Disc" and Child.Name ~= "Gun" then
+    coroutine.resume(coroutine.create(function(Part)
+     for i = 1, 25 do
+      game:GetService("RunService").RenderStepped:Wait()
+      Part.Transparency = Part.Transparency - 0.04
+     end
+     Part.Transparency = 0
+    end), Child)
+   end
+  end
+  if CurrentDisc ~= nil then
+   coroutine.resume(coroutine.create(function(Part)
+    for i = 1, 25 do
+     game:GetService("RunService").RenderStepped:Wait()
+     Part.Transparency = Part.Transparency - 0.04
+    end
+    Part.Transparency = 0
+   end), CurrentStand["Left Arm"].Disc)
+  end
+  CreateEffect(CurrentStand, "Star", nil)
+  CreateEffect(CurrentStand, "Star2", nil)
+  CreateSound(463010917, CurrentStand.PrimaryPart, 2.1, math.random(95,108)/100, 0, false, false, "Stand Appear")
+  if MusicOn == true then
+   CreateSound(2264258418, CurrentStand.StandTorso, 5, 1, MusicTPOS, true, true, "Rainbow Puncher Theme")
+  end
+  for i = 0,1,0.02 do
+   game:GetService("RunService").RenderStepped:Wait()
+   CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame * CFrame.new(-2, 1.3, 3), i)
+   CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.new(0, 0, 0.8*math.sin(Sine/75)), 1)
+   CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.Angles(math.rad(-3.38), 0, 0), 1)
+   CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.Angles(math.rad(-6.818), 0, 0), 1)
+   CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.Angles(math.rad(-8.136), 0, 0), 1)
+   CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.Angles(math.rad(-12.089), 0, 0), 1)
+  end
+ else
+  for Index,Child in next, CurrentStand:GetDescendants() do
+   if Child:IsA("BasePart") or Child:IsA("Decal") then
+    coroutine.resume(coroutine.create(function(Part)
+     for i = 1, 20 do
+      game:GetService("RunService").RenderStepped:Wait()
+      Part.Transparency = Part.Transparency + 0.05
+     end
+     Part.Transparency = 1
+    end), Child)
+   end
+  end
+  for i = 0,1,0.02 do
+   game:GetService("RunService").RenderStepped:Wait()
+   CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame, i)
+  end
+  wait(0.01)
+  if CurrentStand.StandTorso:FindFirstChild("Rainbow Puncher Theme") then
+   MusicTPOS = CurrentStand.StandTorso["Rainbow Puncher Theme"].TimePosition
+  end
+  for i,v in pairs(aligners) do
+   v.align.set(v.part,Root)
+  end
+  CurrentStand:Destroy()
+  CurrentStand = nil
+ end
+ Move = false
+end
+
+function Barrage(Times, BarrageSFX, Tpos)
+ if CurrentStand == nil then
+  return
+ end
+ Move = true
+ local Done = false
+ local Repeat = Times
+ local AttachmentLeft1 = Instance.new("Attachment")
+ AttachmentLeft1.Parent = CurrentStand["Left Arm"]
+ AttachmentLeft1.Position = Vector3.new(0,-2.5,0)
+ local AttachmentLeft2 = Instance.new("Attachment")
+ AttachmentLeft2.Parent = CurrentStand["Left Arm"]
+ AttachmentLeft2.Position = Vector3.new(0,2.5,0)
+ local AttachmentRight1 = Instance.new("Attachment")
+ AttachmentRight1.Parent = CurrentStand["Right Arm"]
+ AttachmentRight1.Position = Vector3.new(0,-2.5,0)
+ local AttachmentRight2 = Instance.new("Attachment")
+ AttachmentRight2.Parent = CurrentStand["Right Arm"]
+ AttachmentRight2.Position = Vector3.new(0,2.5,0)
+ local TrailLeft = Instance.new("Trail")
+ TrailLeft.Parent = CurrentStand["Left Arm"]
+ TrailLeft.Lifetime = 0.05
+ TrailLeft.LightEmission = 0.8
+ if OLDTimeErased == false then
+  TrailLeft.Transparency = NumberSequence.new(0.7)
+ else
+  TrailLeft.Transparency = NumberSequence.new(1)
+ end
+ TrailLeft.Attachment0 = AttachmentLeft1
+ TrailLeft.Attachment1 = AttachmentLeft2
+ local TrailRight = Instance.new("Trail")
+ TrailRight.Parent = CurrentStand["Right Arm"]
+ TrailRight.Lifetime = 0.05
+ TrailRight.LightEmission = 0.8
+ if OLDTimeErased == false then
+  TrailRight.Transparency = NumberSequence.new(0.7)
+ else
+  TrailRight.Transparency = NumberSequence.new(1)
+ end
+ TrailRight.Attachment0 = AttachmentRight1
+ TrailRight.Attachment1 = AttachmentRight2
+ repeat
+  game:GetService("RunService").Heartbeat:Wait()
+  Repeat = Repeat - 1
+  CreateSound(BarrageSFX, CurrentStand.Head, 3, math.random(98,108)/100, Tpos, false, false, "Air Woosh")
+  CreateHitBox(CurrentStand.PrimaryPart.CFrame * CFrame.new(0, 0, -2.35), math.random(4,9), Vector3.new(4.2,3.4,4), 0.35, true, "Ball", 2974875851, "Barrage", Color3.fromRGB(255, 255, 255))
+  for i = 0,1,0.225*AttackSpeed/0.75 do
+   game:GetService("RunService").RenderStepped:Wait()
+   CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(28.018), math.rad(-4.526), math.rad(-8.48)), i)
+   CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(0.056, -0.008, 0.011) * CFrame.Angles(math.rad(3.667), math.rad(6.646), math.rad(13.923)), i)
+   CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.952, 0.496, -0.141) * CFrame.Angles(math.rad(-5.73), math.rad(6.933), math.rad(-12.261)), i)
+   CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(-1.587, 0.561, -0.296) * CFrame.Angles(math.rad(-19.996), math.rad(-32.143), math.rad(-108.862)), i)
+   CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(-1.515, -0.375, 0.297) * CFrame.Angles(math.rad(-4.412), math.rad(5.214), math.rad(108.518)), i)
+   CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(0.049, 0.007, -0.004) * CFrame.Angles(math.rad(-23.377), math.rad(0.745), math.rad(8.308)), i)
+  end
+  CreateEffect(CurrentStand["Left Arm"], "BarrageArm", CurrentStand["Left Arm"].Color)
+  CreateSound(BarrageSFX, CurrentStand.Head, 3, math.random(98,108)/100, Tpos, false, false, "Air Woosh")
+  CreateHitBox(CurrentStand.PrimaryPart.CFrame * CFrame.new(0, 0, -2.35), math.random(4,9), Vector3.new(4.2,3.4,4), 0.35, true, "Ball", 2974875851, "Barrage", Color3.fromRGB(255, 255, 255))
+  for i = 0,1,0.225*AttackSpeed/0.75 do
+   game:GetService("RunService").RenderStepped:Wait()
+   CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(27.846), math.rad(5.73), math.rad(10.714)), i)
+   CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(-0.057, 0.038, -0.01) * CFrame.Angles(math.rad(-2.693), math.rad(-5.157), math.rad(15.069)), i)
+   CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.927, 0.471, 0.061) * CFrame.Angles(math.rad(1.318), math.rad(-4.813), math.rad(-12.892)), i)
+   CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(1.596, -0.316, 0.111) * CFrame.Angles(math.rad(-1.776), math.rad(-3.037), math.rad(-103.075)), i)
+   CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(1.659, 0.498, -0.516) * CFrame.Angles(math.rad(-19.079), math.rad(38.961), math.rad(106.284)), i)
+   CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(-0.117, 0.022, -0.012) * CFrame.Angles(math.rad(-23.377), math.rad(-0.917), math.rad(-10.084)), i)
+  end
+  CreateEffect(CurrentStand["Right Arm"], "BarrageArm", CurrentStand["Right Arm"].Color)
+ until Repeat < 0 xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed KnifePart.Name = "Knife" xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed Mesh.MeshId = "rbxassetid://2047774297" Mesh.TextureId = "rbxassetid://2047774362" xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed Velocity.Name = "KnifeThrowing" xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed xss=removed Damage = "Instant Kill" xss=removed xss=removed xss=removed> 0 then
+     DidHit = true
+     local Humanoid = IsAHumanoid(Toucher):FindFirstChildOfClass("Humanoid")
+     local HitTorso = Humanoid.Parent:FindFirstChild("Torso") or Humanoid.Parent:FindFirstChild("UpperTorso")
+     local Val = Instance.new("BoolValue")
+     Val.Name = "GotHitBy"..StandNameVal.Value = trueVal.Parent = Humanoid.Parent
+     CreateSound(201858024, Toucher, 3, math.random(95,113)/100, 0, false, false, "Hit SFX")
+     if Damage == "Instant Kill" then
+      CreatePopUpGui(Toucher, "Jump", tostring(Humanoid.MaxHealth), Color3.fromRGB(188, 0, 0))
+      fling(Humanoid.Parent)
+
+     else
+      CreatePopUpGui(Toucher, "Jump", tostring(Damage), Color3.fromRGB(188, 0, 0))
+     end
+    end
+   end)
+  end
+ end))
+ for i = 0,1,0.265*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.new(0, 1.09, 0) * CFrame.Angles(math.rad(-13.178), 0, 0), i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.Angles(math.rad(-3.266), 0, math.rad(12.032)), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.Angles(math.rad(-4.297), math.rad(-0.057), math.rad(-10.6)), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(-0.323, 0.067, 0.26) * CFrame.Angles(math.rad(35.638), math.rad(49.561), math.rad(-112.185)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(0.333, 0.069, 0.2) * CFrame.Angles(math.rad(41.024), math.rad(-53.686), math.rad(113.56)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.Angles(math.rad(12.319), 0, 0), i)
+ end
+ NormalPunch = false
+ for i = 0,1,0.3 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame * CFrame.new(-2, 1.3, 3), 0.3)
+ end
+ Move = false
+end
+
+function TimeErase()
+ if CurrentStand == nil then
+  return
+ end
+end
+
+function FastTimeErase()
+ if CurrentStand == nil then
+  return
+ end
+end
+
+function TimeEraseResume()
+ if CurrentStand == nil then
+  return
+ end
+end
+
+function OldTimeErase()
+ if CurrentStand == nil then
+  return
+ end
+end
+
+function TimeResume2()
+ if CurrentStand == nil then
+  return
+ end
+end
+
+function Punch()
+ if CurrentStand == nil then
+  return
+ end
+ Move = true
+ NormalPunch = true
+ for i = 0,1,0.265*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(35.008), math.rad(0.172), math.rad(-1.547)), i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(0.055, -0.008, -0.009) * CFrame.Angles(math.rad(2.75), math.rad(5.386), math.rad(14.037)), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.977, 0.511, -0.028) * CFrame.Angles(math.rad(-3.037), math.rad(3.151), math.rad(-12.662)), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(0.435, -0.129, 0.287) * CFrame.Angles(math.rad(156.188), math.rad(60.103), math.rad(129.145)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(0.137, 0.072, 0.013) * CFrame.Angles(math.rad(-2.005), math.rad(61.249), math.rad(81.074)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(0.049, 0.007, -0.004) * CFrame.Angles(math.rad(-23.377), math.rad(0.573), math.rad(7.678)), i)
+ end
+ CreateSound(138097048, CurrentStand.PrimaryPart, 6.5, math.random(97,108)/100, 0, false, false, "Woosh")
+ coroutine.resume(coroutine.create(function()
+  wait(0.0485)
+  CreateHitBox(CurrentStand.PrimaryPart.CFrame * CFrame.new(0, 0, -2.35), math.random(35,50), Vector3.new(4.2,3.4,4), 0.35, true, "Ball", 2974875851, "Punch", Color3.fromRGB(255, 255, 255))
+ end))
+ for i = 0,1,0.25*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(33.289), math.rad(-11.631), math.rad(-18.908)), i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(0.056, -0.008, 0.011) * CFrame.Angles(math.rad(11.918), math.rad(17.704), math.rad(12.089)), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.971, 0.512, -0.238) * CFrame.Angles(math.rad(-10.6), math.rad(13.522), math.rad(-11.173)), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(-0.351, 0.091, -0.295) * CFrame.Angles(math.rad(-15.47), math.rad(-34.779), math.rad(-105.482)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(0.145, 0.078, 0.013) * CFrame.Angles(math.rad(-30.309), math.rad(-14.897), math.rad(5.157)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(0.049, 0.007, -0.004) * CFrame.Angles(math.rad(-24.465), math.rad(4.183), math.rad(25.783)), i)
+ end
+ for i = 0,1,0.3*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(35.008), math.rad(0.172), math.rad(-1.547)), i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(0.055, -0.008, -0.009) * CFrame.Angles(math.rad(2.75), math.rad(5.386), math.rad(14.037)), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.977, 0.511, -0.028) * CFrame.Angles(math.rad(-3.037), math.rad(3.151), math.rad(-12.662)), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(0.435, -0.129, 0.287) * CFrame.Angles(math.rad(156.188), math.rad(60.103), math.rad(129.145)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(0.137, 0.072, 0.013) * CFrame.Angles(math.rad(-2.005), math.rad(61.249), math.rad(81.074)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(0.049, 0.007, -0.004) * CFrame.Angles(math.rad(-23.377), math.rad(0.573), math.rad(7.678)), i)
+ end
+ NormalPunch = false
+ for i = 0,1,0.3 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame * CFrame.new(-2, 1.3, 3), 0.3)
+ end
+ Move = false
+end
+
+function StrongPunch()
+ if CurrentStand == nil then
+  return
+ end
+ Move = true
+ StrongOra = true
+ CreateSound(147722227, CurrentStand.Head, 6.5, math.random(97,108)/100, 0.145, false, false, "Strong Shout")
+ for i = 0,1,0.25*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(35.008), math.rad(0.172), math.rad(-1.547)), i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(0.055, -0.008, -0.009) * CFrame.Angles(math.rad(2.75), math.rad(5.386), math.rad(14.037)), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.977, 0.511, -0.028) * CFrame.Angles(math.rad(-3.037), math.rad(3.151), math.rad(-12.662)), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(0.571, -0.22, 0.493) * CFrame.Angles(math.rad(152.922), math.rad(46.238), math.rad(119.462)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(0.306, 0.057, 0.008) * CFrame.Angles(math.rad(2.807), math.rad(66.349), math.rad(84.74)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(0.049, 0.007, -0.004) * CFrame.Angles(math.rad(-23.377), math.rad(0.573), math.rad(7.678)), i)
+ end
+ coroutine.resume(coroutine.create(function()
+  wait(0.06)
+  CreateHitBox(CurrentStand.PrimaryPart.CFrame * CFrame.new(0, 0, -2.35), "Instant Kill", Vector3.new(4.2,3.4,4), 0.35, true, "Slice", 2319521125, "Strong", Color3.fromRGB(255, 255, 255))
+ end))
+ for i = 0,1,0.029*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(33.289), math.rad(-11.631), math.rad(-18.908)), i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(0.056, -0.008, 0.011) * CFrame.Angles(math.rad(11.918), math.rad(17.704), math.rad(12.089)), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.971, 0.512, -0.238) * CFrame.Angles(math.rad(-10.6), math.rad(13.522), math.rad(-11.173)), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(-0.615, 0.279, -0.164) * CFrame.Angles(math.rad(-9.683), math.rad(-21.772), math.rad(-98.721)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(0.145, 0.078, 0.013) * CFrame.Angles(math.rad(-30.309), math.rad(-14.897), math.rad(5.157)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(0.049, 0.007, -0.004) * CFrame.Angles(math.rad(-24.465), math.rad(4.183), math.rad(25.783)), i)
+ end
+ for i = 0,1,0.34*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(35.008), math.rad(0.172), math.rad(-1.547)), i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(0.055, -0.008, -0.009) * CFrame.Angles(math.rad(2.75), math.rad(5.386), math.rad(14.037)), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.977, 0.511, -0.028) * CFrame.Angles(math.rad(-3.037), math.rad(3.151), math.rad(-12.662)), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(0.571, -0.22, 0.493) * CFrame.Angles(math.rad(152.922), math.rad(46.238), math.rad(119.462)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(0.306, 0.057, 0.008) * CFrame.Angles(math.rad(2.807), math.rad(66.349), math.rad(84.74)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(0.049, 0.007, -0.004) * CFrame.Angles(math.rad(-23.377), math.rad(0.573), math.rad(7.678)), i)
+ end
+ StrongOra = false
+ for i = 0,1,0.3 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame * CFrame.new(-2, 1.3, 3), 0.3)
+ end
+ Move = false
+end
+
+function StandJump()
+ if CurrentStand == nil then
+  return
+ end
+ for i = 1, 3 do
+  local EffectPart = RLeg:Clone()
+  EffectPart.Anchored = true
+  EffectPart.Transparency = 1
+  EffectPart:ClearAllChildren()
+  EffectPart.Parent = Character
+  game:GetService("Debris"):AddItem(EffectPart, 1.5)
+  CreateEffect(EffectPart, "Slice", Color3.fromRGB(127, 127, 127))
+ end
+ local Bod = Instance.new("BodyPosition",Root)
+ Bod.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+ Bod.Position = Root.CFrame * CFrame.new(0,100,-120).p
+ wait(0.1)
+ Bod:Destroy()
+end
+
+function LightDash()
+ if CurrentStand == nil then
+  return
+ end
+ Move = true
+ LightDashing = true
+ local Atch1 = Instance.new("Attachment")
+ Atch1.Parent = Torso
+ Atch1.Position = Vector3.new(0,2,0)
+ local Atch2 = Instance.new("Attachment")
+ Atch2.Parent = Torso
+ Atch2.Position = Vector3.new(0,-2.5,0)
+ local Trail = Instance.new("Trail")
+ Trail.Attachment0 = Atch1
+ Trail.Attachment1 = Atch2
+ Trail.Lifetime = 0.25
+ Trail.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0,0,0),NumberSequenceKeypoint.new(1,1,0)})
+ Trail.LightEmission = 1
+ Trail.Parent = CurrentStand.StandTorso
+ Trail.Enabled = true
+ repeat 
+  game:GetService("RunService").RenderStepped:Wait()
+  Trail.Color = ColorSequence.new(Color3.fromRGB(cR, cG, cB))
+  Root.CFrame = Root.CFrame * CFrame.new(0, 0, -2.5)
+  CurrentStand.PrimaryPart.CFrame = Root.CFrame * CFrame.new(0, -2.65, -0.3)
+  CurrentStand.RootPart["Root Joint"].C0 = AnimDefaults.tors0 * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0))
+ until LightDashing == false or CurrentStand == nil
+ Atch1:Destroy()
+ Atch2:Destroy()
+ Trail:Destroy()
+ Move = false
+ LightDashing = false
+end
+
+function StarFinger()
+ if CurrentStand == nil then
+  return
+ end
+ Move = true
+ StarFingerMove = true
+ for i = 0,1,0.265*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame * CFrame.new(0, 0.5, -3.5), 0.3)
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0, i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.Angles(math.rad(-6.073), 0, 0), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.Angles(math.rad(-3.724), 0, 0), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.Angles(math.rad(-4.412), 0, math.rad(-88.923)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.Angles(math.rad(-6.532), 0, 0), i)
+ end
+ wait(0.05)
+ if OLDTimeErased == false then
+  CurrentStand["Left Arm"].Transparency = 1
+ end
+ local Arm = CurrentStand["Left Arm"]:Clone()
+ Arm.Name = StandName.."'s Star Finger"
+ Arm.Anchored = true
+ Arm.Parent = CurrentStand
+ local HB = CreateHitBox(Arm.CFrame, math.random(50,70), Arm.Size+Vector3.new(3,6,3), 0.5, true, "Slice", 2974875851, "Strong", Color3.fromRGB(255, 255, 255))
+ if OLDTimeErased == false then
+  Arm.Transparency = 0
+ end
+ for i = 0,1,0.065*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  HB.Size = HB.Size:Lerp(Vector3.new(HB.Size.X, 18, HB.Size.Z), i/2.5)
+  Arm.Size = Arm.Size:Lerp(Vector3.new(Arm.Size.X, 18, Arm.Size.Z), i/2.5)
+  Arm.CFrame = Arm.CFrame * CFrame.new(0,-0.7,0)
+  HB.CFrame = Arm.CFrame
+ end
+ wait(0.23)
+ Arm:Destroy()
+ if OLDTimeErased == false then
+  CurrentStand["Left Arm"].Transparency = 0
+ end
+ StarFingerMove = false
+ for i = 0,1,0.3 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame * CFrame.new(-2, 1.3, 3), 0.3)
+ end
+ Move = false
+end
+
+function TimeAccelerate()
+ if CurrentStand == nil then
+  return
+ end
+end
+
+function TimeAccelerateResume()
+ if CurrentStand == nil then
+  return
+ end
+end
+
+function ShootGun()
+ if CurrentStand == nil then
+  return
+ end
+ local Damage = "Instant Kill"
+ Move = true
+ coroutine.resume(coroutine.create(function()
+  CreateSound(3606135620, CurrentStand["Right Arm"].Gun, 4, 1, 0, false, false, "Gun Equip SFX")
+  if gun and gun[4] and gun[1] then
+   gun[4].set(gun[1],CurrentStand["Right Arm"].Gun,Vector3.new(0,.2,-.4),Vector3.new(125,-90,90))
+  end
+  for i = 1, 22 do
+   game:GetService("RunService").RenderStepped:Wait()
+   CurrentStand["Right Arm"].Gun.Transparency = CurrentStand["Right Arm"].Gun.Transparency - 0.15
+  end
+  CurrentStand["Right Arm"].Gun.Transparency = 0
+ end))
+ CreateSound(3559772665, CurrentStand["Right Arm"].Gun, 6, 1, 0, false, false, "Meme Gun SFX")
+ wait(0.235)
+
+ repeat
+  for i = 0,1,0.23*AttackSpeed/0.75 do
+   game:GetService("RunService").RenderStepped:Wait()
+   CurrentStand.RootPart.CFrame = CurrentStand.RootPart.CFrame:Lerp(CFrame.new(CurrentStand.RootPart.CFrame.p, Vector3.new(Mouse.Hit.p.X, CurrentStand.RootPart.Position.Y, Mouse.Hit.p.Z)) * CFrame.new(0, 0, 0), i)
+   CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0, i)
+   CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.Angles(math.rad(-3.953), 0, 0), i)
+   CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.Angles(math.rad(-3.037), 0, 0), i)
+   CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.Angles(math.rad(-1.776), 0, 0), i)
+   CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.Angles(0, math.rad(4.354), math.rad(89.725)), i)
+   CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head, i)
+  end
+  local GunRay = Ray.new(CurrentStand["Right Arm"].Gun.Position, (Mouse.Hit.p - CurrentStand["Right Arm"].Gun.Position).unit*500)
+  local Hit, Pos = workspace:FindPartOnRay(GunRay, Character)
+  local GunDistance = (Mouse.Hit.p - CurrentStand["Right Arm"].Gun.Position).magnitude
+  local Shoot = Instance.new("Part")
+  Shoot.Material = Enum.Material.Neon
+  Shoot.BrickColor = BrickColor.new("Neon orange")
+  Shoot.Name = StandName.."'s Bullet"
+  Shoot.Size = Vector3.new(0.6, 0.6, GunDistance)
+  Shoot.CFrame = CFrame.new(CurrentStand["Right Arm"].Gun.Position, Mouse.Hit.p)
+  Shoot.CFrame = Shoot.CFrame*CFrame.new(0, 0.55, -GunDistance/2)
+  Shoot.Transparency = 0.25
+  Shoot.Anchored = true
+  Shoot.CanCollide = false
+  local Mesh = Instance.new("SpecialMesh")
+  Mesh.MeshType = Enum.MeshType.Sphere
+  Mesh.Parent = Shoot
+  Shoot.Parent = CurrentStand.Head
+  game:GetService("Debris"):AddItem(Shoot, 0.23)
+  CreateSound(4144238684, CurrentStand["Right Arm"].Gun, 4, 1, 0, false, false, "Gun Fire SFX")
+  if Hit ~= nil and IsAHumanoid(Hit) and not Hit:IsDescendantOf(Character) and not Hit:IsDescendantOf(RCharacter) then
+   local Humanoid = IsAHumanoid(Hit):FindFirstChildOfClass("Humanoid")
+   local DoDamage = true
+   fling(Humanoid.Parent)
+   local Val = Instance.new("BoolValue")
+   Val.Name = "GotHitBy"..StandNameVal.Value = trueVal.Parent = Humanoid.Parent
+   CreateSound(3092866899, Hit, 3, math.random(99,103)/100, 0, false, false, "Bullet Hit SFX")
+   CreatePopUpGui(Hit, "Jump", tostring(Damage), Color3.fromRGB(188, 0, 0))
+  end
+  for i = 0,1,0.2*AttackSpeed/0.75 do
+   game:GetService("RunService").RenderStepped:Wait()
+   CurrentStand.RootPart.CFrame = CurrentStand.RootPart.CFrame:Lerp(CFrame.new(CurrentStand.RootPart.CFrame.p, Vector3.new(Mouse.Hit.p.X, CurrentStand.RootPart.Position.Y, Mouse.Hit.p.Z)) * CFrame.new(0, 0, 0), i)
+   CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0, i)
+   CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.Angles(math.rad(-3.953), 0, 0), i)
+   CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.Angles(math.rad(-3.037), 0, 0), i)
+   CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.Angles(math.rad(-1.776), 0, 0), i)
+   CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.Angles(math.rad(-1.948), math.rad(3.896), math.rad(116.425)), i)
+   CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head, i)
+  end
+
+ until GunHold == false
+ if gun and gun[4] and gun[1] then
+  gun[4].set(gun[1],Root)
+ end
+
+ coroutine.resume(coroutine.create(function()
+  for i = 1, 22 do
+   game:GetService("RunService").RenderStepped:Wait()
+   CurrentStand["Right Arm"].Gun.Transparency = CurrentStand["Right Arm"].Gun.Transparency + 0.15
+  end
+  CurrentStand["Right Arm"].Gun.Transparency = 1
+
+ end))
+ CreateSound(3606135620, CurrentStand["Right Arm"].Gun, 4, 0.89, 0, false, false, "Gun Equip SFX")
+ for i = 0,1,0.18*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart.CFrame = CurrentStand.RootPart.CFrame:Lerp(CFrame.new(CurrentStand.RootPart.CFrame.p, Vector3.new(Mouse.Hit.p.X, CurrentStand.RootPart.Position.Y, Mouse.Hit.p.Z)) * CFrame.new(0, 0, 0), i)
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0, i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.Angles(math.rad(-3.953), 0, 0), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.Angles(math.rad(-3.037), 0, 0), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.Angles(math.rad(-1.776), 0, 0), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.Angles(0, math.rad(4.354), math.rad(89.725)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head, i)
+ end
+ Move = false
+end
+
+function DiscMove()
+ if CurrentStand == nil then
+  return
+ end
+ Move = true
+ NormalPunch = true
+ CurrentStand["Left Arm"].Disc.Transparency = 0
+ CreateSound(147722227, CurrentStand.Head, 6.5, math.random(97,108)/100, 0.145, false, false, "Strong Shout")
+ for i = 0,1,0.128*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(35.008), math.rad(0.172), math.rad(-1.547)), i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(0.055, -0.008, -0.009) * CFrame.Angles(math.rad(2.75), math.rad(5.386), math.rad(14.037)), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.977, 0.511, -0.028) * CFrame.Angles(math.rad(-3.037), math.rad(3.151), math.rad(-12.662)), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(0.571, -0.22, 0.493) * CFrame.Angles(math.rad(152.922), math.rad(46.238), math.rad(119.462)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(0.306, 0.057, 0.008) * CFrame.Angles(math.rad(2.807), math.rad(66.349), math.rad(84.74)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(0.049, 0.007, -0.004) * CFrame.Angles(math.rad(-23.377), math.rad(0.573), math.rad(7.678)), i)
+ end
+ coroutine.resume(coroutine.create(function()
+  wait(0.06)
+  CreateHitBox(CurrentStand.PrimaryPart.CFrame * CFrame.new(0, 0, -2.35), "Instant Kill", Vector3.new(4.2,3.4,4), 0.35, true, "Slice", 2319521125, "Strong", Color3.fromRGB(255, 255, 255), true)
+ end))
+ for i = 0,1,0.091*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.Angles(math.rad(33.289), math.rad(-11.631), math.rad(-18.908)), i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.new(0.056, -0.008, 0.011) * CFrame.Angles(math.rad(11.918), math.rad(17.704), math.rad(12.089)), i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.new(0.971, 0.512, -0.238) * CFrame.Angles(math.rad(-10.6), math.rad(13.522), math.rad(-11.173)), i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.new(-0.615, 0.279, -0.164) * CFrame.Angles(math.rad(-9.683), math.rad(-21.772), math.rad(-98.721)), i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.new(0.145, 0.078, 0.013) * CFrame.Angles(math.rad(-30.309), math.rad(-14.897), math.rad(5.157)), i)
+  CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head*CFrame.new(0.049, 0.007, -0.004) * CFrame.Angles(math.rad(-24.465), math.rad(4.183), math.rad(25.783)), i)
+ end
+ NormalPunch = false
+ for i = 0,1,0.3 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame * CFrame.new(-2, 1.3, 3), 0.3)
+ end
+ if CurrentDisc == nil then
+  CurrentStand["Left Arm"].Disc.Transparency = 1
+ end
+ Move = false
+end
+
+function TimeLeap()
+
+end
+
+function TimeWave()
+
+end
+
+function DodgeAnimation()
+ if Character:FindFirstChild("GotHitButNot") then
+  Character.GotHitButNot:Destroy()
+ end
+ local RandomDirection = math.random(1,2)
+ if RandomDirection == 1 then
+  for i = 0,1,0.15 do
+   game:GetService("RunService").RenderStepped:Wait()
+   RJ.C0 = RJ.C0:Lerp(AnimDefaults.tors*CFrame.new(-2.628, 1.074, 0) * CFrame.Angles(0, 0, math.rad(48)), 0.25)
+  end
+  for i = 0,1,0.25 do
+   game:GetService("RunService").RenderStepped:Wait()
+   RJ.C0 = RJ.C0:Lerp(AnimDefaults.tors, 0.33)
+  end
+ else
+  for i = 0,1,0.15 do
+   game:GetService("RunService").RenderStepped:Wait()
+   RJ.C0 = RJ.C0:Lerp(AnimDefaults.tors*CFrame.new(3.574, 1.32, 0) * CFrame.Angles(0, 0, math.rad(-48)), 0.25)
+  end
+  for i = 0,1,0.25 do
+   game:GetService("RunService").RenderStepped:Wait()
+   RJ.C0 = RJ.C0:Lerp(AnimDefaults.tors, 0.33)
+  end
+ end
+end
+
+function AttackTemplate()
+ if CurrentStand == nil then
+  return
+ end
+ Move = true
+ for i = 0,1,0.165*AttackSpeed/0.75 do
+  game:GetService("RunService").RenderStepped:Wait()
+  CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*0, i)
+  CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*0, i)
+  CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*0, i)
+  CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*0, i)
+  CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*0, i)
+ end
+ Move = false
+end
+local dead = false
+Mouse.Button1Down:Connect(function()
+ if dead then return end
+ if Move == false then
+  Punch()
+ end
+end)
+
+Mouse.KeyDown:Connect(function(Key)
+ if dead then return end
+ if Key == "q" and Move == false and OLDTimeErased == false and TimeErased == false then
+  Stand()
+ end
+ if Key == "e" and Move == false then
+  BarrageDown = true
+  Barrage(3e9, 147722227, 0.15)
+ end
+ if Key == "t" and Move == false and TimeErased == false and TimeAccelerating == false then
+  if workspace:FindFirstChild("IsTimeStopped") then
+   if workspace.IsTimeStopped.Value ~= Player.Name then
+    return
+   end
+  end
+  if workspace:FindFirstChild("IsTimeErased") then
+   if workspace.IsTimeErased.Value ~= Player.Name then
+    return
+   end
+  end
+  if TimeStopped == true then
+   TimeResume()
+  else
+   TimeStop()
+  end
+ end
+ if Key == "g" and Move == false and TimeErased == false then
+  if OLDTimeErased == true then
+   TimeResume2()
+  else
+   OldTimeErase()
+  end
+ end
+ if Key == "h" and Move == false and TimeStopped == false and TimeAccelerating == false then
+  if workspace:FindFirstChild("IsTimeStopped") then
+   FastTimeErase()
+  end
+  if workspace:FindFirstChild("IsTimeErased") then
+   if workspace.IsTimeErased.Value ~= Player.Name then
+    return
+   end
+  end
+  if TimeErased == true then
+   TimeEraseResume()
+  else
+   TimeErase()
+  end
+ end
+ if Key == "y" then
+  if CurrentStand == nil then
+   return
+  end
+  if CurrentStand.StandTorso:FindFirstChild("Rainbow Puncher Theme") then
+   CurrentStand.StandTorso["Rainbow Puncher Theme"]:Destroy()
+   MusicOn = false
+   return
+  end
+  MusicOn = true
+  CreateSound(2264258418, CurrentStand.StandTorso, 5, 1, 0, true, true, "Rainbow Puncher Theme")
+ end
+ if Key == "f" and Move == false then
+  StarFinger()
+ end
+ if Key == "r" and Move == false then
+  StrongPunch()
+ end
+ if Key == "x" and Move == false then
+  LightDashing = true
+  LightDash()
+ end
+ if Key == "c" and Move == false and TimeErased == false then
+  TimeLeap()
+ end
+ if Key == "v" and Move == false then
+  KnifeThrow()
+ end
+ if Key == "n" and Move == false then
+  GunHold = true
+  ShootGun()
+ end
+ if Key == "b" and Move == false then 
+  DiscMove()
+ end
+ if Key == "m" and CurrentStand ~= nil and CurrentDisc ~= nil and Move == false then
+  CreateSound(1571353313, CurrentStand.Head, 3, 1, 0, false, false, "Disc breaking")
+  CurrentStand["Left Arm"].Disc.Transparency = 1
+  coroutine.resume(coroutine.create(function()
+   for i = 1, 4 do
+    CreateEffect(CurrentStand["Left Arm"].Disc, "Slice", Color3.fromRGB(98, 98, 98))
+   end
+  end))
+  CurrentDisc = nil
+ end
+ if Key == "j" and Move == false and TimeErased == false and TimeStopped == false then
+  if workspace:FindFirstChild("IsTimeAccelerating") then
+   if workspace.IsTimeAccelerating.Value ~= Player.Name then
+    return
+   end
+  end
+  if TimeAccelerating == true then
+   TimeAccelerateResume()
+  else
+   TimeAccelerate()
+  end
+ end
+ if Key == "z" then
+  StandJump()
+ end
+end)
+
+Mouse.KeyUp:Connect(function(Key)
+ if Key == "e" then
+  BarrageDown = false
+ end
+ if Key == "x" then
+  LightDashing = false
+ end
+ if Key == "n" then
+  GunHold = false
+ end
+end)
+
+function DeSpawn()
+ dead=true
+ disconnect()
+
+ if MoveList ~= nil then
+  MoveList:Destroy()
+ end
+ if TimeStopped == true then
+  InstantResume()
+ end
+ if TimeAccelerating == true then
+  TimeAccelerateResume()
+ end
+ if OLDTimeErased == true then
+  TimeResume2()
+ end
+ if TimeErased == true then
+  TimeEraseResume()
+ end
+ if CurrentStand ~= nil then
+  pcall(Stand)
+ end
+ wait(0.1)
+
+end
+
+resetBindable.Event:Connect(function()
+ DeSpawn()
+end)
+
+Character.Changed:Connect(function(Parent)
+ if not Character:IsDescendantOf(workspace) then
+  DeSpawn()
+ end
+end)
+
+hbeat(function()
+ Sine = Sine + 1
+ LastOrientation = LastOrientation + 4.5
+ if LastOrientation > 359 then
+  LastOrientation = 0
+ end
+ if cR > 254 then 
+  OnColor = "Green" 
+ end
+ if cG > 254 then 
+  OnColor = "Blue" 
+ end
+ if cB > 254 then 
+  OnColor = "Red" 
+ end
+ if OnColor == "Green" then 
+  cR = cR - add 
+  cG = cG + add 
+ end
+ if OnColor == "Blue" then 
+  cG = cG - add 
+  cB = cB + add 
+ end
+ if OnColor == "Red" then 
+  cB = cB - add 
+  cR = cR + add 
+ end
+ if TimeAccelerating == true then
+  AccelerateSeconds = AccelerateSeconds + 1
+  AttackSpeed = AttackSpeed + 0.00015
+  AccelerateWalkSpeed = AccelerateWalkSpeed + 0.1285
+  Hum.WalkSpeed = AccelerateWalkSpeed
+  Hum.Health = Hum.Health + AccelerateSeconds/100
+  game:GetService("Lighting"):SetMinutesAfterMidnight(game:GetService("Lighting"):GetMinutesAfterMidnight()+AccelerateSeconds/230)
+ end
+ if Move == true and CurrentStand ~= nil then
+  if BarrageDown == true or StrongOra == true or NormalPunch == true then
+   CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame * CFrame.new(0, 0.5, -3.75), 0.23)
+  end
+ end
+ if Move == false then
+  if Anim == "Idle" then
+   if CurrentStand ~= nil then
+    --CurrentStand:SetPrimaryPartCFrame(Root.CFrame * CFrame.new(-2, 1.3, 3))
+    CurrentStand.PrimaryPart.CFrame = CurrentStand.PrimaryPart.CFrame:Lerp(Root.CFrame * CFrame.new(-2, 1.3, 3), 0.2)
+    CurrentStand.RootPart["Root Joint"].C0 = CurrentStand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.new(0, 0, 0.8*math.sin(Sine/75)), 0.23)
+    CurrentStand.StandTorso["Left Hip"].C0 = CurrentStand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.Angles(math.rad(-3.38), 0, 0), 0.23)
+    CurrentStand.StandTorso["Right Hip"].C0 = CurrentStand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.Angles(math.rad(-6.818), 0, 0), 0.23)
+    CurrentStand.StandTorso["Left Shoulder"].C0 = CurrentStand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.Angles(math.rad(-8.136), 0, 0), 0.23)
+    CurrentStand.StandTorso["Right Shoulder"].C0 = CurrentStand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.Angles(math.rad(-12.089), 0, 0), 0.23)
+    CurrentStand.StandTorso.Neck.C0 = CurrentStand.StandTorso.Neck.C0:Lerp(AnimDefaults.head, 1)
+   end
+  end
+ end
+ for Index, Child in next, workspace:GetChildren() do
+  if Child.Name == Character.Name then
+   if Child:FindFirstChild("IsErasedCopy") then
+    if Child:FindFirstChild("Head") and Child:FindFirstChild("HumanoidRootPart") then
+     if Child.Head:FindFirstChild("Stand") then
+      for Index,Child in next, Child.Head.Stand:GetDescendants() do
+       if Child:IsA("BasePart") then
+        Child.Color = Color3.fromRGB(cR,cG,cB)
+        Child.Material = Enum.Material.Neon
+       elseif Child:IsA("ParticleEmitter") then
+        Child.Color = ColorSequence.new(Color3.fromRGB(cR,cG,cB))
+       end
+      end
+      if Child.Head.Stand.StandTorso:FindFirstChild("Rainbow Puncher Theme") then
+       MusicTPOS = Child.Head.Stand.StandTorso["Rainbow Puncher Theme"].TimePosition
+      end
+      if Child.Head.Stand:FindFirstChild(StandName.."'s Star Effect") then
+       Child.Head.Stand[StandName.."'s Star Effect"].CFrame = Child.Head.Stand.StandTorso.CFrame*CFrame.new(math.cos(Sine/13)*3.5, 0, math.sin(Sine/13)*3.5) * CFrame.Angles(math.rad(0), math.rad(-LastOrientation), math.rad(0))
+      end
+      if Child.Head.Stand:FindFirstChild(StandName.."'s Star Effect 2") then
+       Child.Head.Stand[StandName.."'s Star Effect 2"].CFrame = Child.Head.Stand.StandTorso.CFrame*CFrame.new(math.sin(Sine/13)*3.5, 0, math.cos(Sine/13)*3.5) * CFrame.Angles(math.rad(0), math.rad(LastOrientation), math.rad(0))
+      end
+      Child.Head.Stand.PrimaryPart.CFrame = Child.Head.Stand.PrimaryPart.CFrame:Lerp(Child.HumanoidRootPart.CFrame * CFrame.new(-2, 1.3, 3), 0.2)
+      Child.Head.Stand.RootPart["Root Joint"].C0 = Child.Head.Stand.RootPart["Root Joint"].C0:Lerp(AnimDefaults.tors0*CFrame.new(0, 0, 0.8*math.sin(Sine/75)), 0.23)
+      Child.Head.Stand.StandTorso["Left Hip"].C0 = Child.Head.Stand.StandTorso["Left Hip"].C0:Lerp(AnimDefaults.lleg*CFrame.Angles(math.rad(-3.38), 0, 0), 0.23)
+      Child.Head.Stand.StandTorso["Right Hip"].C0 = Child.Head.Stand.StandTorso["Right Hip"].C0:Lerp(AnimDefaults.rleg*CFrame.Angles(math.rad(-6.818), 0, 0), 0.23)
+      Child.Head.Stand.StandTorso["Left Shoulder"].C0 = Child.Head.Stand.StandTorso["Left Shoulder"].C0:Lerp(AnimDefaults.larm*CFrame.Angles(math.rad(-8.136), 0, 0), 0.23)
+      Child.Head.Stand.StandTorso["Right Shoulder"].C0 = Child.Head.Stand.StandTorso["Right Shoulder"].C0:Lerp(AnimDefaults.rarm*CFrame.Angles(math.rad(-12.089), 0, 0), 0.23)
+      Child.Head.Stand.StandTorso.Neck.C0 = Child.Head.Stand.StandTorso.Neck.C0:Lerp(AnimDefaults.head, 1)
+     end
+    end
+   end
+  end
+ end
+ if CurrentStand ~= nil then
+  for Index,Child in next, CurrentStand:GetDescendants() do
+   if Child:IsA("BasePart") then
+    Child.Color = Color3.fromRGB(cR,cG,cB)
+    Child.Material = Enum.Material.Neon
+   elseif Child:IsA("ParticleEmitter") then
+    Child.Color = ColorSequence.new(Color3.fromRGB(cR,cG,cB))
+   end
+  end
+ end
+ if CurrentStand ~= nil then
+  if CurrentStand:FindFirstChild("IsTSImmune") then
+   CurrentStand.IsTSImmune.Value = true
+  else
+   local Val = Instance.new("BoolValue")
+   Val.Name = "IsTSImmune"
+   Val.Parent = CurrentStand
+   Val.Value = true
+  end
+  --Y : math.sin(Sine/24)*3.5
+  if CurrentStand:FindFirstChild(StandName.."'s Star Effect") then
+   CurrentStand[StandName.."'s Star Effect"].CFrame = CurrentStand.StandTorso.CFrame*CFrame.new(math.cos(Sine/13)*3.5, 0, math.sin(Sine/13)*3.5) * CFrame.Angles(math.rad(0), math.rad(-LastOrientation), math.rad(0))
+  end
+  if CurrentStand:FindFirstChild(StandName.."'s Star Effect 2") then
+   CurrentStand[StandName.."'s Star Effect 2"].CFrame = CurrentStand.StandTorso.CFrame*CFrame.new(math.sin(Sine/13)*3.5, 0, math.cos(Sine/13)*3.5) * CFrame.Angles(math.rad(0), math.rad(LastOrientation), math.rad(0))
+  end
+ end
+end)
