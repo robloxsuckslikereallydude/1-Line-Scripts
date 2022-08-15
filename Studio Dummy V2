@@ -1,0 +1,809 @@
+--[[
+
+loadstring(game:HttpGet(('https://pastebin.com/raw/ZCGgjxKU'),true))()
+Tip: dont unlock fps bc it will speed up the animations
+
+Hats needed:
+https://www.roblox.com/catalog/29532720/Mizaru
+https://www.roblox.com/catalog/63690008/Pal-Hair
+https://www.roblox.com/catalog/62234425/Brown-Hair
+https://www.roblox.com/catalog/451220849/Lavender-Updo
+https://www.roblox.com/catalog/48474313/Red-Roblox-Cap
+https://www.roblox.com/catalog/376527115/Jade-Necklace-with-Shell-Pendanta
+https://www.roblox.com/catalog/4623059912/Starslayer-Railgun
+
+]]--
+
+
+
+if not game:IsLoaded() then game.Loaded:Wait() end
+
+local gun = Instance.new("MeshPart",script)
+local limb = Instance.new("MeshPart",script)
+local t = Instance.new("MeshPart",script)
+local h = Instance.new("Part",script)
+local alive = true
+
+gun.Anchored = true
+limb.Anchored = true
+t.Anchored = true
+h.Anchored = true
+
+--gun.MeshId = "rbxassetid://430075625"
+--limb.MeshId = "rbxasset://fonts/rightarm.mesh"
+--t.MeshId = "rbxasset://fonts/torso.mesh"
+--the parts became too big so these wont be shown, but u can try to fix it if u want to
+
+gun.Size = Vector3.new(0.271, 1.53, 7.186)
+limb.Size = Vector3.new(1,2,1)
+t.Size = Vector3.new(2,2,1)
+h.Size = Vector3.new(2,1,1)
+
+h.TopSurface = Enum.SurfaceType.Smooth
+h.BottomSurface = Enum.SurfaceType.Smooth
+
+gun.Material = Enum.Material.Neon
+limb.Material = Enum.Material.SmoothPlastic
+t.Material = Enum.Material.SmoothPlastic
+h.Material = Enum.Material.Plastic
+
+gun.Name = "gun"
+limb.Name = "limb"
+t.Name = "t"
+h.Name = "h"
+
+gun.Transparency = 1
+limb.Transparency = 1
+t.Transparency = 1
+h.Transparency = 1
+
+
+repeat
+	wait()
+until game:GetService("Players").LocalPlayer.Character
+
+if not game:GetService("RunService"):IsStudio() then
+	sethiddenproperty(game:GetService("Players").LocalPlayer,"MaximumSimulationRadius",math.huge)
+	sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",1.0000000331814e+32)
+	for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+		if v:IsA("BasePart") then
+			game:GetService("RunService").Heartbeat:connect(function()
+				v.Velocity = Vector3.new(-25.05,0,0)
+				wait(0.5)
+			end)
+		end
+	end
+	workspace.FallenPartsDestroyHeight = -math.huge
+end
+wait(1)
+game:GetService("Players").LocalPlayer.Character.Archivable = true
+local lplrChar = game:GetService("Players").LocalPlayer.Character
+
+local lea = lplrChar:WaitForChild("LavanderHair").Handle
+local ria = lplrChar:WaitForChild("Pal Hair").Handle
+local lel = lplrChar:WaitForChild("Robloxclassicred").Handle
+local ril = lplrChar:WaitForChild("Hat1").Handle
+local head = lplrChar:WaitForChild("Necklace").Handle
+local Gun = lplrChar:WaitForChild("Crystal Staff").Handle
+local tors = lplrChar:WaitForChild("LUAhEAD").Handle
+
+lea:FindFirstChildOfClass("SpecialMesh"):Destroy()
+lea:FindFirstChildOfClass("Weld"):Destroy()
+
+ria:FindFirstChildOfClass("SpecialMesh"):Destroy()
+ria:FindFirstChildOfClass("Weld"):Destroy()
+
+lel:FindFirstChildOfClass("SpecialMesh"):Destroy()
+lel:FindFirstChildOfClass("Weld"):Destroy()
+
+ril:FindFirstChildOfClass("SpecialMesh"):Destroy()
+ril:FindFirstChildOfClass("Weld"):Destroy()
+
+tors:FindFirstChildOfClass("SpecialMesh"):Destroy()
+tors:FindFirstChildOfClass("Weld"):Destroy()
+
+head:FindFirstChildOfClass("Weld"):Destroy()
+head:FindFirstChildOfClass("SpecialMesh"):Destroy()
+Gun:FindFirstChildOfClass("Weld"):Destroy()
+
+function fixPos(part,fixPos,ori,offsetx,offsety,offsetz,oriy,name,oriz)
+	if oriz == nil then oriz = 0 end
+	if offsetz == nil then offsetz = 0 end
+	if oriy == nil then oriy = 0 end
+	local ao = Instance.new("AlignOrientation",part)
+	local ap = Instance.new("AlignPosition",part)
+	local at0 = Instance.new("Attachment",part)
+	local at1 = Instance.new("Attachment")
+	at1.Name = name
+	at1.Parent = fixPos
+	ao.RigidityEnabled = false
+	ap.RigidityEnabled = false
+	ao.MaxTorque = 1000000000
+	ao.Responsiveness = 200
+	ap.MaxForce = 1000000000
+	ap.Responsiveness = 200
+
+	ao.Attachment0 = at0
+	ao.Attachment1 = at1
+	ap.Attachment0 = at0
+	ap.Attachment1 = at1
+
+	at1.Position = Vector3.new(offsetx,offsety,offsetz)
+	at1.Orientation = Vector3.new(ori,oriy,oriz)
+
+	part.CanCollide = false
+end
+
+for i,v in pairs(lplrChar:GetDescendants()) do
+	if v:IsA("Motor6D") and v.Name ~= "Neck" and v.Name ~= "RootJoint" and v.Name ~= "Root Hip" then
+		v:Destroy()
+	end
+end
+
+local bodyPos = Instance.new("BodyPosition",lplrChar.Torso)
+bodyPos.MaxForce = Vector3.new(99999997781963083612160, 99999997781963083612160, 99999997781963083612160)
+bodyPos.P = 99999997952
+bodyPos.D = 1000000
+bodyPos.Position = Vector3.new(0,1000,0)
+
+local bodyFling = Instance.new("BodyThrust",lplrChar.Torso)
+bodyFling.Location = Vector3.new(25,0,0)
+bodyFling.Force = Vector3.new(2500,2500,2500)
+
+local function NoclipLoop()
+	for _, v in pairs(lplrChar:GetDescendants()) do
+		if v:IsA("BasePart") then
+			v.CanCollide = false
+		end
+	end
+end
+
+game:GetService("RunService").Stepped:Connect(function()
+	NoclipLoop()
+	game:GetService("Players").LocalPlayer:GetMouse().TargetFilter = lplrChar
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+script.Name = game:GetService("Players").LocalPlayer.UserId
+local sound
+local char = Instance.new("Folder",workspace)
+char.Name = "CharFolder"
+if not game:IsLoaded() then game.Loaded:Wait() end
+local plrs,workspace,run,pps,ts,uis,debris,rf = game:GetService("Players"),game:GetService("Workspace"),game:GetService("RunService"),game:GetService("MarketplaceService"),game:GetService("TweenService"),game:GetService("UserInputService"),game:GetService("Debris"),game:GetService("ReplicatedFirst")
+local cn,euler,rad,v3,c3,sin,cos,clamp = CFrame.new,CFrame.fromEulerAnglesYXZ,math.rad,Vector3.new,Color3.fromRGB,math.sin,math.cos,math.clamp
+local random = math.random
+local S = 1
+function cn2(x,y,z)
+	return cn(x*S,y*S,z*S)
+end
+local userid,localplayer,plr = tonumber(script.Name),plrs.LocalPlayer,nil
+script.Parent = rf
+for i, v in pairs(plrs:GetPlayers()) do
+	if v.UserId == userid then
+		plr = v
+		break
+	end
+end
+local mouse,cam = localplayer:GetMouse(),workspace.CurrentCamera
+local funcs = {}
+funcs.__index = funcs
+function randomstring()
+	local e = {}
+	for i = 1,random(5,50) do
+		table.insert(e,#e+1,string.char(random(10,100)))
+	end
+	return table.concat(e)
+end
+function tween(instance,properties,duration,easingdirection,easingstyle)
+	spawn(function()
+		if easingstyle == nil then easingstyle = Enum.EasingStyle.Quad end
+		ts:Create(instance,TweenInfo.new(duration,easingstyle,easingdirection),properties):Play()
+	end)
+end
+function change(instance, properties)
+	for i, v in pairs(properties) do
+		instance[i] = v
+	end
+end
+function create(class,properties)
+	local instance = Instance.new(class)
+	--instance.Name = randomstring()
+	change(instance,properties)
+	return instance
+end
+local h,t,r,la,ra,ll,rl,face,campart,gun
+local hc0,lac0,rac0,llc0,rlc0,sine,animspeed,attack,falling,partexclusion,flying,raycastparams,keys,moving,poscframe,ypos,transparent = cn2(0,1.5,0),cn2(-1.5,0,0),cn2(1.5,0,0),cn2(-0.5,-2,0),cn2(0.5,-2,0),0,1/4,false,false,{},false,RaycastParams.new(),{w=false,a=false,s=false,d=false},false,cn(),50,false
+local hoffset,toffset,laoffset,raoffset,lloffset,rloffset,gunoffset = hc0,cn(),lac0,rac0,llc0,rlc0,cn2(-0.365001678,-2.11000013,-0.125)*euler(rad(90),rad(180),0)
+raycastparams.FilterType,raycastparams.IgnoreWater = Enum.RaycastFilterType.Blacklist,true
+local rotationvalue = Instance.new("CFrameValue",script)
+rotationvalue.Name = randomstring()
+function fix(instance,parent)
+	if instance == parent then
+		return true
+	else
+		local kek = pcall(function()
+			instance.Parent--[[,instance.Name]] = parent--[[,randomstring()]]
+		end)
+		if instance.Parent ~= parent then
+			return false
+		else
+			return kek
+		end
+	end
+end
+function checkpart(part,size,collisionfidelity,color,material,transparency,cancollide,localtransparency)
+	return (not part or not fix(part,char) or part.Parent ~= char or part.Material ~= material or (not transparent and part.Transparency ~= transparency) or (transparent and part.Transparency ~= 1) or not part.Anchored)
+end
+function gettransparency(transparency)
+	if transparent then
+		return 1
+	else
+		return transparency
+	end
+end
+local backups = {}
+backups.__index = backups
+for i, v in pairs(script:GetChildren()) do
+	if v:IsA("BasePart") then
+		backups[v.Name] = v:Clone()
+	end
+end
+run:BindToRenderStep("MaintainParts",777777,function()
+	if not rotationvalue or not fix(rotationvalue,script) or rotationvalue.Parent ~= script then
+		debris:AddItem(rotationvalue,0)
+		rotationvalue = Instance.new("CFrameValue",script)
+		rotationvalue.Name = randomstring()
+	end
+end)
+
+campart = backups.t:Clone()
+campart.Transparency = 1
+campart.Color = c3(0,0,0)
+campart.CanCollide = false
+campart.Size = v3(1,1,1)*S
+campart.Parent = char
+campart.Name = "campart"
+campart.Archivable = false
+table.insert(partexclusion,campart)
+
+r = backups.t:Clone()
+r.Transparency = gettransparency(1)
+r.Size = v3(2,2,1)*S
+r.Name = "rootPart"
+r.Parent = char
+r.Archivable = false
+r.CFrame = poscframe
+table.insert(partexclusion,r)
+
+h = backups.h:Clone()
+h.Transparency = gettransparency(1)
+h.Size = v3(2,1,1)*S
+h.Name = "Head"
+h.Parent = char
+h.Archivable = false
+table.insert(partexclusion,h)
+
+t = backups.t:Clone()
+t.Transparency = gettransparency(1)
+t.Size = v3(2,2,1)*S
+t.Name = "Torso"
+t.Parent = char
+t.Archivable = false
+table.insert(partexclusion,t)
+
+la = backups.limb:Clone()
+la.Transparency = gettransparency(1)
+la.Size = v3(1,2,1)*S
+la.Name = "Left Arm"
+la.Parent = char
+la.Archivable = false
+table.insert(partexclusion,la)
+
+ra = backups.limb:Clone()
+ra.Transparency = gettransparency(1)
+ra.Size = v3(1,2,1)*S
+ra.Name = "Right Arm"
+ra.Parent = char
+ra.Archivable = false
+table.insert(partexclusion,ra)
+
+ll = backups.limb:Clone()
+ll.Transparency = gettransparency(1)
+ll.Size = v3(1,2,1)*S
+ll.Name = "Left Leg"
+ll.Parent = char
+ll.Archivable = false
+table.insert(partexclusion,ll)
+
+rl = backups.limb:Clone()
+rl.Transparency = gettransparency(1)
+rl.Size = v3(1,2,1)*S
+rl.Name = "Right Leg"
+rl.Parent = char
+rl.Archivable = false
+table.insert(partexclusion,rl)
+
+gun = backups.gun:Clone()
+gun.Transparency = gettransparency(1)
+gun.Size = v3(0.271,1.53,7.186)*S
+gun.Name = "Gun"
+gun.Parent = char
+gun.Archivable = false
+table.insert(partexclusion,gun)
+
+local ws = 0.5
+local attacks = {}
+attacks.__index = attacks
+local chamberedbullets = 8
+function attacks:part(v,supresssound)
+	if not table.find(partexclusion,v) then
+		if (v.Size.X < 50 and v.Size.Y < 50 and v.Size.Z < 50) or not v.Anchored then
+			table.insert(partexclusion,v)
+			v:BreakJoints()
+			v.Anchored,v.CanCollide,v.Material = true,false,Enum.Material.Neon
+			if not supresssound then
+				debris:AddItem(create("Sound",{
+					Parent = v,
+					SoundId = "rbxassetid://4458055429",
+					Volume = 3,
+					Playing = true,
+					PlayOnRemove = true
+				}),0)
+			end
+			local dur = random(75,100)/100
+			tween(v,{CFrame=v.CFrame*cn(random(-7,7),random(-7,7),random(-7,7))*euler(rad(random(0,360)),rad(random(0,360)),rad(random(0,360))),LocalTransparencyModifier=1,Size=v3()},dur,Enum.EasingDirection.Out)
+			debris:AddItem(v,.5)
+			for i, v in pairs(v:GetChildren()) do
+				if v:IsA("Decal") or v:IsA("Texture") then
+					tween(v,{Transparency=1},dur,Enum.EasingDirection.Out)
+				elseif v:IsA("Fire") or v:IsA("Smoke") or v:IsA("Sparkles") or v:IsA("ParticleEmitter") then
+					v.Enabled = false
+				elseif v:IsA("Light") then
+					tween(v,{Brightness=1},dur,Enum.EasingDirection.Out)
+				end
+			end
+			local flicker = run.RenderStepped:Connect(function()
+				v.BrickColor = BrickColor.Random()
+			end)
+			delay(dur,function()
+				flicker:Disconnect()
+			end)
+		end
+	end
+end
+function attacks:hitbox(pos,range)
+	--event:FireServer("hitbox",{pos,range})
+	bodyPos.Position = pos
+	local hitbox = create("Part",{
+		Parent = workspace,
+		Anchored = true,
+		CanCollide = false,
+		CanQuery = false,
+		Material = Enum.Material.ForceField,
+		BrickColor = BrickColor.Random(),
+		Shape = Enum.PartType.Ball,
+		Size = v3(range*2,range*2,range*2),
+		Position = pos
+	})
+	table.insert(partexclusion,hitbox)
+	local flicker1 = run.RenderStepped:Connect(function()
+		hitbox.BrickColor = BrickColor.Random()
+	end)
+	tween(hitbox,{Transparency=1},1,Enum.EasingDirection.In)
+	debris:AddItem(hitbox,1)
+
+	delay(1,function()
+		flicker1:Disconnect()
+	end)
+	delay(1,function()
+		if not attack then
+			bodyPos.Position = Vector3.new(0,1000,0)
+		end
+	end)
+
+	for i = 1, random(8,12) do
+		local yes = create("Part",{
+			Parent = workspace,
+			Anchored = true,
+			CanCollide = false,
+			Size = v3(random(2,6),random(10,15)/10,random(1,3))/4 * range * 3,
+			CFrame = cn(pos) * euler(rad(random(0,360)),rad(random(0,360)),rad(random(0,360)))
+		})
+		attacks:part(yes,true)
+		debris:AddItem(yes,1)
+	end
+end
+function createlightningbolt(startpos,endpos,width)
+	local _start,length = startpos,(startpos-endpos).Magnitude
+	local segments = clamp(math.floor(length/5),0,50)
+	local function dothethe(s,p,d,l)
+		local b = create("Part",{
+			Parent = workspace,
+			Anchored = true,
+			CanCollide = false,
+			CanQuery = false,
+			Material = Enum.Material.Neon,
+			Size = v3(width,width,l),
+			Position = s,
+			CFrame = cn(s,p) * euler(rad(random(-d,d)),rad(random(-d,d)),rad(random(-d,d)))
+		})
+		table.insert(partexclusion,b)
+		b.CFrame = b.CFrame * cn(0,0,-l/2)
+		tween(b,{Size=v3(0,0,l),Transparency=1},0.2,Enum.EasingDirection.In,Enum.EasingStyle.Back)
+		local flicker = run.RenderStepped:Connect(function()
+			b.Color = gun.Color
+		end)
+		delay(0.2,function()
+			flicker:Disconnect()
+		end)
+		debris:AddItem(b,.2)
+		return (b.CFrame * cn(0,0,-l/2)).p
+	end
+	for i = 1, segments do
+		_start = dothethe(_start,endpos,20,5)
+	end
+	dothethe(_start,endpos,0,(_start-endpos).Magnitude)
+end
+function attacks:pew(pos)
+	attack = true
+	for i = 1, 3, 0.1 do
+		run.RenderStepped:Wait()
+		laoffset = laoffset:Lerp(lac0*cn2(1.5870018,0.5,-1.52200317)*euler(rad(15),rad(52.5),rad(90)),animspeed)
+		raoffset = raoffset:Lerp(rac0*cn2(-0.129001617,0.48300004,-0.625)*euler(rad(75),rad(90),rad(90)),animspeed)
+		lloffset = lloffset:Lerp(llc0*cn2(-0.0159988403+cos(sine/20)/20,0.0160000324,-0.173001099-cos(sine/20)/10)*euler(rad(7.5+cos(sine/20)*10),rad(7.5),rad(-5+cos(sine/20)*3.5)),animspeed)
+		rloffset = rloffset:Lerp(rlc0*cn2(0.124000549-cos(sine/20)/20,0.559999943,-0.286003113-cos(sine/20)/10)*euler(rad(-37.12+cos(sine/20)*10),rad(-9.42),rad(5.72-cos(sine/20)*3.5)),animspeed)
+		toffset = toffset:Lerp(cn2(0,sin(sine/20)/2.5,0)*euler(rad(-cos(sine/20)*10),0,0),animspeed)
+		hoffset = hoffset:Lerp(hc0*cn2(0.0970001221,-0.138000011,0)*euler(0,0,rad(-15)),animspeed)
+		gunoffset = gunoffset:Lerp(cn2(-0.365001678,-2.11000013,-0.125)*euler(rad(90),rad(180),0),animspeed)
+	end
+	debris:AddItem(create("Sound",{
+		Parent = gun,
+		SoundId = "rbxassetid://834546352",
+		Volume = 4,
+		Playing = true,
+		PlayOnRemove = true
+	}),0)
+	local start = (gun.CFrame * cn2(0,0.672999978,3.56199646)).p
+	local dist = clamp((start-pos).Magnitude,0,2048)
+	for i = 1, 2 do
+		createlightningbolt(start,pos,0.5)
+	end
+	local battery = create("Part",{
+		Parent = workspace,
+		CanCollide = false,
+		Material = Enum.Material.Neon,
+		CFrame = gun.CFrame * cn2(-0.0149993896,0.664999962,-0.507003784) * euler(0,rad(90),0),
+		Size = v3(0.15,0.1,0.1)*S,
+		RotVelocity = v3(random(-30,30),random(-30,30),random(-30,30))
+	})
+	debris:AddItem(battery,1)
+	table.insert(partexclusion,battery)
+	battery.Velocity = v3(0,random(30,50),0) + battery.CFrame.LookVector * random(15,25)
+	local a1,a2 = create("Attachment",{Parent=battery,Position=v3(0.075,0,0)}),create("Attachment",{Parent=battery,Position=v3(-0.075,0,0)})
+	local trail = create("Trail",{
+		Parent = battery,
+		Attachment0 = a1,
+		Attachment1 = a2,
+		FaceCamera = true,
+		LightEmission = 1,
+		Lifetime = 0.25,
+		Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(1,1)}
+	})
+	local flicker = run.RenderStepped:Connect(function()
+		battery.Color,trail.Color = gun.Color,ColorSequence.new{ColorSequenceKeypoint.new(0,gun.Color),ColorSequenceKeypoint.new(1,gun.Color)}
+	end)
+	debris:AddItem(battery,2)
+	delay(2,function()
+		flicker:Disconnect()
+	end)
+	attacks:hitbox(pos,1.5)
+	chamberedbullets = chamberedbullets - 1
+	for i = 1, random(8,12) do
+		local yes = create("Part",{
+			Parent = workspace,
+			Anchored = true,
+			CanCollide = false,
+			Size = v3(4,1,2),
+			CFrame = cn(start) * euler(rad(random(0,360)),rad(random(0,360)),rad(random(0,360)))
+		})
+		attacks:part(yes,true)
+	end
+	for i = 1, 2, 0.1 do
+		run.RenderStepped:Wait()
+		laoffset = laoffset:Lerp(lac0*cn2(1.5870018,0.5,-1.52200317)*euler(rad(15),rad(52.5),rad(90)),animspeed)
+		raoffset = raoffset:Lerp(rac0*cn2(0.10100174,0.10800004,-0.959999084)*euler(rad(56.77),rad(24.15),rad(28.19)),animspeed)
+		lloffset = lloffset:Lerp(llc0*cn2(-0.0159988403+cos(sine/20)/20,0.0160000324,-0.173001099-cos(sine/20)/10)*euler(rad(7.5+cos(sine/20)*10),rad(7.5),rad(-5+cos(sine/20)*3.5)),animspeed)
+		rloffset = rloffset:Lerp(rlc0*cn2(0.124000549-cos(sine/20)/20,0.559999943,-0.286003113-cos(sine/20)/10)*euler(rad(-37.12+cos(sine/20)*10),rad(-9.42),rad(5.72-cos(sine/20)*3.5)),animspeed)
+		toffset = toffset:Lerp(cn2(0,sin(sine/20)/2.5,0)*euler(rad(-cos(sine/20)*10),0,0),animspeed)
+		hoffset = hoffset:Lerp(hc0*cn2(-0.0110015869,-0.000999927521,-0.0790023804)*euler(rad(-7.44),rad(-22.56),rad(1)),animspeed)
+		gunoffset = gunoffset:Lerp(cn2(-0.365001678,-1.11100006,-1.4980011)*euler(rad(37.5),rad(-180),0),animspeed)
+	end
+	attack = false
+	for i = 1, 2, 0.1 do
+		run.RenderStepped:Wait()
+		laoffset = laoffset:Lerp(lac0*cn2(1.5870018,0.5,-1.52200317)*euler(rad(15),rad(52.5),rad(90)),animspeed)
+		raoffset = raoffset:Lerp(rac0*cn2(0.0730018616,0.211999893,-0.523002625)*euler(rad(63.18),rad(32),rad(35)),animspeed)
+		lloffset = lloffset:Lerp(llc0*cn2(-0.0159988403+cos(sine/20)/20,0.0160000324,-0.173001099-cos(sine/20)/10)*euler(rad(7.5+cos(sine/20)*10),rad(7.5),rad(-5+cos(sine/20)*3.5)),animspeed)
+		rloffset = rloffset:Lerp(rlc0*cn2(0.124000549-cos(sine/20)/20,0.559999943,-0.286003113-cos(sine/20)/10)*euler(rad(-37.12+cos(sine/20)*10),rad(-9.42),rad(5.72-cos(sine/20)*3.5)),animspeed)
+		toffset = toffset:Lerp(cn2(0,sin(sine/20)/2.5,0)*euler(rad(-cos(sine/20)*10),0,0),animspeed)
+		hoffset = hoffset:Lerp(hc0*cn2(-0.0110015869,-0.000999927521,-0.0790023804)*euler(rad(-7.44),rad(-22.56),rad(1)),animspeed)
+		gunoffset = gunoffset:Lerp(cn2(-0.365001678,-1.74199986,-1.40799713)*euler(rad(45),rad(-180),0),animspeed)
+	end
+end
+function attacks:reload()
+	attack = true
+	bodyPos.Position = Vector3.new(0,1000,0)
+	for i = 1, 8 do
+		for v = 1, 2, 0.1 do
+			run.RenderStepped:Wait()
+			laoffset = laoffset:Lerp(lac0*cn2(0.374000549,-0.135999918,0.327003479)*euler(rad(-22.5),0,rad(30)),animspeed)
+			raoffset = raoffset:Lerp(rac0*cn2(-0.0320014954,0.134000063,-0.48400116)*euler(rad(68.91),rad(-45.99),rad(-44.01)),animspeed)
+			lloffset = lloffset:Lerp(llc0*cn2(-0.0159988403+cos(sine/20)/20,0.0160000324,-0.173001099-cos(sine/20)/10)*euler(rad(7.5+cos(sine/20)*10),rad(7.5),rad(-5+cos(sine/20)*3.5)),animspeed)
+			rloffset = rloffset:Lerp(rlc0*cn2(0.124000549-cos(sine/20)/20,0.559999943,-0.286003113-cos(sine/20)/10)*euler(rad(-37.12+cos(sine/20)*10),rad(-9.42),rad(5.72-cos(sine/20)*3.5)),animspeed)
+			toffset = toffset:Lerp(cn2(0,sin(sine/20)/2.5,0)*euler(rad(-cos(sine/20)*10),0,0),animspeed)
+			hoffset = hoffset:Lerp(hc0*cn2(-0.0499992371,-0.0170001984,-0.120002747)*euler(rad(-15),rad(22.56),0),animspeed)
+			gunoffset = gunoffset:Lerp(cn2(-0.364997864,-1.82200003,-0.36700058)*euler(rad(30),rad(180),0),animspeed)
+		end
+		for v = 1, 2, 0.1 do
+			run.RenderStepped:Wait()
+			laoffset = laoffset:Lerp(lac0*cn2(1.57699966,0.00699996948,-1.35600281)*euler(rad(58.41),rad(-85.81),rad(-34.87)),animspeed)
+			raoffset = raoffset:Lerp(rac0*cn2(-0.0320014954,0.134000063,-0.48400116)*euler(rad(68.91),rad(-45.99),rad(-44.01)),animspeed)
+			lloffset = lloffset:Lerp(llc0*cn2(-0.0159988403+cos(sine/20)/20,0.0160000324,-0.173001099-cos(sine/20)/10)*euler(rad(7.5+cos(sine/20)*10),rad(7.5),rad(-5+cos(sine/20)*3.5)),animspeed)
+			rloffset = rloffset:Lerp(rlc0*cn2(0.124000549-cos(sine/20)/20,0.559999943,-0.286003113-cos(sine/20)/10)*euler(rad(-37.12+cos(sine/20)*10),rad(-9.42),rad(5.72-cos(sine/20)*3.5)),animspeed)
+			toffset = toffset:Lerp(cn2(0,sin(sine/20)/2.5,0)*euler(rad(-cos(sine/20)*10),0,0),animspeed)
+			hoffset = hoffset:Lerp(hc0*cn2(-0.0499992371,-0.0170001984,-0.120002747)*euler(rad(-15),rad(-22.56),0),animspeed)
+			gunoffset = gunoffset:Lerp(cn2(-0.364997864,-1.82200003,-0.36700058)*euler(rad(30),rad(180),0),animspeed)
+		end
+		debris:AddItem(create("Sound",{
+			Parent = gun,
+			SoundId = "rbxassetid://293574839",
+			Volume = 0.4,
+			Playing = true,
+			PlayOnRemove = true
+		}),0)
+	end
+	for i = 1, 2, 0.1 do
+		run.RenderStepped:Wait()
+		laoffset = laoffset:Lerp(lac0*cn2(1.5870018,0.5,-1.52200317)*euler(rad(15),rad(52.5),rad(90)),animspeed)
+		raoffset = raoffset:Lerp(rac0*cn2(0.10100174,0.10800004,-0.959999084)*euler(rad(56.77),rad(24.15),rad(28.19)),animspeed)
+		lloffset = lloffset:Lerp(llc0*cn2(-0.0159988403+cos(sine/20)/20,0.0160000324,-0.173001099-cos(sine/20)/10)*euler(rad(7.5+cos(sine/20)*10),rad(7.5),rad(-5+cos(sine/20)*3.5)),animspeed)
+		rloffset = rloffset:Lerp(rlc0*cn2(0.124000549-cos(sine/20)/20,0.559999943,-0.286003113-cos(sine/20)/10)*euler(rad(-37.12+cos(sine/20)*10),rad(-9.42),rad(5.72-cos(sine/20)*3.5)),animspeed)
+		toffset = toffset:Lerp(cn2(0,sin(sine/20)/2.5,0)*euler(rad(-cos(sine/20)*10),0,0),animspeed)
+		hoffset = hoffset:Lerp(hc0*cn2(-0.0110015869,-0.000999927521,-0.0790023804)*euler(rad(-7.44),rad(-22.56),rad(1)),animspeed)
+		gunoffset = gunoffset:Lerp(cn2(-0.365001678,-1.11100006,-1.4980011)*euler(rad(37.5),rad(-180),0),animspeed)
+	end
+	for i = 1, 2, 0.1 do
+		run.RenderStepped:Wait()
+		laoffset = laoffset:Lerp(lac0*cn2(1.5870018,0.5,-1.52200317)*euler(rad(15),rad(52.5),rad(90)),animspeed)
+		raoffset = raoffset:Lerp(rac0*cn2(0.0730018616,0.211999893,-0.523002625)*euler(rad(63.18),rad(32),rad(35)),animspeed)
+		lloffset = lloffset:Lerp(llc0*cn2(-0.0159988403+cos(sine/20)/20,0.0160000324,-0.173001099-cos(sine/20)/10)*euler(rad(7.5+cos(sine/20)*10),rad(7.5),rad(-5+cos(sine/20)*3.5)),animspeed)
+		rloffset = rloffset:Lerp(rlc0*cn2(0.124000549-cos(sine/20)/20,0.559999943,-0.286003113-cos(sine/20)/10)*euler(rad(-37.12+cos(sine/20)*10),rad(-9.42),rad(5.72-cos(sine/20)*3.5)),animspeed)
+		toffset = toffset:Lerp(cn2(0,sin(sine/20)/2.5,0)*euler(rad(-cos(sine/20)*10),0,0),animspeed)
+		hoffset = hoffset:Lerp(hc0*cn2(-0.0110015869,-0.000999927521,-0.0790023804)*euler(rad(-7.44),rad(-22.56),rad(1)),animspeed)
+		gunoffset = gunoffset:Lerp(cn2(-0.365001678,-1.74199986,-1.40799713)*euler(rad(45),rad(-180),0),animspeed)
+	end
+	chamberedbullets = 25
+	attack = false
+end
+function attacks:teleport(pos)
+	local newpos = cn(pos)
+	local positions = {poscframe.p,pos,pos}
+	poscframe,ypos = cn(positions[2]),positions[2].Y
+	for i = 1, 2 do
+		local p = create("Part",{
+			Parent = workspace,
+			Anchored = true,
+			CanCollide = false,
+			Position = positions[i],
+			Size = v3(6,6,6),
+			Material = Enum.Material.Neon
+		})
+		table.insert(partexclusion,p)
+		tween(p,{Size=v3(),Transparency=1},0.2,Enum.EasingDirection.In,Enum.EasingStyle.Back)
+		local flicker = run.RenderStepped:Connect(function()
+			p.Color = gun.Color
+		end)
+		delay(0.2,function()
+			flicker:Disconnect()
+		end)
+		debris:AddItem(p,0.2)
+		for v = 1, random(8,12) do
+			local yes = create("Part",{
+				Parent = workspace,
+				Anchored = true,
+				CanCollide = false,
+				Size = v3(4,4,4),
+				CFrame = cn(positions[i]) * euler(rad(random(0,360)),rad(random(0,360)),rad(random(0,360)))
+			})
+			attacks:part(yes,true)
+			debris:AddItem(yes,1)
+		end
+	end
+	debris:AddItem(create("Sound",{
+		Parent = r,
+		SoundId = "rbxassetid://5909720414",
+		Volume = 3,
+		Playing = true,
+		PlayOnRemove = true
+	}),0)
+	createlightningbolt(positions[1],positions[2],1.5)
+end
+function attacks:reloadcharacter()
+	debris:AddItem(h,0) debris:AddItem(campart,0) debris:AddItem(r,0) debris:AddItem(t,0) debris:AddItem(la,0) debris:AddItem(ra,0) debris:AddItem(ll,0) debris:AddItem(rl,0)
+end
+if localplayer == plr then
+	game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{Text="Converted by 4vi7\nScript made by "..plrs:GetNameFromUserIdAsync(145632006),Color=Color3.fromRGB(0,255,255)})
+	run:BindToRenderStep("Movement",777777,function()
+		raycastparams.FilterDescendantsInstances = partexclusion
+		cam.CameraSubject,cam.CameraType,cam.FieldOfView,localplayer.CameraMaxZoomDistance,localplayer.CameraMinZoomDistance,localplayer.CameraMode,cam.FieldOfViewMode = campart,Enum.CameraType.Custom,70,math.huge,0,Enum.CameraMode.Classic,Enum.FieldOfViewMode.Vertical
+		local movedirection,pos,lv = v3(),poscframe.p,cam.CFrame.LookVector
+		if keys.w then movedirection = movedirection + v3(0,0,-ws) end
+		if keys.a then movedirection = movedirection + v3(-ws,0,0) end
+		if keys.s then movedirection = movedirection + v3(0,0,ws) end
+		if keys.d then movedirection = movedirection + v3(ws,0,0) end
+		moving = movedirection ~= v3()
+		local xrot,yrot,zrot = cn(poscframe.p,Vector3.new(poscframe.X+lv.X,poscframe.Y,poscframe.Z+lv.Z)):ToOrientation()
+		local raycast = workspace:Raycast(r.Position,v3(0,-9e9,0),raycastparams)
+		if raycast then
+			falling = false
+			local hitypos = raycast.Position.Y
+			ypos = cn(0,ypos,0):Lerp(cn(0,hitypos+5,0),0.1).p.Y
+		else
+			falling = true
+			ypos = ypos - 3
+		end
+		if flying then
+			poscframe = cn(poscframe.p,poscframe.p+cam.CFrame.LookVector)
+			poscframe = poscframe * cn(movedirection)
+			ypos = poscframe.p.Y
+		else
+			local moveto = (cn(pos.X,ypos,pos.Z) * euler(0,rad(math.deg(yrot)),0) * cn(movedirection)).p
+			if uis.MouseBehavior == Enum.MouseBehavior.LockCenter then
+				rotationvalue.Value = euler(0,rad(math.deg(yrot)),0)
+			else
+				if movedirection ~= v3() then
+					local z = ts:Create(rotationvalue,TweenInfo.new(0.1,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Value=cn(v3(pos.X,ypos,pos.Z),moveto)})
+					z:Play()
+					delay(1/60,function()
+						z:Cancel()
+					end)
+				end
+			end
+			local xrot2,yrot2,zrot2 = rotationvalue.Value:ToOrientation()
+			poscframe = cn(moveto) * euler(0,rad(math.deg(yrot2)),0)
+		end
+		r.CFrame,transparent = poscframe,(cam.CFrame.p-campart.Position).Magnitude < 1 and uis.MouseBehavior == Enum.MouseBehavior.LockCenter
+		campart.CFrame = r.CFrame * hc0
+		--event:FireServer("replicate",{poscframe,moving,flying,falling})
+	end)
+	mouse.KeyDown:Connect(function(key)
+		if not alive then return end
+		if key == "w" or key == "a" or key == "s" or key == "d" then
+			keys[key] = true
+		elseif key == "f" then
+			flying = not flying
+		elseif key == "q" then
+			--event:FireServer("keydown",{"q",})
+			--attacks:reloadcharacter()
+		elseif key == "z" then
+			local pos = mouse.Hit.p + v3(0,5,0)
+			--event:FireServer("keydown",{"z",pos})
+			attacks:teleport(pos)
+		end
+	end)
+	mouse.KeyUp:Connect(function(key)
+		if not alive then return end
+		if key == "w" or key == "a" or key == "s" or key == "d" then
+			keys[key] = false
+		end
+	end)
+	mouse.Button1Down:Connect(function()
+		if attack or not alive then return end
+		if chamberedbullets > 0 then
+			local hitpos = mouse.Hit.p
+			--event:FireServer("keydown",{"mouse1",hitpos})
+			attacks:pew(hitpos)
+		else
+			--event:FireServer("keydown",{"reload"})
+			attacks:reload()
+		end
+	end)
+end
+local bgm,bgmstarttime,bgmlength = create("Sound",{Parent=cam}),tick(),86.831
+local bgmmaintain = cam.ChildRemoved:Connect(function(instance)
+	if instance == bgm then
+		bgm = create("Sound",{Parent = cam})
+		local changed,fixing = nil,false
+		changed = bgm.Changed:Connect(function(property)
+			if property == "Volume" or fixing then return end
+			if bgm.Parent ~= cam then changed:Disconnect() return end
+			fixing = true
+			local timediff = tick()-bgmstarttime
+			change(bgm,{
+				SoundId = "rbxassetid://3979209289", -- old id - 5894963746
+				Looped = true,
+				Playing = true,
+				Pitch = 1,
+				Name = randomstring(),
+				RollOffMaxDistance = 10000,
+				RollOffMinDistance = 10,
+				RollOffMode = Enum.RollOffMode.Inverse,
+				PlayOnRemove = false,
+				TimePosition = clamp(bgm.TimePosition,timediff-0.2,timediff+0.2),
+			})
+			bgm.SoundGroup = nil
+			fixing = false
+		end)
+		bgm.Name = "hi lol"
+		sound = bgm
+	end
+end)
+debris:AddItem(bgm,0)
+local rendered,remoteremoved
+rendered = run.RenderStepped:Connect(function()
+	sine = sine + 1
+	if tick()-bgmstarttime > bgmlength then
+		bgmstarttime,bgm.Name = tick(),"hi lol"
+	end
+	if not attack then
+		raoffset = raoffset:Lerp(rac0*cn2(-1.00600052,0.665999889-cos(sine/20)/7,0.569000244)*euler(rad(-66.3),rad(141.54),rad(141.54+cos(sine/20)*5)),animspeed)
+		gunoffset = gunoffset:Lerp(cn2(-0.365001678,-2.11000013,-0.125)*euler(rad(90),rad(180),0),animspeed)
+		if moving then
+			laoffset = laoffset:Lerp(lac0*cn2(1.09999847,0.150000095,-0.459999084)*euler(rad(17.67),rad(14.15),rad(69.71)),animspeed)
+			lloffset = lloffset:Lerp(llc0*cn2(-0.0159988403+cos(sine/20)/20,0.0160000324,-0.173001099-cos(sine/20)/10)*euler(rad(7.5+cos(sine/20)*10),rad(7.5),rad(-5+cos(sine/20)*3.5)),animspeed)
+			rloffset = rloffset:Lerp(rlc0*cn2(0.124000549-cos(sine/20)/20,0.559999943,-0.286003113-cos(sine/20)/10)*euler(rad(-37.12+cos(sine/20)*10),rad(-9.42),rad(5.72-cos(sine/20)*3.5)),animspeed)
+			toffset = toffset:Lerp(cn2(0,sin(sine/20)/2.5,0)*euler(rad(-50),0,0),animspeed)
+			hoffset = hoffset:Lerp(cn2(0,1,0)*euler(rad(50),0,0)*cn2(0,0.5,0),animspeed)
+		else
+			laoffset = laoffset:Lerp(lac0*cn2(1.09999847,0.150000095,-0.459999084)*euler(rad(17.67),rad(14.15),rad(69.71)),animspeed)
+			lloffset = lloffset:Lerp(llc0*cn2(-0.0159988403-cos(sine/20)/10,0.0160000324,-0.173001099+cos(sine/20)/5)*euler(rad(7.5-cos(sine/20)*20),rad(7.5),rad(-5-cos(sine/20)*7)),animspeed)
+			rloffset = rloffset:Lerp(rlc0*cn2(0.124000549+cos(sine/20)/10,0.559999943,-0.286003113+cos(sine/20)/5)*euler(rad(-37.12-cos(sine/20)*20),rad(-9.42),rad(5.72+cos(sine/20)*7)),animspeed)
+			toffset = toffset:Lerp(cn2(0,sin(sine/20)/2.5,0)*euler(rad(30-cos(sine/20)*10),0,0),animspeed)
+			hoffset = hoffset:Lerp(cn2(0,1,0)*euler(rad(-22.5),0,0)*cn2(0,0.5,0),animspeed)
+		end
+	end
+	t.CFrame = r.CFrame * toffset
+	la.CFrame,ra.CFrame,ll.CFrame,rl.CFrame,h.CFrame = t.CFrame*laoffset,t.CFrame*raoffset,t.CFrame*lloffset,t.CFrame*rloffset,t.CFrame*hoffset
+	gun.CFrame,gun.BrickColor,bgm.Volume = ra.CFrame * gunoffset,BrickColor.Random(),clamp(10/(cam.CFrame.p-r.Position).Magnitude,0,5)
+end)
+local eventconnection
+fixPos(lel,char["Left Leg"],90,0,0,0,0,"b")
+fixPos(ril,char["Right Leg"],90,0,0,0,0,"b")
+fixPos(tors,char.Torso,90,00,00,00,0,"b")
+fixPos(ria,char["Right Arm"],90,0,0,0,0,"b")
+fixPos(lea,char["Left Arm"],90,0,0,0,0,"b")
+fixPos(head,char.Head,0,0,0,0,90,"b")
+fixPos(Gun,char["Gun"],0.1,-0.3,0.4,-.9,90,"b",-60)
+
+table.insert(partexclusion,lel)
+table.insert(partexclusion,ril)
+table.insert(partexclusion,tors)
+table.insert(partexclusion,ria)
+table.insert(partexclusion,lea)
+table.insert(partexclusion,head)
+table.insert(partexclusion,Gun)
+
+plr.CharacterAdded:Connect(function(c)
+	char:Destroy()
+	local newCam = Instance.new("Camera",workspace)
+	workspace.CurrentCamera = newCam
+	newCam.CameraSubject = c:FindFirstChildOfClass("Humanoid")
+	alive = false
+end)
