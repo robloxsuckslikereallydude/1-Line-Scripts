@@ -1,0 +1,11 @@
+getgenv().autoreport = {
+    Advertise = true,
+    Safe = false,
+    Webhook = "",
+
+    Words = {
+        Blacklisted = "https://raw.githubusercontent.com/CF-Trail/Auto-Report/main/words/blacklisted.lua",
+        Whitelisted = "https://raw.githubusercontent.com/CF-Trail/Auto-Report/main/words/whitelisted.lua"
+    }
+};
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/Auto-Report/main/ar"))()
