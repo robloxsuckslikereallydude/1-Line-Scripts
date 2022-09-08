@@ -46,6 +46,26 @@ return {
 		"Scamming",
 		"he's advertising hacks (viruses)"
 	},
+	robux = {
+		"Scamming",
+		"he's advertising free robux"
+	},
+	robuc = {
+		"Scamming",
+		"he's advertising free robux"
+	},
+	robucks = {
+		"Scamming",
+		"he's advertising free robux"
+	},
+	bobux = {
+		"Scamming",
+		"he's advertising free robux"
+	},
+	bobuc = {
+		"Scamming",
+		"he's advertising free robux"
+	},
 	adopted = {
 		"Bullying",
 		"saying bad things about my parents"
@@ -90,7 +110,7 @@ return {
 		"Bullying",
 		"saying rude things to me, i can't take it anymore, i've had a really bad year"
 	},
-  bozo = {
+  	bozo = {
 		"Bullying",
 		"this is really mean! i've had a really bad year, my dog passed out and i just can't take it anymore!"
 	},
@@ -102,7 +122,15 @@ return {
 		"Bullying",
 		"saying rude things to me, i can't take it anymore, i've had a really bad year"
 	},
+	['get a job'] = {
+		"Bullying",
+		"saying rude things to me, i can't take it anymore, i've had a really bad year"
+	},
 	['no life'] = {
+		"Bullying",
+		"saying rude things to me, i can't take it anymore, i've had a really bad year"
+	},
+	['no job'] = {
 		"Bullying",
 		"saying rude things to me, i can't take it anymore, i've had a really bad year"
 	},
@@ -182,7 +210,7 @@ return {
 		"Bullying",
 		"this is really mean! i've had a really bad year, my dog passed out and i just can't take it anymore!"
 	},
-  loser = {
+  	loser = {
 		"Bullying",
 		"this is really mean! i've had a really bad year, my dog passed out and i just can't take it anymore!"
 	},
