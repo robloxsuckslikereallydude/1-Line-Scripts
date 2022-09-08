@@ -282,4 +282,8 @@ return {
 		"Offsite Links",
 		"he offsite links"
 	},
+	yt = {
+		"Offsite Links",
+		"he offsite links"
+	},
 };
