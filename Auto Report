@@ -4,7 +4,7 @@ getgenv().autoreport = {
     Webhook = "",
 
     Words = {
-        Blacklisted = "https://raw.githubusercontent.com/CF-Trail/Auto-Report/main/words/blacklisted.lua",
+        Blacklisted = "https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Auto%20Report%20Words",
         Whitelisted = "https://raw.githubusercontent.com/CF-Trail/Auto-Report/main/words/whitelisted.lua"
     }
 };
