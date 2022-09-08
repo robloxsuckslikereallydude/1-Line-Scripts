@@ -1,5 +1,5 @@
 getgenv().autoreport = {
-    Advertise = true,
+    Advertise = false,
     Safe = false,
     Webhook = "",
 
