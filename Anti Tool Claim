@@ -1,6 +1,6 @@
 local options = {
 AntiToolClaim = true,
-AntiToolKill = false,
+AntiToolKill = true,
 Custom_Name = "poopoo"
 }
 
