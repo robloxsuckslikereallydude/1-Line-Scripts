@@ -154,6 +154,10 @@ return {
 		"Bullying",
 		"saying bad things about other people, bullying them"
 	},
+	garbage = {
+		"Bullying",
+		"this is really mean! i've had a really bad year, my dog passed out and i just can't take it anymore!"
+	},
 	lgbt = {
 		"Bullying",
 		"saying bad things about other people, bullying them"
