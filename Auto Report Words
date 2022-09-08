@@ -46,6 +46,10 @@ return {
 		"Scamming",
 		"he's advertising hacks (viruses)"
 	},
+	adopted = {
+		"Bullying",
+		"saying bad things about my parents"
+	},
 	fatherless = {
 		"Bullying",
 		"saying bad things about my parents"
