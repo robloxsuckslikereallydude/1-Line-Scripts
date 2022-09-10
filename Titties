@@ -1,0 +1,101 @@
+                                                                                                                                                                                                                                 --[[
+Hanime tiddie script lol
+
+For best trolling make your character look reletivly good
+ 
+ 
+ Hats needed:
+ https://www.roblox.com/catalog/4708707860/Pink-Heart-Purse
+ https://www.roblox.com/catalog/5132802731/Pink-Pom-poms
+ https://www.roblox.com/catalog/12548563/Asimov-Outlaw
+ https://www.roblox.com/catalog/20011897/Space-Cop
+ ________________________________________________________________
+ 
+tiddie settings below                                                                                                                                                                  ]]
+local TiddieSpread = 0.6
+local TiddieAngle = 10
+local TiddieDensity = 0
+local TiddieFriction = 0.4
+local TiddieElasticity = 0.75
+local TiddieFrictionWeight = 0
+local TiddieElasticityWeight = 0
+--[Tiddie settings end (dont change anything beyond here)
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local WowHats = {Character:WaitForChild("CityLifeWoman_HairAccessory"),Character:WaitForChild("PirateCaptain_HatAccessory"),Character:WaitForChild("ROBLOXCap"),Character:WaitForChild("MoanaHat")}
+local CharacterTorso = Character.Torso
+
+local B1 = WowHats[1].Handle 
+local B2 = WowHats[2].Handle
+local TTS = WowHats[3].Handle
+local TTS2 = WowHats[4].Handle
+local BBFolder = Instance.new("Folder",Character)
+local TTFolder = Instance.new("Folder",Character)
+B1.Parent = BBFolder
+B2.Parent = BBFolder
+TTS.Parent = TTFolder
+TTS2.Parent = TTFolder
+local CCDesc = BBFolder:GetDescendants()
+local TTDesc = TTFolder:GetDescendants()
+for i=1,#CCDesc do
+	if CCDesc[i]:IsA("Weld") or CCDesc[i]:IsA("SpecialMesh") or CCDesc[i]:IsA("Part") or CCDesc[i]:IsA("Hat") or CCDesc[i]:IsA("ManualWeld") or CCDesc[i]:IsA("WeldConstraint") then
+		if CCDesc[i]:IsA("Part") then
+			CCDesc[i].CanCollide = false
+		else
+			CCDesc[i]:Destroy()
+		end
+
+	end
+end
+for i=1,#TTDesc do
+	if TTDesc[i]:IsA("Weld") or TTDesc[i]:IsA("Part") or TTDesc[i]:IsA("Hat") or TTDesc[i]:IsA("ManualWeld") or TTDesc[i]:IsA("WeldConstraint") then
+		if TTDesc[i]:IsA("Part") then
+			TTDesc[i].CanCollide = false
+		else
+			TTDesc[i]:Destroy()
+		end
+
+	end
+end
+local ConvertToTTS = function(HatHandle,TorsoSpread,AngleSpread)
+	HatHandle.Massless = true
+	HatHandle.CustomPhysicalProperties = PhysicalProperties.new(TiddieDensity, TiddieFriction, TiddieElasticity, TiddieFrictionWeight, TiddieElasticityWeight)
+	local bbAttchment = Instance.new("Attachment",HatHandle)
+	bbAttchment.CFrame = CFrame.new(0,0,1)
+	bbAttchment.Visible  =true
+	local TrsAttachment = Instance.new("Attachment",CharacterTorso)
+	TrsAttachment.CFrame = CFrame.new(TorsoSpread,0.7,-0.3) * CFrame.Angles(0,0,AngleSpread)
+	TrsAttachment.Visible = true
+	-- Fun part 
+	local JiggleWeld = Instance.new("BallSocketConstraint",HatHandle)
+	JiggleWeld.Restitution = 1
+	JiggleWeld.MaxFrictionTorque  =1
+	JiggleWeld.LimitsEnabled = true
+	JiggleWeld.TwistLimitsEnabled = true
+	JiggleWeld.UpperAngle = 10
+	JiggleWeld.TwistUpperAngle = -20
+	JiggleWeld.TwistLowerAngle = 40
+	JiggleWeld.Attachment1 = bbAttchment
+	JiggleWeld.Attachment0 = TrsAttachment
+end
+
+local PhysicalConnect = function(p1,p2,posoffset,angleoffset)
+	p1.CustomPhysicalProperties = PhysicalProperties.new(TiddieDensity, TiddieFriction, TiddieElasticity, TiddieFrictionWeight, TiddieElasticityWeight)
+	local attachment1 = Instance.new("Attachment",p1)
+	local attachment2 = Instance.new("Attachment",p2)
+	attachment2.CFrame  =posoffset * angleoffset
+	local bsc = Instance.new("BallSocketConstraint",p1)
+	bsc.LimitsEnabled = true
+	bsc.TwistLimitsEnabled = true
+	bsc.UpperAngle = 0
+	bsc.TwistUpperAngle = 0
+	bsc.TwistLowerAngle = 0
+	bsc.Attachment0 = attachment2
+	bsc.Attachment1 = attachment1
+end
+
+ConvertToTTS(B1,TiddieSpread,TiddieAngle)
+ConvertToTTS(B2,-TiddieSpread,-TiddieAngle)
+PhysicalConnect(TTS,B1,CFrame.new(0,-0.1,-0.5),CFrame.Angles(-90,0,0))
+PhysicalConnect(TTS2,B2,CFrame.new(0,0.1,-0.6),CFrame.Angles(math.rad(-90),math.rad(0),math.rad(0)))
