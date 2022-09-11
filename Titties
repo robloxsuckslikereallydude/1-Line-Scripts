@@ -97,5 +97,5 @@ end
 
 ConvertToTTS(B1,TiddieSpread,TiddieAngle)
 ConvertToTTS(B2,-TiddieSpread,-TiddieAngle)
-PhysicalConnect(TTS,B1,CFrame.new(0,-0.1,-0.5),CFrame.Angles(-90,0,0))
-PhysicalConnect(TTS2,B2,CFrame.new(0,0.1,-0.6),CFrame.Angles(math.rad(-90),math.rad(0),math.rad(0)))
+PhysicalConnect(TTS,B1,CFrame.new(0,-0.1,-0.47),CFrame.Angles(-90,0,0))
+PhysicalConnect(TTS2,B2,CFrame.new(0,0.1,-0.57),CFrame.Angles(math.rad(-90),math.rad(0),math.rad(0)))
