@@ -1,5 +1,10 @@
 --Boronide™ Obfuscation, v0.6.3
 
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+               Text = "Say .cmds in chat, then press F9 or type /console to get started!";
+               Color = Color3.fromRGB(255, 0, 0);
+           })
+
 local J,c,A=nil,nil,nil([[
 
 	discord.gg/boronide
