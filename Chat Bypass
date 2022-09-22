@@ -716,7 +716,11 @@ local q = {
     ["pissing"] = "p{{aieixzvzx:issing}}",
     ["negro"] = "ne{{aieixzvzx:gro}}",
     ["negros"] = "ne{{aieixzvzx:gros}}",
-    ["booties"] = "boo{{aieixzvzx:ties}}"
+    ["booties"] = "boo{{aieixzvzx:ties}}",
+    ["dumbass"] = "dumba{{aieixzvzx:ss}}",
+    ["smartass"] = "smarta{{aieixzvzx:ss}}",
+    ["smartasses"] = "smarta{{aieixzvzx:sses}}",
+    ["dumbasses"] = "dumba{{aieixzvzx:sses}}"
 }
 
 wait(3)
