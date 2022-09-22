@@ -720,6 +720,9 @@ local q = {
     ["dumbass"] = "dumba{{aieixzvzx:ss}}",
     ["smartass"] = "smarta{{aieixzvzx:ss}}",
     ["smartasses"] = "smarta{{aieixzvzx:sses}}",
+    ["balls"] = "ba{{aieixzvzx:lls}}",
+    ["ballsack"] = "ba{{aieixzvzx:llsack}}",
+    ["nutsack"] = "nu{{aieixzvzx:tsack}}",
     ["dumbasses"] = "dumba{{aieixzvzx:sses}}"
 }
 
