@@ -724,6 +724,16 @@ local q = {
     ["ballsack"] = "ba{{aieixzvzx:llsack}}",
     ["nutsack"] = "nu{{aieixzvzx:tsack}}",
     ["dumbasses"] = "dumba{{aieixzvzx:sses}}"
+    ["athiest"] = "athi{{aieixzvzx:est}}",
+    ["jewish"] = "je{{aieixzvzx:wish}}",
+    ["christian"] = "chri{{aieixzvzx:stian}}",
+    ["muslim"] = "mu{{aieixzvzx:slim}}",
+    ["jurdism"] = "jur{{aieixzvzx:dism}}",
+    ["islam"] = "isl{{aieixzvzx:am}}",
+    ["allah"] = "al{{aieixzvzx:lah}}",
+    ["muhammad"] = "muha{{aieixzvzx:mmad}}",
+    ["christianity"] = "chri{{aieixzvzx:stianity}}",
+    ["satanism"] = "sata{{aieixzvzx:nism}}",
 }
 
 wait(3)
