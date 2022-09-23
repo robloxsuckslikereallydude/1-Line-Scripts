@@ -733,6 +733,13 @@ local q = {
     ["allah"] = "al{{aieixzvzx:lah}}",
     ["muhammad"] = "muha{{aieixzvzx:mmad}}",
     ["christianity"] = "chri{{aieixzvzx:stianity}}",
+    ["dickhead"] = "d¡c{{aieixzvzx:khead}}",
+    ["dickheads"] = "d¡c{{aieixzvzx:kheads}}",
+    ["cumload"] = "cu{{aieixzvzx:mload}}",
+    ["cumloads"] = "cu{{aieixzvzx:mloads}}",
+    ["cumloads"] = "cu{{aieixzvzx:mloads}}",
+    ["cumdump"] = "cu{{aieixzvzx:mdump}}",
+    ["cumdumps"] = "cu{{aieixzvzx:mdumps}}",
     ["satanism"] = "sata{{aieixzvzx:nism}}"
 }
 
