@@ -740,6 +740,14 @@ local q = {
     ["cumloads"] = "cu{{aieixzvzx:mloads}}",
     ["cumdump"] = "cu{{aieixzvzx:mdump}}",
     ["cumdumps"] = "cu{{aieixzvzx:mdumps}}",
+    ["wtf"] = "wt{{aieixzvzx:f}}",
+    ["gtfo"] = "gt{{aieixzvzx:fo}}",
+    ["kys"] = "k{{aieixzvzx:ys}}",
+    ["omfg"] = "omf{{aieixzvzx:g}}",
+    ["stfu"] = "st{{aieixzvzx:fu}}",
+    ["ily"] = "il{{aieixzvzx:y}}",
+    ["istg"] = "is{{aieixzvzx:tg}}",
+    ["deadass"] = "dead as{{aieixzvzx:s}}",
     ["satanism"] = "sata{{aieixzvzx:nism}}"
 }
 
@@ -765,10 +773,10 @@ t =
                     if z:lower() == y then
                         if z:upper() ~= z then
                             i = i:gsub(z, A)
-                            x = i .. " ng"
+                            x = i .. " pq"
                         else
                             i = i:gsub(z, A):upper()
-                            x = i:gsub(z, A):upper() .. " hi"
+                            x = i:gsub(z, A):upper() .. " pq"
                         end
                     end
                 end
