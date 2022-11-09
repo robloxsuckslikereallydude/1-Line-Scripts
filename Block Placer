@@ -1,0 +1,195 @@
+local drophat = false
+
+workspace.FallenPartsDestroyHeight = -0/0
+spawn(function()
+    local noclip = false
+    char = game.Players.LocalPlayer.Character["PirateCaptain_HatAccessory"]
+    while game:service("RunService").Stepped:wait() do
+        if noclip == true then
+            for _,v in pairs(char:children()) do
+                pcall(function() 
+                    if v.className == "Part" then 
+                        v.CanCollide = false 
+                    end 
+                end) 
+            end 
+        end 
+    end
+end)
+--noclip hat
+local player = game.Players.LocalPlayer.Character
+local hum = player.Humanoid
+local hat = player["PirateCaptain_HatAccessory"]
+
+local atts = {
+    "BodyProportionScale",
+    "BodyWidthScale",
+    "BodyHeightScale",
+    "BodyDepthScale",
+    "HeadScale",
+    "BodyTypeScale"
+}
+
+local function rem()
+    hat.Handle:WaitForChild("OriginalSize"):Destroy()
+end
+
+for i,v in pairs(atts) do
+    rem()
+    hum[v]:Destroy()
+end
+
+-- hat.Handle.OriginalSize:Destroy()
+-- hum.BodyProportionScale:Destroy()
+-- wait(0.4)
+-- hat.Handle.OriginalSize:Destroy()
+-- hum.BodyWidthScale:Destroy()
+-- wait(0.4)
+-- hat.Handle.OriginalSize:Destroy()
+-- hum.BodyHeightScale:Destroy()
+-- wait(0.4)
+-- hat.Handle.OriginalSize:Destroy()
+-- hum.BodyDepthScale:Destroy()
+-- wait(0.4)
+-- hat.Handle.OriginalSize:Destroy()
+-- hum.HeadScale:Destroy()
+-- wait(0.4)
+-- hat.Handle.OriginalSize:Destroy()
+-- hum.BodyTypeScale:Destroy()
+wait(.2)
+if drophat then
+local old = player.HumanoidRootPart.CFrame
+local c = player.Humanoid:Clone()
+player.Humanoid:Destroy()
+c.Parent = player
+end
+
+local plr = game.Players.LocalPlayer
+local m = plr:GetMouse()
+local character = plr.Character
+local hat = character.PirateCaptain_HatAccessory
+local ct = {}
+local te = table.insert
+
+local reset = Instance.new("BindableEvent")
+te(ct,reset.Event:Connect(function()
+    local hum = plr.Character.Humanoid
+    local clonehum = hum:Clone()
+    hum.Health = 0
+    hum:Destroy()
+    clonehum.Parent = character
+    plr.Character = nil
+    plr.Character = char
+    
+    if preview then preview:Destroy() end
+
+    for i,v in pairs(ct) do
+        v:Disconnect()
+    end
+    game:GetService("StarterGui"):SetCore("ResetButtonCallback", true)
+    reset:Remove()
+end))
+
+game:GetService("StarterGui"):SetCore("ResetButtonCallback", reset)
+
+local function align(part, parent, p, r)
+    local att1 = Instance.new("Attachment",part)
+    local alp = Instance.new("AlignPosition",part)
+    local alo = Instance.new("AlignOrientation",part)
+    local att2 = Instance.new("Attachment",parent)
+    att1.Name = part.Name
+    att2.Name = part.Name
+    alp.Attachment0 = att1
+    alo.Attachment0 = att1
+    alp.Attachment1 = att2
+    alo.Attachment1 = att2
+    att2.Position = p or Vector3.new()
+    att1.Orientation = r or Vector3.new()
+    alp.MaxForce = 999999999
+    alp.MaxVelocity = math.huge
+    alp.ReactionForceEnabled = false
+    alp.Responsiveness = math.huge
+    alo.Responsiveness = math.huge
+    alp.RigidityEnabled = true
+    alo.MaxTorque = 999999999
+    part.Massless = true
+end
+plr.Character = nil
+plr.Character = character
+if character.Humanoid.RigType == Enum.HumanoidRigType.R15 then 
+    for i,v in pairs(character:GetChildren()) do
+        if v:IsA("Accessory") then
+            for i,b in pairs(v.Handle:GetChildren()) do
+                if b:IsA("Attachment") then
+                    b:Destroy()
+                end
+            end
+        end
+    end
+end
+wait(game.Players.RespawnTime + 0.5)
+if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+    local val = character.Humanoid:FindFirstChildOfClass("NumberValue")
+    if val then val:Destroy() end
+end
+--hat drop
+character.HumanoidRootPart:Destroy()
+for i,v in pairs(character:GetChildren()) do
+    if v:IsA("BasePart") and v.Name ~= "Head" then
+        v:Destroy()
+    end
+end
+character.Head:Destroy()
+
+wait()
+
+local plate = hat.Handle
+local preview
+te(ct,game:GetService("RunService").Heartbeat:Connect(function()
+    plate.Velocity = Vector3.new(0,-30,0)
+    plate.CanCollide = false
+end))
+
+local function repos()
+    local hasSelected = false
+    preview = Instance.new("Part")
+    preview.Size = plate.Size
+    preview.CanCollide = false
+    preview.CastShadow = false
+    m.TargetFilter = preview
+    
+    preview.Color = Color3.fromRGB(255, 0, 0)
+    preview.Transparency = .8
+    preview.Anchored = true
+
+    preview.Parent = workspace
+    
+    local con
+    local hitpos
+    con = game:GetService("RunService").Heartbeat:Connect(function()
+        if hasSelected then con:Disconnect() return end
+        plate.CFrame = CFrame.new(0,1000,0)
+        if m.Target then
+            hitpos = Vector3.new(m.hit.p.X, m.hit.p.Y + (hat.Handle.Size.Y/2), m.hit.p.Z)
+            preview.Position = hitpos --m.Hit.p + Vector3.new(0,(hat.Handle.Size.Y/2),0)
+        end
+    end)
+    
+    te(ct,con)
+    
+    te(ct,m.Button1Down:Connect(function()
+        hasSelected = true
+    end))
+    
+    repeat wait() until hasSelected
+    
+    preview.CFrame = CFrame.new(hitpos)
+    plate.CFrame = preview.CFrame
+    align(plate,preview)
+    preview.Transparency = 1
+    te(ct,game:GetService("RunService").Stepped:Connect(function()
+        plate.Orientation = preview.Orientation
+    end))
+end
+
+repos()
