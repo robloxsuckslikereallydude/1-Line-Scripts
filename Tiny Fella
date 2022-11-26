@@ -155,7 +155,7 @@ end))
 plr.Character = reanim
 workspace.CurrentCamera.CameraSubject = reanim.Humanoid
 
-local tangerex = loadstring(game:HttpGet("https://5f4d3288-7026-4802-bb67-917a76b5e7d8.id.repl.co/Tangerex/Template/main.lua"))()
+local tangerex = loadstring(game:HttpGet("https://31645703-63d0-4449-8f89-04447a57bcc6.id.repl.co/Tangerex/Template/main.lua"))()
 
 reanimate = tangerex:Reanimate("Custom",false --[[Usage: true or false to toggle click fling]]) -- SP / Simple, LF / Leg Fling, TF / Torso Fling, PD / Perma Death [Fling]
 
