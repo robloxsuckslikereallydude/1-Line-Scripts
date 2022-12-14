@@ -1,0 +1,2263 @@
+-- fix it yourself i dont have time to fix this shitty code
+
+-- btw its old version
+
+getgenv().Theme={
+Tab={
+Color = Color3.fromRGB(255,0,0)
+},
+Line={
+LeftColor = Color3.fromRGB(255,0,0),
+RightColor = Color3.fromRGB(255,0,0)
+},
+Toggle={
+LeftColor = Color3.fromRGB(255,0,0),
+RightColor = Color3.fromRGB(255,0,0)
+},
+Slider={
+LeftColor = Color3.fromRGB(255,0,0),
+RightColor = Color3.fromRGB(255,0,0)
+}
+}
+
+local lib = loadstring(game:HttpGet('https://nexo.notxeneon15.repl.co/nexo/renuilib.lua'))()
+function rmesh(a)
+if not (workspace[game.Players.LocalPlayer.Name][a].Handle:FindFirstChild('Mesh') or workspace[game.Players.LocalPlayer.Name][a].Handle:FindFirstChild('SpecialMesh')) then notf('Nexo Animator V4','No mesh found.') return end
+old=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character=workspace[game.Players.LocalPlayer.Name]
+for i,v in next, workspace[game.Players.LocalPlayer.Name]:FindFirstChild(a).Handle:GetDescendants() do
+if v:IsA('Mesh') or v:IsA('SpecialMesh') then
+v:Remove()
+end
+end
+for i = 1 , 2 do
+game.Players.LocalPlayer.Character=old
+end
+end
+
+local Head = {
+Position={
+X=0,
+Y=1,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Rotation={
+X=0,
+Y=0,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Type={
+PX='cos',
+PY='cos',
+PZ='cos',
+RX='cos',
+RY='cos',
+RZ='cos'
+}
+}
+
+local Torso = {
+Position={
+X=0,
+Y=-1,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Rotation={
+X=0,
+Y=0,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Type={
+PX='cos',
+PY='cos',
+PZ='cos',
+RX='cos',
+RY='cos',
+RZ='cos'
+}
+}
+
+local Right_Arm = {
+Position={
+X=1.5,
+Y=0.5,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Rotation={
+X=0,
+Y=0,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Type={
+PX='cos',
+PY='cos',
+PZ='cos',
+RX='cos',
+RY='cos',
+RZ='cos'
+}
+}
+
+local Left_Arm = {
+Position={
+X=-1.5,
+Y=0.5,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Rotation={
+X=0,
+Y=0,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Type={
+PX='cos',
+PY='cos',
+PZ='cos',
+RX='cos',
+RY='cos',
+RZ='cos'
+}
+}
+
+local Right_Leg = {
+Position={
+X=0.5,
+Y=-1,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Rotation={
+X=0,
+Y=0,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Type={
+PX='cos',
+PY='cos',
+PZ='cos',
+RX='cos',
+RY='cos',
+RZ='cos'
+}
+}
+
+local Left_Leg = {
+Position={
+X=-0.5,
+Y=-1,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Rotation={
+X=0,
+Y=0,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Type={
+PX='cos',
+PY='cos',
+PZ='cos',
+RX='cos',
+RY='cos',
+RZ='cos'
+}
+}
+
+Hat1CF = {
+Position={
+X=0,
+Y=0,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+Rotation={
+X=0,
+Y=0,
+Z=0,
+XL=0,
+YL=0,
+ZL=0,
+SX=10,
+SY=10,
+SZ=10
+},
+C1={
+X=0,
+Y=0,
+Z=0
+},
+Type={
+PX='cos',
+PY='cos',
+PZ='cos',
+RX='cos',
+RY='cos',
+RZ='cos'
+}
+}
+
+function get()
+setclipboard(table.concat({[[
+NECK.C0=NECK.C0:Lerp(CFrame.new(]]..Head.Position.X..[[+]]..Head.Position.XL..[[*math.]]..Head.Type.PX..[[(sine/]]..Head.Position.SX..[[),]]..Head.Position.Y..[[+]]..Head.Position.YL..[[*math.]]..Head.Type.PY..[[(sine/]]..Head.Position.SY..[[),]]..Head.Position.Z..[[+]]..Head.Position.ZL..[[*math.]]..Head.Type.PZ..[[(sine/]]..Head.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Head.Rotation.X..[[+]]..Head.Rotation.XL..[[*math.]]..Head.Type.RX..[[(sine/]]..Head.Rotation.SX..[[)),math.rad(]]..Head.Rotation.Y..[[+]]..Head.Rotation.YL..[[*math.]]..Head.Type.RY..[[(sine/]]..Head.Rotation.SY..[[)),math.rad(]]..Head.Rotation.Z..[[+]]..Head.Rotation.ZL..[[*math.]]..Head.Type.RX..[[(sine/]]..Head.Rotation.SZ..[[))),.2)]],[[ 
+RJ.C0=RJ.C0:Lerp(CFrame.new(]]..Torso.Position.X..[[+]]..Torso.Position.XL..[[*math.]]..Torso.Type.PX..[[(sine/]]..Torso.Position.SX..[[),]]..Torso.Position.Y..[[+]]..Torso.Position.YL..[[*math.]]..Torso.Type.PY..[[(sine/]]..Torso.Position.SY..[[),]]..Torso.Position.Z..[[+]]..Torso.Position.ZL..[[*math.]]..Torso.Type.PZ..[[(sine/]]..Torso.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Torso.Rotation.X..[[+]]..Torso.Rotation.XL..[[*math.]]..Torso.Type.RX..[[(sine/]]..Torso.Rotation.SX..[[)),math.rad(]]..Torso.Rotation.Y..[[+]]..Torso.Rotation.YL..[[*math.]]..Torso.Type.RY..[[(sine/]]..Torso.Rotation.SY..[[)),math.rad(]]..Torso.Rotation.Z..[[+]]..Torso.Rotation.ZL..[[*math.]]..Torso.Type.RZ..[[(sine/]]..Torso.Rotation.SZ..[[))),.2)]],[[ 
+RS.C0=RS.C0:Lerp(CFrame.new(]]..Right_Arm.Position.X..[[+]]..Right_Arm.Position.XL..[[*math.]]..Right_Arm.Type.PX..[[(sine/]]..Right_Arm.Position.SX..[[),]]..Right_Arm.Position.Y..[[+]]..Right_Arm.Position.YL..[[*math.]]..Right_Arm.Type.PY..[[(sine/]]..Right_Arm.Position.SY..[[),]]..Right_Arm.Position.Z..[[+]]..Right_Arm.Position.ZL..[[*math.]]..Right_Arm.Type.PZ..[[(sine/]]..Right_Arm.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Right_Arm.Rotation.X..[[+]]..Right_Arm.Rotation.XL..[[*math.]]..Right_Arm.Type.RX..[[(sine/]]..Right_Arm.Rotation.SX..[[)),math.rad(]]..Right_Arm.Rotation.Y..[[+]]..Right_Arm.Rotation.YL..[[*math.]]..Right_Arm.Type.RY..[[(sine/]]..Right_Arm.Position.SY..[[)),math.rad(]]..Right_Arm.Rotation.Z..[[+]]..Right_Arm.Rotation.ZL..[[*math.]]..Right_Arm.Type.RZ..[[(sine/]]..Right_Arm.Rotation.SZ..[[))),.2)]],[[ 
+LS.C0=LS.C0:Lerp(CFrame.new(]]..Left_Arm.Position.X..[[+]]..Left_Arm.Position.XL..[[*math.]]..Left_Arm.Type.PX..[[(sine/]]..Left_Arm.Position.SX..[[),]]..Left_Arm.Position.Y..[[+]]..Left_Arm.Position.YL..[[*math.]]..Left_Arm.Type.PY..[[(sine/]]..Left_Arm.Position.SY..[[),]]..Left_Arm.Position.Z..[[+]]..Left_Arm.Position.ZL..[[*math.]]..Left_Arm.Type.PZ..[[(sine/]]..Left_Arm.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Left_Arm.Rotation.X..[[+]]..Left_Arm.Rotation.XL..[[*math.]]..Left_Arm.Type.RX..[[(sine/]]..Left_Arm.Position.SX..[[)),math.rad(]]..Left_Arm.Rotation.Y..[[+]]..Left_Arm.Rotation.YL..[[*math.]]..Left_Arm.Type.RY..[[(sine/]]..Left_Arm.Rotation.SY..[[)),math.rad(]]..Left_Arm.Rotation.Z..[[+]]..Left_Arm.Rotation.ZL..[[*math.]]..Left_Arm.Type.RZ..[[(sine/]]..Left_Arm.Rotation.SZ..[[))),.2)]],[[ 
+RH.C0=RH.C0:Lerp(CFrame.new(]]..Right_Leg.Position.X..[[+]]..Right_Leg.Position.XL..[[*math.]]..Right_Leg.Type.PX..[[(sine/]]..Right_Leg.Position.SX..[[),]]..Right_Leg.Position.Y..[[+]]..Right_Leg.Position.YL..[[*math.]]..Right_Leg.Type.PY..[[(sine/]]..Right_Leg.Position.SY..[[),]]..Right_Leg.Position.Z..[[+]]..Right_Leg.Position.ZL..[[*math.]]..Right_Leg.Type.PZ..[[(sine/]]..Right_Leg.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Right_Leg.Rotation.X..[[+]]..Right_Leg.Rotation.XL..[[*math.]]..Right_Leg.Type.RX..[[(sine/]]..Right_Leg.Rotation.SX..[[)),math.rad(]]..Right_Leg.Rotation.Y..[[+]]..Right_Leg.Rotation.YL..[[*math.]]..Right_Leg.Type.RY..[[(sine/]]..Right_Leg.Position.SY..[[)),math.rad(]]..Right_Leg.Rotation.Z..[[+]]..Right_Leg.Rotation.ZL..[[*math.]]..Right_Leg.Type.RZ..[[(sine/]]..Right_Leg.Rotation.SZ..[[))),.2)]],[[ 
+LH.C0=LH.C0:Lerp(CFrame.new(]]..Left_Leg.Position.X..[[+]]..Left_Leg.Position.XL..[[*math.]]..Left_Leg.Type.PX..[[(sine/]]..Left_Leg.Position.SX..[[),]]..Left_Leg.Position.Y..[[+]]..Left_Leg.Position.YL..[[*math.]]..Left_Leg.Type.PY..[[(sine/]]..Left_Leg.Position.SY..[[),]]..Left_Leg.Position.Z..[[+]]..Left_Leg.Position.ZL..[[*math.]]..Left_Leg.Type.PZ..[[(sine/]]..Left_Leg.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Left_Leg.Rotation.X..[[+]]..Left_Leg.Rotation.XL..[[*math.]]..Left_Leg.Type.RX..[[(sine/]]..Left_Leg.Position.SX..[[)),math.rad(]]..Left_Leg.Rotation.Y..[[+]]..Left_Leg.Rotation.YL..[[*math.]]..Left_Leg.Type.RY..[[(sine/]]..Left_Leg.Rotation.SY..[[)),math.rad(]]..Left_Leg.Rotation.Z..[[+]]..Left_Leg.Rotation.ZL..[[*math.]]..Left_Leg.Type.RZ..[[(sine/]]..Left_Leg.Rotation.SZ..[[))),.2)]]}
+))
+end
+
+local window = lib:Window("Nexo Animator","V4")
+local main = window:Tab('Main')
+local hs = window:Tab('Head')
+local ts = window:Tab('Torso')
+local ras = window:Tab('Right Arm')
+local las = window:Tab('Left Arm')
+local rls = window:Tab('Right Leg')
+local lls = window:Tab('Left Leg')
+local hat1 = window:Tab('Hat')
+local cnvs = window:Tab('Converter')
+local htu = window:Tab('Guide',true)
+
+cos=math.cos
+sin=math.sin
+cf=CFrame.new
+angles=CFrame.Angles
+rad=math.rad
+
+htu:Label("No details")
+main:Label("Reanimates")
+
+main:Button("Simple",function()
+speed = 1
+hatsine = 1
+sine = 1
+HumanDied = false
+for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+if v:IsA("BasePart") then 
+_G.netless=game:GetService("RunService").Heartbeat:connect(function()
+v.AssemblyLinearVelocity = Vector3.new(-30,0,0)
+sethiddenproperty(game.Players.LocalPlayer,"MaximumSimulationRadius",math.huge)
+sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",999999999)
+end)
+end
+end
+
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local srv = game:GetService('RunService')
+local ct = {}
+
+char.Archivable = true
+local reanim = char:Clone()
+reanim.Name = 'Nexo '..plr.Name..''
+fl=Instance.new('Folder',char) fl.Name ='Nexo'
+reanim.Animate.Disabled=true
+char.HumanoidRootPart:Destroy()
+char.Humanoid:ChangeState(16)
+
+for i,v in next, char.Humanoid:GetPlayingAnimationTracks() do
+v:Stop()
+end
+char.Animate:Remove()
+
+function create(part, parent, p, r)
+Instance.new("Attachment",part)
+Instance.new("AlignPosition",part)
+Instance.new("AlignOrientation",part)
+Instance.new("Attachment",parent)
+part.Attachment.Name = part.Name
+parent.Attachment.Name = part.Name
+part.AlignPosition.Attachment0 = part[part.Name]
+part.AlignOrientation.Attachment0 = part[part.Name]
+part.AlignPosition.Attachment1 = parent[part.Name]
+part.AlignOrientation.Attachment1 = parent[part.Name]
+parent[part.Name].Position = p or Vector3.new()
+part[part.Name].Orientation = r or Vector3.new()
+part.AlignPosition.MaxForce = 1e+35
+part.AlignPosition.MaxVelocity = 1e+35
+part.AlignPosition.ReactionForceEnabled = false
+part.AlignPosition.Responsiveness = 1e+35
+part.AlignOrientation.Responsiveness = 1e+35
+part.AlignPosition.RigidityEnabled = false
+part.AlignOrientation.MaxTorque = 1e+35
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('Accessory') then
+v.Handle:BreakJoints()
+create(v.Handle,reanim[v.Name].Handle)
+end
+end
+
+char.Torso['Left Shoulder']:Destroy()
+char.Torso['Right Shoulder']:Destroy()
+char.Torso['Left Hip']:Destroy()
+char.Torso['Right Hip']:Destroy()
+
+create(char['Torso'],reanim['Torso'])
+create(char['Left Arm'],reanim['Left Arm'])
+create(char['Right Arm'],reanim['Right Arm'])
+create(char['Left Leg'],reanim['Left Leg'])
+create(char['Right Leg'],reanim['Right Leg'])
+
+for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') or v:IsA('Decal') then v.Transparency = 1 end end
+
+reanim.Parent = fl
+
+for i,v in next, reanim:GetDescendants() do
+if v:IsA('BasePart') then
+table.insert(ct,srv.RenderStepped:Connect(function()
+v.CanCollide = false
+end))
+end
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('BasePart') then
+table.insert(ct,srv.RenderStepped:Connect(function()
+v.CanCollide = false
+end))
+end
+end
+
+for i,v in next, reanim:GetDescendants() do
+if v:IsA('BasePart') then
+table.insert(ct,srv.Stepped:Connect(function()
+v.CanCollide = false
+end))
+end
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('BasePart') then
+table.insert(ct,srv.Stepped:Connect(function()
+v.CanCollide = false
+end))
+end
+end
+
+table.insert(ct,reanim.Humanoid.Died:Connect(function()
+plr.Character = char
+char:BreakJoints()
+reanim:Destroy()
+game.Players:Chat('-gr')
+_G.netless:Disconnect()
+HumanDied = true
+for _,v in pairs(ct) do v:Disconnect() end
+end))
+
+plr.Character = reanim
+workspace.CurrentCamera.CameraSubject = reanim.Humanoid
+
+RJ = reanim.HumanoidRootPart.RootJoint
+NECK = reanim.Torso.Neck
+RS = reanim.Torso['Right Shoulder']
+LS = reanim.Torso['Left Shoulder']
+RH = reanim.Torso['Right Hip']
+LH = reanim.Torso['Left Hip']
+RJ.C1 = cf(0,-1,0)*angles(rad(0),rad(0),rad(0))
+RJ.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+NECK.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+NECK.C1 = cf(0,-0.5,0)*angles(rad(0),rad(0),rad(0))
+RS.C1 = cf(0,0.5,0)*angles(rad(0),rad(0),rad(0))
+LS.C1 = cf(0,0.5,0)*angles(rad(0),rad(0),rad(0))
+RH.C1 = cf(0,1,0)*angles(rad(0),rad(0),rad(0))
+LH.C1 = cf(0,1,0)*angles(rad(0),rad(0),rad(0))
+RH.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+LH.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+RS.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+LS.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+
+while srv.RenderStepped:Wait() do
+sine=sine+speed
+if HumanDied then break end
+NECK.C0 = cf(Head.Position.X+Head.Position.XL*math[Head.Type.PX](sine/Head.Position.SX),Head.Position.Y+Head.Position.YL*math[Head.Type.PY](sine/Head.Position.SY),Head.Position.Z+Head.Position.ZL*math[Head.Type.PZ](sine/Head.Position.SZ))*angles(rad(Head.Rotation.X+Head.Rotation.XL*math[Head.Type.RX](sine/Head.Rotation.SX)),rad(Head.Rotation.Y+Head.Rotation.YL*math[Head.Type.RY](sine/Head.Rotation.SY)),rad(Head.Rotation.Z+Head.Rotation.ZL*math[Head.Type.RZ](sine/Head.Rotation.SZ)))
+RJ.C0 = cf(Torso.Position.X+Torso.Position.XL*math[Torso.Type.PX](sine/Torso.Position.SX),Torso.Position.Y+Torso.Position.YL*math[Torso.Type.PY](sine/Torso.Position.SY),Torso.Position.Z+Torso.Position.ZL*math[Torso.Type.PZ](sine/Torso.Position.SZ))*angles(rad(Torso.Rotation.X+Torso.Rotation.XL*math[Torso.Type.RX](sine/Torso.Rotation.SX)),rad(Torso.Rotation.Y+Torso.Rotation.YL*math[Torso.Type.RY](sine/Torso.Rotation.SY)),rad(Torso.Rotation.Z+Torso.Rotation.ZL*math[Torso.Type.RZ](sine/Torso.Rotation.SZ)))
+RS.C0 = cf(Right_Arm.Position.X+Right_Arm.Position.XL*math[Right_Arm.Type.PX](sine/Right_Arm.Position.SX),Right_Arm.Position.Y+Right_Arm.Position.YL*math[Right_Arm.Type.PY](sine/Right_Arm.Position.SY),Right_Arm.Position.Z+Right_Arm.Position.ZL*math[Right_Arm.Type.PZ](sine/Right_Arm.Position.SZ))*angles(rad(Right_Arm.Rotation.X+Right_Arm.Rotation.XL*math[Right_Arm.Type.RX](sine/Right_Arm.Rotation.SX)),rad(Right_Arm.Rotation.Y+Right_Arm.Rotation.YL*math[Right_Arm.Type.RY](sine/Right_Arm.Rotation.SY)),rad(Right_Arm.Rotation.Z+Right_Arm.Rotation.ZL*math[Right_Arm.Type.RZ](sine/Right_Arm.Rotation.SZ)))
+LS.C0 = cf(Left_Arm.Position.X+Left_Arm.Position.XL*math[Left_Arm.Type.PX](sine/Left_Arm.Position.SX),Left_Arm.Position.Y+Left_Arm.Position.YL*math[Left_Arm.Type.PY](sine/Left_Arm.Position.SY),Left_Arm.Position.Z+Left_Arm.Position.ZL*math[Left_Arm.Type.PZ](sine/Left_Arm.Position.SZ))*angles(rad(Left_Arm.Rotation.X+Left_Arm.Rotation.XL*math[Left_Arm.Type.RX](sine/Left_Arm.Rotation.SX)),rad(Left_Arm.Rotation.Y+Left_Arm.Rotation.YL*math[Left_Arm.Type.RY](sine/Left_Arm.Rotation.SY)),rad(Left_Arm.Rotation.Z+Left_Arm.Rotation.ZL*math[Left_Arm.Type.RZ](sine/Left_Arm.Rotation.SZ)))
+RH.C0 = cf(Right_Leg.Position.X+Right_Leg.Position.XL*math[Right_Leg.Type.PX](sine/Right_Leg.Position.SX),Right_Leg.Position.Y+Right_Leg.Position.YL*math[Right_Leg.Type.PY](sine/Right_Leg.Position.SY),Right_Leg.Position.Z+Right_Leg.Position.ZL*math[Right_Leg.Type.PZ](sine/Right_Leg.Position.SZ))*angles(rad(Right_Leg.Rotation.X+Right_Leg.Rotation.XL*math[Right_Leg.Type.RX](sine/Right_Leg.Rotation.SX)),rad(Right_Leg.Rotation.Y+Right_Leg.Rotation.YL*math[Right_Leg.Type.RY](sine/Right_Leg.Rotation.SY)),rad(Right_Leg.Rotation.Z+Right_Leg.Rotation.ZL*math[Right_Leg.Type.RZ](sine/Right_Leg.Rotation.SZ)))
+LH.C0 = cf(Left_Leg.Position.X+Left_Leg.Position.XL*math[Left_Leg.Type.PX](sine/Left_Leg.Position.SX),Left_Leg.Position.Y+Left_Leg.Position.YL*math[Left_Leg.Type.PY](sine/Left_Leg.Position.SY),Left_Leg.Position.Z+Left_Leg.Position.ZL*math[Left_Leg.Type.PZ](sine/Left_Leg.Position.SZ))*angles(rad(Left_Leg.Rotation.X+Left_Leg.Rotation.XL*math[Left_Leg.Type.RX](sine/Left_Leg.Rotation.SX)),rad(Left_Leg.Rotation.Y+Left_Leg.Rotation.YL*math[Left_Leg.Type.RY](sine/Left_Leg.Rotation.SY)),rad(Left_Leg.Rotation.Z+Left_Leg.Rotation.ZL*math[Left_Leg.Type.RZ](sine/Left_Leg.Rotation.SZ)))
+end
+end)
+
+main:Button('Torso Fling (Simple)',function()
+HumanDied = false
+speed = 1
+hatsine = 1
+sine = 1
+for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+if v:IsA("BasePart") and v.Name ~= 'Torso' and v.Name ~= 'Head' then 
+_G.netless=game:GetService("RunService").Heartbeat:connect(function()
+v.Velocity = Vector3.new(-30,0,0)
+sethiddenproperty(game.Players.LocalPlayer,"MaximumSimulationRadius",math.huge)
+sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",999999999)
+end)
+end
+end
+
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local srv = game:GetService('RunService')
+local ct = {}
+
+char.Archivable = true
+local reanim = char:Clone()
+reanim.Name = 'Nexo '..plr.Name..''
+fl=Instance.new('Folder',char) fl.Name ='Nexo'
+reanim.Animate.Disabled=true
+char.HumanoidRootPart:Destroy()
+char.Humanoid:ChangeState(16)
+
+for i,v in next, char.Humanoid:GetPlayingAnimationTracks() do
+v:Stop()
+end
+char.Animate:Remove()
+
+function create(part, parent, p, r)
+Instance.new("Attachment",part)
+Instance.new("AlignPosition",part)
+Instance.new("AlignOrientation",part)
+Instance.new("Attachment",parent)
+part.Attachment.Name = part.Name
+parent.Attachment.Name = part.Name
+part.AlignPosition.Attachment0 = part[part.Name]
+part.AlignOrientation.Attachment0 = part[part.Name]
+part.AlignPosition.Attachment1 = parent[part.Name]
+part.AlignOrientation.Attachment1 = parent[part.Name]
+parent[part.Name].Position = p or Vector3.new()
+part[part.Name].Orientation = r or Vector3.new()
+part.AlignPosition.MaxForce = 999999999
+part.AlignPosition.MaxVelocity = math.huge
+part.AlignPosition.ReactionForceEnabled = false
+part.AlignPosition.Responsiveness = math.huge
+part.AlignOrientation.Responsiveness = math.huge
+part.AlignPosition.RigidityEnabled = false
+part.AlignOrientation.MaxTorque = 999999999
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('Accessory') then
+v.Handle:BreakJoints()
+create(v.Handle,reanim[v.Name].Handle)
+end
+end
+
+char.Torso['Left Shoulder']:Destroy()
+char.Torso['Right Shoulder']:Destroy()
+char.Torso['Left Hip']:Destroy()
+char.Torso['Right Hip']:Destroy()
+
+create(char['Torso'],reanim['Torso'])
+create(char['Left Arm'],reanim['Left Arm'])
+create(char['Right Arm'],reanim['Right Arm'])
+create(char['Left Leg'],reanim['Left Leg'])
+create(char['Right Leg'],reanim['Right Leg'])
+
+for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') or v:IsA('Decal') then v.Transparency = 1 end end
+
+reanim.Parent = fl
+
+table.insert(ct,srv.Heartbeat:Connect(function()
+char.Torso.CFrame=reanim.Torso.CFrame
+char.Torso.Velocity=Vector3.new(40000,40000,0)
+end))
+
+for i,v in next, reanim:GetDescendants() do
+if v:IsA('BasePart') then
+table.insert(ct,srv.RenderStepped:Connect(function()
+v.CanCollide = false
+end))
+end
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('BasePart') then
+table.insert(ct,srv.RenderStepped:Connect(function()
+v.CanCollide = false
+end))
+end
+end
+
+for i,v in next, reanim:GetDescendants() do
+if v:IsA('BasePart') then
+table.insert(ct,srv.Stepped:Connect(function()
+v.CanCollide = false
+end))
+end
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('BasePart') then
+table.insert(ct,srv.Stepped:Connect(function()
+v.CanCollide = false
+end))
+end
+end
+
+table.insert(ct,reanim.Humanoid.Died:Connect(function()
+plr.Character = char
+char:BreakJoints()
+reanim:Destroy()
+game.Players:Chat('-gr')
+_G.netless:Disconnect()
+HumanDied = true
+for _,v in pairs(ct) do v:Disconnect() end
+end))
+
+plr.Character = reanim
+workspace.CurrentCamera.CameraSubject = reanim.Humanoid
+
+RJ = reanim.HumanoidRootPart.RootJoint
+NECK = reanim.Torso.Neck
+RS = reanim.Torso['Right Shoulder']
+LS = reanim.Torso['Left Shoulder']
+RH = reanim.Torso['Right Hip']
+LH = reanim.Torso['Left Hip']
+RJ.C1 = cf(0,-1,0)*angles(rad(0),rad(0),rad(0))
+RJ.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+NECK.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+NECK.C1 = cf(0,-0.5,0)*angles(rad(0),rad(0),rad(0))
+RS.C1 = cf(0,0.5,0)*angles(rad(0),rad(0),rad(0))
+LS.C1 = cf(0,0.5,0)*angles(rad(0),rad(0),rad(0))
+RH.C1 = cf(0,1,0)*angles(rad(0),rad(0),rad(0))
+LH.C1 = cf(0,1,0)*angles(rad(0),rad(0),rad(0))
+RH.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+LH.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+RS.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+LS.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+
+while srv.RenderStepped:Wait() do
+sine=sine+speed
+if HumanDied then break end
+NECK.C0 = cf(Head.Position.X+Head.Position.XL*math[Head.Type.PX](sine/Head.Position.SX),Head.Position.Y+Head.Position.YL*math[Head.Type.PY](sine/Head.Position.SY),Head.Position.Z+Head.Position.ZL*math[Head.Type.PZ](sine/Head.Position.SZ))*angles(rad(Head.Rotation.X+Head.Rotation.XL*math[Head.Type.RX](sine/Head.Rotation.SX)),rad(Head.Rotation.Y+Head.Rotation.YL*math[Head.Type.RY](sine/Head.Rotation.SY)),rad(Head.Rotation.Z+Head.Rotation.ZL*math[Head.Type.RZ](sine/Head.Rotation.SZ)))
+RJ.C0 = cf(Torso.Position.X+Torso.Position.XL*math[Torso.Type.PX](sine/Torso.Position.SX),Torso.Position.Y+Torso.Position.YL*math[Torso.Type.PY](sine/Torso.Position.SY),Torso.Position.Z+Torso.Position.ZL*math[Torso.Type.PZ](sine/Torso.Position.SZ))*angles(rad(Torso.Rotation.X+Torso.Rotation.XL*math[Torso.Type.RX](sine/Torso.Rotation.SX)),rad(Torso.Rotation.Y+Torso.Rotation.YL*math[Torso.Type.RY](sine/Torso.Rotation.SY)),rad(Torso.Rotation.Z+Torso.Rotation.ZL*math[Torso.Type.RZ](sine/Torso.Rotation.SZ)))
+RS.C0 = cf(Right_Arm.Position.X+Right_Arm.Position.XL*math[Right_Arm.Type.PX](sine/Right_Arm.Position.SX),Right_Arm.Position.Y+Right_Arm.Position.YL*math[Right_Arm.Type.PY](sine/Right_Arm.Position.SY),Right_Arm.Position.Z+Right_Arm.Position.ZL*math[Right_Arm.Type.PZ](sine/Right_Arm.Position.SZ))*angles(rad(Right_Arm.Rotation.X+Right_Arm.Rotation.XL*math[Right_Arm.Type.RX](sine/Right_Arm.Rotation.SX)),rad(Right_Arm.Rotation.Y+Right_Arm.Rotation.YL*math[Right_Arm.Type.RY](sine/Right_Arm.Rotation.SY)),rad(Right_Arm.Rotation.Z+Right_Arm.Rotation.ZL*math[Right_Arm.Type.RZ](sine/Right_Arm.Rotation.SZ)))
+LS.C0 = cf(Left_Arm.Position.X+Left_Arm.Position.XL*math[Left_Arm.Type.PX](sine/Left_Arm.Position.SX),Left_Arm.Position.Y+Left_Arm.Position.YL*math[Left_Arm.Type.PY](sine/Left_Arm.Position.SY),Left_Arm.Position.Z+Left_Arm.Position.ZL*math[Left_Arm.Type.PZ](sine/Left_Arm.Position.SZ))*angles(rad(Left_Arm.Rotation.X+Left_Arm.Rotation.XL*math[Left_Arm.Type.RX](sine/Left_Arm.Rotation.SX)),rad(Left_Arm.Rotation.Y+Left_Arm.Rotation.YL*math[Left_Arm.Type.RY](sine/Left_Arm.Rotation.SY)),rad(Left_Arm.Rotation.Z+Left_Arm.Rotation.ZL*math[Left_Arm.Type.RZ](sine/Left_Arm.Rotation.SZ)))
+RH.C0 = cf(Right_Leg.Position.X+Right_Leg.Position.XL*math[Right_Leg.Type.PX](sine/Right_Leg.Position.SX),Right_Leg.Position.Y+Right_Leg.Position.YL*math[Right_Leg.Type.PY](sine/Right_Leg.Position.SY),Right_Leg.Position.Z+Right_Leg.Position.ZL*math[Right_Leg.Type.PZ](sine/Right_Leg.Position.SZ))*angles(rad(Right_Leg.Rotation.X+Right_Leg.Rotation.XL*math[Right_Leg.Type.RX](sine/Right_Leg.Rotation.SX)),rad(Right_Leg.Rotation.Y+Right_Leg.Rotation.YL*math[Right_Leg.Type.RY](sine/Right_Leg.Rotation.SY)),rad(Right_Leg.Rotation.Z+Right_Leg.Rotation.ZL*math[Right_Leg.Type.RZ](sine/Right_Leg.Rotation.SZ)))
+LH.C0 = cf(Left_Leg.Position.X+Left_Leg.Position.XL*math[Left_Leg.Type.PX](sine/Left_Leg.Position.SX),Left_Leg.Position.Y+Left_Leg.Position.YL*math[Left_Leg.Type.PY](sine/Left_Leg.Position.SY),Left_Leg.Position.Z+Left_Leg.Position.ZL*math[Left_Leg.Type.PZ](sine/Left_Leg.Position.SZ))*angles(rad(Left_Leg.Rotation.X+Left_Leg.Rotation.XL*math[Left_Leg.Type.RX](sine/Left_Leg.Rotation.SX)),rad(Left_Leg.Rotation.Y+Left_Leg.Rotation.YL*math[Left_Leg.Type.RY](sine/Left_Leg.Rotation.SY)),rad(Left_Leg.Rotation.Z+Left_Leg.Rotation.ZL*math[Left_Leg.Type.RZ](sine/Left_Leg.Rotation.SZ)))
+end
+end)
+
+main:Button('Leg Fling (Simple)',function()
+reanimated = true
+speed = 1
+hatsine = 1
+sine = 1
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local srv = game:GetService('RunService')
+local ct = {}
+local te = table.insert
+local m = plr:GetMouse()
+
+if char:FindFirstChild('Pal Hair') then else notf('Nexo','You need Pal Hair.','10') return end
+
+_G.Jitter=Vector3.new(0,30,0)
+
+for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+if v:IsA("BasePart") and v.Name ~= 'HumanoidRootPart' then 
+bf=Instance.new('BodyForce',v)
+bf.Force=Vector3.new(50,50,50)
+te(ct,game:GetService("RunService").Heartbeat:connect(function()
+pcall(function()
+v.Velocity = _G.Jitter
+v.BodyForce.Force=Vector3.new(50,50,50)
+game.Players.LocalPlayer.ReplicationFocus=workspace
+sethiddenproperty(game.Players.LocalPlayer,"MaximumSimulationRadius",math.huge)
+sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",9e9)
+end)
+end))
+end
+end
+
+char.Archivable = true
+fl=Instance.new('Folder',char) fl.Name = 'ArmFling'
+local reanim = char:Clone()
+char.Humanoid:ChangeState(16)
+char.HumanoidRootPart:Destroy()
+
+for i,v in next, char.Humanoid:GetPlayingAnimationTracks() do
+v:Stop()
+end
+char.Animate:Remove()
+
+hats=0
+function create(part, parent, p, r)
+hats=hats+1
+Instance.new("Attachment",part)
+Instance.new("AlignPosition",part)
+Instance.new("AlignOrientation",part)
+Instance.new("Attachment",parent)
+part.Attachment.Name = part.Name..hats
+parent.Attachment.Name = part.Name..hats
+part.AlignPosition.Attachment0 = part[part.Name..hats]
+part.AlignOrientation.Attachment0 = part[part.Name..hats]
+part.AlignPosition.Attachment1 = parent[part.Name..hats]
+part.AlignOrientation.Attachment1 = parent[part.Name..hats]
+parent[part.Name..hats].Position = p or Vector3.new()
+part[part.Name..hats].Orientation = r or Vector3.new()
+part.AlignPosition.MaxForce = 999999999
+part.AlignPosition.MaxVelocity = math.huge
+part.AlignPosition.ReactionForceEnabled = false
+part.AlignPosition.Responsiveness = math.huge
+part.AlignOrientation.Responsiveness = math.huge
+part.AlignPosition.RigidityEnabled = false
+part.AlignOrientation.MaxTorque = 999999999
+end
+
+function Pos(part, parent, p)
+Instance.new("Attachment",part)
+Instance.new("AlignPosition",part)
+Instance.new("Attachment",parent)
+part.Attachment.Name = part.Name
+parent.Attachment.Name = part.Name
+part.AlignPosition.Attachment0 = part[part.Name]
+part.AlignPosition.Attachment1 = parent[part.Name]
+parent[part.Name].Position = p or Vector3.new()
+part.AlignPosition.MaxForce = 999999999*10
+part.AlignPosition.MaxVelocity = math.huge
+part.AlignPosition.ReactionForceEnabled = false
+part.AlignPosition.Responsiveness = math.huge
+part.AlignPosition.RigidityEnabled = false
+end
+
+function nc(p)
+if p:IsA('BasePart') or p:IsA('Part') then
+te(ct,srv.Stepped:Connect(function()
+p.CanCollide=false
+end))
+te(ct,srv.RenderStepped:Connect(function()
+p.CanCollide=false
+end))
+else
+print('Cannot noclip '..p)
+end
+end
+
+function af()
+for i,v in next, game.Players:GetDescendants() do
+if v:IsA('Player') and v.Name ~= game.Players.LocalPlayer.Name then
+for _,c in next, v.Character:GetDescendants() do
+if c:IsA('BasePart') and v.Parent== char then
+noo=Instance.new('NoCollisionConstraint',c)
+noo.Part1=char['Torso']
+noo.Part0=c
+noo2=Instance.new('NoCollisionConstraint',c)
+noo2.Part1=char['Head']
+noo2.Part0=c
+end
+end
+end
+end
+end
+
+for i,v in next, reanim:GetDescendants() do
+if v:IsA('BasePart') or v:IsA('Decal') then
+v.Transparency = 1
+end
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('BasePart') then
+nc(v)
+end
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('Accessory') and v.Name ~= 'Pal Hair' then
+v.Handle:BreakJoints()
+create(v.Handle,reanim[v.Name].Handle)
+end
+end
+
+for i,v in next, reanim:GetDescendants() do
+if v:IsA('BasePart') then
+nc(v)
+end
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('Motor6D') and v.Name ~= 'Neck' then
+v:Destroy()
+end
+end
+
+for i,v in next, char:GetDescendants() do
+if v:IsA('BasePart') and v.Name ~= 'Right Leg' and v.Name ~= 'Head' and v.Parent == char then
+create(v,reanim[v.Name])
+end
+end
+
+function flinger(p)
+f=Instance.new('BodyAngularVelocity',p)
+f.P=9e9*10
+f.AngularVelocity = Vector3.new(9e9*10,9e9*10,9e9*10)
+f.MaxTorque=Vector3.new(9e9*10,0,0)
+return f
+end
+
+Pos(char['Right Leg'],reanim['Torso'])
+fliiiin=flinger(char['Right Leg'])
+
+char['Pal Hair'].Handle:BreakJoints()
+char['Pal Hair'].Handle.Mesh:Destroy()
+
+create(char['Pal Hair'].Handle,reanim['Right Leg'],Vector3.new(),Vector3.new(90,0,0))
+
+reanim.Animate.Disabled=true
+
+reanim.Parent=fl
+
+sh=false
+
+fp=Instance.new('Part',reanim)
+fp.Name='FlingPart'
+fp.CanCollide=false
+fp.Transparency=1
+
+te(ct,m.Button1Down:Connect(function()
+sh=true
+end))
+
+te(ct,m.Button1Up:Connect(function()
+sh=false
+end))
+
+char = workspace[plr.Name]
+
+te(ct,srv.Heartbeat:Connect(function()
+m.TargetFilter=char
+if sh then
+fp.CFrame=CFrame.new(m.Hit.p)
+char['Right Leg'].Position=fp.Position
+else
+fp.CFrame=char.Torso.CFrame*CFrame.new(0,0,0)
+char['Right Leg'].Position=fp.Position
+end
+end))
+
+plr.Character=reanim
+workspace.Camera.CameraSubject=reanim
+
+HumanDied=false
+
+te(ct,reanim.Humanoid.Died:Connect(function()
+HumanDied=true
+fliiiin:Destroy()
+reanim.HumanoidRootPart.Anchored=true
+old=reanim.HumanoidRootPart.CFrame
+reanim.HumanoidRootPart.CFrame=old
+wait()
+reanim.HumanoidRootPart.CFrame=old
+char.Humanoid:Destroy()
+Instance.new('Humanoid',char)
+plr.Character=char
+char:BreakJoints()
+game.Players:Chat('-gr')
+for i,v in next, ct do v:Disconnect() end
+end))
+
+RJ = reanim.HumanoidRootPart.RootJoint
+NECK = reanim.Torso.Neck
+RS = reanim.Torso['Right Shoulder']
+LS = reanim.Torso['Left Shoulder']
+RH = reanim.Torso['Right Hip']
+LH = reanim.Torso['Left Hip']
+RJ.C1 = cf(0,-1,0)*angles(rad(0),rad(0),rad(0))
+RJ.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+NECK.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+NECK.C1 = cf(0,-0.5,0)*angles(rad(0),rad(0),rad(0))
+RS.C1 = cf(0,0.5,0)*angles(rad(0),rad(0),rad(0))
+LS.C1 = cf(0,0.5,0)*angles(rad(0),rad(0),rad(0))
+RH.C1 = cf(0,1,0)*angles(rad(0),rad(0),rad(0))
+LH.C1 = cf(0,1,0)*angles(rad(0),rad(0),rad(0))
+RH.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+LH.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+RS.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+LS.C0 = cf(0,0,0)*angles(rad(0),rad(0),rad(0))
+
+while srv.RenderStepped:Wait() do
+sine=sine+speed
+if HumanDied then break end
+NECK.C0 = cf(Head.Position.X+Head.Position.XL*math[Head.Type.PX](sine/Head.Position.SX),Head.Position.Y+Head.Position.YL*math[Head.Type.PY](sine/Head.Position.SY),Head.Position.Z+Head.Position.ZL*math[Head.Type.PZ](sine/Head.Position.SZ))*angles(rad(Head.Rotation.X+Head.Rotation.XL*math[Head.Type.RX](sine/Head.Rotation.SX)),rad(Head.Rotation.Y+Head.Rotation.YL*math[Head.Type.RY](sine/Head.Rotation.SY)),rad(Head.Rotation.Z+Head.Rotation.ZL*math[Head.Type.RZ](sine/Head.Rotation.SZ)))
+RJ.C0 = cf(Torso.Position.X+Torso.Position.XL*math[Torso.Type.PX](sine/Torso.Position.SX),Torso.Position.Y+Torso.Position.YL*math[Torso.Type.PY](sine/Torso.Position.SY),Torso.Position.Z+Torso.Position.ZL*math[Torso.Type.PZ](sine/Torso.Position.SZ))*angles(rad(Torso.Rotation.X+Torso.Rotation.XL*math[Torso.Type.RX](sine/Torso.Rotation.SX)),rad(Torso.Rotation.Y+Torso.Rotation.YL*math[Torso.Type.RY](sine/Torso.Rotation.SY)),rad(Torso.Rotation.Z+Torso.Rotation.ZL*math[Torso.Type.RZ](sine/Torso.Rotation.SZ)))
+RS.C0 = cf(Right_Arm.Position.X+Right_Arm.Position.XL*math[Right_Arm.Type.PX](sine/Right_Arm.Position.SX),Right_Arm.Position.Y+Right_Arm.Position.YL*math[Right_Arm.Type.PY](sine/Right_Arm.Position.SY),Right_Arm.Position.Z+Right_Arm.Position.ZL*math[Right_Arm.Type.PZ](sine/Right_Arm.Position.SZ))*angles(rad(Right_Arm.Rotation.X+Right_Arm.Rotation.XL*math[Right_Arm.Type.RX](sine/Right_Arm.Rotation.SX)),rad(Right_Arm.Rotation.Y+Right_Arm.Rotation.YL*math[Right_Arm.Type.RY](sine/Right_Arm.Rotation.SY)),rad(Right_Arm.Rotation.Z+Right_Arm.Rotation.ZL*math[Right_Arm.Type.RZ](sine/Right_Arm.Rotation.SZ)))
+LS.C0 = cf(Left_Arm.Position.X+Left_Arm.Position.XL*math[Left_Arm.Type.PX](sine/Left_Arm.Position.SX),Left_Arm.Position.Y+Left_Arm.Position.YL*math[Left_Arm.Type.PY](sine/Left_Arm.Position.SY),Left_Arm.Position.Z+Left_Arm.Position.ZL*math[Left_Arm.Type.PZ](sine/Left_Arm.Position.SZ))*angles(rad(Left_Arm.Rotation.X+Left_Arm.Rotation.XL*math[Left_Arm.Type.RX](sine/Left_Arm.Rotation.SX)),rad(Left_Arm.Rotation.Y+Left_Arm.Rotation.YL*math[Left_Arm.Type.RY](sine/Left_Arm.Rotation.SY)),rad(Left_Arm.Rotation.Z+Left_Arm.Rotation.ZL*math[Left_Arm.Type.RZ](sine/Left_Arm.Rotation.SZ)))
+RH.C0 = cf(Right_Leg.Position.X+Right_Leg.Position.XL*math[Right_Leg.Type.PX](sine/Right_Leg.Position.SX),Right_Leg.Position.Y+Right_Leg.Position.YL*math[Right_Leg.Type.PY](sine/Right_Leg.Position.SY),Right_Leg.Position.Z+Right_Leg.Position.ZL*math[Right_Leg.Type.PZ](sine/Right_Leg.Position.SZ))*angles(rad(Right_Leg.Rotation.X+Right_Leg.Rotation.XL*math[Right_Leg.Type.RX](sine/Right_Leg.Rotation.SX)),rad(Right_Leg.Rotation.Y+Right_Leg.Rotation.YL*math[Right_Leg.Type.RY](sine/Right_Leg.Rotation.SY)),rad(Right_Leg.Rotation.Z+Right_Leg.Rotation.ZL*math[Right_Leg.Type.RZ](sine/Right_Leg.Rotation.SZ)))
+LH.C0 = cf(Left_Leg.Position.X+Left_Leg.Position.XL*math[Left_Leg.Type.PX](sine/Left_Leg.Position.SX),Left_Leg.Position.Y+Left_Leg.Position.YL*math[Left_Leg.Type.PY](sine/Left_Leg.Position.SY),Left_Leg.Position.Z+Left_Leg.Position.ZL*math[Left_Leg.Type.PZ](sine/Left_Leg.Position.SZ))*angles(rad(Left_Leg.Rotation.X+Left_Leg.Rotation.XL*math[Left_Leg.Type.RX](sine/Left_Leg.Rotation.SX)),rad(Left_Leg.Rotation.Y+Left_Leg.Rotation.YL*math[Left_Leg.Type.RY](sine/Left_Leg.Rotation.SY)),rad(Left_Leg.Rotation.Z+Left_Leg.Rotation.ZL*math[Left_Leg.Type.RZ](sine/Left_Leg.Rotation.SZ)))
+end
+end)
+
+main:Label('Settings')
+
+main:DestroyGui()
+
+hs:Label('Position')
+
+hs:Slider("X",-90,90,tonumber(Head.Position.X),1,function(a)
+Head.Position.X = a
+end)
+
+hs:Slider("Y",-90,90,tonumber(Head.Position.Y),1,function(a)
+Head.Position.Y = a
+end)
+
+hs:Slider("Z",-90,90,tonumber(Head.Position.Z),1,function(a)
+Head.Position.Z = a
+end)
+
+hs:Slider("X [L]",-90,90,tonumber(Head.Position.XL),1,function(a)
+Head.Position.XL = a
+end)
+
+hs:Slider("Y [L]",-90,90,tonumber(Head.Position.YL),1,function(a)
+Head.Position.YL = a
+end)
+
+hs:Slider("Z [L]",-90,90,tonumber(Head.Position.ZL),1,function(a)
+Head.Position.ZL = a
+end)
+
+hs:Label('Rotation')
+
+hs:Slider("X",-1280,1280,tonumber(Head.Rotation.X),1,function(a)
+Head.Rotation.X = a
+end)
+
+hs:Slider("Y",-1280,1280,tonumber(Head.Rotation.Y),1,function(a)
+Head.Rotation.Y = a
+end)
+
+hs:Slider("Z",-1280,1280,tonumber(Head.Rotation.Z),1,function(a)
+Head.Rotation.Z = a
+end)
+
+hs:Slider("X [L]",-1280,1280,tonumber(Head.Rotation.XL),1,function(a)
+Head.Rotation.XL = a
+end)
+
+hs:Slider("Y [L]",-1280,1280,tonumber(Head.Rotation.YL),1,function(a)
+Head.Rotation.YL = a
+end)
+
+hs:Slider("Z [L]",-1280,1280,tonumber(Head.Rotation.ZL),1,function(a)
+Head.Rotation.ZL = a
+end)
+
+hs:Label('Sine Type')
+
+hs:Toggle("PX Cos/Sin",false,function(a)
+if a == false then
+Head.Type.PX='cos'
+elseif a == true then
+Head.Type.PX='sin'
+end
+end)
+
+hs:Toggle("PY Cos/Sin",false,function(a)
+if a == false then
+Head.Type.PY='cos'
+elseif a == true then
+Head.Type.PY='sin'
+end
+end)
+
+hs:Toggle("PZ Cos/Sin",false,function(a)
+if a == false then
+Head.Type.PZ='cos'
+elseif a == true then
+Head.Type.PZ='sin'
+end
+end)
+
+hs:Toggle("RX Cos/Sin",false,function(a)
+if a == false then
+Head.Type.RX='cos'
+elseif a == true then
+Head.Type.RX='sin'
+end
+end)
+
+hs:Toggle("RY Cos/Sin",false,function(a)
+if a == false then
+Head.Type.RY='cos'
+elseif a == true then
+Head.Type.RY='sin'
+end
+end)
+
+hs:Toggle("RZ Cos/Sin",false,function(a)
+if a == false then
+Head.Type.RZ='cos'
+elseif a == true then
+Head.Type.RZ='sin'
+end
+end)
+
+hs:Label('Speed')
+
+hs:Slider('PX',-1000,1000,tonumber(Head.Position.SX),1,function(a)
+Head.Position.SX = a
+end)
+
+hs:Slider('PY',-1000,1000,tonumber(Head.Position.SY),1,function(a)
+Head.Position.SY = a
+end)
+
+hs:Slider('PZ',-1000,1000,tonumber(Head.Position.SZ),1,function(a)
+Head.Position.SZ = a
+end)
+
+hs:Slider('RX',-1000,1000,tonumber(Head.Rotation.SX),1,function(a)
+Head.Rotation.SX = a
+end)
+
+hs:Slider('RY',-1000,1000,tonumber(Head.Rotation.SY),1,function(a)
+Head.Rotation.SY = a
+end)
+
+hs:Slider('RZ',-1000,1000,tonumber(Head.Rotation.SZ),1,function(a)
+Head.Rotation.SZ = a
+end)
+
+ts:Label('Position')
+
+ts:Slider("X",-90,90,tonumber(Torso.Position.X),1,function(a)
+Torso.Position.X = a
+end)
+
+ts:Slider("Y",-90,90,tonumber(Torso.Position.Y),1,function(a)
+Torso.Position.Y = a
+end)
+
+ts:Slider("Z",-90,90,tonumber(Torso.Position.Z),1,function(a)
+Torso.Position.Z = a
+end)
+
+ts:Slider("X [L]",-90,90,tonumber(Torso.Position.XL),1,function(a)
+Torso.Position.XL = a
+end)
+
+ts:Slider("Y [L]",-90,90,tonumber(Torso.Position.YL),1,function(a)
+Torso.Position.YL = a
+end)
+
+ts:Slider("Z [L]",-90,90,tonumber(Torso.Position.ZL),1,function(a)
+Torso.Position.ZL = a
+end)
+
+ts:Label('Rotation')
+
+ts:Slider("X",-1280,1280,tonumber(Torso.Rotation.X),1,function(a)
+Torso.Rotation.X = a
+end)
+
+ts:Slider("Y",-1280,1280,tonumber(Torso.Rotation.Y),1,function(a)
+Torso.Rotation.Y = a
+end)
+
+ts:Slider("Z",-1280,1280,tonumber(Torso.Rotation.Z),1,function(a)
+Torso.Rotation.Z = a
+end)
+
+ts:Slider("X [L]",-1280,1280,tonumber(Torso.Rotation.XL),1,function(a)
+Torso.Rotation.XL = a
+end)
+
+ts:Slider("Y [L]",-1280,1280,tonumber(Torso.Rotation.YL),1,function(a)
+Torso.Rotation.YL = a
+end)
+
+ts:Slider("Z [L]",-1280,1280,tonumber(Torso.Rotation.ZL),1,function(a)
+Torso.Rotation.ZL = a
+end)
+
+ts:Label('Sine Type')
+
+ts:Toggle("PX Cos/Sin",false,function(a)
+if a == false then
+Torso.Type.PX='cos'
+elseif a == true then
+Torso.Type.PX='sin'
+end
+end)
+
+ts:Toggle("PY Cos/Sin",false,function(a)
+if a == false then
+Torso.Type.PY='cos'
+elseif a == true then
+Torso.Type.PY='sin'
+end
+end)
+
+ts:Toggle("PZ Cos/Sin",false,function(a)
+if a == false then
+Torso.Type.PZ='cos'
+elseif a == true then
+Torso.Type.PZ='sin'
+end
+end)
+
+ts:Toggle("RX Cos/Sin",false,function(a)
+if a == false then
+Torso.Type.RX='cos'
+elseif a == true then
+Torso.Type.RX='sin'
+end
+end)
+
+ts:Toggle("RY Cos/Sin",false,function(a)
+if a == false then
+Torso.Type.RY='cos'
+elseif a == true then
+Torso.Type.RY='sin'
+end
+end)
+
+ts:Toggle("RZ Cos/Sin",false,function(a)
+if a == false then
+Torso.Type.RZ='cos'
+elseif a == true then
+Torso.Type.RZ='sin'
+end
+end)
+
+ts:Label('Speed')
+
+ts:Slider('PX',-1000,1000,tonumber(Torso.Position.SX),1,function(a)
+Torso.Position.SX = a
+end)
+
+ts:Slider('PY',-1000,1000,tonumber(Torso.Position.SY),1,function(a)
+Torso.Position.SY = a
+end)
+
+ts:Slider('PZ',-1000,1000,tonumber(Torso.Position.SZ),1,function(a)
+Torso.Position.SZ = a
+end)
+
+ts:Slider('RX',-1000,1000,tonumber(Torso.Rotation.SX),1,function(a)
+Torso.Rotation.SX = a
+end)
+
+ts:Slider('RY',-1000,1000,tonumber(Torso.Rotation.SY),1,function(a)
+Torso.Rotation.SY = a
+end)
+
+ts:Slider('RZ',-1000,1000,tonumber(Torso.Rotation.SZ),1,function(a)
+Torso.Rotation.SZ = a
+end)
+
+ras:Label('Position')
+
+ras:Slider("X",-90,90,tonumber(Right_Arm.Position.X),1,function(a)
+Right_Arm.Position.X = a
+end)
+
+ras:Slider("Y",-90,90,tonumber(Right_Arm.Position.Y),1,function(a)
+Right_Arm.Position.Y = a
+end)
+
+ras:Slider("Z",-90,90,tonumber(Right_Arm.Position.Z),1,function(a)
+Right_Arm.Position.Z = a
+end)
+
+ras:Slider("X [L]",-90,90,tonumber(Right_Arm.Position.XL),1,function(a)
+Right_Arm.Position.XL = a
+end)
+
+ras:Slider("Y [L]",-90,90,tonumber(Right_Arm.Position.YL),1,function(a)
+Right_Arm.Position.YL = a
+end)
+
+ras:Slider("Z [L]",-90,90,tonumber(Right_Arm.Position.ZL),1,function(a)
+Right_Arm.Position.ZL = a
+end)
+
+ras:Label('Rotation')
+
+ras:Slider("X",-1280,1280,tonumber(Right_Arm.Rotation.X),1,function(a)
+Right_Arm.Rotation.X = a
+end)
+
+ras:Slider("Y",-1280,1280,tonumber(Right_Arm.Rotation.Y),1,function(a)
+Right_Arm.Rotation.Y = a
+end)
+
+ras:Slider("Z",-1280,1280,tonumber(Right_Arm.Rotation.Z),1,function(a)
+Right_Arm.Rotation.Z = a
+end)
+
+ras:Slider("X [L]",-1280,1280,tonumber(Right_Arm.Rotation.XL),1,function(a)
+Right_Arm.Rotation.XL = a
+end)
+
+ras:Slider("Y [L]",-1280,1280,tonumber(Right_Arm.Rotation.YL),1,function(a)
+Right_Arm.Rotation.YL = a
+end)
+
+ras:Slider("Z [L]",-1280,1280,tonumber(Right_Arm.Rotation.ZL),1,function(a)
+Right_Arm.Rotation.ZL = a
+end)
+
+ras:Label('Sine Type')
+
+ras:Toggle("PX Cos/Sin",false,function(a)
+if a == false then
+Right_Arm.Type.PX='cos'
+elseif a == true then
+Right_Arm.Type.PX='sin'
+end
+end)
+
+ras:Toggle("PY Cos/Sin",false,function(a)
+if a == false then
+Right_Arm.Type.PY='cos'
+elseif a == true then
+Right_Arm.Type.PY='sin'
+end
+end)
+
+ras:Toggle("PZ Cos/Sin",false,function(a)
+if a == false then
+Right_Arm.Type.PZ='cos'
+elseif a == true then
+Right_Arm.Type.PZ='sin'
+end
+end)
+
+ras:Toggle("RX Cos/Sin",false,function(a)
+if a == false then
+Right_Arm.Type.RX='cos'
+elseif a == true then
+Right_Arm.Type.RX='sin'
+end
+end)
+
+ras:Toggle("RY Cos/Sin",false,function(a)
+if a == false then
+Right_Arm.Type.RY='cos'
+elseif a == true then
+Right_Arm.Type.RY='sin'
+end
+end)
+
+ras:Toggle("RZ Cos/Sin",false,function(a)
+if a == false then
+Right_Arm.Type.RZ='cos'
+elseif a == true then
+Right_Arm.Type.RZ='sin'
+end
+end)
+
+ras:Label('Speed')
+
+ras:Slider('PX',-1000,1000,tonumber(Right_Arm.Position.SX),1,function(a)
+Right_Arm.Position.SX = a
+end)
+
+ras:Slider('PY',-1000,1000,tonumber(Right_Arm.Position.SY),1,function(a)
+Right_Arm.Position.SY = a
+end)
+
+ras:Slider('PZ',-1000,1000,tonumber(Right_Arm.Position.SZ),1,function(a)
+Right_Arm.Position.SZ = a
+end)
+
+ras:Slider('RX',-1000,1000,tonumber(Right_Arm.Rotation.SX),1,function(a)
+Right_Arm.Rotation.SX = a
+end)
+
+ras:Slider('RY',-1000,1000,tonumber(Right_Arm.Rotation.SY),1,function(a)
+Right_Arm.Rotation.SY = a
+end)
+
+ras:Slider('RZ',-1000,1000,tonumber(Right_Arm.Rotation.SZ),1,function(a)
+Right_Arm.Rotation.SZ = a
+end)
+
+las:Label('Position')
+
+las:Slider("X",-90,90,tonumber(Left_Arm.Position.X),1,function(a)
+Left_Arm.Position.X = a
+end)
+
+las:Slider("Y",-90,90,tonumber(Left_Arm.Position.Y),1,function(a)
+Left_Arm.Position.Y = a
+end)
+
+las:Slider("Z",-90,90,tonumber(Left_Arm.Position.Z),1,function(a)
+Left_Arm.Position.Z = a
+end)
+
+las:Slider("X [L]",-90,90,tonumber(Left_Arm.Position.XL),1,function(a)
+Left_Arm.Position.XL = a
+end)
+
+las:Slider("Y [L]",-90,90,tonumber(Left_Arm.Position.YL),1,function(a)
+Left_Arm.Position.YL = a
+end)
+
+las:Slider("Z [L]",-90,90,tonumber(Left_Arm.Position.ZL),1,function(a)
+Left_Arm.Position.ZL = a
+end)
+
+las:Label('Rotation')
+
+las:Slider("X",-1280,1280,tonumber(Left_Arm.Rotation.X),1,function(a)
+Left_Arm.Rotation.X = a
+end)
+
+las:Slider("Y",-1280,1280,tonumber(Left_Arm.Rotation.Y),1,function(a)
+Left_Arm.Rotation.Y = a
+end)
+
+las:Slider("Z",-1280,1280,tonumber(Left_Arm.Rotation.Z),1,function(a)
+Left_Arm.Rotation.Z = a
+end)
+
+las:Slider("X [L]",-1280,1280,tonumber(Left_Arm.Rotation.XL),1,function(a)
+Left_Arm.Rotation.XL = a
+end)
+
+las:Slider("Y [L]",-1280,1280,tonumber(Left_Arm.Rotation.YL),1,function(a)
+Left_Arm.Rotation.YL = a
+end)
+
+las:Slider("Z [L]",-1280,1280,tonumber(Left_Arm.Rotation.ZL),1,function(a)
+Left_Arm.Rotation.ZL = a
+end)
+
+las:Label('Sine Type')
+
+las:Toggle("PX Cos/Sin",false,function(a)
+if a == false then
+Left_Arm.Type.PX='cos'
+elseif a == true then
+Left_Arm.Type.PX='sin'
+end
+end)
+
+las:Toggle("PY Cos/Sin",false,function(a)
+if a == false then
+Left_Arm.Type.PY='cos'
+elseif a == true then
+Left_Arm.Type.PY='sin'
+end
+end)
+
+las:Toggle("PZ Cos/Sin",false,function(a)
+if a == false then
+Left_Arm.Type.PZ='cos'
+elseif a == true then
+Left_Arm.Type.PZ='sin'
+end
+end)
+
+las:Toggle("RX Cos/Sin",false,function(a)
+if a == false then
+Left_Arm.Type.RX='cos'
+elseif a == true then
+Left_Arm.Type.RX='sin'
+end
+end)
+
+las:Toggle("RY Cos/Sin",false,function(a)
+if a == false then
+Left_Arm.Type.RY='cos'
+elseif a == true then
+Left_Arm.Type.RY='sin'
+end
+end)
+
+las:Toggle("RZ Cos/Sin",false,function(a)
+if a == false then
+Left_Arm.Type.RZ='cos'
+elseif a == true then
+Left_Arm.Type.RZ='sin'
+end
+end)
+
+las:Label('Speed')
+
+las:Slider('PX',-1000,1000,tonumber(Left_Arm.Position.SX),1,function(a)
+Left_Arm.Position.SX = a
+end)
+
+las:Slider('PY',-1000,1000,tonumber(Left_Arm.Position.SY),1,function(a)
+Left_Arm.Position.SY = a
+end)
+
+las:Slider('PZ',-1000,1000,tonumber(Left_Arm.Position.SZ),1,function(a)
+Left_Arm.Position.SZ = a
+end)
+
+las:Slider('RX',-1000,1000,tonumber(Left_Arm.Rotation.SX),1,function(a)
+Left_Arm.Rotation.SX = a
+end)
+
+las:Slider('RY',-1000,1000,tonumber(Left_Arm.Rotation.SY),1,function(a)
+Left_Arm.Rotation.SY = a
+end)
+
+las:Slider('RZ',-1000,1000,tonumber(Left_Arm.Rotation.SZ),1,function(a)
+Left_Arm.Rotation.SZ = a
+end)
+
+rls:Label('Position')
+
+rls:Slider("X",-90,90,tonumber(Right_Leg.Position.X),1,function(a)
+Right_Leg.Position.X = a
+end)
+
+rls:Slider("Y",-90,90,tonumber(Right_Leg.Position.Y),1,function(a)
+Right_Leg.Position.Y = a
+end)
+
+rls:Slider("Z",-90,90,tonumber(Right_Leg.Position.Z),1,function(a)
+Right_Leg.Position.Z = a
+end)
+
+rls:Slider("X [L]",-90,90,tonumber(Right_Leg.Position.XL),1,function(a)
+Right_Leg.Position.XL = a
+end)
+
+rls:Slider("Y [L]",-90,90,tonumber(Right_Leg.Position.YL),1,function(a)
+Right_Leg.Position.YL = a
+end)
+
+rls:Slider("Z [L]",-90,90,tonumber(Right_Leg.Position.ZL),1,function(a)
+Right_Leg.Position.ZL = a
+end)
+
+rls:Label('Rotation')
+
+rls:Slider("X",-1280,1280,tonumber(Right_Leg.Rotation.X),1,function(a)
+Right_Leg.Rotation.X = a
+end)
+
+rls:Slider("Y",-1280,1280,tonumber(Right_Leg.Rotation.Y),1,function(a)
+Right_Leg.Rotation.Y = a
+end)
+
+rls:Slider("Z",-1280,1280,tonumber(Right_Leg.Rotation.Z),1,function(a)
+Right_Leg.Rotation.Z = a
+end)
+
+rls:Slider("X [L]",-1280,1280,tonumber(Right_Leg.Rotation.XL),1,function(a)
+Right_Leg.Rotation.XL = a
+end)
+
+rls:Slider("Y [L]",-1280,1280,tonumber(Right_Leg.Rotation.YL),1,function(a)
+Right_Leg.Rotation.YL = a
+end)
+
+rls:Slider("Z [L]",-1280,1280,tonumber(Right_Leg.Rotation.ZL),1,function(a)
+Right_Leg.Rotation.ZL = a
+end)
+
+rls:Label('Sine Type')
+
+rls:Toggle("PX Cos/Sin",false,function(a)
+if a == false then
+Right_Leg.Type.PX='cos'
+elseif a == true then
+Right_Leg.Type.PX='sin'
+end
+end)
+
+rls:Toggle("PY Cos/Sin",false,function(a)
+if a == false then
+Right_Leg.Type.PY='cos'
+elseif a == true then
+Right_Leg.Type.PY='sin'
+end
+end)
+
+rls:Toggle("PZ Cos/Sin",false,function(a)
+if a == false then
+Right_Leg.Type.PZ='cos'
+elseif a == true then
+Right_Leg.Type.PZ='sin'
+end
+end)
+
+rls:Toggle("RX Cos/Sin",false,function(a)
+if a == false then
+Right_Leg.Type.RX='cos'
+elseif a == true then
+Right_Leg.Type.RX='sin'
+end
+end)
+
+rls:Toggle("RY Cos/Sin",false,function(a)
+if a == false then
+Right_Leg.Type.RY='cos'
+elseif a == true then
+Right_Leg.Type.RY='sin'
+end
+end)
+
+rls:Toggle("RZ Cos/Sin",false,function(a)
+if a == false then
+Right_Leg.Type.RZ='cos'
+elseif a == true then
+Right_Leg.Type.RZ='sin'
+end
+end)
+
+rls:Label('Speed')
+
+rls:Slider('PX',-1000,1000,tonumber(Right_Leg.Position.SX),1,function(a)
+Right_Leg.Position.SX = a
+end)
+
+rls:Slider('PY',-1000,1000,tonumber(Right_Leg.Position.SY),1,function(a)
+Right_Leg.Position.SY = a
+end)
+
+rls:Slider('PZ',-1000,1000,tonumber(Right_Leg.Position.SZ),1,function(a)
+Right_Leg.Position.SZ = a
+end)
+
+rls:Slider('RX',-1000,1000,tonumber(Right_Leg.Rotation.SX),1,function(a)
+Right_Leg.Rotation.SX = a
+end)
+
+rls:Slider('RY',-1000,1000,tonumber(Right_Leg.Rotation.SY),1,function(a)
+Right_Leg.Rotation.SY = a
+end)
+
+rls:Slider('RZ',-1000,1000,tonumber(Right_Leg.Rotation.SZ),1,function(a)
+Right_Leg.Rotation.SZ = a
+end)
+
+lls:Label('Position')
+
+lls:Slider("X",-90,90,tonumber(Left_Leg.Position.X),1,function(a)
+Left_Leg.Position.X = a
+end)
+
+lls:Slider("Y",-90,90,tonumber(Left_Leg.Position.Y),1,function(a)
+Left_Leg.Position.Y = a
+end)
+
+lls:Slider("Z",-90,90,tonumber(Left_Leg.Position.Z),1,function(a)
+Left_Leg.Position.Z = a
+end)
+
+lls:Slider("X [L]",-90,90,tonumber(Left_Leg.Position.XL),1,function(a)
+Left_Leg.Position.XL = a
+end)
+
+lls:Slider("Y [L]",-90,90,tonumber(Left_Leg.Position.YL),1,function(a)
+Left_Leg.Position.YL = a
+end)
+
+lls:Slider("Z [L]",-90,90,tonumber(Left_Leg.Position.ZL),1,function(a)
+Left_Leg.Position.ZL = a
+end)
+
+lls:Label('Rotation')
+
+lls:Slider("X",-1280,1280,tonumber(Left_Leg.Rotation.X),1,function(a)
+Left_Leg.Rotation.X = a
+end)
+
+lls:Slider("Y",-1280,1280,tonumber(Left_Leg.Rotation.Y),1,function(a)
+Left_Leg.Rotation.Y = a
+end)
+
+lls:Slider("Z",-1280,1280,tonumber(Left_Leg.Rotation.Z),1,function(a)
+Left_Leg.Rotation.Z = a
+end)
+
+lls:Slider("X [L]",-1280,1280,tonumber(Left_Leg.Rotation.XL),1,function(a)
+Left_Leg.Rotation.XL = a
+end)
+
+lls:Slider("Y [L]",-1280,1280,tonumber(Left_Leg.Rotation.YL),1,function(a)
+Left_Leg.Rotation.YL = a
+end)
+
+lls:Slider("Z [L]",-1280,1280,tonumber(Left_Leg.Rotation.ZL),1,function(a)
+Left_Leg.Rotation.ZL = a
+end)
+
+lls:Label('Sine Type')
+
+lls:Toggle("PX Cos/Sin",false,function(a)
+if a == false then
+Left_Leg.Type.PX='cos'
+elseif a == true then
+Left_Leg.Type.PX='sin'
+end
+end)
+
+lls:Toggle("PY Cos/Sin",false,function(a)
+if a == false then
+Left_Leg.Type.PY='cos'
+elseif a == true then
+Left_Leg.Type.PY='sin'
+end
+end)
+
+lls:Toggle("PZ Cos/Sin",false,function(a)
+if a == false then
+Left_Leg.Type.PZ='cos'
+elseif a == true then
+Left_Leg.Type.PZ='sin'
+end
+end)
+
+lls:Toggle("RX Cos/Sin",false,function(a)
+if a == false then
+Left_Leg.Type.RX='cos'
+elseif a == true then
+Left_Leg.Type.RX='sin'
+end
+end)
+
+lls:Toggle("RY Cos/Sin",false,function(a)
+if a == false then
+Left_Leg.Type.RY='cos'
+elseif a == true then
+Left_Leg.Type.RY='sin'
+end
+end)
+
+lls:Toggle("RZ Cos/Sin",false,function(a)
+if a == false then
+Left_Leg.Type.RZ='cos'
+elseif a == true then
+Left_Leg.Type.RZ='sin'
+end
+end)
+
+lls:Label('Speed')
+
+lls:Slider('PX',-1000,1000,tonumber(Left_Leg.Position.SX),1,function(a)
+Left_Leg.Position.SX = a
+end)
+
+lls:Slider('PY',-1000,1000,tonumber(Left_Leg.Position.SY),1,function(a)
+Left_Leg.Position.SY = a
+end)
+
+lls:Slider('PZ',-1000,1000,tonumber(Left_Leg.Position.SZ),1,function(a)
+Left_Leg.Position.SZ = a
+end)
+
+lls:Slider('RX',-1000,1000,tonumber(Left_Leg.Rotation.SX),1,function(a)
+Left_Leg.Rotation.SX = a
+end)
+
+lls:Slider('RY',-1000,1000,tonumber(Left_Leg.Rotation.SY),1,function(a)
+Left_Leg.Rotation.SY = a
+end)
+
+lls:Slider('RZ',-1000,1000,tonumber(Left_Leg.Rotation.SZ),1,function(a)
+Left_Leg.Rotation.SZ = a
+end)
+
+hats={}
+parts={}
+
+act={}
+
+te=table.insert
+
+for i,v in next, game.Players.LocalPlayer.Character:GetDescendants() do
+if v:IsA('Accessory') then
+table.insert(hats,v.Name)
+end
+end
+
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
+if v:IsA('BasePart') then
+table.insert(parts,v.Name)
+end
+end
+
+hat1sel=hats[1] or ""
+hat2sel=hats[2] or ""
+hat3sel=hats[3] or ""
+hat4sel=hats[4] or ""
+hat5sel=hats[5] or ""
+hat6sel=hats[6] or ""
+hat7sel=hats[7] or ""
+hat8sel=hats[8] or ""
+hat9sel=hats[9] or ""
+hat10sel=hats[10] or ""
+
+part1sel="Head"
+part2sel="Head"
+part3sel="Head"
+part4sel="Head"
+part5sel="Head"
+part6sel="Head"
+part7sel="Head"
+part8sel="Head"
+part9sel="Head"
+part10sel="Head"
+
+nmse1=false
+nmse2=false
+nmse3=false
+nmse4=false
+nmse5=false
+nmse6=false
+nmse7=false
+nmse8=false
+nmse9=false
+nmsel0=false
+
+hat1:Label('Hats/Parts Attach')
+
+h=hat1:Dropdown('Hat',hats,1,function(a)
+hat1sel=a
+end)
+
+hat1:Dropdown('Part',parts,1,function(a)
+part1sel=a
+end)
+
+hat1:Button('Remove Mesh',function()
+rmesh(hat1sel)
+nmse1=true
+end)
+
+hat1:Button('Debug',function()
+if game.Players.LocalPlayer.Character == workspace[game.Players.LocalPlayer.Name] then return end
+rm=game.Players.LocalPlayer.Character
+rm[hat1sel].Handle.AccessoryWeld.Part1=rm[part1sel]
+rm[hat1sel].Handle.AccessoryWeld.C1=CFrame.new()
+te(act,game:GetService('RunService').RenderStepped:Connect(function()
+rm[hat1sel].Handle.AccessoryWeld.C0=cf(Hat1CF.Position.X+Hat1CF.Position.XL*math[Hat1CF.Type.PX](sine/Hat1CF.Position.SX),Hat1CF.Position.Y+Hat1CF.Position.YL*math[Hat1CF.Type.PY](sine/Hat1CF.Position.SY),Hat1CF.Position.Z+Hat1CF.Position.ZL*math[Hat1CF.Type.PZ](sine/Hat1CF.Position.SZ))*angles(rad(Hat1CF.Rotation.X+Hat1CF.Rotation.XL*math[Hat1CF.Type.RX](sine/Hat1CF.Rotation.SX)),rad(Hat1CF.Rotation.Y+Hat1CF.Rotation.YL*math[Hat1CF.Type.RY](sine/Hat1CF.Rotation.SY)),rad(Hat1CF.Rotation.Z+Hat1CF.Rotation.ZL*math[Hat1CF.Type.RZ](sine/Hat1CF.Rotation.SZ)))
+rm[hat1sel].Handle.AccessoryWeld.C1=cf(Hat1CF.C1.X,Hat1CF.C1.Y,Hat1CF.C1.Z)
+end))
+te(act,rm.Humanoid.Died:Connect(function()
+nmse1=false
+for i,v in next, act do
+v:Disconnect()
+end
+end))
+end)
+
+hat1:Button('Refresh Hats',function()
+hats={}
+for i,v in next, game.Players.LocalPlayer.Character:GetDescendants() do
+if v:IsA('Accessory') then
+table.insert(hats,v.Name)
+end
+end
+h:Refresh(hats,0)
+end)
+
+hat1:Label('Position')
+
+hat1:Slider("X",-90,90,tonumber(Hat1CF.Position.X),1,function(a)
+Hat1CF.Position.X = a
+end)
+
+hat1:Slider("Y",-90,90,tonumber(Hat1CF.Position.Y),1,function(a)
+Hat1CF.Position.Y = a
+end)
+
+hat1:Slider("Z",-90,90,tonumber(Hat1CF.Position.Z),1,function(a)
+Hat1CF.Position.Z = a
+end)
+
+hat1:Slider("X [L]",-90,90,tonumber(Hat1CF.Position.XL),1,function(a)
+Hat1CF.Position.XL = a
+end)
+
+hat1:Slider("Y [L]",-90,90,tonumber(Hat1CF.Position.YL),1,function(a)
+Hat1CF.Position.YL = a
+end)
+
+hat1:Slider("Z [L]",-90,90,tonumber(Hat1CF.Position.ZL),1,function(a)
+Hat1CF.Position.ZL = a
+end)
+
+hat1:Label('Rotation')
+
+hat1:Slider("X",-1280,1280,tonumber(Hat1CF.Rotation.X),1,function(a)
+Hat1CF.Rotation.X = a
+end)
+
+hat1:Slider("Y",-1280,1280,tonumber(Hat1CF.Rotation.Y),1,function(a)
+Hat1CF.Rotation.Y = a
+end)
+
+hat1:Slider("Z",-1280,1280,tonumber(Hat1CF.Rotation.Z),1,function(a)
+Hat1CF.Rotation.Z = a
+end)
+
+hat1:Slider("X [L]",-1280,1280,tonumber(Hat1CF.Rotation.XL),1,function(a)
+Hat1CF.Rotation.XL = a
+end)
+
+hat1:Slider("Y [L]",-1280,1280,tonumber(Hat1CF.Rotation.YL),1,function(a)
+Hat1CF.Rotation.YL = a
+end)
+
+hat1:Slider("Z [L]",-1280,1280,tonumber(Hat1CF.Rotation.ZL),1,function(a)
+Hat1CF.Rotation.ZL = a
+end)
+
+hat1:Label('C1')
+
+hat1:Slider('X',-1000,1000,tonumber(Hat1CF.C1.X),1,function(a)
+Hat1CF.C1.X = a
+end)
+
+hat1:Slider('Y',-1000,1000,tonumber(Hat1CF.C1.Y),1,function(a)
+Hat1CF.C1.Y = a
+end)
+
+hat1:Slider('Z',-1000,1000,tonumber(Hat1CF.C1.Z),1,function(a)
+Hat1CF.C1.Z = a
+end)
+
+hat1:Label('Sine Type')
+
+hat1:Toggle("PX Cos/Sin",false,function(a)
+if a == false then
+Hat1CF.Type.PX='cos'
+elseif a == true then
+Hat1CF.Type.PX='sin'
+end
+end)
+
+hat1:Toggle("PY Cos/Sin",false,function(a)
+if a == false then
+Hat1CF.Type.PY='cos'
+elseif a == true then
+Hat1CF.Type.PY='sin'
+end
+end)
+
+hat1:Toggle("PZ Cos/Sin",false,function(a)
+if a == false then
+Hat1CF.Type.PZ='cos'
+elseif a == true then
+Hat1CF.Type.PZ='sin'
+end
+end)
+
+hat1:Toggle("RX Cos/Sin",false,function(a)
+if a == false then
+Hat1CF.Type.RX='cos'
+elseif a == true then
+Hat1CF.Type.RX='sin'
+end
+end)
+
+hat1:Toggle("RY Cos/Sin",false,function(a)
+if a == false then
+Hat1CF.Type.RY='cos'
+elseif a == true then
+Hat1CF.Type.RY='sin'
+end
+end)
+
+hat1:Toggle("RZ Cos/Sin",false,function(a)
+if a == false then
+Hat1CF.Type.RZ='cos'
+elseif a == true then
+Hat1CF.Type.RZ='sin'
+end
+end)
+
+hat1:Label('Speed')
+
+hat1:Slider('PX',-1000,1000,tonumber(Hat1CF.Position.SX),1,function(a)
+Hat1CF.Position.SX = a
+end)
+
+hat1:Slider('PY',-1000,1000,tonumber(Hat1CF.Position.SY),1,function(a)
+Hat1CF.Position.SY = a
+end)
+
+hat1:Slider('PZ',-1000,1000,tonumber(Hat1CF.Position.SZ),1,function(a)
+Hat1CF.Position.SZ = a
+end)
+
+hat1:Slider('RX',-1000,1000,tonumber(Hat1CF.Rotation.SX),1,function(a)
+Hat1CF.Rotation.SX = a
+end)
+
+hat1:Slider('RY',-1000,1000,tonumber(Hat1CF.Rotation.SY),1,function(a)
+Hat1CF.Rotation.SY = a
+end)
+
+hat1:Slider('RZ',-1000,1000,tonumber(Hat1CF.Rotation.SZ),1,function(a)
+Hat1CF.Rotation.SZ = a
+end)
+
+cnvs:Label('Templates')
+
+cnvs:Button('Copy Simple',function()
+notf('Nexo Animator V4','Simple Template copied!')
+setclipboard([=[
+function rmesh(a)
+if not (workspace[game.Players.LocalPlayer.Name][a].Handle:FindFirstChild('Mesh') or workspace[game.Players.LocalPlayer.Name][a].Handle:FindFirstChild('SpecialMesh')) then return end
+old=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character=workspace[game.Players.LocalPlayer.Name]
+for i,v in next, workspace[game.Players.LocalPlayer.Name]:FindFirstChild(a).Handle:GetDescendants() do
+if v:IsA('Mesh') or v:IsA('SpecialMesh') then
+v:Remove()
+end
+end
+for i = 1 , 2 do
+game.Players.LocalPlayer.Character=old
+end
+end
+
+HumanDied = false for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do if v:IsA("BasePart") then  _G.netless=game:GetService("RunService").Heartbeat:connect(function() v.AssemblyLinearVelocity = Vector3.new(-30,0,0) sethiddenproperty(game.Players.LocalPlayer,"MaximumSimulationRadius",math.huge) sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",999999999) end) end end  local plr = game.Players.LocalPlayer local char = plr.Character local srv = game:GetService('RunService') local ct = {}  char.Archivable = true local reanim = char:Clone() reanim.Name = 'Nexo '..plr.Name..'' fl=Instance.new('Folder',char) fl.Name ='Nexo' reanim.Animate.Disabled=true char.HumanoidRootPart:Destroy() char.Humanoid:ChangeState(16)  for i,v in next, char.Humanoid:GetPlayingAnimationTracks() do v:Stop() end char.Animate:Remove()  function create(part, parent, p, r) Instance.new("Attachment",part) Instance.new("AlignPosition",part) Instance.new("AlignOrientation",part) Instance.new("Attachment",parent) part.Attachment.Name = part.Name parent.Attachment.Name = part.Name part.AlignPosition.Attachment0 = part[part.Name] part.AlignOrientation.Attachment0 = part[part.Name] part.AlignPosition.Attachment1 = parent[part.Name] part.AlignOrientation.Attachment1 = parent[part.Name] parent[part.Name].Position = p or Vector3.new() part[part.Name].Orientation = r or Vector3.new() part.AlignPosition.MaxForce = 999999999 part.AlignPosition.MaxVelocity = math.huge part.AlignPosition.ReactionForceEnabled = false part.AlignPosition.Responsiveness = math.huge part.AlignOrientation.Responsiveness = math.huge part.AlignPosition.RigidityEnabled = false part.AlignOrientation.MaxTorque = 999999999 end  for i,v in next, char:GetDescendants() do if v:IsA('Accessory') then v.Handle:BreakJoints() create(v.Handle,reanim[v.Name].Handle) end end  char.Torso['Left Shoulder']:Destroy() char.Torso['Right Shoulder']:Destroy() char.Torso['Left Hip']:Destroy() char.Torso['Right Hip']:Destroy()  create(char['Torso'],reanim['Torso']) create(char['Left Arm'],reanim['Left Arm']) create(char['Right Arm'],reanim['Right Arm']) create(char['Left Leg'],reanim['Left Leg']) create(char['Right Leg'],reanim['Right Leg'])  for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') or v:IsA('Decal') then v.Transparency = 1 end end  reanim.Parent = fl  for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') then table.insert(ct,srv.RenderStepped:Connect(function() v.CanCollide = false end)) end end  for i,v in next, char:GetDescendants() do if v:IsA('BasePart') then table.insert(ct,srv.RenderStepped:Connect(function() v.CanCollide = false end)) end end  for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') then table.insert(ct,srv.Stepped:Connect(function() v.CanCollide = false end)) end end  for i,v in next, char:GetDescendants() do if v:IsA('BasePart') then table.insert(ct,srv.Stepped:Connect(function() v.CanCollide = false end)) end end  table.insert(ct,reanim.Humanoid.Died:Connect(function() plr.Character = char char:BreakJoints() reanim:Destroy() game.Players:Chat('-gr') _G.netless:Disconnect() HumanDied = true for _,v in pairs(ct) do v:Disconnect() end end))  plr.Character = reanim workspace.CurrentCamera.CameraSubject = reanim.Humanoid
+
+IT = Instance.new
+CF = CFrame.new
+VT = Vector3.new
+RAD = math.rad
+C3 = Color3.new
+UD2 = UDim2.new
+BRICKC = BrickColor.new
+ANGLES = CFrame.Angles
+EULER = CFrame.fromEulerAnglesXYZ
+COS = math.cos
+ACOS = math.acos
+SIN = math.sin
+ASIN = math.asin
+ABS = math.abs
+MRANDOM = math.random
+FLOOR = math.floor
+
+speed = 1
+sine = 1
+srv = game:GetService('RunService')
+
+reanim = game.Players.LocalPlayer.Character
+
+function hat(h,p,c1,c0,m)
+reanim[h].Handle.AccessoryWeld.Part1=reanim[p]
+reanim[h].Handle.AccessoryWeld.C1=c1 or CFrame.new()
+reanim[h].Handle.AccessoryWeld.C0=reanim[h].Handle.AccessoryWeld.C0:Lerp(c0 or CFrame.new(),1)
+if m == true then
+rmesh(h)
+end
+end
+
+m=game.Players.LocalPlayer:GetMouse()
+RJ = reanim.HumanoidRootPart.RootJoint
+RS = reanim.Torso['Right Shoulder']
+LS = reanim.Torso['Left Shoulder']
+RH = reanim.Torso['Right Hip']
+LH = reanim.Torso['Left Hip']
+Root = reanim.HumanoidRootPart
+NECK = reanim.Torso.Neck
+NECK.C0 = CF(0,1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+NECK.C1 = CF(0,-0.5,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RJ.C1 = CF(0,-1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RJ.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RS.C1 = CF(0,0.5,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LS.C1 = CF(0,0.5,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RH.C1 = CF(0,1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LH.C1 = CF(0,1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RH.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LH.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RS.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LS.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+
+-- for modes u can go in this link : https://Nexo.notxeneon15.repl.co/nexo/modes.lua
+
+coroutine.wrap(function()
+while true do -- anim changer
+if HumanDied then break end
+sine = sine + speed
+local rlegray = Ray.new(reanim["Right Leg"].Position + Vector3.new(0, 0.5, 0), Vector3.new(0, -2, 0))
+local rlegpart, rlegendPoint = workspace:FindPartOnRay(rlegray, char)
+local llegray = Ray.new(reanim["Left Leg"].Position + Vector3.new(0, 0.5, 0), Vector3.new(0, -2, 0))
+local llegpart, llegendPoint = workspace:FindPartOnRay(llegray, char)
+local rightvector = (Root.Velocity * Root.CFrame.rightVector).X + (Root.Velocity * Root.CFrame.rightVector).Z
+local lookvector = (Root.Velocity * Root.CFrame.lookVector).X + (Root.Velocity * Root.CFrame.lookVector).Z
+if lookvector > reanim.Humanoid.WalkSpeed then
+lookvector = reanim.Humanoid.WalkSpeed
+end
+if lookvector < -reanim.Humanoid.WalkSpeed then
+lookvector = -reanim.Humanoid.WalkSpeed
+end
+if rightvector > reanim.Humanoid.WalkSpeed then
+rightvector = reanim.Humanoid.WalkSpeed
+end
+if rightvector < -reanim.Humanoid.WalkSpeed then
+rightvector = -reanim.Humanoid.WalkSpeed
+end
+local lookvel = lookvector / reanim.Humanoid.WalkSpeed
+local rightvel = rightvector / reanim.Humanoid.WalkSpeed
+if reanim.Humanoid.Jump then -- jump
+--jump clerp here
+elseif Root.Velocity.y < -1 and reanim.Humanoid.Jump then -- fall
+--fall clerp here
+elseif Root.Velocity.Magnitude < 2 then -- idle
+--idle clerp here
+elseif Root.Velocity.Magnitude < 20 then -- walk
+--walk clerp here
+elseif Root.Velocity.Magnitude > 20 then -- run
+--run clerp here
+end
+srv.RenderStepped:Wait()
+end
+end)()
+--Created using Nexo Animator V4]=])
+end)
+
+cnvs:Button('Copy Torso Fling (Simple)',function()
+notf('Nexo Animator V4','Torso Fling Template copied!')
+setclipboard([=[
+function rmesh(a)
+if not (workspace[game.Players.LocalPlayer.Name][a].Handle:FindFirstChild('Mesh') or workspace[game.Players.LocalPlayer.Name][a].Handle:FindFirstChild('SpecialMesh')) then return end
+old=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character=workspace[game.Players.LocalPlayer.Name]
+for i,v in next, workspace[game.Players.LocalPlayer.Name]:FindFirstChild(a).Handle:GetDescendants() do
+if v:IsA('Mesh') or v:IsA('SpecialMesh') then
+v:Remove()
+end
+end
+for i = 1 , 2 do
+game.Players.LocalPlayer.Character=old
+end
+end
+
+HumanDied = false for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do if v:IsA("BasePart") and v.Name ~= 'Torso' and v.Name ~= 'Head' then  _G.netless=game:GetService("RunService").Heartbeat:connect(function() v.AssemblyLinearVelocity = Vector3.new(-30,0,0) sethiddenproperty(game.Players.LocalPlayer,"MaximumSimulationRadius",math.huge) sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",999999999) end) end end  local plr = game.Players.LocalPlayer local char = plr.Character local srv = game:GetService('RunService') local ct = {}  char.Archivable = true local reanim = char:Clone() reanim.Name = 'Nexo '..plr.Name..'' fl=Instance.new('Folder',char) fl.Name ='Nexo' reanim.Animate.Disabled=true char.HumanoidRootPart:Destroy() char.Humanoid:ChangeState(16)  for i,v in next, char.Humanoid:GetPlayingAnimationTracks() do v:Stop() end char.Animate:Remove()  function create(part, parent, p, r) Instance.new("Attachment",part) Instance.new("AlignPosition",part) Instance.new("AlignOrientation",part) Instance.new("Attachment",parent) part.Attachment.Name = part.Name parent.Attachment.Name = part.Name part.AlignPosition.Attachment0 = part[part.Name] part.AlignOrientation.Attachment0 = part[part.Name] part.AlignPosition.Attachment1 = parent[part.Name] part.AlignOrientation.Attachment1 = parent[part.Name] parent[part.Name].Position = p or Vector3.new() part[part.Name].Orientation = r or Vector3.new() part.AlignPosition.MaxForce = 999999999 part.AlignPosition.MaxVelocity = math.huge part.AlignPosition.ReactionForceEnabled = false part.AlignPosition.Responsiveness = math.huge part.AlignOrientation.Responsiveness = math.huge part.AlignPosition.RigidityEnabled = false part.AlignOrientation.MaxTorque = 999999999 end  for i,v in next, char:GetDescendants() do if v:IsA('Accessory') then v.Handle:BreakJoints() create(v.Handle,reanim[v.Name].Handle) end end  char.Torso['Left Shoulder']:Destroy() char.Torso['Right Shoulder']:Destroy() char.Torso['Left Hip']:Destroy() char.Torso['Right Hip']:Destroy()  create(char['Torso'],reanim['Torso']) create(char['Left Arm'],reanim['Left Arm']) create(char['Right Arm'],reanim['Right Arm']) create(char['Left Leg'],reanim['Left Leg']) create(char['Right Leg'],reanim['Right Leg'])  for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') or v:IsA('Decal') then v.Transparency = 1 end end  reanim.Parent = fl  table.insert(ct,srv.Heartbeat:Connect(function() char.Torso.CFrame=reanim.Torso.CFrame char.Torso.Velocity=Vector3.new(40000,40000,0) end))  for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') then table.insert(ct,srv.RenderStepped:Connect(function() v.CanCollide = false end)) end end  for i,v in next, char:GetDescendants() do if v:IsA('BasePart') then table.insert(ct,srv.RenderStepped:Connect(function() v.CanCollide = false end)) end end  for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') then table.insert(ct,srv.Stepped:Connect(function() v.CanCollide = false end)) end end  for i,v in next, char:GetDescendants() do if v:IsA('BasePart') then table.insert(ct,srv.Stepped:Connect(function() v.CanCollide = false end)) end end  table.insert(ct,reanim.Humanoid.Died:Connect(function() plr.Character = char char:BreakJoints() reanim:Destroy() game.Players:Chat('-gr') _G.netless:Disconnect() HumanDied = true for _,v in pairs(ct) do v:Disconnect() end end))  plr.Character = reanim workspace.CurrentCamera.CameraSubject = reanim.Humanoid
+
+IT = Instance.new
+CF = CFrame.new
+VT = Vector3.new
+RAD = math.rad
+C3 = Color3.new
+UD2 = UDim2.new
+BRICKC = BrickColor.new
+ANGLES = CFrame.Angles
+EULER = CFrame.fromEulerAnglesXYZ
+COS = math.cos
+ACOS = math.acos
+SIN = math.sin
+ASIN = math.asin
+ABS = math.abs
+MRANDOM = math.random
+FLOOR = math.floor
+
+speed = 1
+sine = 1
+srv = game:GetService('RunService')
+
+reanim = game.Players.LocalPlayer.Character
+
+function hat(h,p,c1,c0,m)
+reanim[h].Handle.AccessoryWeld.Part1=reanim[p]
+reanim[h].Handle.AccessoryWeld.C1=c1 or CFrame.new()
+reanim[h].Handle.AccessoryWeld.C0=reanim[h].Handle.AccessoryWeld.C0:Lerp(c0 or CFrame.new(),1)
+if m == true then
+rmesh(h)
+end
+end
+
+m=game.Players.LocalPlayer:GetMouse()
+RJ = reanim.HumanoidRootPart.RootJoint
+RS = reanim.Torso['Right Shoulder']
+LS = reanim.Torso['Left Shoulder']
+RH = reanim.Torso['Right Hip']
+LH = reanim.Torso['Left Hip']
+Root = reanim.HumanoidRootPart
+NECK = reanim.Torso.Neck
+NECK.C0 = CF(0,1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+NECK.C1 = CF(0,-0.5,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RJ.C1 = CF(0,-1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RJ.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RS.C1 = CF(0,0.5,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LS.C1 = CF(0,0.5,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RH.C1 = CF(0,1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LH.C1 = CF(0,1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RH.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LH.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RS.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LS.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+
+-- for modes u can go in this link : https://Nexo.notxeneon15.repl.co/nexo/modes.lua
+
+coroutine.wrap(function()
+while true do -- anim changer
+if HumanDied then break end
+sine = sine + speed
+local rlegray = Ray.new(reanim["Right Leg"].Position + Vector3.new(0, 0.5, 0), Vector3.new(0, -2, 0))
+local rlegpart, rlegendPoint = workspace:FindPartOnRay(rlegray, char)
+local llegray = Ray.new(reanim["Left Leg"].Position + Vector3.new(0, 0.5, 0), Vector3.new(0, -2, 0))
+local llegpart, llegendPoint = workspace:FindPartOnRay(llegray, char)
+local rightvector = (Root.Velocity * Root.CFrame.rightVector).X + (Root.Velocity * Root.CFrame.rightVector).Z
+local lookvector = (Root.Velocity * Root.CFrame.lookVector).X + (Root.Velocity * Root.CFrame.lookVector).Z
+if lookvector > reanim.Humanoid.WalkSpeed then
+lookvector = reanim.Humanoid.WalkSpeed
+end
+if lookvector < -reanim.Humanoid.WalkSpeed then
+lookvector = -reanim.Humanoid.WalkSpeed
+end
+if rightvector > reanim.Humanoid.WalkSpeed then
+rightvector = reanim.Humanoid.WalkSpeed
+end
+if rightvector < -reanim.Humanoid.WalkSpeed then
+rightvector = -reanim.Humanoid.WalkSpeed
+end
+local lookvel = lookvector / reanim.Humanoid.WalkSpeed
+local rightvel = rightvector / reanim.Humanoid.WalkSpeed
+if reanim.Humanoid.Jump then -- jump
+--jump clerp here
+elseif Root.Velocity.y < -1 and reanim.Humanoid.Jump then -- fall
+--fall clerp here
+elseif Root.Velocity.Magnitude < 2 then -- idle
+--idle clerp here
+elseif Root.Velocity.Magnitude < 20 then -- walk
+--walk clerp here
+elseif Root.Velocity.Magnitude > 20 then -- run
+--run clerp here
+end
+srv.RenderStepped:Wait()
+end
+end)()
+--Created using Nexo Animator V4]=])
+end)
+
+cnvs:Button('Copy Leg Fling (Simple)',function()
+notf('Nexo Animator V4','Leg Fling Template copied!')
+setclipboard([=[
+clickfling = true -- set this to false if u dont want click fling or use torso fling
+
+function rmesh(a)
+if not (workspace[game.Players.LocalPlayer.Name][a].Handle:FindFirstChild('Mesh') or workspace[game.Players.LocalPlayer.Name][a].Handle:FindFirstChild('SpecialMesh')) then return end
+old=game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character=workspace[game.Players.LocalPlayer.Name]
+for i,v in next, workspace[game.Players.LocalPlayer.Name]:FindFirstChild(a).Handle:GetDescendants() do
+if v:IsA('Mesh') or v:IsA('SpecialMesh') then
+v:Remove()
+end
+end
+for i = 1 , 2 do
+game.Players.LocalPlayer.Character=old
+end
+end
+
+local plr = game.Players.LocalPlayer local char = plr.Character local srv = game:GetService('RunService') local ct = {} local te = table.insert local m = plr:GetMouse()  if char:FindFirstChild('Pal Hair') then else return end  _G.Jitter=Vector3.new(0,30,0)  for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do if v:IsA("BasePart") and v.Name ~= 'HumanoidRootPart' then  bf=Instance.new('BodyForce',v) bf.Force=Vector3.new(50,50,50) te(ct,game:GetService("RunService").Heartbeat:connect(function() pcall(function() v.Velocity = _G.Jitter v.BodyForce.Force=Vector3.new(50,50,50) game.Players.LocalPlayer.ReplicationFocus=workspace sethiddenproperty(game.Players.LocalPlayer,"MaximumSimulationRadius",math.huge) sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",9e9) end) end)) end end  char.Archivable = true fl=Instance.new('Folder',char) fl.Name = 'ArmFling' local reanim = char:Clone() char.Humanoid:ChangeState(16) char.HumanoidRootPart:Destroy()  for i,v in next, char.Humanoid:GetPlayingAnimationTracks() do v:Stop() end char.Animate:Remove()  hats=0 function create(part, parent, p, r) hats=hats+1 Instance.new("Attachment",part) Instance.new("AlignPosition",part) Instance.new("AlignOrientation",part) Instance.new("Attachment",parent) part.Attachment.Name = part.Name..hats parent.Attachment.Name = part.Name..hats part.AlignPosition.Attachment0 = part[part.Name..hats] part.AlignOrientation.Attachment0 = part[part.Name..hats] part.AlignPosition.Attachment1 = parent[part.Name..hats] part.AlignOrientation.Attachment1 = parent[part.Name..hats] parent[part.Name..hats].Position = p or Vector3.new() part[part.Name..hats].Orientation = r or Vector3.new() part.AlignPosition.MaxForce = 999999999 part.AlignPosition.MaxVelocity = math.huge part.AlignPosition.ReactionForceEnabled = false part.AlignPosition.Responsiveness = math.huge part.AlignOrientation.Responsiveness = math.huge part.AlignPosition.RigidityEnabled = false part.AlignOrientation.MaxTorque = 999999999 end  function Pos(part, parent, p) Instance.new("Attachment",part) Instance.new("AlignPosition",part) Instance.new("Attachment",parent) part.Attachment.Name = part.Name parent.Attachment.Name = part.Name part.AlignPosition.Attachment0 = part[part.Name] part.AlignPosition.Attachment1 = parent[part.Name] parent[part.Name].Position = p or Vector3.new() part.AlignPosition.MaxForce = 999999999*10 part.AlignPosition.MaxVelocity = math.huge part.AlignPosition.ReactionForceEnabled = false part.AlignPosition.Responsiveness = math.huge part.AlignPosition.RigidityEnabled = false end  function nc(p) if p:IsA('BasePart') or p:IsA('Part') then te(ct,srv.Stepped:Connect(function() p.CanCollide=false end)) te(ct,srv.RenderStepped:Connect(function() p.CanCollide=false end)) else print('Cannot noclip '..p) end end  function af() for i,v in next, game.Players:GetDescendants() do if v:IsA('Player') and v.Name ~= game.Players.LocalPlayer.Name then for _,c in next, v.Character:GetDescendants() do if c:IsA('BasePart') and v.Parent== char then noo=Instance.new('NoCollisionConstraint',c) noo.Part1=char['Torso'] noo.Part0=c noo2=Instance.new('NoCollisionConstraint',c) noo2.Part1=char['Head'] noo2.Part0=c end end end end end  for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') or v:IsA('Decal') then v.Transparency = 1 end end  for i,v in next, char:GetDescendants() do if v:IsA('BasePart') then nc(v) end end  for i,v in next, char:GetDescendants() do if v:IsA('Accessory') and v.Name ~= 'Pal Hair' then v.Handle:BreakJoints() create(v.Handle,reanim[v.Name].Handle) end end  for i,v in next, reanim:GetDescendants() do if v:IsA('BasePart') then nc(v) end end  for i,v in next, char:GetDescendants() do if v:IsA('Motor6D') and v.Name ~= 'Neck' then v:Destroy() end end  for i,v in next, char:GetDescendants() do if v:IsA('BasePart') and v.Name ~= 'Right Leg' and v.Name ~= 'Head' and v.Parent == char then create(v,reanim[v.Name]) end end  function flinger(p) f=Instance.new('BodyAngularVelocity',p) f.P=9e9*10 f.AngularVelocity = Vector3.new(9e9*10,9e9*10,9e9*10) f.MaxTorque=Vector3.new(9e9*10,0,0) return f end  Pos(char['Right Leg'],reanim['Torso']) fliiiin=flinger(char['Right Leg'])  char['Pal Hair'].Handle:BreakJoints() char['Pal Hair'].Handle.Mesh:Destroy()  create(char['Pal Hair'].Handle,reanim['Right Leg'],Vector3.new(),Vector3.new(90,0,0))  reanim.Animate.Disabled=true  reanim.Parent=fl  sh=false  fp=Instance.new('Part',reanim) fp.Name='FlingPart' fp.CanCollide=false fp.Transparency=1 if clickfling then te(ct,m.Button1Down:Connect(function() sh=true end))  te(ct,m.Button1Up:Connect(function() sh=false end)) end te(ct,srv.Heartbeat:Connect(function() m.TargetFilter=char if sh then fp.CFrame=CFrame.new(m.Hit.p) char['Right Leg'].Position=fp.Position else fp.CFrame=char.Torso.CFrame*CFrame.new(0,0,0) char['Right Leg'].Position=fp.Position end end))  plr.Character=reanim workspace.Camera.CameraSubject=reanim  HumanDied=false  te(ct,reanim.Humanoid.Died:Connect(function() HumanDied=true fliiiin:Destroy() reanim.HumanoidRootPart.Anchored=true old=reanim.HumanoidRootPart.CFrame reanim.HumanoidRootPart.CFrame=old wait() reanim.HumanoidRootPart.CFrame=old char.Humanoid:Destroy() Instance.new('Humanoid',char) plr.Character=char char:BreakJoints() game.Players:Chat('-gr') for i,v in next, ct do v:Disconnect() end end))
+
+IT = Instance.new
+CF = CFrame.new
+VT = Vector3.new
+RAD = math.rad
+C3 = Color3.new
+UD2 = UDim2.new
+BRICKC = BrickColor.new
+ANGLES = CFrame.Angles
+EULER = CFrame.fromEulerAnglesXYZ
+COS = math.cos
+ACOS = math.acos
+SIN = math.sin
+ASIN = math.asin
+ABS = math.abs
+MRANDOM = math.random
+FLOOR = math.floor
+
+speed = 1
+sine = 1
+srv = game:GetService('RunService')
+
+reanim = game.Players.LocalPlayer.Character
+
+function hat(h,p,c1,c0,m)
+reanim[h].Handle.AccessoryWeld.Part1=reanim[p]
+reanim[h].Handle.AccessoryWeld.C1=c1 or CFrame.new()
+reanim[h].Handle.AccessoryWeld.C0=reanim[h].Handle.AccessoryWeld.C0:Lerp(c0 or CFrame.new(),1)
+if m == true then
+rmesh(h)
+end
+end
+
+m=game.Players.LocalPlayer:GetMouse()
+RJ = reanim.HumanoidRootPart.RootJoint
+RS = reanim.Torso['Right Shoulder']
+LS = reanim.Torso['Left Shoulder']
+RH = reanim.Torso['Right Hip']
+LH = reanim.Torso['Left Hip']
+Root = reanim.HumanoidRootPart
+NECK = reanim.Torso.Neck
+NECK.C0 = CF(0,1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+NECK.C1 = CF(0,-0.5,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RJ.C1 = CF(0,-1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RJ.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RS.C1 = CF(0,0.5,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LS.C1 = CF(0,0.5,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RH.C1 = CF(0,1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LH.C1 = CF(0,1,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RH.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LH.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+RS.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+LS.C0 = CF(0,0,0)*ANGLES(RAD(0),RAD(0),RAD(0))
+
+-- for modes u can go in this link : https://Nexo.notxeneon15.repl.co/nexo/modes.lua
+
+coroutine.wrap(function()
+while true do -- anim changer
+if HumanDied then break end
+sine = sine + speed
+local rlegray = Ray.new(reanim["Right Leg"].Position + Vector3.new(0, 0.5, 0), Vector3.new(0, -2, 0))
+local rlegpart, rlegendPoint = workspace:FindPartOnRay(rlegray, char)
+local llegray = Ray.new(reanim["Left Leg"].Position + Vector3.new(0, 0.5, 0), Vector3.new(0, -2, 0))
+local llegpart, llegendPoint = workspace:FindPartOnRay(llegray, char)
+local rightvector = (Root.Velocity * Root.CFrame.rightVector).X + (Root.Velocity * Root.CFrame.rightVector).Z
+local lookvector = (Root.Velocity * Root.CFrame.lookVector).X + (Root.Velocity * Root.CFrame.lookVector).Z
+if lookvector > reanim.Humanoid.WalkSpeed then
+lookvector = reanim.Humanoid.WalkSpeed
+end
+if lookvector < -reanim.Humanoid.WalkSpeed then
+lookvector = -reanim.Humanoid.WalkSpeed
+end
+if rightvector > reanim.Humanoid.WalkSpeed then
+rightvector = reanim.Humanoid.WalkSpeed
+end
+if rightvector < -reanim.Humanoid.WalkSpeed then
+rightvector = -reanim.Humanoid.WalkSpeed
+end
+local lookvel = lookvector / reanim.Humanoid.WalkSpeed
+local rightvel = rightvector / reanim.Humanoid.WalkSpeed
+if reanim.Humanoid.Jump then -- jump
+--jump clerp here
+elseif Root.Velocity.y < -1 and reanim.Humanoid.Jump then -- fall
+--fall clerp here
+elseif Root.Velocity.Magnitude < 2 then -- idle
+--idle clerp here
+elseif Root.Velocity.Magnitude < 20 then -- walk
+--walk clerp here
+elseif Root.Velocity.Magnitude > 20 then -- run
+--run clerp here
+end
+srv.RenderStepped:Wait()
+end
+end)()
+--Created using Nexo Animator V4]=])
+end)
+
+cnvs:Label('Lerps')
+
+cnvs:Button('Copy Lerps',function()
+get()
+end)
+
+cnvs:Label('Hat')
+
+hatcnvs={
+"hat('"..hat1sel.."','"..part1sel.."',CFrame.new("..Hat1CF.C1.X..","..Hat1CF.C1.Y..","..Hat1CF.C1.Z.."),"..[[CFrame.new(]]..Hat1CF.Position.X..[[+]]..Hat1CF.Position.XL..[[*math["]]..Hat1CF.Type.PX..[["](sine/]]..Hat1CF.Position.SX..[[),]]..Hat1CF.Position.Y..[[+]]..Hat1CF.Position.YL..[[*math["]]..Hat1CF.Type.PY..[["](sine/]]..Hat1CF.Position.SY..[[),]]..Hat1CF.Position.Z..[[+]]..Hat1CF.Position.ZL..[[*math["]]..Hat1CF.Type.PZ..[["](sine/]]..Hat1CF.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Hat1CF.Rotation.X..[[+]]..Hat1CF.Rotation.XL..[[*math["]]..Hat1CF.Type.RX..[["](sine/]]..Hat1CF.Position.SX..[[)),math.rad(]]..Hat1CF.Rotation.Y..[[+]]..Hat1CF.Rotation.YL..[[*math["]]..Hat1CF.Type.RY..[["](sine/]]..Hat1CF.Position.SY..[[)),math.rad(]]..Hat1CF.Rotation.Z..[[+]]..Hat1CF.Rotation.ZL..[[*math["]]..Hat1CF.Type.RZ..[["](sine/]]..Hat1CF.Position.SZ..[[))),]]..tostring(nmse1)..")"
+}
+
+function hcpy(bool)
+hatcnvs={
+"hat('"..hat1sel.."','"..part1sel.."',CFrame.new("..Hat1CF.C1.X..","..Hat1CF.C1.Y..","..Hat1CF.C1.Z.."),"..[[CFrame.new(]]..Hat1CF.Position.X..[[+]]..Hat1CF.Position.XL..[[*math["]]..Hat1CF.Type.PX..[["](sine/]]..Hat1CF.Position.SX..[[),]]..Hat1CF.Position.Y..[[+]]..Hat1CF.Position.YL..[[*math["]]..Hat1CF.Type.PY..[["](sine/]]..Hat1CF.Position.SY..[[),]]..Hat1CF.Position.Z..[[+]]..Hat1CF.Position.ZL..[[*math["]]..Hat1CF.Type.PZ..[["](sine/]]..Hat1CF.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Hat1CF.Rotation.X..[[+]]..Hat1CF.Rotation.XL..[[*math["]]..Hat1CF.Type.RX..[["](sine/]]..Hat1CF.Position.SX..[[)),math.rad(]]..Hat1CF.Rotation.Y..[[+]]..Hat1CF.Rotation.YL..[[*math["]]..Hat1CF.Type.RY..[["](sine/]]..Hat1CF.Position.SY..[[)),math.rad(]]..Hat1CF.Rotation.Z..[[+]]..Hat1CF.Rotation.ZL..[[*math["]]..Hat1CF.Type.RZ..[["](sine/]]..Hat1CF.Position.SZ..[[))),]]..tostring(nmse1)..")"
+}
+setclipboard(hatcnvs[bool])
+end
+
+function updhats()
+hatcnvs={
+"hat('"..hat1sel.."','"..part1sel.."',CFrame.new("..Hat1CF.C1.X..","..Hat1CF.C1.Y..","..Hat1CF.C1.Z.."),"..[[CFrame.new(]]..Hat1CF.Position.X..[[+]]..Hat1CF.Position.XL..[[*math["]]..Hat1CF.Type.PX..[["](sine/]]..Hat1CF.Position.SX..[[),]]..Hat1CF.Position.Y..[[+]]..Hat1CF.Position.YL..[[*math["]]..Hat1CF.Type.PY..[["](sine/]]..Hat1CF.Position.SY..[[),]]..Hat1CF.Position.Z..[[+]]..Hat1CF.Position.ZL..[[*math["]]..Hat1CF.Type.PZ..[["](sine/]]..Hat1CF.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Hat1CF.Rotation.X..[[+]]..Hat1CF.Rotation.XL..[[*math["]]..Hat1CF.Type.RX..[["](sine/]]..Hat1CF.Position.SX..[[)),math.rad(]]..Hat1CF.Rotation.Y..[[+]]..Hat1CF.Rotation.YL..[[*math["]]..Hat1CF.Type.RY..[["](sine/]]..Hat1CF.Position.SY..[[)),math.rad(]]..Hat1CF.Rotation.Z..[[+]]..Hat1CF.Rotation.ZL..[[*math["]]..Hat1CF.Type.RZ..[["](sine/]]..Hat1CF.Position.SZ..[[))),]]..tostring(nmse1)..")"
+}
+end
+
+cnvs:Button('Copy Hat',function()
+notf('Nexo Animator V4','Hat Copied to clipboard')
+hcpy(1)
+end)
+
+cnvs:Button('Copy Hat Lerps',function()
+notf('Nexo Animator V4','Hat Lerps Copied to clipboard')
+setclipboard([[reanim[']]..hat1sel..[['].Handle.AccessoryWeld.C0=]]..[[reanim[']]..hat1sel..[['].Handle.AccessoryWeld.C0:Lerp(]]..[[CFrame.new(]]..Hat1CF.Position.X..[[+]]..Hat1CF.Position.XL..[[*math["]]..Hat1CF.Type.PX..[["](sine/]]..Hat1CF.Position.SX..[[),]]..Hat1CF.Position.Y..[[+]]..Hat1CF.Position.YL..[[*math["]]..Hat1CF.Type.PY..[["](sine/]]..Hat1CF.Position.SY..[[),]]..Hat1CF.Position.Z..[[+]]..Hat1CF.Position.ZL..[[*math["]]..Hat1CF.Type.PZ..[["](sine/]]..Hat1CF.Position.SZ..[[))*CFrame.Angles(math.rad(]]..Hat1CF.Rotation.X..[[+]]..Hat1CF.Rotation.XL..[[*math["]]..Hat1CF.Type.RX..[["](sine/]]..Hat1CF.Position.SX..[[)),math.rad(]]..Hat1CF.Rotation.Y..[[+]]..Hat1CF.Rotation.YL..[[*math["]]..Hat1CF.Type.RY..[["](sine/]]..Hat1CF.Position.SY..[[)),math.rad(]]..Hat1CF.Rotation.Z..[[+]]..Hat1CF.Rotation.ZL..[[*math["]]..Hat1CF.Type.RZ..[["](sine/]]..Hat1CF.Position.SZ..[[)),]]..[[.2)]])
+end)
+
+for i,v in next, game.CoreGui.RobloxGui['Test UI']:GetDescendants() do
+if v:IsA('UICorner') then
+v.CornerRadius = UDim.new(0,4)
+end
+end
