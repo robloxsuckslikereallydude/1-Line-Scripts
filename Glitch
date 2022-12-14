@@ -54,7 +54,7 @@ This will increase effectiveness of flinging more harder but reduces the radius 
 Set your fling velocity, the higher the better, but the more broken it is. (This means you are going to get fling off because of the map parts or either bug out)
 --]]
 
-FlingVelocity = 0.5 -- default
+FlingVelocity = 100 -- default
 
 
 -- Scripts
