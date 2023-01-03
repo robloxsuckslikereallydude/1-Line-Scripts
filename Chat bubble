@@ -1,7 +1,5 @@
-local j = " ꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰꙰"
-local args = {
-   [1] = j,
-   [2] = "All"
-}
+local msg = " ৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌৌ"
 
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+for i = 1,7 do
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg,"All")
+end
