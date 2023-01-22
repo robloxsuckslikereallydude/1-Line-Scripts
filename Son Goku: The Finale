@@ -1,0 +1,271 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Son Goku: The Finale", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Unlocks",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Unlock SSJG It kicks, but just rejoin.)",
+	Callback = function()
+      		game.ReplicatedStorage.Form:InvokeServer("SSJG","Short")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Unlock all moves (check backpack for more)",
+	Callback = function()
+      		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Hold Hands"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Bone Crush"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Dirty Fireworks"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Meteor Blow"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Kamehameha"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Energy Blast Volley"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Death Beam"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Galick Gun"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Twin Dragon Shot"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Gigantic Blast"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Big Bang Attack"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Final Flash"})
+game:GetService("Players").LocalPlayer.PlayerGui.HUD.Shop.LocalScript.Buy:InvokeServer({["Price"]=0,["Level"]=0,["Name"]="Spirit Bomb"})
+  	end    
+})
+
+local Tab2 = Window:MakeTab({
+	Name = "Transformations",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab2:AddLabel("Make sure to not be in any transformations before clicking.")
+
+Tab2:AddDropdown({
+	Name = "SSJ",
+	Default = "1",
+	Options = {"Short", "Medium", "Long", "Untransform"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("SSJ",Value)
+	end    
+})
+
+Tab2:AddDropdown({
+	Name = "SSJ2 (Long only works in chaos world)",
+	Default = "1",
+	Options = {"Short", "Medium", "Long", "Untransform"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("SSJ","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJ2",Value)
+	end    
+})
+
+Tab2:AddDropdown({
+	Name = "SSJ3",
+	Default = "1",
+	Options = {"Short", "Medium", "Long", "Untransform"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("SSJ","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJ2","Short")
+wait("5")
+game.ReplicatedStorage.Form:InvokeServer("SSJ3",Value)
+	end    
+})
+
+Tab2:AddDropdown({
+	Name = "SSJ4",
+	Default = "1",
+	Options = {"Short", "Untransform"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("SSJ","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJ2","Short")
+wait("5")
+game.ReplicatedStorage.Form:InvokeServer("SSJ3","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJ4",Value)
+	end    
+})
+
+Tab2:AddDropdown({
+	Name = "SSJG (unlock it first)",
+	Default = "1",
+	Options = {"Short", "Untransform"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("SSJG",Value)
+	end    
+})
+
+Tab2:AddDropdown({
+	Name = "SSJB (Long only works in chaos world)",
+	Default = "1",
+	Options = {"Short", "Long", "Untransform"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("SSJG","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJB",Value)
+	end    
+})
+
+Tab2:AddDropdown({
+	Name = "Ultra Instinct Omen (Only works in Chaos World)",
+	Default = "1",
+	Options = {"Medium", "Long"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("UIO",Value)
+	end    
+})
+
+Tab2:AddLabel("Fun lil glitches")
+
+Tab2:AddDropdown({
+	Name = "Bald SSJ",
+	Default = "1",
+	Options = {"Short", "Untransform"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("SSJ","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJ2","Short")
+wait("2")
+game.ReplicatedStorage.Form:InvokeServer("SSJ3",Value)
+	end    
+})
+
+Tab2:AddButton({
+	Name = "Rainbow SSJ (unlock ssjg first)",
+	Callback = function()
+      		game.ReplicatedStorage.Form:InvokeServer("SSJ","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJ2","Short")
+wait("5")
+game.ReplicatedStorage.Form:InvokeServer("SSJ3","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJG","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJB","Short")
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "Rainbow SSJ 2(unlock ssjg first)",
+	Callback = function()
+      		game.ReplicatedStorage.Form:InvokeServer("SSJB","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJG","Short")
+  	end    
+})
+
+local Tab3 = Window:MakeTab({
+	Name = "Other",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab3:AddButton({
+	Name = "Spawn Shenron",
+	Callback = function()
+    local function Collect()
+for i,v in pairs(workspace.Assets['Dragon Balls']:GetDescendants()) do
+    if v:IsA("ProximityPrompt") then
+    fireproximityprompt(v,1000)
+    end
+end
+end
+
+game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(workspace.Assets['Dragon Balls']['dragon ball 1'].Star.CFrame)
+wait(0.5)
+Collect()
+game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(workspace.Assets['Dragon Balls']['dragon ball 2'].Star.CFrame)
+wait(0.5)
+Collect()
+game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(workspace.Assets['Dragon Balls']['dragon ball 3'].Star.CFrame)
+wait(0.5)
+Collect()
+game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(workspace.Assets['Dragon Balls']['dragon ball 4'].Star.CFrame)
+wait(0.5)
+Collect()
+game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(workspace.Assets['Dragon Balls']['dragon ball 5'].Star.CFrame)
+wait(0.5)
+Collect()
+game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(workspace.Assets['Dragon Balls']['dragon ball 6'].Star.CFrame)
+wait(0.5)
+Collect()
+game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(workspace.Assets['Dragon Balls']['dragon ball 7'].Star.CFrame)
+wait(0.5)
+Collect()
+wait(1)
+game.Players:Chat("Shenron get the hell out from there")
+game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(workspace.Assets['Dragon Balls']['dragon ball 1'].Star.CFrame)
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Godmode (Can only move around & cant attack or transform)",
+	Callback = function()
+      		game.ReplicatedStorage.Form:InvokeServer("UIO","Long")
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 75
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 40
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Strongest punch (busted)",
+	Callback = function()
+      		game:GetService("Players").LocalPlayer.Character:FindFirstChild("Main Combat").Punch:InvokeServer(false)
+  	end    
+})
+
+Tab3:AddToggle({
+	Name = "Spam Punch (use near someone for it to work)",
+	Default = false,
+	Callback = function(Value)
+		_G.Punch = Value
+while _G.Punch do
+local args = {
+    [2] = false
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Main Combat").Punch:InvokeServer(unpack(args))
+task.wait()
+end
+	end    
+})
+
+Tab3:AddToggle({
+	Name = "Spam Heavy Punch (use near someone for it to work)",
+	Default = false,
+	Callback = function(Value)
+		_G.Punch = Value
+while _G.Punch do
+local args = {
+    [2] = true
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Main Combat").Punch:InvokeServer(unpack(args))
+task.wait()
+end
+	end    
+})
+
+Tab3:AddToggle({
+	Name = "Spam Strongest Punch (use near someone for it to work)",
+	Default = false,
+	Callback = function(Value)
+		_G.Punch = Value
+while _G.Punch do
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Main Combat").Punch:InvokeServer(false)
+task.wait()
+end
+	end    
+})
+
+Tab3:AddButton({
+	Name = "More Aura",
+	Callback = function()
+      		game:GetService('VirtualInputManager'):SendKeyEvent(true,"R",false,uwu)
+game:GetService('VirtualInputManager'):SendKeyEvent(true,"LeftShift",false,uwu)
+wait(0.5)
+game:GetService('VirtualInputManager'):SendKeyEvent(true,"LeftAlt",false,uwu)
+game:GetService('VirtualInputManager'):SendKeyEvent(true,"R",false,uwu)
+  	end    
+})
+
+Tab3:AddToggle({
+	Name = "Toggle aura",
+	Default = false,
+	Callback = function(Value)
+		game:GetService("Players").LocalPlayer.Character.Forms.Toggle:InvokeServer(Value)
+	end    
+})
