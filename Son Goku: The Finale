@@ -240,6 +240,18 @@ end
 })
 
 Tab3:AddToggle({
+	Name = "Spam Hard Punch (use near someone for it to work)",
+	Default = false,
+	Callback = function(Value)
+		_G.Punch = Value
+while _G.Punch do
+game:GetService("ReplicatedStorage")["Hard Punch"]:FireServer()
+task.wait()
+end
+	end    
+})
+
+Tab3:AddToggle({
 	Name = "Spam Strongest Punch (use near someone for it to work)",
 	Default = false,
 	Callback = function(Value)
