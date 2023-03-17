@@ -62,7 +62,7 @@ local arenaVoid = Instance.new("Part", workspace)
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
                 
-                local Window = OrionLib:MakeWindow({Name = "Slap Battles", HidePremium = true,IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Ability Spams",
@@ -90,6 +90,12 @@ local arenaVoid = Instance.new("Part", workspace)
                 
                 local Section4 = Tab2:AddSection({
                     Name = "Buttons"
+                })
+
+                local Tab5 = Window:MakeTab({
+                    Name = "Destroy GUI",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
                 })
                 
 Tab:AddLabel("A lot of these work in the lobby")
@@ -423,6 +429,28 @@ Tab:AddLabel("A lot of these work in the lobby")
                     end    
                 })
 
+                Tab:AddToggle({
+                    Name = "Spam Thanos Sound",
+                    Default = false,
+                    Callback = function(boolean)
+                       getgenv().autoThanosSound = boolean
+                       if boolean == true then
+                        SpamThanosSound()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Spam Sleep",
+                    Default = false,
+                    Callback = function(boolean)
+                       getgenv().autoSleep = boolean
+                       if boolean == true then
+                        SpamSleep()
+                    end
+                    end    
+                })
+
                 Section4:AddButton({
                     Name = "Get [REDACTED]",
                     
@@ -557,38 +585,6 @@ while _G.AntiBubble do
         end
                     end    
                 })
-
-               Section4:AddToggle({
-                    Name = "Anti Obby",
-                    Default = false,
-                    Callback = function(a)
-getgenv().disable = a
-     if getgenv().disable == true then
-      for i,v in pairs(game.Players:GetChildren()) do
-        if v.leaderstats.Glove.Value == "Obby" then
-          disable(v.Name, false)
-        end
-     end
-   else
-       for i,v in pairs(game.Players:GetChildren()) do
-        if v.leaderstats.Glove.Value == "Obby" then
-          disable(v.Name, true)
-        end
-     end
-  end
-                    end    
-                })
-
-function disable(username, cantouch)
-    warn(username)
-    if workspace:FindFirstChild("ObbyItem"..username.."LavaBlock") then
-       warn("ObbyItem"..username.."LavaBlock")
-       workspace:FindFirstChild("ObbyItem"..username.."LavaBlock").CanTouch = cantouch
-    elseif workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner") then
-    warn("ObbyItem"..username.."LavaSpinner")
-    workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner").CanTouch = cantouch
- end
-end
 
 Section4:AddButton({
 	Name = "TP to Safe spot (DONT USE IN LOBBY)",
@@ -984,6 +980,13 @@ Tab4:AddSlider({
 	end    
 })
 
+Tab5:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
                 function SpamWell()
                    spawn(function()    
                        while getgenv().autoWell == true do
@@ -1007,6 +1010,24 @@ Tab4:AddSlider({
                        while getgenv().autoGhostSound == true do
                            game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
     game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
+                       task.wait()
+                       end
+                   end)
+                end
+
+                function SpamThanosSound()
+                   spawn(function()    
+                       while getgenv().autoThanosSound == true do
+game:GetService("ReplicatedStorage").Illbeback:FireServer()
+                       task.wait()
+                       end
+                   end)
+                end
+
+                function SpamSleep()
+                   spawn(function()    
+                       while getgenv().autoSleep == true do
+game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
                        task.wait()
                        end
                    end)
