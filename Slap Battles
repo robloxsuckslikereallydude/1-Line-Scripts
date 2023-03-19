@@ -113,13 +113,13 @@ Tab:AddLabel("A lot of these work in the lobby")
                 })
 
                 Tab:AddToggle({
-                    Name = "Ping Pong Spam",
+                    Name = "Whirlwind Spam",
                     Default = false,
                     Callback = function(boolean)
-                               getgenv().autoPingPong = boolean
+                               getgenv().autoWhirlwind = boolean
                 
                        if boolean == true then
-                        SpamPingPong()
+                        SpamWhirlwind()
                     end
                     end    
                 })
@@ -1285,9 +1285,9 @@ game:GetService("ReplicatedStorage").Timestop:FireServer()
                    end)
                 end
 
-                function SpamPingPong()
+                function SpamWhirlwind()
                    spawn(function()    
-                       while getgenv().autoPingPong == true do
+                       while getgenv().autoWhirlwind == true do
                            game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
                        task.wait()
                        end
