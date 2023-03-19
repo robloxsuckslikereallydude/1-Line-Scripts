@@ -324,7 +324,7 @@ Tab:AddLabel("A lot of these work in the lobby")
                     end
                     end    
                 })
-                
+
                 Tab:AddToggle({
                     Name = "Bubble Spam",
                     Default = false,
@@ -567,10 +567,21 @@ jesus.CanCollide = Value
                     end    
                 })
 
-               Section4:AddToggle({
-                    Name = "Anti Bubble",
+function disable(username, cantouch)
+    warn(username)
+    if workspace:FindFirstChild("ObbyItem"..username.."LavaBlock") then
+       warn("ObbyItem"..username.."LavaBlock")
+       workspace:FindFirstChild("ObbyItem"..username.."LavaBlock").CanTouch = cantouch
+    elseif workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner") then
+    warn("ObbyItem"..username.."LavaSpinner")
+    workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner").CanTouch = cantouch
+ end
+end
+
+Section4:AddToggle({
+                    Name = "Anti Obby",
                     Default = false,
-                    Callback = function(Value)
+                    Callback = function(a)
 _G.AntiBubble = Value
 
 while _G.AntiBubble do
@@ -583,6 +594,27 @@ while _G.AntiBubble do
           end
          end
         end
+                    end    
+                })
+
+               Section4:AddToggle({
+                    Name = "Anti Bubble",
+                    Default = false,
+                    Callback = function(Value)
+getgenv().disable = a
+     if getgenv().disable == true then
+      for i,v in pairs(game.Players:GetChildren()) do
+        if v.leaderstats.Glove.Value == "Obby" then
+          disable(v.Name, false)
+        end
+     end
+   else
+       for i,v in pairs(game.Players:GetChildren()) do
+        if v.leaderstats.Glove.Value == "Obby" then
+          disable(v.Name, true)
+        end
+     end
+  end
                     end    
                 })
 
