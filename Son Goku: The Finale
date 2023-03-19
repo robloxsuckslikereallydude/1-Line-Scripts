@@ -105,6 +105,17 @@ game.ReplicatedStorage.Form:InvokeServer("SSJB",Value)
 })
 
 Tab2:AddDropdown({
+	Name = "SSJBE",
+	Default = "1",
+	Options = {"Short", "Long", "Untransform"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("SSJG","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJB","Short")
+game.ReplicatedStorage.Form:InvokeServer("SSJBE",Value)
+	end    
+})
+
+Tab2:AddDropdown({
 	Name = "Ultra Instinct Omen (Only works in Chaos World)",
 	Default = "1",
 	Options = {"Medium", "Long"},
