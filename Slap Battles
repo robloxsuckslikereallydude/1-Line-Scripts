@@ -125,6 +125,18 @@ Tab:AddLabel("A lot of these work in the lobby")
                 })
 
                 Tab:AddToggle({
+                    Name = "Shukuchi Spam",
+                    Default = false,
+                    Callback = function(boolean)
+                               getgenv().autoShukuchi = boolean
+                
+                       if boolean == true then
+                        SpamShukuchi()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
                     Name = "Fort Spam",
                     Default = false,
                     Callback = function(boolean)
@@ -441,6 +453,17 @@ Tab:AddLabel("A lot of these work in the lobby")
                 })
 
                 Tab:AddToggle({
+                    Name = "Spam Golden Sound",
+                    Default = false,
+                    Callback = function(boolean)
+                       getgenv().autoGoldenSound = boolean
+                       if boolean == true then
+                        SpamGoldenSound()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
                     Name = "Spam Sleep",
                     Default = false,
                     Callback = function(boolean)
@@ -536,6 +559,45 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/script
                 })
 
 Section4:AddButton({
+	Name = "Turn glove into a block",
+	Callback = function()
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+if v:IsA("Tool") then
+if v.Glove.Mesh then
+v.Glove.Mesh:Destroy()
+end
+end
+end
+                    end    
+                })
+
+Section4:AddButton({
+	Name = "Infinite Golden",
+	Callback = function()
+game:GetService("ReplicatedStorage").Goldify:FireServer(true)
+                    end    
+                })
+
+Section4:AddToggle({
+                    Name = "Rainbow (Needs Golden)",
+                    Default = false,
+                    Callback = function(Value)
+_G.Rainbow = Value
+while _G.Rainbow do
+local randomnumber = math.random(1004, 1032)
+local args = {
+    [1] = false,
+    [2] = BrickColor.new(randomnumber)
+}
+
+game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+
+task.wait(0.075)
+end
+end
+                })
+
+Section4:AddButton({
 	Name = "No 1K Slap Royale TP",
 	Callback = function()
 game:GetService"TeleportService":Teleport(9426795465)
@@ -559,12 +621,83 @@ getgenv().antinametag = Value
 end,
                 })
 
+local function GetClosestPlayer()
+   local bestdistance,player = nil,nil
+    
+   pcall(function()
+       for i,v in pairs(game.Players:GetPlayers()) do
+           if v == game.Players.LocalPlayer then continue end
+           
+           local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
+           if bestdistance == nil and player == nil then
+               bestdistance = distance
+               player = v
+           elseif bestdistance > distance then
+               player = v
+               bestdistance = distance
+           end
+       end
+       
+       if bestdistance > radius then
+          player = nil 
+       end
+   end)
+   return player
+end
+
+Section4:AddToggle({
+                    Name = "Slap Aura",
+                    Default = false,
+                    Callback = function(Value)
+KA = Value
+	    
+	    while task.wait() and KA do
+	        pcall(function()
+	            game:GetService("ReplicatedStorage"):WaitForChild("b"):FireServer(GetClosestPlayer().Character.Torso)
+	        end)
+	    end
+	end,
+	Enabled = KA
+                })
+
+Section4:AddSlider({
+	Name = "Slap Aura Radius",
+	Min = 0,
+	Max = 30,
+	Default = 20,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Studs",
+	Callback = function(Value)
+radius = Value
+	end    
+})
+
 Section4:AddToggle({
                     Name = "Anti Void",
                     Default = false,
                     Callback = function(Value)
 jesus.CanCollide = Value
                     end    
+                })
+
+Section4:AddToggle({
+                    Name = "Anti Ragdoll",
+                    Default = false,
+                    Callback = function(Value)
+AR = Value
+	    
+	    while task.wait() and AR do
+	       pcall(function()
+	           if game.Players.LocalPlayer.Character.Ragdolled.Value == true then
+	              repeat game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true task.wait() until game.Players.LocalPlayer.Character.Ragdolled.Value == false
+	              task.wait()
+	              game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	           end
+	       end)
+	    end
+	end,
+	Enabled = AR
                 })
 
 function disable(username, cantouch)
@@ -673,6 +806,13 @@ Tab3:AddButton({
 	Name = "R20",
 	Callback = function()
       		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R20-EXPLOITER/main/Slap_Battles.lua")))()
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "CherryUi's SB GUI",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))()
   	end    
 })
 
@@ -1056,6 +1196,15 @@ game:GetService("ReplicatedStorage").Illbeback:FireServer()
                    end)
                 end
 
+                function SpamGoldenSound()
+                   spawn(function()    
+                       while getgenv().autoGoldenSound == true do
+game:GetService("ReplicatedStorage").Goldify:FireServer(true)
+                       task.wait()
+                       end
+                   end)
+                end
+
                 function SpamSleep()
                    spawn(function()    
                        while getgenv().autoSleep == true do
@@ -1139,6 +1288,21 @@ PersonToKill = RandomPlayer
 
 game:GetService("ReplicatedStorage").GeneralAbility:FireServer(PersonToKill.Character)
                        wait(10.2)
+                       end
+                   end)
+                end
+
+                function SpamShukuchi()
+                   spawn(function()    
+                       while getgenv().autoShukuchi == true do
+                          local LocalPlayer = game.Players.LocalPlayer
+local players = game.Players:GetChildren()
+local RandomPlayer = players[math.random(1, #players)]
+repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= LocalPlayer
+PersonToKill = RandomPlayer
+
+game:GetService("ReplicatedStorage").SM:FireServer(PersonToKill)
+                       wait(0.01)
                        end
                    end)
                 end
