@@ -149,6 +149,18 @@ Tab:AddLabel("A lot of these work in the lobby")
                 })
 
                 Tab:AddToggle({
+                    Name = "Defense Spam",
+                    Default = false,
+                    Callback = function(boolean)
+                               getgenv().autoDefense = boolean
+                
+                       if boolean == true then
+                        SpamDefense()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
                     Name = "Bomb Spam",
                     Default = false,
                     Callback = function(boolean)
@@ -269,6 +281,18 @@ Tab:AddLabel("A lot of these work in the lobby")
                 })
 
                 Tab:AddToggle({
+                    Name = "Glitch Spam",
+                    Default = false,
+                    Callback = function(boolean)
+                               getgenv().autoGlitch = boolean
+                
+                       if boolean == true then
+                        SpamGlitch()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
                     Name = "Stop Spam",
                     Default = false,
                     Callback = function(boolean)
@@ -314,25 +338,14 @@ Tab:AddLabel("A lot of these work in the lobby")
                     end
                     end    
                 })
-
-                Tab:AddToggle({
-                    Name = "Charge Spam",
-                    Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoCharge = boolean
-                       if boolean == true then
-                        SpamCharge()
-                    end
-                    end    
-                })
                 
                 Tab:AddToggle({
-                    Name = "Spam TP",
+                    Name = "Spam Swap",
                     Default = false,
                     Callback = function(boolean)
-                               getgenv().autoTP = boolean
+                               getgenv().autoSwap = boolean
                        if boolean == true then
-                        SpamTP()
+                        SpamSwap()
                     end
                     end    
                 })
@@ -345,6 +358,18 @@ Tab:AddLabel("A lot of these work in the lobby")
                 
                        if boolean == true then
                         SpamBubble()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Slapple Spam",
+                    Default = false,
+                    Callback = function(boolean)
+                               getgenv().autoSlapple = boolean
+                
+                       if boolean == true then
+                        SpamSlapple()
                     end
                     end    
                 })
@@ -384,6 +409,17 @@ Tab:AddLabel("A lot of these work in the lobby")
                     end
                     end    
                 })
+
+                Tab:AddToggle({
+                    Name = "Duelist Spam",
+                    Default = false,
+                    Callback = function(boolean)
+                               getgenv().autoDuelist = boolean
+                       if boolean == true then
+                        SpamDuelist()
+                    end
+                    end    
+                })
                 
                 Tab:AddToggle({
                     Name = "Sentry Spam",
@@ -420,7 +456,7 @@ Tab:AddLabel("A lot of these work in the lobby")
                 })
                 
                 Tab:AddToggle({
-                    Name = "Spam Zero G Sound",
+                    Name = "Spam Space Sound",
                     Default = false,
                     Callback = function(boolean)
                        getgenv().autoZeroGSound = boolean
@@ -464,12 +500,34 @@ Tab:AddLabel("A lot of these work in the lobby")
                 })
 
                 Tab:AddToggle({
+                    Name = "Spam Charge Sound",
+                    Default = false,
+                    Callback = function(boolean)
+                               getgenv().autoCharge = boolean
+                       if boolean == true then
+                        SpamCharge()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
                     Name = "Spam Sleep",
                     Default = false,
                     Callback = function(boolean)
                        getgenv().autoSleep = boolean
                        if boolean == true then
                         SpamSleep()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Spam All Sounds (ONLY USE IN LOBBY)",
+                    Default = false,
+                    Callback = function(boolean)
+                       getgenv().autoAllSounds = boolean
+                       if boolean == true then
+                        SpamAllSounds()
                     end
                     end    
                 })
@@ -781,7 +839,16 @@ Section4:AddToggle({
    function BooleanTing()
         
 fireclickdetector(game:GetService("Workspace").Lobby.Baller.ClickDetector)
-game.Players.LocalPlayer.Character.Head.Position = Vector3.new(-563.724, 329.832, 3.99025)
+local localPlr = game:GetService("Players").LocalPlayer
+
+repeat task.wait() until localPlr.Character ~= nil and localPlr.Character:FindFirstChild("HumanoidRootPart")
+
+if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
+    repeat task.wait()
+        firetouchinterest(localPlr.Character.HumanoidRootPart, workspace.Lobby.Teleport1, 0)
+        firetouchinterest(localPlr.Character.HumanoidRootPart, workspace.Lobby.Teleport1, 1)
+    until localPlr.Character:FindFirstChild("entered") ~= nil
+end
 wait(1)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
 wait(1)
@@ -1213,6 +1280,27 @@ game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
                        end
                    end)
                 end
+
+                function SpamAllSounds()
+                   spawn(function()    
+                       while getgenv().autoAllSounds == true do
+fireclickdetector(game:GetService("Workspace").Lobby.Space.ClickDetector)
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+fireclickdetector(game:GetService("Workspace").Lobby.Ghost.ClickDetector)
+game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
+game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
+fireclickdetector(game:GetService("Workspace").Lobby.Thanos.ClickDetector)
+game:GetService("ReplicatedStorage").Illbeback:FireServer()
+fireclickdetector(game:GetService("Workspace").Lobby.Golden.ClickDetector)
+game:GetService("ReplicatedStorage").Goldify:FireServer(true)
+fireclickdetector(game:GetService("Workspace").Lobby.Ghost.ClickDetector)
+fireclickdetector(game:GetService("Workspace").Lobby.ZZZZZZZ.ClickDetector)
+game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.SpawnLocation.CFrame
+                       task.wait()
+                       end
+                   end)
+                end
                 
                 function SpamBus()
                    spawn(function()    
@@ -1259,10 +1347,28 @@ game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
                    end)
                 end
 
+                function SpamDefense()
+                   spawn(function()    
+                       while getgenv().autoDefense == true do
+                           game:GetService("ReplicatedStorage").Barrier:FireServer()
+                       task.wait(0.25)
+                       end
+                   end)
+                end
+
                 function SpamStop()
                    spawn(function()    
                        while getgenv().autoStop == true do
                            game:GetService("ReplicatedStorage").STOP:FireServer(true)
+                       wait(4.2)
+                       end
+                   end)
+                end
+
+                function SpamGlitch()
+                   spawn(function()    
+                       while getgenv().autoGlitch == true do
+                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
                        wait(4.2)
                        end
                    end)
@@ -1360,11 +1466,29 @@ end
                    end)
                 end
 
+               function SpamSlapple()
+                   spawn(function()    
+                       while getgenv().autoSlapple == true do
+                           game:GetService("ReplicatedStorage").funnyTree:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+                       wait(3.05)
+                       end
+                   end)
+                end
+
                function SpamCharge()
                    spawn(function()    
                        while getgenv().autoCharge == true do
                            game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game:GetService("Players").LocalPlayer.Character.Charge)
                        wait(3.05)
+                       end
+                   end)
+                end
+
+               function SpamDuelist()
+                   spawn(function()    
+                       while getgenv().autoDuelist == true do
+                           game:GetService("ReplicatedStorage").DuelistAbility:FireServer()
+                       wait(5.05)
                        end
                    end)
                 end
@@ -1434,11 +1558,20 @@ game:GetService("ReplicatedStorage").BombThrow:FireServer()
                    end)
                 end
                 
-                function SpamTP()
+                function SpamSwap()
                    spawn(function()    
-                       while getgenv().autoTP == true do
+                       while getgenv().autoSwap == true do
                            game:GetService("ReplicatedStorage").SLOC:FireServer()
                        task.wait(5.2)
+                       end
+                   end)
+                end
+
+                function SpamWarp()
+                   spawn(function()    
+                       while getgenv().autoWarp == true do
+                           game:GetService("ReplicatedStorage").WLOC:FireServer()
+                       task.wait(4.2)
                        end
                    end)
                 end
