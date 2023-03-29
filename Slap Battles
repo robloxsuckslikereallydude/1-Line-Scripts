@@ -552,6 +552,9 @@ wait(0.47)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(1022,213.8,1508.5)
 wait(0.17)
 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+wait(3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
                     end    
                 })
 
