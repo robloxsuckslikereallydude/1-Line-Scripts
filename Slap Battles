@@ -113,6 +113,18 @@ Tab:AddLabel("A lot of these work in the lobby")
                 })
 
                 Tab:AddToggle({
+                    Name = "Ping Pong Spam",
+                    Default = false,
+                    Callback = function(boolean)
+                               getgenv().autoPingPong = boolean
+                
+                       if boolean == true then
+                        SpamPingPong()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
                     Name = "Whirlwind Spam",
                     Default = false,
                     Callback = function(boolean)
@@ -529,6 +541,17 @@ Tab:AddLabel("A lot of these work in the lobby")
                        if boolean == true then
                         SpamAllSounds()
                     end
+                    end    
+                })
+
+Section4:AddButton({
+	Name = "Kick player (Needs Za Hando) (Inconsistent)",
+	Callback = function()
+game:GetService("ReplicatedStorage").Erase:FireServer()
+wait(0.47)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(1022,213.8,1508.5)
+wait(0.17)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
                     end    
                 })
 
@@ -1293,10 +1316,6 @@ fireclickdetector(game:GetService("Workspace").Lobby.Thanos.ClickDetector)
 game:GetService("ReplicatedStorage").Illbeback:FireServer()
 fireclickdetector(game:GetService("Workspace").Lobby.Golden.ClickDetector)
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
-fireclickdetector(game:GetService("Workspace").Lobby.Ghost.ClickDetector)
-fireclickdetector(game:GetService("Workspace").Lobby.ZZZZZZZ.ClickDetector)
-game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.SpawnLocation.CFrame
                        task.wait()
                        end
                    end)
@@ -1610,6 +1629,15 @@ game:GetService("ReplicatedStorage").Timestop:FireServer()
                        while getgenv().autoBallerFarm == true do
                            game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
                        task.wait(30)
+                       end
+                   end)
+                end
+
+                function SpamPingPong()
+                   spawn(function()    
+                       while getgenv().autoPingPong == true do
+                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+                       task.wait()
                        end
                    end)
                 end
