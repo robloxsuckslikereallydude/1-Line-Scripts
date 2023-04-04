@@ -30,7 +30,7 @@ SafeSpot.Position = Vector3.new(-1500,100,-1500)
 
 SafeSpot.Name = "Spot"
 
-SafeSpot.Size = Vector3.new(60,60,60)
+SafeSpot.Size = Vector3.new(500,60,500)
 
 SafeSpot.Anchored = true
 
