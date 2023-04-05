@@ -93,6 +93,12 @@ local arenaVoid = Instance.new("Part", workspace)
                 })
 
                 local Tab5 = Window:MakeTab({
+                    Name = "Animations",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab6 = Window:MakeTab({
                     Name = "Destroy GUI",
                     Icon = "http://www.roblox.com/asset/?id=",
                     PremiumOnly = false
@@ -446,12 +452,23 @@ Tab:AddLabel("A lot of these work in the lobby")
                 })
                 
                 Tab:AddToggle({
-                    Name = "Lego Spam",
+                    Name = "Brick Spam",
                     Default = false,
                     Callback = function(boolean)
                        getgenv().autoLego = boolean
                        if boolean == true then
                         SpamLego()
+                    end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Trap Spam",
+                    Default = false,
+                    Callback = function(boolean)
+                       getgenv().autoTrap = boolean
+                       if boolean == true then
+                        SpamTrap()
                     end
                     end    
                 })
@@ -627,6 +644,7 @@ Section4:AddToggle({
 	Name = "Brick Farm",
 	Default = false,
 	Callback = function(Value)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = Value
 		_G.Brickfarm = Value
 while _G.Brickfarm do
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,uwu)
@@ -1246,6 +1264,86 @@ Tab4:AddSlider({
 })
 
 Tab5:AddButton({
+	Name = "Spasm",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Spasm, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Headless",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Headless, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Groove",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Groove, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Floss",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Floss, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Parker",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Parker, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Kick",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Kick, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "L",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.L, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Laugh",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Laugh, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Thriller",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Thriller, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Helicopter",
+	Callback = function()
+local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Helicopter, game.Players.LocalPlayer.Character.Humanoid)
+Anim:Play()
+  	end    
+})
+
+Tab6:AddButton({
 	Name = "Destroy GUI",
 	Callback = function()
       		OrionLib:Destroy()
@@ -1365,6 +1463,15 @@ game:GetService("ReplicatedStorage").Goldify:FireServer(true)
                        while getgenv().autoLego == true do
                            game:GetService("ReplicatedStorage").lbrick:FireServer()
                        wait(1.05)
+                       end
+                   end)
+                end
+
+                function SpamTrap()
+                   spawn(function()    
+                       while getgenv().autoTrap == true do
+                           game:GetService("ReplicatedStorage").funnyhilariousbeartrap:FireServer()
+                       wait(3.05)
                        end
                    end)
                 end
