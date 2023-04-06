@@ -748,34 +748,6 @@ local function GetClosestPlayer()
 end
 
 Section4:AddToggle({
-                    Name = "Slap Aura",
-                    Default = false,
-                    Callback = function(Value)
-KA = Value
-	    
-	    while task.wait() and KA do
-	        pcall(function()
-	            game:GetService("ReplicatedStorage"):WaitForChild("b"):FireServer(GetClosestPlayer().Character.Torso)
-	        end)
-	    end
-	end,
-	Enabled = KA
-                })
-
-Section4:AddSlider({
-	Name = "Slap Aura Radius",
-	Min = 0,
-	Max = 30,
-	Default = 20,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Studs",
-	Callback = function(Value)
-radius = Value
-	end    
-})
-
-Section4:AddToggle({
                     Name = "Anti Void",
                     Default = false,
                     Callback = function(Value)
