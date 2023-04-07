@@ -93,7 +93,7 @@ local arenaVoid = Instance.new("Part", workspace)
                 })
 
                 local Tab5 = Window:MakeTab({
-                    Name = "Animations",
+                    Name = "Emotes",
                     Icon = "http://www.roblox.com/asset/?id=",
                     PremiumOnly = false
                 })
