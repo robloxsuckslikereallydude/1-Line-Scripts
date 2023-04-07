@@ -62,7 +62,7 @@ local arenaVoid = Instance.new("Part", workspace)
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
                 
-                local Window = OrionLib:MakeWindow({Name = "Slap Battles", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "SB Hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Ability Spams",
@@ -86,10 +86,6 @@ local arenaVoid = Instance.new("Part", workspace)
                     Name = "Player",
                     Icon = "http://www.roblox.com/asset/?id=",
                     PremiumOnly = false
-                })
-                
-                local Section4 = Tab2:AddSection({
-                    Name = "Buttons"
                 })
 
                 local Tab5 = Window:MakeTab({
@@ -561,7 +557,7 @@ Tab:AddLabel("A lot of these work in the lobby")
                     end    
                 })
 
-Section4:AddButton({
+Tab2:AddButton({
 	Name = "Kick player (Needs Za Hando) (Inconsistent)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Erase:FireServer()
@@ -575,7 +571,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
                     end    
                 })
 
-                Section4:AddButton({
+                Tab2:AddButton({
                     Name = "Get [REDACTED]",
                     
                     
@@ -589,7 +585,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
                     end
                     })
 
-Section4:AddButton({
+Tab2:AddButton({
 	Name = "Get Elude",
 	Callback = function()
       		local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
@@ -613,7 +609,7 @@ game:GetService("TeleportService"):Teleport(11828384869)
   	end    
 })
 
-Section4:AddButton({
+Tab2:AddButton({
 	Name = "Get Tycoon",
 	Callback = function()
       		repeat task.wait(.005)
@@ -624,7 +620,7 @@ until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate
                     end    
                 })
 
-Section4:AddToggle({
+Tab2:AddToggle({
                     Name = "Bob Farm",
                     Default = false,
                     Callback = function(Get_Bob)
@@ -640,7 +636,7 @@ GetBob = Get_Bob
                     end    
                 })
 
-Section4:AddToggle({
+Tab2:AddToggle({
 	Name = "Brick Farm",
 	Default = false,
 	Callback = function(Value)
@@ -653,14 +649,14 @@ end
 	end    
 })
 
-Section4:AddButton({
+Tab2:AddButton({
 	Name = "Hitbox",
 	Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/shit%20script%20pack/CheatX'))()
                     end    
                 })
 
-Section4:AddButton({
+Tab2:AddButton({
 	Name = "Turn glove into a block",
 	Callback = function()
 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
@@ -673,14 +669,14 @@ end
                     end    
                 })
 
-Section4:AddButton({
+Tab2:AddButton({
 	Name = "Infinite Golden",
 	Callback = function()
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
                     end    
                 })
 
-Section4:AddToggle({
+Tab2:AddToggle({
                     Name = "Rainbow (Needs Golden)",
                     Default = false,
                     Callback = function(Value)
@@ -699,14 +695,14 @@ end
 end
                 })
 
-Section4:AddButton({
+Tab2:AddButton({
 	Name = "No 1K Slap Royale TP",
 	Callback = function()
 game:GetService"TeleportService":Teleport(9426795465)
                     end    
                 })
 
-Section4:AddToggle({
+Tab2:AddToggle({
                     Name = "Auto Remove Nametag",
                     Default = false,
                     Callback = function(Value)
@@ -747,7 +743,7 @@ local function GetClosestPlayer()
    return player
 end
 
-Section4:AddToggle({
+Tab2:AddToggle({
                     Name = "Anti Void",
                     Default = false,
                     Callback = function(Value)
@@ -755,7 +751,7 @@ jesus.CanCollide = Value
                     end    
                 })
 
-Section4:AddToggle({
+Tab2:AddToggle({
                     Name = "Anti Ragdoll",
                     Default = false,
                     Callback = function(Value)
@@ -785,7 +781,7 @@ function disable(username, cantouch)
  end
 end
 
-Section4:AddToggle({
+Tab2:AddToggle({
                     Name = "Anti Obby",
                     Default = false,
                     Callback = function(a)
@@ -804,7 +800,7 @@ while _G.AntiBubble do
                     end    
                 })
 
-               Section4:AddToggle({
+               Tab2:AddToggle({
                     Name = "Anti Bubble",
                     Default = false,
                     Callback = function(Value)
@@ -825,21 +821,21 @@ getgenv().disable = a
                     end    
                 })
 
-Section4:AddButton({
+Tab2:AddButton({
 	Name = "TP to Safe spot (DONT USE IN LOBBY)",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
   	end    
 })
 
-Section4:AddButton({
+Tab2:AddButton({
 	Name = "TP back to arena (DONT USE IN LOBBY)",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
   	end    
 })
 
-Section4:AddToggle({
+Tab2:AddToggle({
 	Name = "Baller Slap Farm (USE IN LOBBY ONLY)",
 	Default = false,
 	Callback = function(bool)
