@@ -680,13 +680,6 @@ end
 end
                 })
 
-Tab2:AddButton({
-	Name = "No 1K Slap Royale TP",
-	Callback = function()
-game:GetService"TeleportService":Teleport(9426795465)
-                    end    
-                })
-
 Tab2:AddToggle({
                     Name = "Auto Enter Arena",
                     Default = false,
