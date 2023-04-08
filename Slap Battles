@@ -972,31 +972,49 @@ Anim:Play()
 
 Tab7:AddButton({
                     Name = "Get [REDACTED] (Credits to R20)",
-Callback = function(boolean)
-GetRedacted()
+Callback = function()
+local Door = 1
+if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) and 5000 <= game.Players.LocalPlayer.leaderstats.Slaps.Value then
+    repeat
+    task.wait(.25)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.PocketDimension.Doors[Door].CFrame
+    Door = Door + 1
+    print(Door)
+    wait(5)
+    until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850)
+else 
+game.StarterGui:SetCore("SendNotification", {
+                Title = "Error";
+                Duration = 3;
+                Text = "You already have [ R E D A C T E D ]!";
+            })
+game.StarterGui:SetCore("SendNotification", {
+                Title = "Error";
+                Duration = 3;
+                Text = "Or you don't have 5K slaps.";
+            })
+    print("You already have [ R E D A C T E D ]!")
+    print("Or you don't have 5K slaps.")
+end
 end
                     })
 
 Tab7:AddButton({
-	Name = "Get Elude",
+	Name = "Get Elude (Credit to R20)",
 	Callback = function()
-      		local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
-
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
             game.Loaded:Wait()
         end
-        
         local localPlr = game:GetService("Players").LocalPlayer
         repeat wait() until localPlr
-        
         game:GetService("RunService").RenderStepped:Connect(function()
             localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
         end)
     ]])
 end
-
 game:GetService("TeleportService"):Teleport(11828384869)
   	end    
 })
@@ -1035,49 +1053,6 @@ task.wait(5.01)
 end
 	end    
 })
-
-                function GetRedacted()
-                    spawn(function()
-                        if 5000 >  game.Players.LocalPlayer.leaderstats.Slaps.Value then
-                
-                            game.StarterGui:SetCore("SendNotification",{
-                                Title = "Error...";
-                                Text = "Slap Requirement Not Met";
-                            })
-                        
-                        else
-                        game:GetService("StarterGui"):SetCore("SendNotification",{
-                            Title = "Getting REDACTED", 
-                            Text = "Please wait", 
-                            Icon = "rbxassetid://9379971756" 
-                        })
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[10].CFrame)
-                        wait(4)
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[9].CFrame)
-                        wait(4)
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[8].CFrame)
-                        wait(4)
-                       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[7].CFrame)
-                        wait(4)
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[6].CFrame)
-                        wait(4)
-                       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[5].CFrame)
-                        wait(4)
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[4].CFrame)
-                        wait(4)
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[3].CFrame)
-                        wait(4)
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[2].CFrame)
-                        wait(4)
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=(game:GetService("Workspace").PocketDimension.Doors[1].CFrame)
-                        game:GetService("StarterGui"):SetCore("SendNotification",{
-                            Title = "Got [REDACTED]!", -- Required
-                            Text = "If you have the slap requirement you should have REDACTED now", -- Required
-                            Icon = "rbxassetid://9379971756" -- Optional
-                        })
-                    end
-                    end)
-                end
 
     function FarmBob()
         
