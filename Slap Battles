@@ -36,25 +36,7 @@ SafeSpot.Size = Vector3.new(500,60,500)
 
 SafeSpot.Anchored = true
 
-SafeSpot.Transparency = .7
-
-local jesus = Instance.new("Part", workspace)
-
-	jesus.Name = "jesusWalk"
-	jesus.Size = Vector3.new(2047, 0.009, 2019)
-	jesus.Position = Vector3.new(-80.5, -10.005, -246.5)
-	jesus.CanCollide = false
-	jesus.Anchored = true
-	jesus.Transparency = 1
-	
-local arenaVoid = Instance.new("Part", workspace)
-
-	arenaVoid.Name = "arenaVoid"
-	arenaVoid.Size = Vector3.new(798, 1, 1290)
-	arenaVoid.Position = Vector3.new(3450, 59.009, 68)
-	arenaVoid.CanCollide = false
-	arenaVoid.Anchored = true
-	arenaVoid.Transparency = 1
+SafeSpot.Transparency = .75
                 
                 getgenv().GetName = true
                 getgenv().AntiMail = true
@@ -74,6 +56,12 @@ local arenaVoid = Instance.new("Part", workspace)
 
                 local Tab = Window:MakeTab({
                     Name = "Ability Spams",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab8 = Window:MakeTab({
+                    Name = "Antis",
                     Icon = "http://www.roblox.com/asset/?id=",
                     PremiumOnly = false
                 })
@@ -609,6 +597,30 @@ end
                 })
 
                 Tab:AddToggle({
+                    Name = "Spam Golden Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.GoldenSoundSpam = Value
+while _G.GoldenSoundSpam do
+game:GetService("ReplicatedStorage").Goldify:FireServer(true)
+task.wait()
+end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Spam Error Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.ErrorSoundSpam = Value
+while _G.ErrorSoundSpam do
+game.ReplicatedStorage.ErrorDeath:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab:AddToggle({
                     Name = "Spam Charge Sound",
                     Default = false,
                     Callback = function(Value)
@@ -737,84 +749,6 @@ local function GetClosestPlayer()
    return player
 end
 
-Tab2:AddToggle({
-                    Name = "Anti Void",
-                    Default = false,
-                    Callback = function(Value)
-jesus.CanCollide = Value
-                    end    
-                })
-
-Tab2:AddToggle({
-                    Name = "Anti Ragdoll",
-                    Default = false,
-                    Callback = function(Value)
-AR = Value
-	    
-	    while task.wait() and AR do
-	       pcall(function()
-	           if game.Players.LocalPlayer.Character.Ragdolled.Value == true then
-	              repeat game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true task.wait() until game.Players.LocalPlayer.Character.Ragdolled.Value == false
-	              task.wait()
-	              game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-	           end
-	       end)
-	    end
-	end,
-	Enabled = AR
-                })
-
-Tab2:AddToggle({
-                    Name = "Anti Bubble (Credits to R20)",
-                    Default = false,
-                    Callback = function(a)
-_G.AntiBubble = Value
-
-while _G.AntiBubble do
-        wait()
-        for i,v in pairs(workspace:GetChildren()) do
-           if v.Name == "BubbleObject" then
-             if v:FindFirstChild("Weld") then
-              v:FindFirstChild("Weld"):Destroy()
-           end
-          end
-         end
-        end
-                    end    
-                })
-
-function disable(username, cantouch)
-    warn(username)
-    if workspace:FindFirstChild("ObbyItem"..username.."LavaBlock") then
-       warn("ObbyItem"..username.."LavaBlock")
-       workspace:FindFirstChild("ObbyItem"..username.."LavaBlock").CanTouch = cantouch
-    elseif workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner") then
-    warn("ObbyItem"..username.."LavaSpinner")
-    workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner").CanTouch = cantouch
- end
-end
-
-               Tab2:AddToggle({
-                    Name = "Anti Obby (Credits to R20)",
-                    Default = false,
-                    Callback = function(a)
-getgenv().disable = a
-     if getgenv().disable == true then
-      for i,v in pairs(game.Players:GetChildren()) do
-        if v.leaderstats.Glove.Value == "Obby" then
-          disable(v.Name, false)
-        end
-     end
-   else
-       for i,v in pairs(game.Players:GetChildren()) do
-        if v.leaderstats.Glove.Value == "Obby" then
-          disable(v.Name, true)
-        end
-     end
-  end
-                    end    
-                })
-
 Tab2:AddButton({
 	Name = "TP to Safe spot (DONT USE IN LOBBY)",
 	Callback = function()
@@ -858,28 +792,64 @@ Tab3:AddButton({
 })
 
 Tab4:AddSlider({
-	Name = "Walkspeed [WS]",
+	Name = "Walkspeed",
 	Min = 20,
-	Max = 500,
+	Max = 1000,
 	Default = 20,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+Walkspeed = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Loop Walkspeed",
+	Default = false,
+	Callback = function(bool)
+autoSet1 = bool
+        if bool == true then
+            while autoSet1 do
+                task.wait()
+                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+                end
+            end
+        end
 	end    
 })
 
 Tab4:AddSlider({
-	Name = "Jumppower [JP]",
+	Name = "Jumppower",
 	Min = 50,
-	Max = 500,
+	Max = 1000,
 	Default = 50,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+Jumppower = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Loop Jumppower",
+	Default = false,
+	Callback = function(bool)
+autoSet1 = bool
+        if bool == true then
+            while autoSet1 do
+                task.wait()
+                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Jumppower then
+                    Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                end
+            end
+        end
 	end    
 })
 
@@ -1046,6 +1016,280 @@ task.wait(5.01)
 end
 	end    
 })
+
+Tab8:AddToggle({
+                    Name = "Anti Admins (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+antiAdmins = bool
+    if bool == true then
+        game.Players.PlayerAdded:Connect(function(Plr)
+            if Plr:GetRankInGroup(9950771) and 2 <= Plr:GetRankInGroup(9950771) and antiAdmins then
+                game.Players.LocalPlayer:Kick("Admin/High Rank Player Detected")
+            end
+        end)
+    end
+end
+})
+
+Tab8:AddToggle({
+                    Name = "Anti Bubble (Credits to R20)",
+                    Default = false,
+                    Callback = function(a)
+_G.AntiBubble = a
+
+while _G.AntiBubble do
+        wait()
+        for i,v in pairs(workspace:GetChildren()) do
+           if v.Name == "BubbleObject" then
+             if v:FindFirstChild("Weld") then
+              v:FindFirstChild("Weld"):Destroy()
+           end
+          end
+         end
+        end
+                    end    
+                })
+
+Tab8:AddToggle({
+                    Name = "Anti Ragdoll (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+antiRagdoll = bool
+        if bool == true then
+        game.Players.LocalPlayer.Character.Humanoid.Health = 0
+        task.wait()
+        game.Players.LocalPlayer.CharacterAdded:Connect(function()
+            local Character = game.Workspace[game.Players.LocalPlayer.Name]            
+            task.wait()
+            Character:WaitForChild("Ragdolled").Changed:Connect(function()
+                if Character:WaitForChild("Ragdolled").Value == true and antiRagdoll == true then
+                    repeat task.wait()
+                    Character.Torso.Anchored = true
+                    until Character:FindFirstChild("Torso") == nil or Character:WaitForChild("Ragdolled").Value == false
+                    Character.Torso.Anchored = false
+                end
+            end)
+        end)
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Void (Credits to R20)",
+                    Default = false,
+                    Callback = function(noVoid)
+if noVoid == true then
+            for i,v in pairs(game.Workspace:GetDescendants()) do
+                if v.Name == "dedBarrier"  or v.Name == "ArenaBarrier" or v.Name == "DEATHBARRIER" or v.Name == "DEATHBARRIER2" then
+                    if v.CanCollide == false then
+                        v.CanCollide = true
+                    end
+                end
+            end
+            else
+            for i,v in pairs(game.Workspace:GetDescendants()) do
+                if v.Name == "dedBarrier"  or v.Name == "ArenaBarrier" or v.Name == "DEATHBARRIER" or v.Name == "DEATHBARRIER2" then
+                    if v.CanCollide == true then
+                        v.CanCollide = false
+                    end
+                end
+            end
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Cube of Death (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+if bool == true then
+        if game.Workspace:FindFirstChild("the cube of death(i heard it kills)", 1) then
+        workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = false
+        end
+        else
+            if game.Workspace:FindFirstChild("the cube of death(i heard it kills)", 1) then
+                workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = true
+            end
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Squid (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+AntiSquid = bool
+        if bool == true then
+            while AntiSquid do
+            task.wait()
+            for i,v in pairs(game.Players.LocalPlayer.PlayerGui.SquidInk:GetChildren()) do
+                if v.Parent then
+                    v:Destroy()
+                end
+            end            
+            end
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Hallow Jack (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+antiHallow = bool
+        if bool == true then
+            game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Disabled = true
+        else
+            game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Enabled = true
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Za Hando (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+getgenv().AntiZaHando = bool
+        if bool == true then
+            while getgenv().AntiZaHando do
+                wait(.001)
+                for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == "Part" then
+                        v:Destroy()
+                    end
+                end
+            end
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Reaper (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+getgenv().AntiReaper = bool
+        if bool == true then
+            while getgenv().AntiReaper do
+                wait(.001)
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v.Name == "DeathMark" then
+                    game:GetService("ReplicatedStorage").ReaperGone:FireServer(game:GetService("Players").LocalPlayer.Character.DeathMark)
+                    game:GetService("Lighting"):WaitForChild("DeathMarkColorCorrection"):Destroy() 
+                    end 
+                end
+            end
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Pusher (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+getgenv().AntiPusher = bool
+        if bool == true then
+            while getgenv().AntiPusher do
+                wait(.001)
+                for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "wall" then
+                    v.CanCollide = false
+                    end
+                end
+            end
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Booster (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+antiBooster = bool
+        if bool == true then
+            if game.Workspace[game.Players.LocalPlayer.Name]:FindFirstChild("BoosterObject", 1) then
+                game.Workspace[game.Players.LocalPlayer.Name]:FindFirstChild("BoosterObject", 1):Destroy()
+            end
+            task.wait()
+            game.Workspace[game.Players.LocalPlayer.Name].DescendantAdded:Connect(function(v)
+                if antiBooster == true then
+                    if v.Name == "BoosterObject" then
+                        task.wait(.1)
+                        v:Destroy()
+                    end
+                end
+            end)
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Mail (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+antiMail = bool
+        if bool == true then
+            game.Players.LocalPlayer.PlayerGui.DescendantAdded:Connect(function(UI)
+                if antiMail == true then
+                    if UI.Name == "MailPopup" then
+                        UI.Frame.Visible = false
+                        task.wait()
+                        game.Players.LocalPlayer.Character.Head.MailIcon:Destroy()
+                    end
+                end
+            end)
+        else
+        if game.Players.LocalPlayer.PlayerGui:FindFirstChild("MailPopup") then
+            game.Players.LocalPlayer.PlayerGui.MailPopup.Frame.Visible = true
+            task.wait()
+        end
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Stun (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+antiStun = bool
+        if bool == true then
+            while antiStun do
+            task.wait()
+            if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character.Humanoid.PlatformStand == true and not Farming and not allFarming and not game.Players.LocalPlayer.Character.Ragdolled.Value == true and game.Workspace:FindFirstChild("Shockwave") then
+                game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+            end
+            end
+        end
+                    end    
+                })
+
+               Tab8:AddToggle({
+                    Name = "Anti Megarock/Custom (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+        AntiRock = bool
+        if bool == true then
+            while AntiRock do
+                task.wait(.1)
+        for _, Instance in pairs(game.Workspace:GetDescendants()) do
+            if Instance.Name == "rock" and Instance.CanTouch == true then
+                Instance.CanTouch = false
+                Instance.CanQuery = false
+            end
+        end
+            end
+        else
+        task.wait(.1)  
+        for _, Instance in pairs(game.Workspace:GetDescendants()) do
+            if Instance.Name == "rock" and Instance.CanTouch == false then
+                task.wait()
+                Instance.CanTouch = true
+                Instance.CanQuery = true
+            end
+        end
+        end
+                    end    
+                })
 
     function FarmBob()
         
