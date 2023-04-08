@@ -1,3 +1,5 @@
+-- if you have problems message Guy that exists#1915
+
 Player = game.Players.LocalPlayer.Character.Name
                     
                 repeat wait() until game:IsLoaded() wait()
@@ -62,7 +64,13 @@ local arenaVoid = Instance.new("Part", workspace)
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
                 
-                local Window = OrionLib:MakeWindow({Name = "SB Hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+                local Tab0 = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
 
                 local Tab = Window:MakeTab({
                     Name = "Ability Spams",
@@ -76,8 +84,8 @@ local arenaVoid = Instance.new("Part", workspace)
                     PremiumOnly = false
                 })
 
-                local Tab3 = Window:MakeTab({
-                    Name = "Hubs",
+                local Tab7 = Window:MakeTab({
+                    Name = "Badges",
                     Icon = "http://www.roblox.com/asset/?id=",
                     PremiumOnly = false
                 })
@@ -94,466 +102,521 @@ local arenaVoid = Instance.new("Part", workspace)
                     PremiumOnly = false
                 })
 
-                local Tab6 = Window:MakeTab({
-                    Name = "Destroy GUI",
+                local Tab3 = Window:MakeTab({
+                    Name = "Hubs",
                     Icon = "http://www.roblox.com/asset/?id=",
                     PremiumOnly = false
                 })
+
+Tab0:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab0:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
                 
 Tab:AddLabel("A lot of these work in the lobby")
 
                 Tab:AddToggle({
-                    Name = "Bus Spam",
+                    Name = "Ping Pong Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoBus = boolean
-                
-                       if boolean == true then
-                        SpamBus()
-                    end
+                    Callback = function(Value)
+_G.PingPongSpam = Value
+while _G.PingPongSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+task.wait()
+end
                     end    
                 })
 
                 Tab:AddToggle({
-                    Name = "Ping Pong Spam",
+                    Name = "Coil Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoPingPong = boolean
-                
-                       if boolean == true then
-                        SpamPingPong()
-                    end
+                    Callback = function(Value)
+_G.CoilSpam = Value
+while _G.CoilSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game:GetService("Players").LocalPlayer.Character.Coil)
+task.wait()
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Whirlwind Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoWhirlwind = boolean
-                
-                       if boolean == true then
-                        SpamWhirlwind()
-                    end
+                    Callback = function(Value)
+_G.WhirlwindSpam = Value
+while _G.WhirlwindSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+task.wait()
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Shukuchi Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoShukuchi = boolean
-                
-                       if boolean == true then
-                        SpamShukuchi()
-                    end
+                    Callback = function(Value)
+_G.ShukuchiSpam = Value
+while _G.ShukuchiSpam do
+local LocalPlayer = game.Players.LocalPlayer
+local players = game.Players:GetChildren()
+local RandomPlayer = players[math.random(1, #players)]
+repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= LocalPlayer
+PersonToKill = RandomPlayer
+game:GetService("ReplicatedStorage").SM:FireServer(PersonToKill)
+wait(0.01)
+end
                     end    
                 })
 
                 Tab:AddToggle({
+                    Name = "Bus Spam",
+                    Default = false,
+                    Callback = function(Value)
+_G.BusSpam = Value
+while _G.BusSpam do
+game:GetService("ReplicatedStorage").busmoment:FireServer()
+wait(5.2)
+end
+                    end    
+                })
+
+
+                Tab:AddToggle({
                     Name = "Fort Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoFort = boolean
-                
-                       if boolean == true then
-                        SpamFort()
-                    end
+                    Callback = function(Value)
+_G.FortSpam = Value
+while _G.FortSpam do
+game:GetService("ReplicatedStorage").Fortlol:FireServer()
+wait(3.05)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Defense Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoDefense = boolean
-                
-                       if boolean == true then
-                        SpamDefense()
-                    end
+                    Callback = function(Value)
+_G.DefenseSpam = Value
+while _G.DefenseSpam do
+game:GetService("ReplicatedStorage").Barrier:FireServer()
+wait(0.25)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Bomb Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoBomb = boolean
-                
-                       if boolean == true then
-                        SpamBomb()
-                    end
+                    Callback = function(Value)
+_G.BombSpam = Value
+while _G.BombSpam do
+game:GetService("ReplicatedStorage").BombThrow:FireServer()
+wait(2.5)
+game:GetService("ReplicatedStorage").BombThrow:FireServer()
+wait(4.2)
+end
                     end    
                 })
 
               Tab:AddToggle({
                     Name = "Replica Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoReplica = boolean
-                
-                       if boolean == true then
-                        SpamReplica()
-                    end
+                    Callback = function(Value)
+_G.ReplicaSpam = Value
+while _G.ReplicaSpam do
+game:GetService("ReplicatedStorage").Duplicate:FireServer()
+wait(5.2)
+end
                     end    
                 })
              
                 Tab:AddToggle({
-                    Name = "Wall Spam",
+                    Name = "Pusher Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoWall = boolean
-                
-                       if boolean == true then
-                        SpamWall()
-                    end
+                    Callback = function(Value)
+_G.PusherSpam = Value
+while _G.PusherSpam do
+game:GetService("ReplicatedStorage").PusherWall:FireServer()
+wait(5.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Jet Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoJet = boolean
-                
-                       if boolean == true then
-                        SpamJet()
-                    end
+                    Callback = function(Value)
+_G.JetSpam = Value
+while _G.JetSpam do
+local LocalPlayer = game.Players.LocalPlayer
+local players = game.Players:GetChildren()
+local RandomPlayer = players[math.random(1, #players)]
+repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= LocalPlayer
+PersonToKill = RandomPlayer
+game:GetService("ReplicatedStorage").AirStrike:FireServer(PersonToKill.Character)
+wait(5.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
-                    Name = "Table Spam",
+                    Name = "Tableflip Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoTable = boolean
-                
-                       if boolean == true then
-                        SpamTable()
-                    end
+                    Callback = function(Value)
+_G.TableflipSpam = Value
+while _G.TableflipSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+wait(3.05)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Rocky Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoRocky = boolean
-                
-                       if boolean == true then
-                        SpamRocky()
-                    end
+                    Callback = function(Value)
+_G.RockySpam = Value
+while _G.RockySpam do
+game:GetService("ReplicatedStorage").RockyShoot:FireServer()
+wait(6.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Timestop Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoTimestop = boolean
-                
-                       if boolean == true then
-                        SpamTimestop()
-                    end
+                    Callback = function(Value)
+_G.TimestopSpam = Value
+while _G.TimestopSpam do
+game:GetService("ReplicatedStorage").TimestopJump:FireServer()
+game:GetService("ReplicatedStorage").Timestopchoir:FireServer()
+game:GetService("ReplicatedStorage").Timestop:FireServer()
+wait(50.2)
+end
                     end    
                 })
                 
                 Tab:AddToggle({
                     Name = "Za Hando Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoHand = boolean
-                
-                       if boolean == true then
-                        SpamHand()
-                    end
+                    Callback = function(Value)
+_G.ZahandoSpam = Value
+while _G.ZahandoSpam do
+game:GetService("ReplicatedStorage").Erase:FireServer()
+wait(4.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Baller Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoBaller = boolean
-                
-                       if boolean == true then
-                        SpamBaller()
-                    end
+                    Callback = function(Value)
+_G.BallerSpam = Value
+while _G.BallerSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+wait(4.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Stun Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoStun = boolean
-                
-                       if boolean == true then
-                        SpamStun()
-                    end
+                    Callback = function(Value)
+_G.StunSpam = Value
+while _G.StunSpam do
+game:GetService("ReplicatedStorage").StunR:FireServer(game:GetService("Players").LocalPlayer.Character.Stun)
+wait(10.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Glitch Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoGlitch = boolean
-                
-                       if boolean == true then
-                        SpamGlitch()
-                    end
+                    Callback = function(Value)
+_G.GlitchSpam = Value
+while _G.GlitchSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+wait(4.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Stop Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoStop = boolean
-                
-                       if boolean == true then
-                        SpamStop()
-                    end
+                    Callback = function(Value)
+_G.StopSpam = Value
+while _G.StopSpam do
+game:GetService("ReplicatedStorage").STOP:FireServer(true)
+wait(4.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Track Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoTrack = boolean
-                
-                       if boolean == true then
-                        SpamTrack()
-                    end
+                    Callback = function(Value)
+_G.TrackSpam = Value
+while _G.TrackSpam do
+ local LocalPlayer = game.Players.LocalPlayer
+local players = game.Players:GetChildren()
+local RandomPlayer = players[math.random(1, #players)]
+repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= LocalPlayer
+PersonToKill = RandomPlayer
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(PersonToKill.Character)
+wait(10.2)
+end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Track Orbit",
+                    Default = false,
+                    Callback = function(Value)
+_G.TrackSpam = Value
+while _G.TrackSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game:GetService("Players").LocalPlayer.Character)
+wait(10.2)
+end
                     end    
                 })
                 
                 Tab:AddToggle({
                     Name = "Mail Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoMail = boolean
-                
-                       if boolean == true then
-                        SpamMail()
-                    end
+                    Callback = function(Value)
+_G.MailSpam = Value
+while _G.MailSpam do
+game:GetService("ReplicatedStorage").MailSend:FireServer()
+wait(3.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Shard Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoShard = boolean
-                       if boolean == true then
-                        SpamShard()
-                    end
+                    Callback = function(Value)
+_G.ShardSpam = Value
+while _G.ShardSpam do
+game:GetService("ReplicatedStorage").Shards:FireServer()
+wait(4.2)
+end
                     end    
                 })
                 
                 Tab:AddToggle({
-                    Name = "Spam Swap",
+                    Name = "Swapper Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoSwap = boolean
-                       if boolean == true then
-                        SpamSwap()
-                    end
+                    Callback = function(Value)
+_G.SwapperSpam = Value
+while _G.SwapperSpam do
+game:GetService("ReplicatedStorage").SLOC:FireServer()
+wait(5.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Bubble Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoBubble = boolean
-                
-                       if boolean == true then
-                        SpamBubble()
-                    end
+                    Callback = function(Value)
+_G.BubbleSpam = Value
+while _G.BubbleSpam do
+game:GetService("ReplicatedStorage").BubbleThrow:FireServer()
+wait(3.05)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Slapple Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoSlapple = boolean
-                
-                       if boolean == true then
-                        SpamSlapple()
-                    end
+                    Callback = function(Value)
+_G.SlappleSpam = Value
+while _G.SlappleSpam do
+game:GetService("ReplicatedStorage").funnyTree:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+wait(3.05)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Dominance Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoDominance = boolean
-                
-                       if boolean == true then
-                        SpamDominance()
-                    end
+                    Callback = function(Value)
+_G.DominanceSpam = Value
+while _G.DominanceSpam do
+game:GetService("ReplicatedStorage").DominanceAc:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+wait(3.05)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Shield Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoShield = boolean
-                
-                       if boolean == true then
-                        SpamShield()
-                    end
+                    Callback = function(Value)
+_G.ShieldSpam = Value
+while _G.ShieldSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+wait(3.05)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Redacted Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoWell = boolean
-                
-                       if boolean == true then
-                        SpamWell()
-                    end
+                    Callback = function(Value)
+_G.RedactedSpam = Value
+while _G.RedactedSpam do
+game:GetService("ReplicatedStorage").Well:FireServer()
+wait(5.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Duelist Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoDuelist = boolean
-                       if boolean == true then
-                        SpamDuelist()
-                    end
+                    Callback = function(Value)
+_G.DuelistSpam = Value
+while _G.DuelistSpam do
+game:GetService("ReplicatedStorage").DuelistAbility:FireServer()
+wait(5.05)
+end
                     end    
                 })
                 
                 Tab:AddToggle({
                     Name = "Sentry Spam",
                     Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoSentry = boolean
-                
-                       if boolean == true then
-                        SpamSentry()
-                    end
+                    Callback = function(Value)
+_G.SentrySpam = Value
+while _G.SentrySpam do
+game:GetService("ReplicatedStorage").Sentry:FireServer()
+wait(5.2)
+end
                     end    
                 })
                 
                 Tab:AddToggle({
                     Name = "Brick Spam",
                     Default = false,
-                    Callback = function(boolean)
-                       getgenv().autoLego = boolean
-                       if boolean == true then
-                        SpamLego()
-                    end
+                    Callback = function(Value)
+_G.BrickSpam = Value
+while _G.BrickSpam do
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+wait(1.05)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Trap Spam",
                     Default = false,
-                    Callback = function(boolean)
-                       getgenv().autoTrap = boolean
-                       if boolean == true then
-                        SpamTrap()
-                    end
+                    Callback = function(Value)
+_G.TrapSpam = Value
+while _G.TrapSpam do
+game:GetService("ReplicatedStorage").funnyhilariousbeartrap:FireServer()
+wait(3.05)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Woah Spam",
                     Default = false,
-                    Callback = function(boolean)
-                            getgenv().autoWoah = boolean
-                       if boolean == true then
-                        SpamWoah()
-                    end
-                    end    
-                })
-                
-                Tab:AddToggle({
-                    Name = "Spam Space Sound",
-                    Default = false,
-                    Callback = function(boolean)
-                       getgenv().autoZeroGSound = boolean
-                       if boolean == true then
-                        SpamZeroGSound()
-                    end
-                    end    
-                })
-
-                Tab:AddToggle({
-                    Name = "Spam Ghost Sound",
-                    Default = false,
-                    Callback = function(boolean)
-                       getgenv().autoGhostSound = boolean
-                       if boolean == true then
-                        SpamGhostSound()
-                    end
-                    end    
-                })
-
-                Tab:AddToggle({
-                    Name = "Spam Thanos Sound",
-                    Default = false,
-                    Callback = function(boolean)
-                       getgenv().autoThanosSound = boolean
-                       if boolean == true then
-                        SpamThanosSound()
-                    end
-                    end    
-                })
-
-                Tab:AddToggle({
-                    Name = "Spam Golden Sound",
-                    Default = false,
-                    Callback = function(boolean)
-                       getgenv().autoGoldenSound = boolean
-                       if boolean == true then
-                        SpamGoldenSound()
-                    end
-                    end    
-                })
-
-                Tab:AddToggle({
-                    Name = "Spam Charge Sound",
-                    Default = false,
-                    Callback = function(boolean)
-                               getgenv().autoCharge = boolean
-                       if boolean == true then
-                        SpamCharge()
-                    end
+                    Callback = function(Value)
+_G.WoahSpam = Value
+while _G.WoahSpam do
+game:GetService("ReplicatedStorage").VineThud:FireServer()
+wait(5.2)
+end
                     end    
                 })
 
                 Tab:AddToggle({
                     Name = "Spam Sleep",
                     Default = false,
-                    Callback = function(boolean)
-                       getgenv().autoSleep = boolean
-                       if boolean == true then
-                        SpamSleep()
-                    end
+                    Callback = function(Value)
+_G.SleepSpam = Value
+while _G.SleepSpam do
+game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
+task.wait()
+end
+                    end    
+                })
+                
+                Tab:AddToggle({
+                    Name = "Spam Space Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.SpaceSoundSpam = Value
+while _G.SpaceSoundSpam do
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+task.wait()
+end
                     end    
                 })
 
                 Tab:AddToggle({
-                    Name = "Spam All Sounds (ONLY USE IN LOBBY)",
+                    Name = "Spam Ghost Sound",
                     Default = false,
-                    Callback = function(boolean)
-                       getgenv().autoAllSounds = boolean
-                       if boolean == true then
-                        SpamAllSounds()
-                    end
+                    Callback = function(Value)
+_G.GhostSoundSpam = Value
+while _G.GhostSoundSpam do
+game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
+    game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Spam Thanos Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.ThanosSoundSpam = Value
+while _G.ThanosSoundSpam do
+game:GetService("ReplicatedStorage").Illbeback:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Spam Golden Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.GoldenSoundSpam = Value
+while _G.GoldenSoundSpam do
+game:GetService("ReplicatedStorage").Goldify:FireServer(true)
+task.wait()
+end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Spam Charge Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.ChargeSoundSpam = Value
+while _G.ChargeSoundSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game:GetService("Players").LocalPlayer.Character.Charge)
+wait(3.05)
+end
                     end    
                 })
 
@@ -571,84 +634,6 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
                     end    
                 })
 
-                Tab2:AddButton({
-                    Name = "Get [REDACTED]",
-                    
-                    
-                    
-                
-                    Callback = function(boolean)
-                        
-                        GetRedacted()
-                        
-                        
-                    end
-                    })
-
-Tab2:AddButton({
-	Name = "Get Elude",
-	Callback = function()
-      		local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
-
-if teleportFunc then
-    teleportFunc([[
-        if not game:IsLoaded() then
-            game.Loaded:Wait()
-        end
-        
-        local localPlr = game:GetService("Players").LocalPlayer
-        repeat wait() until localPlr
-        
-        game:GetService("RunService").RenderStepped:Connect(function()
-            localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
-        end)
-    ]])
-end
-
-game:GetService("TeleportService"):Teleport(11828384869)
-  	end    
-})
-
-Tab2:AddButton({
-	Name = "Get Tycoon",
-	Callback = function()
-      		repeat task.wait(.005)
-    
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame * CFrame.new(0,-2,0)
-    
-until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate Counter: 600"
-                    end    
-                })
-
-Tab2:AddToggle({
-                    Name = "Bob Farm",
-                    Default = false,
-                    Callback = function(Get_Bob)
-GetBob = Get_Bob
-         
-        if Get_Bob == true then
-            
-            FarmBob()
-            
-            
-            
-            end
-                    end    
-                })
-
-Tab2:AddToggle({
-	Name = "Brick Farm",
-	Default = false,
-	Callback = function(Value)
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = Value
-		_G.Brickfarm = Value
-while _G.Brickfarm do
-game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,uwu)
-task.wait(5.01)
-end
-	end    
-})
-
 Tab2:AddButton({
 	Name = "Hitbox",
 	Callback = function()
@@ -657,7 +642,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/script
                 })
 
 Tab2:AddButton({
-	Name = "Turn glove into a block",
+	Name = "Turn glove into a block (Only works with default, extended, and thanos)",
 	Callback = function()
 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 if v:IsA("Tool") then
@@ -670,7 +655,7 @@ end
                 })
 
 Tab2:AddButton({
-	Name = "Infinite Golden",
+	Name = "Infinite Golden (Use in lobby)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
                     end    
@@ -700,6 +685,22 @@ Tab2:AddButton({
 	Callback = function()
 game:GetService"TeleportService":Teleport(9426795465)
                     end    
+                })
+
+Tab2:AddToggle({
+                    Name = "Auto Enter Arena",
+                    Default = false,
+                    Callback = function(Value)
+local localPlr = game:GetService("Players").LocalPlayer
+getgenv().AutoEnterArena = Value
+
+      while getgenv().AutoEnterArena == true do
+       wait(.001)
+if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
+firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, workspace.Lobby.Teleport1)
+    end
+end
+end,
                 })
 
 Tab2:AddToggle({
@@ -770,19 +771,8 @@ AR = Value
 	Enabled = AR
                 })
 
-function disable(username, cantouch)
-    warn(username)
-    if workspace:FindFirstChild("ObbyItem"..username.."LavaBlock") then
-       warn("ObbyItem"..username.."LavaBlock")
-       workspace:FindFirstChild("ObbyItem"..username.."LavaBlock").CanTouch = cantouch
-    elseif workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner") then
-    warn("ObbyItem"..username.."LavaSpinner")
-    workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner").CanTouch = cantouch
- end
-end
-
 Tab2:AddToggle({
-                    Name = "Anti Obby",
+                    Name = "Anti Bubble (Credits to R20)",
                     Default = false,
                     Callback = function(a)
 _G.AntiBubble = Value
@@ -800,10 +790,21 @@ while _G.AntiBubble do
                     end    
                 })
 
+function disable(username, cantouch)
+    warn(username)
+    if workspace:FindFirstChild("ObbyItem"..username.."LavaBlock") then
+       warn("ObbyItem"..username.."LavaBlock")
+       workspace:FindFirstChild("ObbyItem"..username.."LavaBlock").CanTouch = cantouch
+    elseif workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner") then
+    warn("ObbyItem"..username.."LavaSpinner")
+    workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner").CanTouch = cantouch
+ end
+end
+
                Tab2:AddToggle({
-                    Name = "Anti Bubble",
+                    Name = "Anti Obby (Credits to R20)",
                     Default = false,
-                    Callback = function(Value)
+                    Callback = function(a)
 getgenv().disable = a
      if getgenv().disable == true then
       for i,v in pairs(game.Players:GetChildren()) do
@@ -835,50 +836,11 @@ Tab2:AddButton({
   	end    
 })
 
-Tab2:AddToggle({
-	Name = "Baller Slap Farm (USE IN LOBBY ONLY)",
-	Default = false,
-	Callback = function(bool)
- getgenv().autoBallerFarm = bool
-                
-                       if bool == true then
-            
-            BooleanTing()
-            
-            end
-            
-                      
-   function BooleanTing()
-        
-fireclickdetector(game:GetService("Workspace").Lobby.Baller.ClickDetector)
-local localPlr = game:GetService("Players").LocalPlayer
-
-repeat task.wait() until localPlr.Character ~= nil and localPlr.Character:FindFirstChild("HumanoidRootPart")
-
-if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
-    repeat task.wait()
-        firetouchinterest(localPlr.Character.HumanoidRootPart, workspace.Lobby.Teleport1, 0)
-        firetouchinterest(localPlr.Character.HumanoidRootPart, workspace.Lobby.Teleport1, 1)
-    until localPlr.Character:FindFirstChild("entered") ~= nil
-end
-wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
-wait(1)
-SpamBallerFarm()
-              while getgenv().autoBallerFarm do
-        
-        wait(.001)
-    
-    for _, v in ipairs(workspace:GetChildren()) do
-    
-    if string.sub(v.Name, 3, 8) == "Baller" then
-game:GetService("ReplicatedStorage").GeneralHit:FireServer(v:WaitForChild("HumanoidRootPart"))
-end
-end
-end
-        
-    end
-	end    
+Tab3:AddButton({
+	Name = "CherryUi's Slap Battles GUI",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))()
+  	end    
 })
 
 Tab3:AddButton({
@@ -889,312 +851,9 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
-	Name = "CherryUi's SB GUI",
-	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))()
-  	end    
-})
-
-Tab3:AddButton({
 	Name = "R20 Slap Royale",
 	Callback = function()
-      		_G.settingsTable = {
-    
-      GrabItems = false,
-      
-      Speed = 25,
-      
-      Jump = 50,
-}
-
-    local Time = tick()
-
-    local userinputservice = game:GetService("UserInputService")
-
-    local GaySexWithBori =
-        loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/Coasting/main/Source.lua")))()
-
-    local namecall
-    namecall =
-        hookmetamethod(
-        game,
-        "__namecall",
-        function(self, ...)
-            local Args = {...}
-            if getnamecallmethod() == "FireServer" and tostring(self) == "WS" then
-                return
-            elseif getnamecallmethod() == "FireServer" and tostring(self) == "WS2" then
-                return
-            elseif getnamecallmethod() == "FireServer" and tostring(self) == "AdminGUI" then
-                return
-            elseif getnamecallmethod() == "FireServer" and tostring(self) == "Ban" then
-                return
-            end
-            return namecall(self, ...)
-        end
-    )
-
-    if syn then
-        print("uhhh why are you here!?")
-    end
-
-    local CUMBAT = GaySexWithBori:CreateTab("Combat")
-
-    local CUMBAT3 = CUMBAT:CreateSection("Slaps")
-
-    local CUMBAT2 = CUMBAT:CreateSection("Config")
-
-    local MISCUM = GaySexWithBori:CreateTab("Misc")
-
-    local MISCUM2 = MISCUM:CreateSection("Badges")
-
-    local MISCUM3 = MISCUM:CreateSection("Items")
-
-    local Game = GaySexWithBori:CreateTab("Game")
-
-    local Game1 = Game:CreateSection("Settings")
-
-    local Game2 = Game:CreateSection("Map")
-
-    local Local = GaySexWithBori:CreateTab("Local")
-
-    local Local1 = Local:CreateSection("WS")
-
-    local Local2 = Local:CreateSection("JP")
-
-    Game2:CreateButton(
-        "Anti Acid",
-        function()
-            local sex = Instance.new("Part")
-
-            sex.Parent = game.Workspace
-            sex.Size = Vector3.new(154, 26, 132)
-            sex.Position = Vector3.new(-60, -5, -731)
-            sex.Transparency = 1
-            sex.Anchored = true
-        end
-    )
-
-
-    MISCUM2:CreateButton(
-        "Get Lab Code (Check Console)",
-        function()
-            function code(decal)
-                if decal == "http://www.roblox.com/asset/?id=9648769161" then
-                    return 4
-                elseif decal == "http://www.roblox.com/asset/?id=9648765536" then
-                    return 2
-                elseif decal == "http://www.roblox.com/asset/?id=9648762863" then
-                    return 3
-                elseif decal == "http://www.roblox.com/asset/?id=9648759883" then
-                    return 9
-                elseif decal == "http://www.roblox.com/asset/?id=9648755440" then
-                    return 8
-                elseif decal == "http://www.roblox.com/asset/?id=9648752438" then
-                    return 2
-                elseif decal == "http://www.roblox.com/asset/?id=9648749145" then
-                    return 8
-                elseif decal == "http://www.roblox.com/asset/?id=9648745618" then
-                    return 3
-                elseif decal == "http://www.roblox.com/asset/?id=9648742013" then
-                    return 7
-                elseif decal == "http://www.roblox.com/asset/?id=9648738553" then
-                    return 8
-                elseif decal == "http://www.roblox.com/asset/?id=9648734698" then
-                    return 2
-                elseif decal == "http://www.roblox.com/asset/?id=9648730082" then
-                    return 6
-                elseif decal == "http://www.roblox.com/asset/?id=9648723237" then
-                    return 3
-                elseif decal == "http://www.roblox.com/asset/?id=9648718450" then
-                    return 6
-                elseif decal == "http://www.roblox.com/asset/?id=9648715920" then
-                    return 6
-                elseif decal == "http://www.roblox.com/asset/?id=9648712563" then
-                    return 2
-                end
-            end
-
-            for i, v in ipairs(game:GetService("Workspace").Map.CodeBrick.SurfaceGui:GetDescendants()) do
-                if v.Name == "IMGTemplate" then
-                    Code = code(tostring(v.Image))
-                    warn(tostring(Code))
-                end
-            end
-        end
-    )
-
-    MISCUM3:CreateToggle(
-        "Auto Grab Items ",
-        function(Grab)
-
-_G.settingsTable.GrabItems = Grab    
-
-               while _G.settingsTable.GrabItems do
-                wait(.1)
-                if workspace[game.Players.LocalPlayer.Name].inMatch.Value == true then
-                    wait(0.1)
-            local lp = game.Players.LocalPlayer
-            for i, v in ipairs(game.Workspace:GetDescendants()) do
-
-                if v:IsA("TouchTransmitter") and v.Parent.Name == "Handle" then
-                    lp.Character.Humanoid:EquipTool(v.Parent.Parent)
-                end
-                
-                
-                end
-                end
-               end
-    
-               
-    end
-    )
-
-    MISCUM2:CreateButton(
-        "One Shot ( One Time Use ) ",
-        function()
-            local lp = game.Players.LocalPlayer
-
-            for k, v in ipairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                if v.Name == "Cube of Ice" then
-                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-                    v:Activate()
-                end
-            end
-        end
-    )
-
-    MISCUM3:CreateButton(
-        "Use All Permanent Items",
-        function()
-            for i, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-                if
-                    v:IsA("Tool") and v.Name == "Potion of Strength" or v.Name == "Bull's essence" or
-                        v.Name == "Speed Potion" or
-                        v.Name == "Boba" or
-                        v.Name == "Frog Potion" or
-                        v.Name == "Strength Brew" or
-                        v.Name == "Frog Brew" or
-                        v.Name == "Speed Brew"
-                 then
-                    v.Parent = game.Players.LocalPlayer.Character
-                end
-            end
-            wait(.5)
-            for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                if v:IsA("Tool") then
-                    v:Activate()
-                end
-            end
-        end
-    )
-
-    MISCUM3:CreateButton(
-        "Bomb Bus",
-        function()
-            local lp = game.Players.LocalPlayer
-
-            for i, v in ipairs(game.Workspace:GetDescendants()) do
-                if v:IsA("TouchTransmitter") and v.Parent.Name == "Handle" and v.Parent.Parent.Name == "Bomb" then
-                    lp.Character.Humanoid:EquipTool(v.Parent.Parent)
-                end
-            end
-            wait(.1)
-            for i, v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-                if v:IsA("Tool") and v.Name == "Bomb" then
-                    v.Parent = game.Players.LocalPlayer.Character
-                end
-            end
-            wait(.25)
-            for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                if v:IsA("Tool") then
-                    v:Activate()
-                end
-            end
-        end
-    )
-    
-    Game2:CreateButton(
-        "Anti Lava",
-        
-        function(LavaGod)
-            
-local Lava_God = Instance.new("Part", game.Workspace)
-
-Lava_God.Position = Vector3.new(-238, -43, 401)
-
-Lava_God.Size = Vector3.new(150,10,150)
-
-Lava_God.Anchored = true
-
-Lava_God.Transparency = 1
-
-        end)
-        
-    Game1:CreateButton(
-        "Remove Zone Blur",
-        function(blur)
-            
-            game:GetService("ReplicatedStorage").ZoneEffects.ZoneBlur.Enabled = false
-
-game:GetService("ReplicatedStorage").ZoneEffects.ZoneColorCorrection.Enabled = false
-        end
-        )
-        
-    CUMBAT3:CreateToggle(
-        "Slap Aura",
-        function(sexwithanakin)
-            getgenv().Aura = sexwithanakin
-            while getgenv().Aura == true do
-                wait(.05)
-                for i, v in pairs(game.Players:GetPlayers()) do
-                    if v ~= game.Players.LocalPlayer then
-                        if
-                            v.Character:FindFirstChild("HumanoidRootPart") ~= nil and
-                                v.Character:FindFirstChild("Humanoid") and
-                                v.Character.Humanoid.Health > 0
-                         then
-                            local magnitude =
-                                (v.Character.HumanoidRootPart.Position -
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-                            if magnitude < 100 then
-                                game:GetService("ReplicatedStorage").Events.Slap:FireServer(v.Character.Torso)
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    )
-    
-    Local1:CreateSlider(
-        "Walkspeed",
-        25,
-        300,
-        25,
-        false,
-        function(JP)
-                        _G.settingsTable.Speed = JP
-                        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = _G.settingsTable.Speed
-                        
-
-
-
-        end
-    )
-
-    Local2:CreateSlider(
-        "Jump Power",
-        50,
-        500,
-        50,
-        false,
-        function(WS)
-                        game.Players.LocalPlayer.Character.Humanoid.JumpPower = WS
-
-        end
-    )
-    print("R2O Took " .. tick() - Time .. " Seconds To Load ")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/R20%20Slap%20Royale"))()
   	end    
 })
 
@@ -1311,423 +970,71 @@ Anim:Play()
   	end    
 })
 
-Tab6:AddButton({
-	Name = "Destroy GUI",
+Tab7:AddButton({
+                    Name = "Get [REDACTED] (Credits to R20)",
+Callback = function(boolean)
+GetRedacted()
+end
+                    })
+
+Tab7:AddButton({
+	Name = "Get Elude",
 	Callback = function()
-      		OrionLib:Destroy()
+      		local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+        
+        game:GetService("RunService").RenderStepped:Connect(function()
+            localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
+        end)
+    ]])
+end
+
+game:GetService("TeleportService"):Teleport(11828384869)
   	end    
 })
 
-                function SpamWell()
-                   spawn(function()    
-                       while getgenv().autoWell == true do
-                           game:GetService("ReplicatedStorage").Well:FireServer()
-                       wait(5.2)
-                       end
-                   end)
-                end
-                
-                function SpamZeroGSound()
-                   spawn(function()    
-                       while getgenv().autoZeroGSound == true do
-                           game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
-                       task.wait()
-                       end
-                   end)
-                end
+Tab7:AddButton({
+	Name = "Get Tycoon (Credits to R20)",
+	Callback = function()
+      		repeat task.wait(.005)
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame * CFrame.new(0,-2,0)
+    
+until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate Counter: 600"
+                    end    
+                })
 
-                function SpamGhostSound()
-                   spawn(function()    
-                       while getgenv().autoGhostSound == true do
-                           game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
-    game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
-                       task.wait()
-                       end
-                   end)
-                end
+Tab7:AddToggle({
+                    Name = "Bob Farm",
+                    Default = false,
+                    Callback = function(Get_Bob)
+GetBob = Get_Bob
+        if Get_Bob == true then
+            FarmBob()
+            end
+                    end    
+                })
 
-                function SpamThanosSound()
-                   spawn(function()    
-                       while getgenv().autoThanosSound == true do
-game:GetService("ReplicatedStorage").Illbeback:FireServer()
-                       task.wait()
-                       end
-                   end)
-                end
-
-                function SpamGoldenSound()
-                   spawn(function()    
-                       while getgenv().autoGoldenSound == true do
-game:GetService("ReplicatedStorage").Goldify:FireServer(true)
-                       task.wait()
-                       end
-                   end)
-                end
-
-                function SpamSleep()
-                   spawn(function()    
-                       while getgenv().autoSleep == true do
-game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
-                       task.wait()
-                       end
-                   end)
-                end
-
-                function SpamAllSounds()
-                   spawn(function()    
-                       while getgenv().autoAllSounds == true do
-fireclickdetector(game:GetService("Workspace").Lobby.Space.ClickDetector)
-game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
-fireclickdetector(game:GetService("Workspace").Lobby.Ghost.ClickDetector)
-game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
-game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
-fireclickdetector(game:GetService("Workspace").Lobby.Thanos.ClickDetector)
-game:GetService("ReplicatedStorage").Illbeback:FireServer()
-fireclickdetector(game:GetService("Workspace").Lobby.Golden.ClickDetector)
-game:GetService("ReplicatedStorage").Goldify:FireServer(true)
-                       task.wait()
-                       end
-                   end)
-                end
-                
-                function SpamBus()
-                   spawn(function()    
-                       while getgenv().autoBus == true do
-                           game:GetService("ReplicatedStorage").busmoment:FireServer()
-                       wait(5.2)
-                       end
-                   end)
-                end
-                
-                function SpamSentry()
-                   spawn(function()    
-                       while getgenv().autoSentry == true do
-                           game:GetService("ReplicatedStorage").Sentry:FireServer()
-                       wait(5.2)
-                       end
-                   end)
-                end
-                
-                function SpamWall()
-                   spawn(function()    
-                       while getgenv().autoWall == true do
-                           game:GetService("ReplicatedStorage").PusherWall:FireServer()
-                       wait(5.2)
-                       end
-                   end)
-                end
-
-                function SpamHand()
-                   spawn(function()    
-                       while getgenv().autoHand == true do
-                           game:GetService("ReplicatedStorage").Erase:FireServer()
-                       wait(4.2)
-                       end
-                   end)
-                end
-                
-                function SpamLego()
-                   spawn(function()    
-                       while getgenv().autoLego == true do
-                           game:GetService("ReplicatedStorage").lbrick:FireServer()
-                       wait(1.05)
-                       end
-                   end)
-                end
-
-                function SpamTrap()
-                   spawn(function()    
-                       while getgenv().autoTrap == true do
-                           game:GetService("ReplicatedStorage").funnyhilariousbeartrap:FireServer()
-                       wait(3.05)
-                       end
-                   end)
-                end
-
-                function SpamDefense()
-                   spawn(function()    
-                       while getgenv().autoDefense == true do
-                           game:GetService("ReplicatedStorage").Barrier:FireServer()
-                       task.wait(0.25)
-                       end
-                   end)
-                end
-
-                function SpamStop()
-                   spawn(function()    
-                       while getgenv().autoStop == true do
-                           game:GetService("ReplicatedStorage").STOP:FireServer(true)
-                       wait(4.2)
-                       end
-                   end)
-                end
-
-                function SpamGlitch()
-                   spawn(function()    
-                       while getgenv().autoGlitch == true do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-                       wait(4.2)
-                       end
-                   end)
-                end
-
-                function SpamTable()
-                   spawn(function()    
-                       while getgenv().autoTable == true do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-                       wait(3.05)
-                       end
-                   end)
-                end
-
-                function SpamTrack()
-                   spawn(function()    
-                       while getgenv().autoTrack == true do
-                          local LocalPlayer = game.Players.LocalPlayer
-local players = game.Players:GetChildren()
-local RandomPlayer = players[math.random(1, #players)]
-repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= LocalPlayer
-PersonToKill = RandomPlayer
-
-game:GetService("ReplicatedStorage").GeneralAbility:FireServer(PersonToKill.Character)
-                       wait(10.2)
-                       end
-                   end)
-                end
-
-                function SpamShukuchi()
-                   spawn(function()    
-                       while getgenv().autoShukuchi == true do
-                          local LocalPlayer = game.Players.LocalPlayer
-local players = game.Players:GetChildren()
-local RandomPlayer = players[math.random(1, #players)]
-repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= LocalPlayer
-PersonToKill = RandomPlayer
-
-game:GetService("ReplicatedStorage").SM:FireServer(PersonToKill)
-                       wait(0.01)
-                       end
-                   end)
-                end
-
-                function SpamJet()
-                   spawn(function()    
-                       while getgenv().autoJet == true do
-                          local LocalPlayer = game.Players.LocalPlayer
-local players = game.Players:GetChildren()
-local RandomPlayer = players[math.random(1, #players)]
-repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= LocalPlayer
-PersonToKill = RandomPlayer
-
-game:GetService("ReplicatedStorage").AirStrike:FireServer(PersonToKill.Character)
-                       wait(5.2)
-                       end
-                   end)
-                end
-
-                function SpamTrackOrbit()
-                   spawn(function()    
-                       while getgenv().autoTrackOrbit == true do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game:GetService("Players").LocalPlayer.Character)
-                       wait(10.2)
-                       end
-                   end)
-                end
-
-               function SpamRocky()
-                   spawn(function()    
-                       while getgenv().autoRocky == true do
-                           game:GetService("ReplicatedStorage").RockyShoot:FireServer()
-                       wait(6.2)
-                       end
-                   end)
-                end
-
-function disable(username, cantouch)
-    warn(username)
-    if workspace:FindFirstChild("ObbyItem"..username.."LavaBlock") then
-       warn("ObbyItem"..username.."LavaBlock")
-       workspace:FindFirstChild("ObbyItem"..username.."LavaBlock").CanTouch = cantouch
-    elseif workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner") then
-    warn("ObbyItem"..username.."LavaSpinner")
-    workspace:FindFirstChild("ObbyItem"..username.."LavaSpinner").CanTouch = cantouch
- end
+Tab7:AddToggle({
+	Name = "Brick Farm",
+	Default = false,
+	Callback = function(Value)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = Value
+		_G.Brickfarm = Value
+while _G.Brickfarm do
+game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,uwu)
+task.wait(5.01)
 end
-
-               function SpamDominance()
-                   spawn(function()    
-                       while getgenv().autoDominance == true do
-                           game:GetService("ReplicatedStorage").DominanceAc:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
-                       wait(3.05)
-                       end
-                   end)
-                end
-
-               function SpamSlapple()
-                   spawn(function()    
-                       while getgenv().autoSlapple == true do
-                           game:GetService("ReplicatedStorage").funnyTree:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
-                       wait(3.05)
-                       end
-                   end)
-                end
-
-               function SpamCharge()
-                   spawn(function()    
-                       while getgenv().autoCharge == true do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game:GetService("Players").LocalPlayer.Character.Charge)
-                       wait(3.05)
-                       end
-                   end)
-                end
-
-               function SpamDuelist()
-                   spawn(function()    
-                       while getgenv().autoDuelist == true do
-                           game:GetService("ReplicatedStorage").DuelistAbility:FireServer()
-                       wait(5.05)
-                       end
-                   end)
-                end
-
-              function SpamReplica()
-                   spawn(function()    
-                       while getgenv().autoReplica == true do
-                           game:GetService("ReplicatedStorage").Duplicate:FireServer()
-                       wait(5.2)
-                       end
-                   end)
-                end
-                
-                function SpamMail()
-                   spawn(function()    
-                       while getgenv().autoMail == true do
-                           game:GetService("ReplicatedStorage").MailSend:FireServer()
-                       wait(3.2)
-                       end
-                   end)
-                end
-
-                function SpamFort()
-                   spawn(function()    
-                       while getgenv().autoFort == true do
-                           game:GetService("ReplicatedStorage").Fortlol:FireServer()
-                       wait(3.05)
-                       end
-                   end)
-                end
-                
-                function SpamBubble()
-                   spawn(function()    
-                       while getgenv().autoBubble == true do
-                           game:GetService("ReplicatedStorage").BubbleThrow:FireServer()
-                       wait(3.05)
-                       end
-                   end)
-                end
-
-                function SpamShield()
-                   spawn(function()    
-                       while getgenv().autoShield == true do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-                       wait(3.05)
-                       end
-                   end)
-                end
-
-                function SpamBomb()
-                   spawn(function()    
-                       while getgenv().autoBomb == true do
-                           game:GetService("ReplicatedStorage").BombThrow:FireServer()
-wait(2.5)
-game:GetService("ReplicatedStorage").BombThrow:FireServer()
-                       wait(4.2)
-                       end
-                   end)
-                end
-                
-                function SpamShard()
-                   spawn(function()    
-                       while getgenv().autoShard == true do
-                           game:GetService("ReplicatedStorage").Shards:FireServer()
-                       wait(4.2)
-                       end
-                   end)
-                end
-                
-                function SpamSwap()
-                   spawn(function()    
-                       while getgenv().autoSwap == true do
-                           game:GetService("ReplicatedStorage").SLOC:FireServer()
-                       task.wait(5.2)
-                       end
-                   end)
-                end
-
-                function SpamWarp()
-                   spawn(function()    
-                       while getgenv().autoWarp == true do
-                           game:GetService("ReplicatedStorage").WLOC:FireServer()
-                       task.wait(4.2)
-                       end
-                   end)
-                end
-
-                function SpamStun()
-                   spawn(function()    
-                       while getgenv().autoStun == true do
-                           game:GetService("ReplicatedStorage").StunR:FireServer(game:GetService("Players").LocalPlayer.Character.Stun)
-                       task.wait(10.2)
-                       end
-                   end)
-                end
-
-                function SpamBaller()
-                   spawn(function()    
-                       while getgenv().autoBaller == true do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-                       task.wait(4.2)
-                       end
-                   end)
-                end
-
-                function SpamTimestop()
-                   spawn(function()    
-                       while getgenv().autoTimestop == true do
-                           game:GetService("ReplicatedStorage").TimestopJump:FireServer()
-game:GetService("ReplicatedStorage").Timestopchoir:FireServer()
-game:GetService("ReplicatedStorage").Timestop:FireServer()
-                       task.wait(50.2)
-                       end
-                   end)
-                end
-
-                function SpamBallerFarm()
-                   spawn(function()    
-                       while getgenv().autoBallerFarm == true do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-                       task.wait(30)
-                       end
-                   end)
-                end
-
-                function SpamPingPong()
-                   spawn(function()    
-                       while getgenv().autoPingPong == true do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-                       task.wait()
-                       end
-                   end)
-                end
-
-                function SpamWhirlwind()
-                   spawn(function()    
-                       while getgenv().autoWhirlwind == true do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-                       task.wait()
-                       end
-                   end)
-                end
+	end    
+})
 
                 function GetRedacted()
                     spawn(function()
@@ -1770,16 +1077,6 @@ game:GetService("ReplicatedStorage").Timestop:FireServer()
                         })
                     end
                     end)
-                end
-                 
-                 function SpamWoah()
-                    spawn(function()    
-                        while getgenv().autoWoah == true do
-                            game:GetService("ReplicatedStorage").VineThud:FireServer()
-                        wait(5.2)
-                        end
-                    end)
-
                 end
 
     function FarmBob()
