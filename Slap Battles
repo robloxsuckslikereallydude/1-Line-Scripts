@@ -84,12 +84,6 @@ SafeSpot.Transparency = .75
                     PremiumOnly = false
                 })
 
-                local Tab5 = Window:MakeTab({
-                    Name = "Emotes",
-                    Icon = "http://www.roblox.com/asset/?id=",
-                    PremiumOnly = false
-                })
-
                 local Tab3 = Window:MakeTab({
                     Name = "Hubs",
                     Icon = "http://www.roblox.com/asset/?id=",
@@ -654,6 +648,13 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/script
                 })
 
 Tab2:AddButton({
+	Name = "Free Emotes (To use just do /e emotename) (Credits to R20)",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R2O/main/Files/freeAnimations.lua"))()
+                    end    
+                })
+
+Tab2:AddButton({
 	Name = "Turn glove into a block (Only works with default, extended, and thanos)",
 	Callback = function()
 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
@@ -851,86 +852,6 @@ autoSet1 = bool
             end
         end
 	end    
-})
-
-Tab5:AddButton({
-	Name = "Spasm",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Spasm, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
-})
-
-Tab5:AddButton({
-	Name = "Headless",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Headless, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
-})
-
-Tab5:AddButton({
-	Name = "Groove",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Groove, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
-})
-
-Tab5:AddButton({
-	Name = "Floss",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Floss, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
-})
-
-Tab5:AddButton({
-	Name = "Parker",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Parker, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
-})
-
-Tab5:AddButton({
-	Name = "Kick",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Kick, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
-})
-
-Tab5:AddButton({
-	Name = "L",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.L, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
-})
-
-Tab5:AddButton({
-	Name = "Laugh",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Laugh, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
-})
-
-Tab5:AddButton({
-	Name = "Thriller",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Thriller, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
-})
-
-Tab5:AddButton({
-	Name = "Helicopter",
-	Callback = function()
-local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").AnimationPack.Helicopter, game.Players.LocalPlayer.Character.Humanoid)
-Anim:Play()
-  	end    
 })
 
 Tab7:AddButton({
