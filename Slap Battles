@@ -641,6 +641,20 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
                 })
 
 Tab2:AddButton({
+	Name = "Slap Farm (This copies the script, put it in autoexec)",
+	Callback = function()
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+                    end    
+                })
+
+Tab2:AddButton({
+	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
+                    end    
+                })
+
+Tab2:AddButton({
 	Name = "Hitbox",
 	Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/shit%20script%20pack/CheatX'))()
