@@ -15,7 +15,6 @@ for _,v in pairs(workspace.Arena:GetDescendants()) do
     if string.find(v.Name, "Slapple") and v:FindFirstChild("Glove") and v.Glove:FindFirstChildOfClass("TouchTransmitter") then
         firetouchinterest(localPlr.Character.HumanoidRootPart, v.Glove, 0)
         firetouchinterest(localPlr.Character.HumanoidRootPart, v.Glove, 1)
-
         wait(0.05)
     end
 end
