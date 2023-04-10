@@ -654,11 +654,31 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmo
                     end    
                 })
 
-Tab2:AddButton({
-	Name = "Hitbox",
-	Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/shit%20script%20pack/CheatX'))()
-                    end    
+Tab2:AddToggle({
+                    Name = "Slap Aura (Credits to R20)",
+                    Default = false,
+                    Callback = function(bool)
+getgenv().SlapAura = bool
+            if bool == true then
+                while getgenv().SlapAura do
+                    task.wait(.005)
+                        for Index, Player in next, game.Players:GetPlayers() do
+                            if Player ~= game.Players.LocalPlayer and Player.Character and Player.Character:FindFirstChild("entered") then
+                                if Player.Character:FindFirstChild("Head") then
+                                if Player.Character.Head:FindFirstChild("UnoReverseCard") == nil and Player.Character:FindFirstChild("rock") == nil then
+                                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                    local Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
+                                    if 25 >= Magnitude then
+                                        shared.gloveHits[getGlove()]:FireServer(Player.Character:WaitForChild("Head"))
+                                end
+                                    end
+                            end
+                                end
+                        end
+                        end
+                end
+            end
+end
                 })
 
 Tab2:AddButton({
@@ -929,13 +949,24 @@ until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate
                 })
 
 Tab7:AddToggle({
-                    Name = "Bob Farm",
+                    Name = "Bob Farm (Credits to R20)",
                     Default = false,
-                    Callback = function(Get_Bob)
-GetBob = Get_Bob
-        if Get_Bob == true then
-            FarmBob()
+                    Callback = function(bool)
+bobFarm = bool
+        if bool == true then
+            while bobFarm do   
+                task.wait()
+                    if getGlove() == "Replica" and bobFarm and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
+                    game.ReplicatedStorage.Duplicate:FireServer() -- dont retoggle u fucking retards
+                    task.wait()
+                    tick = os.time()
+                    repeat task.wait()
+                    until os.time() - tick >= 5.1
+                    end
             end
+            else
+            task.wait(10.2)
+        end
                     end    
                 })
 
@@ -1226,41 +1257,6 @@ antiStun = bool
                     end    
                 })
 
-    function FarmBob()
-        
-        while GetBob do
-            
-            task.wait(.25)
-            
-             if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica" then
-            
-            task.wait(.76)
-            
-            
-            game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = workspace.Lobby.Teleport1.CFrame
-            
-            task.wait(.77)
-            
-game:GetService("ReplicatedStorage").Duplicate:FireServer()
-
-task.wait(1.45)
-
-if not workspace:FindFirstChild("bobcap") then
-    
-    local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character,
-    [2] = false
-}
-
-game:GetService("ReplicatedStorage").HumanoidDied:FireServer(unpack(args))
-
-    else
-        
-        print("Got Bob")
-    
+local function getGlove()
+       return game.Players.LocalPlayer.leaderstats.Glove.Value
     end
- 
-            end
-
-    end
-            end
