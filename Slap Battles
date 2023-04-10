@@ -684,7 +684,7 @@ end
 Tab2:AddButton({
 	Name = "Free Emotes (To use just do /e emotename) (Credits to R20)",
 	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R2O/main/Files/freeAnimations.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
                     end    
                 })
 
