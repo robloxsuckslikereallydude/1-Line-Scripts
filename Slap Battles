@@ -100,18 +100,7 @@ Tab0:AddButton({
 })
                 
 Tab:AddLabel("A lot of these work in the lobby")
-
-                Tab:AddToggle({
-                    Name = "Ping Pong Spam",
-                    Default = false,
-                    Callback = function(Value)
-_G.PingPongSpam = Value
-while _G.PingPongSpam do
-game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-task.wait()
-end
-                    end    
-                })
+Tab:AddLabel("Don't manually use ability while the spam is running")
 
                 Tab:AddToggle({
                     Name = "Coil Spam",
@@ -542,6 +531,18 @@ end
                 })
 
                 Tab:AddToggle({
+                    Name = "Ping Pong Spam",
+                    Default = false,
+                    Callback = function(Value)
+_G.PingPongSpam = Value
+while _G.PingPongSpam do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+wait(8)
+end
+                    end    
+                })
+
+                Tab:AddToggle({
                     Name = "Spam Recall VFX",
                     Default = false,
                     Callback = function(Value)
@@ -719,12 +720,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmo
                 })
 
 Tab2:AddButton({
-	Name = "Turn glove into a block (Only works with default, extended, and thanos)",
+	Name = "Turn glove into a block (Doesn't work with all gloves)",
 	Callback = function()
 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 if v:IsA("Tool") then
-if v.Glove.Mesh then
+if v.Glove.Mesh or v.Glove.Cuff.Mesh then
 v.Glove.Mesh:Destroy()
+v.Glove.Cuff.Mesh:Destroy()
 end
 end
 end
