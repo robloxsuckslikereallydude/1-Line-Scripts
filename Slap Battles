@@ -120,6 +120,7 @@ end
 _G.CoilSpam = Value
 while _G.CoilSpam do
 game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game:GetService("Players").LocalPlayer.Character.Coil)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Walkspeed
 task.wait()
 end
                     end    
@@ -166,6 +167,17 @@ end
                     end    
                 })
 
+                Tab:AddToggle({
+                    Name = "Mitten Spam",
+                    Default = false,
+                    Callback = function(Value)
+_G.MittenSpam = Value
+while _G.MittenSpam do
+game:GetService("ReplicatedStorage").MittenA:FireServer()
+wait(5.2)
+end
+                    end    
+                })
 
                 Tab:AddToggle({
                     Name = "Fort Spam",
@@ -530,6 +542,18 @@ end
                 })
 
                 Tab:AddToggle({
+                    Name = "Spam Recall VFX",
+                    Default = false,
+                    Callback = function(Value)
+_G.RecallVFXSpam = Value
+while _G.RecallVFXSpam do
+game:GetService("ReplicatedStorage").Recall:InvokeServer(game:GetService("Players").LocalPlayer.Character.Recall)
+wait(3.05)
+end
+                    end    
+                })
+
+                Tab:AddToggle({
                     Name = "Spam Sleep",
                     Default = false,
                     Callback = function(Value)
@@ -654,6 +678,10 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmo
                     end    
                 })
 
+local function getGlove()
+       return game.Players.LocalPlayer.leaderstats.Glove.Value
+    end
+
 Tab2:AddToggle({
                     Name = "Slap Aura (Credits to R20)",
                     Default = false,
@@ -662,10 +690,11 @@ getgenv().SlapAura = bool
             if bool == true then
                 while getgenv().SlapAura do
                     task.wait(.005)
+                        pcall(function()
                         for Index, Player in next, game.Players:GetPlayers() do
                             if Player ~= game.Players.LocalPlayer and Player.Character and Player.Character:FindFirstChild("entered") then
                                 if Player.Character:FindFirstChild("Head") then
-                                if Player.Character.Head:FindFirstChild("UnoReverseCard") == nil and Player.Character:FindFirstChild("rock") == nil then
+                                if Player.Character.Head:FindFirstChild("UnoReverseCard") == nil and Player.Character:FindFirstChild("rock") == nil then 
                                     if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
                                     local Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
                                     if 25 >= Magnitude then
@@ -676,6 +705,7 @@ getgenv().SlapAura = bool
                                 end
                         end
                         end
+                    end)
                 end
             end
 end
@@ -744,20 +774,22 @@ end,
                 })
 
 Tab2:AddToggle({
-                    Name = "Auto Remove Nametag",
+                    Name = "Auto Remove Nametag (Credits to R20)",
                     Default = false,
-                    Callback = function(Value)
-getgenv().antinametag = Value
-
-      while getgenv().antinametag == true do
-       wait(.001)
-       local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-
-       if char:WaitForChild("Head"):FindFirstChild("Nametag") then
-       char:FindFirstChild("Head"):FindFirstChild("Nametag"):Destroy()
-     end
-    end
-end,
+                    Callback = function(bool)
+Auto_Remove = bool
+        if bool == true then
+        game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+            task.wait()
+            game.Players.LocalPlayer.CharacterAdded:Connect(function()
+                if Auto_Remove == true then
+                repeat task.wait()
+                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
+                game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+                end
+            end)
+        end
+end
                 })
 
 local function GetClosestPlayer()
@@ -954,7 +986,7 @@ Tab7:AddToggle({
                     Callback = function(bool)
 bobFarm = bool
         if bool == true then
-            while bobFarm do   
+            while bobFarm do
                 task.wait()
                     if getGlove() == "Replica" and bobFarm and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
                     game.ReplicatedStorage.Duplicate:FireServer() -- dont retoggle u fucking retards
@@ -997,25 +1029,6 @@ antiAdmins = bool
     end
 end
 })
-
-Tab8:AddToggle({
-                    Name = "Anti Bubble (Credits to R20)",
-                    Default = false,
-                    Callback = function(a)
-_G.AntiBubble = a
-
-while _G.AntiBubble do
-        wait()
-        for i,v in pairs(workspace:GetChildren()) do
-           if v.Name == "BubbleObject" then
-             if v:FindFirstChild("Weld") then
-              v:FindFirstChild("Weld"):Destroy()
-           end
-          end
-         end
-        end
-                    end    
-                })
 
 Tab8:AddToggle({
                     Name = "Anti Ragdoll (Credits to R20)",
@@ -1256,7 +1269,3 @@ antiStun = bool
         end
                     end    
                 })
-
-local function getGlove()
-       return game.Players.LocalPlayer.leaderstats.Glove.Value
-    end
