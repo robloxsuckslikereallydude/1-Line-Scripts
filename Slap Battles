@@ -116,6 +116,40 @@ end
                 })
 
                 Tab:AddToggle({
+                    Name = "Home Run Spam",
+                    Default = false,
+                    Callback = function(Value)
+_G.HomeRunSpam = Value
+while _G.HomeRunSpam do
+local args = {
+    [1] = {
+        ["start"] = true
+    }
+}
+game:GetService("ReplicatedStorage").HomeRun:FireServer(unpack(args))
+task.wait()
+end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Home Run Max Charge Spam",
+                    Default = false,
+                    Callback = function(Value)
+_G.HomeRunSpam = Value
+while _G.HomeRunSpam do
+local args = {
+    [1] = {
+        ["start"] = true
+    }
+}
+game:GetService("ReplicatedStorage").HomeRun:FireServer(unpack(args))
+wait(3.05)
+                    end    
+end
+                })
+
+                Tab:AddToggle({
                     Name = "Whirlwind Spam",
                     Default = false,
                     Callback = function(Value)
