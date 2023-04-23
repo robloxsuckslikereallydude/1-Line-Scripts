@@ -482,10 +482,10 @@ end
                     Name = "Kinetic Spam",
                     Default = false,
                     Callback = function(Value)
-_G.DominanceSpam = Value
-while _G.DominanceSpam do
+_G.KineticSpam = Value
+while _G.KineticSpam do
 game:GetService("ReplicatedStorage").KineticExpl:FireServer(game:GetService("Players").LocalPlayer.Character.Kinetic, game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
-wait(4.2)
+wait(10.05)
 end
                     end    
                 })
