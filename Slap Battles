@@ -26,6 +26,18 @@ local namecall
         return namecall(self, ...)
     end)
 
+   local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R20-EXPLOITER/main/Files/Gloves.lua"))()
+
+   local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R20-EXPLOITER/main/Files/Functions.lua"))()
+
+   local function getGlove()
+	    
+       return game.Players.LocalPlayer.leaderstats.Glove.Value
+	    
+    end
+	
+    local Coasting = loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/Coasting/main/Source.lua")))()
+
 local SafeSpot = Instance.new("Part", workspace)
 
 SafeSpot.Position = Vector3.new(-1500,100,-1500)
@@ -713,10 +725,6 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmo
                     end    
                 })
 
-local function getGlove()
-       return game.Players.LocalPlayer.leaderstats.Glove.Value
-    end
-
 Tab2:AddToggle({
                     Name = "Slap Aura (Credits to R20)",
                     Default = false,
@@ -876,7 +884,7 @@ Tab3:AddButton({
 Tab3:AddButton({
 	Name = "R20",
 	Callback = function()
-      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R20-EXPLOITER/main/Slap_Battles.lua")))()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R2O/main/LOADSTRING.lua"))()
   	end    
 })
 
