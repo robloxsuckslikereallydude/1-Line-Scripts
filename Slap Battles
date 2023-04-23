@@ -35,8 +35,6 @@ local namecall
        return game.Players.LocalPlayer.leaderstats.Glove.Value
 	    
     end
-	
-    local Coasting = loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/Coasting/main/Source.lua")))()
 
 local SafeSpot = Instance.new("Part", workspace)
 
@@ -476,6 +474,18 @@ _G.SlappleSpam = Value
 while _G.SlappleSpam do
 game:GetService("ReplicatedStorage").funnyTree:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
 wait(3.05)
+end
+                    end    
+                })
+
+                Tab:AddToggle({
+                    Name = "Kinetic Spam",
+                    Default = false,
+                    Callback = function(Value)
+_G.DominanceSpam = Value
+while _G.DominanceSpam do
+game:GetService("ReplicatedStorage").KineticExpl:FireServer(game:GetService("Players").LocalPlayer.Character.Kinetic, game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+wait(4.2)
 end
                     end    
                 })
