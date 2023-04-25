@@ -485,7 +485,7 @@ end
 _G.KineticSpam = Value
 while _G.KineticSpam do
 game:GetService("ReplicatedStorage").KineticExpl:FireServer(game:GetService("Players").LocalPlayer.Character.Kinetic, game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
-wait(10.05)
+wait(9.2)
 end
                     end    
                 })
@@ -1090,7 +1090,6 @@ Tab8:AddToggle({
                     Callback = function(bool)
 antiRagdoll = bool
         if bool == true then
-        game.Players.LocalPlayer.Character.Humanoid.Health = 0
         task.wait()
         game.Players.LocalPlayer.CharacterAdded:Connect(function()
             local Character = game.Workspace[game.Players.LocalPlayer.Name]            
