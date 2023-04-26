@@ -736,7 +736,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmo
                 })
 
 Tab2:AddToggle({
-                    Name = "Slap Aura (Credits to R20)",
+                    Name = "Slap Aura (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 getgenv().SlapAura = bool
@@ -765,7 +765,7 @@ end
                 })
 
 Tab2:AddButton({
-	Name = "Free Emotes (To use just do /e emotename) (Credits to R20)",
+	Name = "Free Emotes (To use just do /e emotename) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
                     end    
@@ -828,7 +828,7 @@ end,
                 })
 
 Tab2:AddToggle({
-                    Name = "Auto Remove Nametag (Credits to R20)",
+                    Name = "Auto Remove Nametag (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 Auto_Remove = bool
@@ -892,14 +892,14 @@ Tab3:AddButton({
 })
 
 Tab3:AddButton({
-	Name = "R20",
+	Name = "R2O",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R2O/main/LOADSTRING.lua"))()
   	end    
 })
 
 Tab3:AddButton({
-	Name = "R20 Slap Royale",
+	Name = "R2O Slap Royale",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/R20%20Slap%20Royale"))()
   	end    
@@ -975,7 +975,7 @@ autoSet1 = bool
 })
 
 Tab7:AddButton({
-                    Name = "Get [REDACTED] (Credits to R20)",
+                    Name = "Get [REDACTED] (Credits to R2O)",
 Callback = function()
 local Door = 1
 if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) and 5000 <= game.Players.LocalPlayer.leaderstats.Slaps.Value then
@@ -1004,7 +1004,7 @@ end
                     })
 
 Tab7:AddButton({
-	Name = "Get Elude (Credit to R20)",
+	Name = "Get Elude (Credit to R2O)",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
 if teleportFunc then
@@ -1024,7 +1024,7 @@ game:GetService("TeleportService"):Teleport(11828384869)
 })
 
 Tab7:AddButton({
-	Name = "Get Tycoon (Credits to R20)",
+	Name = "Get Tycoon (Credits to R2O)",
 	Callback = function()
       		repeat task.wait(.005)
     
@@ -1035,7 +1035,7 @@ until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate
                 })
 
 Tab7:AddToggle({
-                    Name = "Bob Farm (Credits to R20)",
+                    Name = "Bob Farm (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 bobFarm = bool
@@ -1070,7 +1070,7 @@ end
 })
 
 Tab8:AddToggle({
-                    Name = "Anti Admins (Credits to R20)",
+                    Name = "Anti Admins (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 antiAdmins = bool
@@ -1085,7 +1085,7 @@ end
 })
 
 Tab8:AddToggle({
-                    Name = "Anti Ragdoll (Credits to R20)",
+                    Name = "Anti Ragdoll (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 antiRagdoll = bool
@@ -1108,7 +1108,7 @@ antiRagdoll = bool
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Void (Credits to R20)",
+                    Name = "Anti Void (Credits to R2O)",
                     Default = false,
                     Callback = function(noVoid)
 if noVoid == true then
@@ -1132,7 +1132,7 @@ if noVoid == true then
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Cube of Death (Credits to R20)",
+                    Name = "Anti Cube of Death (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 if bool == true then
@@ -1148,7 +1148,7 @@ if bool == true then
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Squid (Credits to R20)",
+                    Name = "Anti Squid (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 AntiSquid = bool
@@ -1166,7 +1166,7 @@ AntiSquid = bool
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Hallow Jack (Credits to R20)",
+                    Name = "Anti Hallow Jack (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 antiHallow = bool
@@ -1179,7 +1179,7 @@ antiHallow = bool
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Za Hando (Credits to R20)",
+                    Name = "Anti Za Hando (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 getgenv().AntiZaHando = bool
@@ -1197,7 +1197,7 @@ getgenv().AntiZaHando = bool
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Reaper (Credits to R20)",
+                    Name = "Anti Reaper (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 getgenv().AntiReaper = bool
@@ -1216,7 +1216,7 @@ getgenv().AntiReaper = bool
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Pusher (Credits to R20)",
+                    Name = "Anti Pusher (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 getgenv().AntiPusher = bool
@@ -1234,7 +1234,7 @@ getgenv().AntiPusher = bool
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Booster (Credits to R20)",
+                    Name = "Anti Booster (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 antiBooster = bool
@@ -1256,7 +1256,7 @@ antiBooster = bool
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Mail (Credits to R20)",
+                    Name = "Anti Mail (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 antiMail = bool
@@ -1280,7 +1280,7 @@ antiMail = bool
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Stun (Credits to R20)",
+                    Name = "Anti Stun (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 antiStun = bool
@@ -1296,7 +1296,7 @@ antiStun = bool
                 })
 
                Tab8:AddToggle({
-                    Name = "Anti Megarock/Custom (Credits to R20)",
+                    Name = "Anti Megarock/Custom (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
         AntiRock = bool
