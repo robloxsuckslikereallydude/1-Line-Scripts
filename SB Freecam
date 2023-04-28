@@ -103,7 +103,7 @@ Toggled = not Toggled
 if Toggled then
 Camera.CameraType = Enum.CameraType.Scriptable
 else
-game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+game.Workspace.CurrentCamera.CameraSubject = game.Workspace.Lobby.Conveyors.Part
 game.Workspace.CurrentCamera.CameraType = "Custom"
 end
 end
