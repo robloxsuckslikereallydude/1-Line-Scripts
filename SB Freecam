@@ -1,5 +1,5 @@
 ToggleKey = Enum.KeyCode.C
-SprintKey = Enum.KeyCode.F
+SprintKey = Enum.KeyCode.LeftShift
 localPlayer = game.Players.LocalPlayer
 Camera = game.Workspace.CurrentCamera
 Mouse = localPlayer:GetMouse()
