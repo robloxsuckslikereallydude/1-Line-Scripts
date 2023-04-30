@@ -722,6 +722,33 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
                 })
 
 Tab2:AddButton({
+	Name = "View Testing Server (Good for glove leaking)",
+	Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+        game:GetService("RunService").RenderStepped:Connect(function()
+game:GetService("GuiService"):ClearError()
+        end)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9020359053)
+                    end    
+                })
+
+Tab2:AddButton({
+	Name = "Testing Server Freecam",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+                    end    
+                })
+
+Tab2:AddButton({
 	Name = "Slap Farm (This copies the script, put it in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
@@ -1063,7 +1090,7 @@ Tab7:AddToggle({
 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = Value
 		_G.Brickfarm = Value
 while _G.Brickfarm do
-game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,uwu)
+game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
 task.wait(5.01)
 end
 	end    
