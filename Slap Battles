@@ -55,7 +55,7 @@ SafeSpot.Transparency = .75
    LoadingTitle = "Rayfield Interface Suite",
    LoadingSubtitle = "by Sirius",
    ConfigurationSaving = {
-      Enabled = true,
+      Enabled = false,
       FolderName = nil, -- Create a custom folder for your hub/game
       FileName = "Slap Battles hub that exists"
    },
@@ -95,25 +95,12 @@ local Label = Tab:CreateLabel("If you have problems then message Guy that exists
 local Button = Tab:CreateButton({
 	Name = "Destroy GUI",
 	Callback = function()
-      		OrionLib:Destroy()
+      		Rayfield:Destroy()
   	end    
 })
                 
 local Label = Tab2:CreateLabel("A lot of these work in the lobby")
 local Label = Tab2:CreateLabel("Don't manually use ability while the spam is running")
-
-                local Toggle = Tab2:CreateToggle({
-                    Name = "Coil Spam",
-                    CurrentValue = false,
-                    Callback = function(Value)
-_G.CoilSpam = Value
-while _G.CoilSpam do
-game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game:GetService("Players").LocalPlayer.Character.Coil)
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Walkspeed
-task.wait()
-end
-                    end    
-                })
 
                 local Toggle = Tab2:CreateToggle({
                     Name = "Home Run Spam",
@@ -150,18 +137,6 @@ end
                 })
 
                 local Toggle = Tab2:CreateToggle({
-                    Name = "Whirlwind Spam",
-                    CurrentValue = false,
-                    Callback = function(Value)
-_G.WhirlwindSpam = Value
-while _G.WhirlwindSpam do
-game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-task.wait()
-end
-                    end    
-                })
-
-                local Toggle = Tab2:CreateToggle({
                     Name = "Shukuchi Spam",
                     CurrentValue = false,
                     Callback = function(Value)
@@ -174,6 +149,19 @@ repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= Lo
 PersonToKill = RandomPlayer
 game:GetService("ReplicatedStorage").SM:FireServer(PersonToKill)
 wait(0.01)
+end
+                    end    
+                })
+
+                local Toggle = Tab2:CreateToggle({
+                    Name = "Slicer Spam",
+                    CurrentValue = false,
+                    Callback = function(Value)
+_G.SlicerSpam = Value
+while _G.SlicerSpam do
+game:GetService("ReplicatedStorage").Slicer:FireServer("sword")
+game:GetService("ReplicatedStorage").Slicer:FireServer("slash", CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position) * CFrame.Angles(-5.66729e-11, 0.000832287, -1.10219e-10), Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Rotation))
+wait(5.2)
 end
                     end    
                 })
@@ -686,6 +674,18 @@ end
                 })
 
                 local Toggle = Tab2:CreateToggle({
+                    Name = "Spam Slicer Sound",
+                    CurrentValue = false,
+                    Callback = function(Value)
+_G.SlicerSoundSpam = Value
+while _G.SlicerSoundSpam do
+game:GetService("ReplicatedStorage").Slicer:FireServer("sword")
+task.wait()
+end
+                    end    
+                })
+
+                local Toggle = Tab2:CreateToggle({
                     Name = "Spam Charge Sound",
                     CurrentValue = false,
                     Callback = function(Value)
@@ -908,7 +908,6 @@ local Slider = Tab6:CreateSlider({
    Increment = 1,
    Suffix = "WS",
    CurrentValue = 20,
-   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 Walkspeed = Value
@@ -938,7 +937,6 @@ local Slider = Tab6:CreateSlider({
    Increment = 1,
    Suffix = "JP",
    CurrentValue = 50,
-   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 Jumppower = Value
