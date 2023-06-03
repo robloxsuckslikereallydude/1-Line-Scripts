@@ -26,14 +26,12 @@ local namecall
         return namecall(self, ...)
     end)
 
-   local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R20-EXPLOITER/main/Files/Gloves.lua"))()
+
 
    local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R20-EXPLOITER/main/Files/Functions.lua"))()
 
    local function getGlove()
-	    
        return game.Players.LocalPlayer.leaderstats.Glove.Value
-	    
     end
 
 local SafeSpot = Instance.new("Part", workspace)
@@ -161,7 +159,31 @@ _G.SlicerSpam = Value
 while _G.SlicerSpam do
 game:GetService("ReplicatedStorage").Slicer:FireServer("sword")
 game:GetService("ReplicatedStorage").Slicer:FireServer("slash", CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position) * CFrame.Angles(-5.66729e-11, 0.000832287, -1.10219e-10), Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Rotation))
-wait(5.2)
+wait(5.1)
+end
+                    end    
+                })
+
+                local Toggle = Tab2:CreateToggle({
+                    Name = "Kraken Spam",
+                    CurrentValue = false,
+                    Callback = function(Value)
+_G.KrakenSpam = Value
+while _G.KrakenSpam do
+game:GetService("ReplicatedStorage").KrakenArm:FireServer()
+wait(5)
+end
+                    end    
+                })
+
+                local Toggle = Tab2:CreateToggle({
+                    Name = "Psycho Spam",
+                    CurrentValue = false,
+                    Callback = function(Value)
+_G.PsychoSpam = Value
+while _G.PsychoSpam do
+game:GetService("ReplicatedStorage").Psychokinesis:InvokeServer({["grabEnabled"] = true})
+task.wait()
 end
                     end    
                 })
@@ -517,11 +539,11 @@ end
                 })
                 
                 local Toggle = Tab2:CreateToggle({
-                    Name = "Sentry Spam",
+                    Name = "Engineer Spam",
                     CurrentValue = false,
                     Callback = function(Value)
-_G.SentrySpam = Value
-while _G.SentrySpam do
+_G.EngineerSpam = Value
+while _G.EngineerSpam do
 game:GetService("ReplicatedStorage").Sentry:FireServer()
 wait(5.2)
 end
@@ -712,6 +734,33 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
                 })
 
 local Button = Tab4:CreateButton({
+	Name = "View Testing Server",
+	Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+        game:GetService("RunService").RenderStepped:Connect(function()
+game:GetService("GuiService"):ClearError()
+        end)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9020359053)
+                    end    
+                })
+
+local Button = Tab4:CreateButton({
+	Name = "Testing Server Freecam",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+                    end    
+                })
+
+local Button = Tab4:CreateButton({
 	Name = "Slap Farm (This copies the script, put it in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
@@ -755,7 +804,7 @@ end
                 })
 
 local Button = Tab4:CreateButton({
-	Name = "Free Emotes (To use just do /e emotename) (Credits to R2O)",
+	Name = "Free Emotes (To use just type /e emotename in chat) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
                     end    
@@ -807,11 +856,10 @@ local Toggle = Tab4:CreateToggle({
                     Callback = function(Value)
 local localPlr = game:GetService("Players").LocalPlayer
 getgenv().AutoEnterArena = Value
-
       while getgenv().AutoEnterArena == true do
        wait(.001)
 if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
-firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, workspace.Lobby.Teleport1)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
     end
 end
 end,
@@ -1006,6 +1054,22 @@ if teleportFunc then
     ]])
 end
 game:GetService("TeleportService"):Teleport(11828384869)
+  	end    
+})
+
+local Button = Tab5:CreateButton({
+	Name = "Get Counter (When in maze)",
+	Callback = function()
+fireclickdetector(game:GetService("Workspace").CounterLever.ClickDetector)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
+wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+wait(121)
+for i,v in pairs(workspace.Maze:GetDescendants()) do
+if v:IsA("ClickDetector") then
+fireclickdetector(v)
+end
+end
   	end    
 })
 
@@ -1308,3 +1372,5 @@ antiStun = bool
         end
                     end    
                 })
+
+   local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
