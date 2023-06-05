@@ -101,7 +101,7 @@ local Label = Tab2:CreateLabel("A lot of these work in the lobby")
 local Label = Tab2:CreateLabel("Don't manually use ability while the spam is running")
 
                 local Toggle = Tab2:CreateToggle({
-                    Name = "Home Run Spam",
+                    Name = "Home Run Spam (Good for getting slaps)",
                     CurrentValue = false,
                     Callback = function(Value)
 _G.HomeRunSpam = Value
@@ -825,7 +825,7 @@ end
                 })
 
 local Button = Tab4:CreateButton({
-	Name = "Infinite Golden (Use in lobby)",
+	Name = "Infinite Golden (Use in arena)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
                     end    
