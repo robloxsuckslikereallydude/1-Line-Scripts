@@ -804,7 +804,7 @@ end
                 })
 
 local Button = Tab4:CreateButton({
-	Name = "Free Emotes (To use just type /e emotename in chat) (Credits to R2O)",
+	Name = "Free Emotes (To use chat /e emotename) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
                     end    
@@ -909,14 +909,14 @@ local function GetClosestPlayer()
 end
 
 local Button = Tab4:CreateButton({
-	Name = "TP to Safe spot (DONT USE IN LOBBY)",
+	Name = "TP to Safe spot",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
   	end    
 })
 
 local Button = Tab4:CreateButton({
-	Name = "TP back to arena (DONT USE IN LOBBY)",
+	Name = "TP back to arena",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
   	end    
@@ -1135,7 +1135,7 @@ end
 })
 
 local Toggle = Tab3:CreateToggle({
-                    Name = "Anti Ragdoll (Credits to R2O)",
+                    Name = "Anti Ragdoll (Reset on first use) (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 antiRagdoll = bool
