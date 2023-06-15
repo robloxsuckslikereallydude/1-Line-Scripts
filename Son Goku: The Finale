@@ -8,9 +8,16 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddButton({
-	Name = "Unlock SSJG It kicks, but just rejoin.)",
+	Name = "Unlock SSJG (It kicks, but just rejoin.)",
 	Callback = function()
       		game.ReplicatedStorage.Form:InvokeServer("SSJG","Short")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Unlock SSJR (It kicks, but just rejoin.)",
+	Callback = function()
+      		game.ReplicatedStorage.Form:InvokeServer("SSJR","Short")
   	end    
 })
 
@@ -101,6 +108,15 @@ Tab2:AddDropdown({
 	Callback = function(Value)
 		game.ReplicatedStorage.Form:InvokeServer("SSJG","Short")
 game.ReplicatedStorage.Form:InvokeServer("SSJB",Value)
+	end    
+})
+
+Tab2:AddDropdown({
+	Name = "SSJR (Unlock it first)",
+	Default = "1",
+	Options = {"Short", "Long", "Untransform"},
+	Callback = function(Value)
+		game.ReplicatedStorage.Form:InvokeServer("SSJR",Value)
 	end    
 })
 
