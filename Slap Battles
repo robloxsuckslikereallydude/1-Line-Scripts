@@ -1,6 +1,4 @@
 -- if you have problems message Guy that exists#1915
-
-Player = game.Players.LocalPlayer.Character.Name
                     
                 repeat wait() until game:IsLoaded() wait()
                 spawn(function()
@@ -1374,3 +1372,4 @@ antiStun = bool
                 })
 
    local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
+Player = game.Players.LocalPlayer.Character.Name
