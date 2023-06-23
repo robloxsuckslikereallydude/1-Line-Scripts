@@ -24,8 +24,6 @@ local namecall
         return namecall(self, ...)
     end)
 
-
-
    local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R20-EXPLOITER/main/Files/Functions.lua"))()
 
    local function getGlove()
@@ -33,74 +31,73 @@ local namecall
     end
 
 local SafeSpot = Instance.new("Part", workspace)
-
 SafeSpot.Position = Vector3.new(-1500,100,-1500)
-
 SafeSpot.Name = "Spot"
-
 SafeSpot.Size = Vector3.new(500,60,500)
-
 SafeSpot.Anchored = true
-
 SafeSpot.Transparency = .75
                 
-                local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-                local Window = Rayfield:CreateWindow({
-   Name = "Slap Battles hub that exists",
-   LoadingTitle = "Rayfield Interface Suite",
-   LoadingSubtitle = "by Sirius",
-   ConfigurationSaving = {
-      Enabled = false,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Slap Battles hub that exists"
-   },
-   Discord = {
-      Enabled = false,
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-   },
-   KeySystem = false, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "Untitled",
-      Subtitle = "Key System",
-      Note = "No method of obtaining the key is provided",
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-   }
-})
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
 
-local Tab = Window:CreateTab("Home", 4483362458)
+                local Tab2 = Window:MakeTab({
+                    Name = "Ability Spams",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
 
-local Tab2 = Window:CreateTab("Ability Spams", 4483362458)
-
-local Tab3 = Window:CreateTab("Antis", 4483362458)
+                local Tab3 = Window:MakeTab({
+                    Name = "Antis",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
  
-local Tab4 = Window:CreateTab("Misc", 4483362458)
+                local Tab4 = Window:MakeTab({
+                    Name = "Misc",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
 
-local Tab5 = Window:CreateTab("Badges", 4483362458)
+                local Tab5 = Window:MakeTab({
+                    Name = "Badges",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
 
-local Tab6 = Window:CreateTab("Player", 4483362458)
+                local Tab6 = Window:MakeTab({
+                    Name = "Player",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
 
-local Tab7 = Window:CreateTab("Hubs", 4483362458)
+                local Tab8 = Window:MakeTab({
+                    Name = "Hubs",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
 
-local Label = Tab:CreateLabel("If you have problems then message Guy that exists#1915")
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
 
-local Button = Tab:CreateButton({
+Tab:AddButton({
 	Name = "Destroy GUI",
 	Callback = function()
-      		Rayfield:Destroy()
+      		OrionLib:Destroy()
   	end    
 })
                 
-local Label = Tab2:CreateLabel("A lot of these work in the lobby")
-local Label = Tab2:CreateLabel("Don't manually use ability while the spam is running")
+Tab2:AddLabel("A lot of these work in the lobby")
+Tab2:AddLabel("Don't manually use ability while the spam is running")
 
-                local Toggle = Tab2:CreateToggle({
-                    Name = "Home Run Spam (Good for getting slaps)",
-                    CurrentValue = false,
+                Tab2:AddToggle({
+                    Name = "Home Run Spam",
+                    Default = false,
                     Callback = function(Value)
 _G.HomeRunSpam = Value
 while _G.HomeRunSpam do
@@ -115,9 +112,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Home Run Max Charge Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.HomeRunSpam = Value
 while _G.HomeRunSpam do
@@ -132,9 +129,9 @@ wait(3.05)
 end
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Shukuchi Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.ShukuchiSpam = Value
 while _G.ShukuchiSpam do
@@ -149,9 +146,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Slicer Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.SlicerSpam = Value
 while _G.SlicerSpam do
@@ -162,9 +159,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Kraken Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.KrakenSpam = Value
 while _G.KrakenSpam do
@@ -174,9 +171,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Psycho Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.PsychoSpam = Value
 while _G.PsychoSpam do
@@ -186,9 +183,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Bus Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.BusSpam = Value
 while _G.BusSpam do
@@ -198,9 +195,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Mitten Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.MittenSpam = Value
 while _G.MittenSpam do
@@ -210,9 +207,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Fort Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.FortSpam = Value
 while _G.FortSpam do
@@ -222,9 +219,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Defense Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.DefenseSpam = Value
 while _G.DefenseSpam do
@@ -234,9 +231,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Bomb Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.BombSpam = Value
 while _G.BombSpam do
@@ -248,9 +245,9 @@ end
                     end    
                 })
 
-              local Toggle = Tab2:CreateToggle({
+              Tab2:AddToggle({
                     Name = "Replica Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.ReplicaSpam = Value
 while _G.ReplicaSpam do
@@ -260,9 +257,9 @@ end
                     end    
                 })
              
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Pusher Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.PusherSpam = Value
 while _G.PusherSpam do
@@ -272,9 +269,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Jet Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.JetSpam = Value
 while _G.JetSpam do
@@ -289,9 +286,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Tableflip Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.TableflipSpam = Value
 while _G.TableflipSpam do
@@ -301,9 +298,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Rocky Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.RockySpam = Value
 while _G.RockySpam do
@@ -313,9 +310,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Timestop Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.TimestopSpam = Value
 while _G.TimestopSpam do
@@ -327,9 +324,9 @@ end
                     end    
                 })
                 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Za Hando Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.ZahandoSpam = Value
 while _G.ZahandoSpam do
@@ -339,9 +336,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Baller Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.BallerSpam = Value
 while _G.BallerSpam do
@@ -351,9 +348,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Stun Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.StunSpam = Value
 while _G.StunSpam do
@@ -363,9 +360,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Glitch Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.GlitchSpam = Value
 while _G.GlitchSpam do
@@ -375,9 +372,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Stop Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.StopSpam = Value
 while _G.StopSpam do
@@ -387,9 +384,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Track Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.TrackSpam = Value
 while _G.TrackSpam do
@@ -404,9 +401,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Track Orbit",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.TrackSpam = Value
 while _G.TrackSpam do
@@ -416,9 +413,9 @@ end
                     end    
                 })
                 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Mail Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.MailSpam = Value
 while _G.MailSpam do
@@ -428,9 +425,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Shard Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.ShardSpam = Value
 while _G.ShardSpam do
@@ -440,9 +437,9 @@ end
                     end    
                 })
                 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Swapper Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.SwapperSpam = Value
 while _G.SwapperSpam do
@@ -452,9 +449,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Bubble Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.BubbleSpam = Value
 while _G.BubbleSpam do
@@ -464,9 +461,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Slapple Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.SlappleSpam = Value
 while _G.SlappleSpam do
@@ -476,9 +473,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Kinetic Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.KineticSpam = Value
 while _G.KineticSpam do
@@ -488,9 +485,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Dominance Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.DominanceSpam = Value
 while _G.DominanceSpam do
@@ -500,9 +497,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Shield Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.ShieldSpam = Value
 while _G.ShieldSpam do
@@ -512,9 +509,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Redacted Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.RedactedSpam = Value
 while _G.RedactedSpam do
@@ -524,9 +521,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Duelist Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.DuelistSpam = Value
 while _G.DuelistSpam do
@@ -536,21 +533,21 @@ end
                     end    
                 })
                 
-                local Toggle = Tab2:CreateToggle({
-                    Name = "Engineer Spam",
-                    CurrentValue = false,
+                Tab2:AddToggle({
+                    Name = "Sentry Spam",
+                    Default = false,
                     Callback = function(Value)
-_G.EngineerSpam = Value
-while _G.EngineerSpam do
+_G.SentrySpam = Value
+while _G.SentrySpam do
 game:GetService("ReplicatedStorage").Sentry:FireServer()
 wait(5.2)
 end
                     end    
                 })
                 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Brick Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.BrickSpam = Value
 while _G.BrickSpam do
@@ -560,9 +557,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Trap Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.TrapSpam = Value
 while _G.TrapSpam do
@@ -572,9 +569,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Woah Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.WoahSpam = Value
 while _G.WoahSpam do
@@ -584,9 +581,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Ping Pong Spam",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.PingPongSpam = Value
 while _G.PingPongSpam do
@@ -596,9 +593,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Spam Recall VFX",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.RecallVFXSpam = Value
 while _G.RecallVFXSpam do
@@ -608,9 +605,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Spam Sleep",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.SleepSpam = Value
 while _G.SleepSpam do
@@ -619,10 +616,22 @@ task.wait()
 end
                     end    
                 })
+
+                Tab2:AddToggle({
+                    Name = "Spam Slicer Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.SlicerSoundSpam = Value
+while _G.SlicerSoundSpam do
+game:GetService("ReplicatedStorage").Slicer:FireServer("sword")
+task.wait()
+end
+                    end    
+                })
                 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Spam Space Sound",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.SpaceSoundSpam = Value
 while _G.SpaceSoundSpam do
@@ -632,9 +641,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Spam Ghost Sound",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.GhostSoundSpam = Value
 while _G.GhostSoundSpam do
@@ -645,9 +654,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Spam Thanos Sound",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.ThanosSoundSpam = Value
 while _G.ThanosSoundSpam do
@@ -657,9 +666,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Spam Golden Sound",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.GoldenSoundSpam = Value
 while _G.GoldenSoundSpam do
@@ -669,9 +678,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Spam Golden Sound",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.GoldenSoundSpam = Value
 while _G.GoldenSoundSpam do
@@ -681,9 +690,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Spam Error Sound",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.ErrorSoundSpam = Value
 while _G.ErrorSoundSpam do
@@ -693,21 +702,9 @@ end
                     end    
                 })
 
-                local Toggle = Tab2:CreateToggle({
-                    Name = "Spam Slicer Sound",
-                    CurrentValue = false,
-                    Callback = function(Value)
-_G.SlicerSoundSpam = Value
-while _G.SlicerSoundSpam do
-game:GetService("ReplicatedStorage").Slicer:FireServer("sword")
-task.wait()
-end
-                    end    
-                })
-
-                local Toggle = Tab2:CreateToggle({
+                Tab2:AddToggle({
                     Name = "Spam Charge Sound",
-                    CurrentValue = false,
+                    Default = false,
                     Callback = function(Value)
 _G.ChargeSoundSpam = Value
 while _G.ChargeSoundSpam do
@@ -717,7 +714,7 @@ end
                     end    
                 })
 
-local Button = Tab4:CreateButton({
+Tab4:AddButton({
 	Name = "Kick player (Needs Za Hando) (Inconsistent)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Erase:FireServer()
@@ -731,8 +728,8 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
                     end    
                 })
 
-local Button = Tab4:CreateButton({
-	Name = "View Testing Server",
+Tab4:AddButton({
+	Name = "View Testing Server (Good for glove leaking)",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
 if teleportFunc then
@@ -751,28 +748,28 @@ game:GetService("TeleportService"):Teleport(9020359053)
                     end    
                 })
 
-local Button = Tab4:CreateButton({
+Tab4:AddButton({
 	Name = "Testing Server Freecam",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
                     end    
                 })
 
-local Button = Tab4:CreateButton({
+Tab4:AddButton({
 	Name = "Slap Farm (This copies the script, put it in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
                     end    
                 })
 
-local Button = Tab4:CreateButton({
+Tab4:AddButton({
 	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
 	Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
                     end    
                 })
 
-local Toggle = Tab4:CreateToggle({
+Tab4:AddToggle({
                     Name = "Slap Aura (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -801,14 +798,14 @@ getgenv().SlapAura = bool
 end
                 })
 
-local Button = Tab4:CreateButton({
-	Name = "Free Emotes (To use chat /e emotename) (Credits to R2O)",
+Tab4:AddButton({
+	Name = "Free Emotes (To use just do /e emotename) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
                     end    
                 })
 
-local Button = Tab4:CreateButton({
+Tab4:AddButton({
 	Name = "Turn glove into a block (Doesn't work with all gloves)",
 	Callback = function()
 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
@@ -822,14 +819,14 @@ end
                     end    
                 })
 
-local Button = Tab4:CreateButton({
-	Name = "Infinite Golden (Use in arena)",
+Tab4:AddButton({
+	Name = "Infinite Golden (Use in lobby)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
                     end    
                 })
 
-local Toggle = Tab4:CreateToggle({
+Tab4:AddToggle({
                     Name = "Rainbow (Needs Golden)",
                     Default = false,
                     Callback = function(Value)
@@ -848,22 +845,23 @@ end
 end
                 })
 
-local Toggle = Tab4:CreateToggle({
+Tab4:AddToggle({
                     Name = "Auto Enter Arena",
                     Default = false,
                     Callback = function(Value)
 local localPlr = game:GetService("Players").LocalPlayer
 getgenv().AutoEnterArena = Value
+
       while getgenv().AutoEnterArena == true do
        wait(.001)
 if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
+firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, workspace.Lobby.Teleport1)
     end
 end
 end,
                 })
 
-local Toggle = Tab4:CreateToggle({
+Tab4:AddToggle({
                     Name = "Auto Remove Nametag (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -906,61 +904,63 @@ local function GetClosestPlayer()
    return player
 end
 
-local Button = Tab4:CreateButton({
-	Name = "TP to Safe spot",
+Tab4:AddButton({
+	Name = "TP to Safe spot (DONT USE IN LOBBY)",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
   	end    
 })
 
-local Button = Tab4:CreateButton({
-	Name = "TP back to arena",
+Tab4:AddButton({
+	Name = "TP back to arena (DONT USE IN LOBBY)",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
   	end    
 })
 
-local Button = Tab7:CreateButton({
+Tab8:AddButton({
 	Name = "CherryUi's Slap Battles GUI",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))()
   	end    
 })
 
-local Button = Tab7:CreateButton({
+Tab8:AddButton({
 	Name = "R2O",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R2O/main/LOADSTRING.lua"))()
   	end    
 })
 
-local Button = Tab7:CreateButton({
+Tab8:AddButton({
 	Name = "R2O Slap Royale",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/R20%20Slap%20Royale"))()
   	end    
 })
 
-local Button = Tab7:CreateButton({
+Tab8:AddButton({
 	Name = "dizzy hub",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/dizyhvh/rbx_scripts/main/dizzy_hub/scripts/slap_battles.lua"))()
   	end    
 })
 
-local Slider = Tab6:CreateSlider({
-   Name = "Walkspeed",
-   Range = {20, 1000},
-   Increment = 1,
-   Suffix = "WS",
-   CurrentValue = 20,
-   Callback = function(Value)
+Tab6:AddSlider({
+	Name = "Walkspeed",
+	Min = 20,
+	Max = 1000,
+	Default = 20,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 Walkspeed = Value
-   end,
+	end    
 })
 
-local Toggle = Tab6:CreateToggle({
+Tab6:AddToggle({
 	Name = "Loop Walkspeed",
 	Default = false,
 	Callback = function(bool)
@@ -977,19 +977,21 @@ autoSet1 = bool
 	end    
 })
 
-local Slider = Tab6:CreateSlider({
-   Name = "Jumppower",
-   Range = {50, 1000},
-   Increment = 1,
-   Suffix = "JP",
-   CurrentValue = 50,
-   Callback = function(Value)
+Tab6:AddSlider({
+	Name = "Jumppower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "JP",
+	Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 Jumppower = Value
-   end,
+	end    
 })
 
-local Toggle = Tab6:CreateToggle({
+Tab6:AddToggle({
 	Name = "Loop Jumppower",
 	Default = false,
 	Callback = function(bool)
@@ -1006,7 +1008,7 @@ autoSet1 = bool
 	end    
 })
 
-local Button = Tab5:CreateButton({
+Tab5:AddButton({
                     Name = "Get [REDACTED] (Credits to R2O)",
 Callback = function()
 local Door = 1
@@ -1035,7 +1037,7 @@ end
 end
                     })
 
-local Button = Tab5:CreateButton({
+Tab5:AddButton({
 	Name = "Get Elude (Credit to R2O)",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
@@ -1055,7 +1057,7 @@ game:GetService("TeleportService"):Teleport(11828384869)
   	end    
 })
 
-local Button = Tab5:CreateButton({
+Tab5:AddButton({
 	Name = "Get Counter (When in maze)",
 	Callback = function()
 fireclickdetector(game:GetService("Workspace").CounterLever.ClickDetector)
@@ -1071,18 +1073,16 @@ end
   	end    
 })
 
-local Button = Tab5:CreateButton({
+Tab5:AddButton({
 	Name = "Get Tycoon (Credits to R2O)",
 	Callback = function()
       		repeat task.wait(.005)
-    
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame * CFrame.new(0,-2,0)
-    
 until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate Counter: 600"
                     end    
                 })
 
-local Toggle = Tab5:CreateToggle({
+Tab5:AddToggle({
                     Name = "Bob Farm (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1104,7 +1104,7 @@ bobFarm = bool
                     end    
                 })
 
-local Toggle = Tab5:CreateToggle({
+Tab5:AddToggle({
 	Name = "Brick Farm",
 	Default = false,
 	Callback = function(Value)
@@ -1117,7 +1117,7 @@ end
 	end    
 })
 
-local Toggle = Tab3:CreateToggle({
+Tab3:AddToggle({
                     Name = "Anti Admins (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1132,8 +1132,8 @@ antiAdmins = bool
 end
 })
 
-local Toggle = Tab3:CreateToggle({
-                    Name = "Anti Ragdoll (Reset on first use) (Credits to R2O)",
+Tab3:AddToggle({
+                    Name = "Anti Ragdoll (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 antiRagdoll = bool
@@ -1155,7 +1155,7 @@ antiRagdoll = bool
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Void (Credits to R2O)",
                     Default = false,
                     Callback = function(noVoid)
@@ -1179,7 +1179,7 @@ if noVoid == true then
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Cube of Death (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1195,7 +1195,7 @@ if bool == true then
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Squid (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1213,20 +1213,20 @@ AntiSquid = bool
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Hallow Jack (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
 antiHallow = bool
         if bool == true then
-            game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Disabled = true
+            game.StarterPlayer.StarterPlayerScripts.HallowJackAbilities.Disabled = true
         else
-            game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Enabled = true
+            game.StarterPlayer.StarterPlayerScripts.HallowJackAbilities.Enabled = true
         end
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Za Hando (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1244,7 +1244,7 @@ getgenv().AntiZaHando = bool
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Reaper (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1263,7 +1263,7 @@ getgenv().AntiReaper = bool
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Pusher (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1281,7 +1281,7 @@ getgenv().AntiPusher = bool
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Booster (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1303,7 +1303,7 @@ antiBooster = bool
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Mail (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1327,7 +1327,7 @@ antiMail = bool
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Stun (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1343,7 +1343,7 @@ antiStun = bool
                     end    
                 })
 
-               local Toggle = Tab3:CreateToggle({
+               Tab3:AddToggle({
                     Name = "Anti Megarock/Custom (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1370,6 +1370,5 @@ antiStun = bool
         end
                     end    
                 })
-
-   local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
+local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
 Player = game.Players.LocalPlayer.Character.Name
