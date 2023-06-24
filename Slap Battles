@@ -851,11 +851,10 @@ Tab4:AddToggle({
                     Callback = function(Value)
 local localPlr = game:GetService("Players").LocalPlayer
 getgenv().AutoEnterArena = Value
-
       while getgenv().AutoEnterArena == true do
        wait(.001)
 if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
-firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart, workspace.Lobby.Teleport1)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
     end
 end
 end,
@@ -1060,7 +1059,7 @@ game:GetService("TeleportService"):Teleport(11828384869)
 Tab5:AddButton({
 	Name = "Get Counter (When in maze)",
 	Callback = function()
-fireclickdetector(game:GetService("Workspace").CounterLever.ClickDetector)
+fireclickdetector(game.Workspace.CounterLever.ClickDetector)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
 wait(0.2)
 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
@@ -1091,7 +1090,7 @@ bobFarm = bool
             while bobFarm do
                 task.wait()
                     if getGlove() == "Replica" and bobFarm and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
-                    game.ReplicatedStorage.Duplicate:FireServer() -- dont retoggle u fucking retards
+                    game.ReplicatedStorage.Duplicate:FireServer()
                     task.wait()
                     tick = os.time()
                     repeat task.wait()
@@ -1116,6 +1115,27 @@ task.wait(5.01)
 end
 	end    
 })
+
+Tab5:AddButton({
+	Name = "Get court evidence",
+	Callback = function()
+fireclickdetector(game.Workspace.Lobby.Scene.knofe.ClickDetector)
+                    end    
+                })
+
+Tab5:AddButton({
+	Name = "Get duck",
+	Callback = function()
+fireclickdetector(game.Workspace.Arena["default island"]["Rubber Ducky"].ClickDetector)
+                    end    
+                })
+
+Tab5:AddButton({
+	Name = "Get The Lone Orange",
+	Callback = function()
+fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
+                    end    
+                })
 
 Tab3:AddToggle({
                     Name = "Anti Admins (Credits to R2O)",
