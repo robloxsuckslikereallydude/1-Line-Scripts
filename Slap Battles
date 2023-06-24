@@ -331,7 +331,7 @@ end
 _G.ZahandoSpam = Value
 while _G.ZahandoSpam do
 game:GetService("ReplicatedStorage").Erase:FireServer()
-wait(4.2)
+wait(5.1)
 end
                     end    
                 })
