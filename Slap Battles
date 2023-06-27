@@ -165,8 +165,8 @@ end
                     Callback = function(Value)
 _G.RobSpam = Value
 while _G.RobSpam do
-game:GetService("ReplicatedStorage"):WaitForChild("rob"):FireServer()
-wait(15.0)
+game:GetService("ReplicatedStorage").rob:FireServer()
+wait(15)
 end
                     end    
                 })
