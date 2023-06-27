@@ -564,7 +564,7 @@ end
 _G.BrickSpam = Value
 while _G.BrickSpam do
 game:GetService("ReplicatedStorage").lbrick:FireServer()
-wait(1.06)
+wait(1.1)
 end
                     end    
                 })
