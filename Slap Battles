@@ -564,7 +564,7 @@ end
 _G.BrickSpam = Value
 while _G.BrickSpam do
 game:GetService("ReplicatedStorage").lbrick:FireServer()
-wait(1.1)
+wait(1.05)
 end
                     end    
                 })
@@ -1093,6 +1093,19 @@ until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate
                     end    
                 })
 
+Tab5:AddButton({
+	Name = "Get Trap (Only 20 mins)",
+	Callback = function()
+for i = 1, 999 do
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
+wait(1.15)
+end
+wait(1.15)
+game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
+                    end    
+                })
+
 Tab5:AddToggle({
                     Name = "Bob Farm (Credits to R2O)",
                     Default = false,
@@ -1114,19 +1127,6 @@ bobFarm = bool
         end
                     end    
                 })
-
-Tab5:AddToggle({
-	Name = "Brick Farm",
-	Default = false,
-	Callback = function(Value)
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = Value
-		_G.Brickfarm = Value
-while _G.Brickfarm do
-game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
-task.wait(5.01)
-end
-	end    
-})
 
 Tab5:AddButton({
 	Name = "Get court evidence",
