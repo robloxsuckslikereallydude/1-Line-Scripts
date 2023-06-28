@@ -1129,21 +1129,21 @@ bobFarm = bool
                 })
 
 Tab5:AddButton({
-	Name = "Get court evidence",
+	Name = "Get court evidence badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Lobby.Scene.knofe.ClickDetector)
                     end    
                 })
 
 Tab5:AddButton({
-	Name = "Get duck",
+	Name = "Get duck badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Arena["default island"]["Rubber Ducky"].ClickDetector)
                     end    
                 })
 
 Tab5:AddButton({
-	Name = "Get The Lone Orange",
+	Name = "Get The Lone Orange badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
                     end    
