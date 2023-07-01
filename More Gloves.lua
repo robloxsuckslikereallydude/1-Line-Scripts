@@ -33,7 +33,7 @@
     ["Ping Pong"] = game.ReplicatedStorage.GeneralHit,
     ["Psycho"] = game.ReplicatedStorage.GeneralHit,
     ["Kraken"] = game.ReplicatedStorage.GeneralHit,
-    ["Counter"] = game.ReplicatedStorage.Generalhit,
+    ["Counter"] = game.ReplicatedStorage.GeneralHit,
     ["Hammer"] = game.ReplicatedStorage.GeneralHit,
     ["Excavator"] = game.ReplicatedStorage.GeneralHit,
     ["Slicer"] = game.ReplicatedStorage.GeneralHit,
