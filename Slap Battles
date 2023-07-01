@@ -810,6 +810,7 @@ Tab4:AddButton({
 	Callback = function()
 for i = 1, 20 do
         game:GetService("ReplicatedStorage").HumanoidDied:FireServer(game:GetService("Players").LocalPlayer.Character, false)
+wait()
 end
                     end    
                 })
