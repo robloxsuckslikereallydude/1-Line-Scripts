@@ -806,6 +806,15 @@ end
                 })
 
 Tab4:AddButton({
+	Name = "Give reaper 20 kills (Use after they slap you)",
+	Callback = function()
+for i = 1, 20 do
+        game:GetService("ReplicatedStorage").HumanoidDied:FireServer(game:GetService("Players").LocalPlayer.Character, false)
+end
+                    end    
+                })
+
+Tab4:AddButton({
 	Name = "Free Emotes (To use just do /e emotename) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
