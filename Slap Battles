@@ -7,21 +7,16 @@
                 end)
                 end)
 
-local namecall
-    namecall = hookmetamethod(game, "__namecall", function(self, ...)
-        local Args = {...}
-        if getnamecallmethod() == "FireServer" and tostring(self) == "WS" then
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
             return
-        elseif getnamecallmethod() == "FireServer" and tostring(self) == "WS2" then
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
             return
-        elseif getnamecallmethod() == "FireServer" and tostring(self) == "AdminGUI" then
-            return
-        elseif getnamecallmethod() == "FireServer" and tostring(self) == "Ban" then
-            return
-        elseif getnamecallmethod() == 'FireServer' and tostring(self) == 'WalkSpeedChanged' then
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
             return
         end
-        return namecall(self, ...)
+        return bypass(method, ...)
     end)
 
    local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R20-EXPLOITER/main/Files/Functions.lua"))()
@@ -264,7 +259,7 @@ end
 _G.ReplicaSpam = Value
 while _G.ReplicaSpam do
 game:GetService("ReplicatedStorage").Duplicate:FireServer()
-wait(5.2)
+wait(5.1)
 end
                     end    
                 })
