@@ -1096,15 +1096,37 @@ until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate
 Tab5:AddButton({
 	Name = "Get Trap (Only 20 mins)",
 	Callback = function()
-for i = 1, 999 do
+for i = 1, 200 do
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
 wait(1.15)
-end
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
+wait(1.15)
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
+wait(1.15)
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
 wait(1.15)
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
+wait(1.15)
+end
                     end    
                 })
+
+Tab5:AddToggle({
+	Name = "Brick Farm (Use if the 20m version doesnt work)",
+	Default = false,
+	Callback = function(Value)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = Value
+		_G.Brickfarm = Value
+while _G.Brickfarm do
+game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
+task.wait(5.01)
+end
+	end    
+})
 
 Tab5:AddToggle({
                     Name = "Bob Farm (Credits to R2O)",
