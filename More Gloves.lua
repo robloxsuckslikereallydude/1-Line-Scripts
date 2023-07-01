@@ -38,6 +38,7 @@
     ["Excavator"] = game.ReplicatedStorage.GeneralHit,
     ["Slicer"] = game.ReplicatedStorage.GeneralHit,
     ["Whirlwind"] = game.ReplicatedStorage.GeneralHit,
+    ["Home Run"] = game.ReplicatedStorage.GeneralHit,
     ----------------------------------------
     
     ["Diamond"] = game.ReplicatedStorage.DiamondHit,
