@@ -32,7 +32,12 @@
     ["Chain"] = game.ReplicatedStorage.GeneralHit,
     ["Ping Pong"] = game.ReplicatedStorage.GeneralHit,
     ["Psycho"] = game.ReplicatedStorage.GeneralHit,
+    ["Kraken"] = game.ReplicatedStorage.GeneralHit,
+    ["Counter"] = game.ReplicatedStorage.Generalhit,
     ["Hammer"] = game.ReplicatedStorage.GeneralHit,
+    ["Excavator"] = game.ReplicatedStorage.GeneralHit,
+    ["Slicer"] = game.ReplicatedStorage.GeneralHit,
+    ["Whirlwind"] = game.ReplicatedStorage.GeneralHit,
     ----------------------------------------
     
     ["Diamond"] = game.ReplicatedStorage.DiamondHit,
@@ -101,6 +106,8 @@
     ["Slapple"] = game.ReplicatedStorage.SlappleHit,
     ["Disarm"] = game.ReplicatedStorage.DisarmH,
     ["Dominance"] = game.ReplicatedStorage.DominanceHit,
+    ["Nightmare"] = game.ReplicatedStorage.nightmarehit,
+    ["rob"] = game.ReplicatedStorage.robhit,
     ["Link"] = game.ReplicatedStorage.LinkHit,
     ["Custom"] = game.ReplicatedStorage.CustomHit,
 
@@ -109,6 +116,11 @@
     
     ["Mitten"] = game.ReplicatedStorage.MittenHit,
     ["Hallow Jack"] = game.ReplicatedStorage.HallowHIT,
+
+    ----------------------------------------
+
+    ["Boogie"] = game.ReplicatedStorage.HtStun,
+    ["Balloony"] = game.ReplicatedStorage.HtStun,
 
     ----------------------------------------
     
