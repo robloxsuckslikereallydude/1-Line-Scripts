@@ -1074,7 +1074,7 @@ game:GetService("TeleportService"):Teleport(11828384869)
 })
 
 Tab5:AddButton({
-	Name = "Get Counter (When in maze)",
+	Name = "Get Counter (Use when in maze)",
 	Callback = function()
 fireclickdetector(game.Workspace.CounterLever.ClickDetector)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
