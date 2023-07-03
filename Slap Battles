@@ -967,7 +967,7 @@ Tab6:AddSlider({
 	Min = 20,
 	Max = 1000,
 	Default = 20,
-	Color = Color3.fromRGB(255,255,255),
+	Color = Color3.fromRGB(0,162,255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
@@ -998,7 +998,7 @@ Tab6:AddSlider({
 	Min = 50,
 	Max = 1000,
 	Default = 50,
-	Color = Color3.fromRGB(255,255,255),
+	Color = Color3.fromRGB(255,154,0),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
@@ -1278,9 +1278,9 @@ AntiSquid = bool
                     Callback = function(bool)
 antiHallow = bool
         if bool == true then
-            game.StarterPlayer.StarterPlayerScripts.HallowJackAbilities.Disabled = true
+            game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Disabled = true
         else
-            game.StarterPlayer.StarterPlayerScripts.HallowJackAbilities.Enabled = true
+            game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Enabled = true
         end
                     end    
                 })
