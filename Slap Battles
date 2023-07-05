@@ -625,6 +625,18 @@ end
                 })
 
                 Tab2:AddToggle({
+                    Name = "Spam Default Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.DefaultSoundSpam = Value
+while _G.DefaultSoundSpam do
+game:GetService("ReplicatedStorage").b:FireServer("ReplicateSound")
+task.wait()
+end
+                    end    
+                })
+
+                Tab2:AddToggle({
                     Name = "Spam Slicer Sound",
                     Default = false,
                     Callback = function(Value)
@@ -686,18 +698,6 @@ end
                 })
 
                 Tab2:AddToggle({
-                    Name = "Spam Golden Sound",
-                    Default = false,
-                    Callback = function(Value)
-_G.GoldenSoundSpam = Value
-while _G.GoldenSoundSpam do
-game:GetService("ReplicatedStorage").Goldify:FireServer(true)
-task.wait()
-end
-                    end    
-                })
-
-                Tab2:AddToggle({
                     Name = "Spam Error Sound",
                     Default = false,
                     Callback = function(Value)
@@ -724,6 +724,11 @@ end
 Tab4:AddButton({
 	Name = "Kick player (Needs Za Hando) (Inconsistent)",
 	Callback = function()
+for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+                    if v.ClassName == "Part" then
+                        v.CanTouch = false
+                    end
+                end
 game:GetService("ReplicatedStorage").Erase:FireServer()
 wait(0.47)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(1022,213.8,1498)
@@ -732,6 +737,11 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 wait(3.5)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+                    if v.ClassName == "Part" then
+                        v.CanTouch = true
+                    end
+                end
                     end    
                 })
 
@@ -856,7 +866,6 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
-
 task.wait(0.075)
 end
 end
@@ -1156,6 +1165,13 @@ bobFarm = bool
                 })
 
 Tab5:AddButton({
+	Name = "Get Brazil badge",
+	Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.brazil.portal.CFrame
+                    end    
+                })
+
+Tab5:AddButton({
 	Name = "Get court evidence badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Lobby.Scene.knofe.ClickDetector)
@@ -1215,72 +1231,119 @@ antiRagdoll = bool
                 })
 
                Tab3:AddToggle({
-                    Name = "Anti Void (Credits to R2O)",
+                    Name = "Anti Void",
                     Default = false,
-                    Callback = function(noVoid)
-if noVoid == true then
-            for i,v in pairs(game.Workspace:GetDescendants()) do
-                if v.Name == "dedBarrier"  or v.Name == "ArenaBarrier" or v.Name == "DEATHBARRIER" or v.Name == "DEATHBARRIER2" then
-                    if v.CanCollide == false then
-                        v.CanCollide = true
-                    end
-                end
-            end
-            else
-            for i,v in pairs(game.Workspace:GetDescendants()) do
-                if v.Name == "dedBarrier"  or v.Name == "ArenaBarrier" or v.Name == "DEATHBARRIER" or v.Name == "DEATHBARRIER2" then
-                    if v.CanCollide == true then
-                        v.CanCollide = false
-                    end
-                end
-            end
-        end
+                    Callback = function(Value)
+game.Workspace.dedBarrier.CanCollide = Value
                     end    
                 })
 
                Tab3:AddToggle({
-                    Name = "Anti Cube of Death (Credits to R2O)",
+                    Name = "Anti Death Barriers",
                     Default = false,
-                    Callback = function(bool)
-if bool == true then
-        if game.Workspace:FindFirstChild("the cube of death(i heard it kills)", 1) then
+                    Callback = function(Value)
+if Value == true then
+for i,v in pairs(game.Workspace.DEATHBARRIER:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == "BLOCK" then
+                        v.CanTouch = false
+                    end
+                end
+workspace.DEATHBARRIER.CanTouch = false
+workspace.DEATHBARRIER2.CanTouch = false
+workspace.dedBarrier.CanTouch = false
+workspace.ArenaBarrier.CanTouch = false
+workspace.AntiDefaultArena.CanTouch = false
+else
+for i,v in pairs(game.Workspace.DEATHBARRIER:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == "BLOCK" then
+                        v.CanTouch = true
+                    end
+                end
+workspace.DEATHBARRIER.CanTouch = true
+workspace.DEATHBARRIER2.CanTouch = true
+workspace.dedBarrier.CanTouch = true
+workspace.ArenaBarrier.CanTouch = true
+workspace.AntiDefaultArena.CanTouch = true
+end
+                    end    
+                })
+
+               Tab3:AddToggle({
+                    Name = "Anti Brazil",
+                    Default = false,
+                    Callback = function(Value)
+if Value == true then
+for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+                    if v.ClassName == "Part" then
+                        v.CanTouch = false
+                    end
+                end
+else
+for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+                    if v.ClassName == "Part" then
+                        v.CanTouch = true
+                    end
+                end
+end
+                    end    
+                })
+
+               Tab3:AddToggle({
+                    Name = "Anti Cube of Death",
+                    Default = false,
+                    Callback = function(Value)
+if Value == true then
         workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = false
-        end
         else
-            if game.Workspace:FindFirstChild("the cube of death(i heard it kills)", 1) then
                 workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = true
-            end
         end
                     end    
                 })
 
                Tab3:AddToggle({
-                    Name = "Anti Squid (Credits to R2O)",
+                    Name = "Anti Squid",
                     Default = false,
-                    Callback = function(bool)
-AntiSquid = bool
-        if bool == true then
-            while AntiSquid do
-            task.wait()
-            for i,v in pairs(game.Players.LocalPlayer.PlayerGui.SquidInk:GetChildren()) do
-                if v.Parent then
-                    v:Destroy()
-                end
-            end            
-            end
+                    Callback = function(Value)
+if Value == true then
+        game.Players.LocalPlayer.PlayerGui.SquidInk.Enabled = false
+        else
+        game.Players.LocalPlayer.PlayerGui.SquidInk.Enabled = true
         end
                     end    
                 })
 
                Tab3:AddToggle({
-                    Name = "Anti Hallow Jack (Credits to R2O)",
+                    Name = "Anti Hallow Jack",
                     Default = false,
-                    Callback = function(bool)
-antiHallow = bool
-        if bool == true then
+                    Callback = function(Value)
+        if Value == true then
             game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Disabled = true
         else
             game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Enabled = true
+        end
+                    end    
+                })
+
+               Tab3:AddToggle({
+                    Name = "Anti Conveyor",
+                    Default = false,
+                    Callback = function(Value)
+        if Value == true then
+            game.Players.LocalPlayer.PlayerScripts.ConveyorVictimized.Disabled = true
+        else
+            game.Players.LocalPlayer.PlayerScripts.ConveyorVictimized.Enabled = true
+        end
+                    end    
+                })
+
+               Tab3:AddToggle({
+                    Name = "Anti [REDACTED]",
+                    Default = false,
+                    Callback = function(Value)
+        if Value == true then
+            game.Players.LocalPlayer.PlayerScripts.Well.Disabled = true
+        else
+            game.Players.LocalPlayer.PlayerScripts.Well.Enabled = true
         end
                     end    
                 })
