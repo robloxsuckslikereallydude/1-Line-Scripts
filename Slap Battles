@@ -191,6 +191,18 @@ end
                 })
 
                 Tab2:AddToggle({
+                    Name = "Killstreak Soul Snatcher Spam",
+                    Default = false,
+                    Callback = function(Value)
+_G.KillstreakSpam = Value
+while _G.KillstreakSpam do
+game:GetService("ReplicatedStorage").KSABILI:FireServer()
+wait(6.2)
+end
+                    end    
+                })
+
+                Tab2:AddToggle({
                     Name = "Bus Spam",
                     Default = false,
                     Callback = function(Value)
