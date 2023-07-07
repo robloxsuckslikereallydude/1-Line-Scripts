@@ -736,6 +736,8 @@ end
 Tab4:AddButton({
 	Name = "Kick player (Needs Za Hando) (Inconsistent)",
 	Callback = function()
+OGWS = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+OGJP = game.Players.LocalPlayer.Character.Humanoid.JumpPower
 for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
                     if v.ClassName == "Part" then
                         v.CanTouch = false
@@ -743,12 +745,13 @@ for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
                 end
 game:GetService("ReplicatedStorage").Erase:FireServer()
 wait(0.47)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 0
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(1022,213.8,1498)
-wait(0.15)
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 wait(3.5)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = OGWS
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = OGJP
 for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
                     if v.ClassName == "Part" then
                         v.CanTouch = true
