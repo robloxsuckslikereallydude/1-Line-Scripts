@@ -14,25 +14,17 @@
     local GaySexWithBori =
         loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/Coasting/main/Source.lua")))()
 
-    local namecall
-    namecall =
-        hookmetamethod(
-        game,
-        "__namecall",
-        function(self, ...)
-            local Args = {...}
-            if getnamecallmethod() == "FireServer" and tostring(self) == "WS" then
-                return
-            elseif getnamecallmethod() == "FireServer" and tostring(self) == "WS2" then
-                return
-            elseif getnamecallmethod() == "FireServer" and tostring(self) == "AdminGUI" then
-                return
-            elseif getnamecallmethod() == "FireServer" and tostring(self) == "Ban" then
-                return
-            end
-            return namecall(self, ...)
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
+            return
         end
-    )
+        return bypass(method, ...)
+    end)
 
     if syn then
         print("uhhh why are you here!?")
