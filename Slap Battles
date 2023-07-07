@@ -862,7 +862,7 @@ end
                 })
 
 Tab4:AddButton({
-	Name = "Infinite Golden (Use in lobby)",
+	Name = "Infinite Golden (Use in arena)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
                     end    
@@ -946,14 +946,14 @@ local function GetClosestPlayer()
 end
 
 Tab4:AddButton({
-	Name = "TP to Safe spot (DONT USE IN LOBBY)",
+	Name = "TP to Safe spot",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
   	end    
 })
 
 Tab4:AddButton({
-	Name = "TP back to arena (DONT USE IN LOBBY)",
+	Name = "TP back to arena",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
   	end    
