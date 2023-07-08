@@ -91,6 +91,18 @@ Tab2:AddLabel("A lot of these work in the lobby")
 Tab2:AddLabel("Don't manually use ability while the spam is running")
 
                 Tab2:AddToggle({
+                    Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
+                    Default = false,
+                    Callback = function(Value)
+_G.RhythmSpam = Value
+while _G.RhythmSpam do
+game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
+task.wait()
+end
+                    end    
+                })
+
+                Tab2:AddToggle({
                     Name = "Home Run Spam",
                     Default = false,
                     Callback = function(Value)
@@ -137,18 +149,6 @@ repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= Lo
 PersonToKill = RandomPlayer
 game:GetService("ReplicatedStorage").SM:FireServer(PersonToKill)
 wait(0.01)
-end
-                    end    
-                })
-
-                Tab2:AddToggle({
-                    Name = "Rhythm Explosion Spam",
-                    Default = false,
-                    Callback = function(Value)
-_G.RhythmSpam = Value
-while _G.RhythmSpam do
-game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
-task.wait()
 end
                     end    
                 })
