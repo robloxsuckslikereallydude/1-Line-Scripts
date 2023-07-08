@@ -852,6 +852,19 @@ end
                     end    
                 })
 
+                Tab4:AddToggle({
+                    Name = "Spam Rhythm Notes (Good with autoclicker)",
+                    Default = false,
+                    Callback = function(Value)
+_G.RhythmNoteSpam = Value
+while _G.RhythmNoteSpam do
+game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = false
+game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = true
+task.wait()
+end
+                    end    
+                })
+
 Tab4:AddButton({
 	Name = "Free Emotes (To use just do /e emotename) (Credits to R2O)",
 	Callback = function()
