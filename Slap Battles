@@ -209,7 +209,7 @@ end
 _G.KillstreakSpam = Value
 while _G.KillstreakSpam do
 game:GetService("ReplicatedStorage").KSABILI:FireServer()
-wait(6.2)
+wait(6.1)
 end
                     end    
                 })
