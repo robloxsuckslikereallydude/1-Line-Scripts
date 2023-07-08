@@ -110,6 +110,7 @@
     ["Nightmare"] = game.ReplicatedStorage.nightmarehit,
     ["rob"] = game.ReplicatedStorage.robhit,
     ["Link"] = game.ReplicatedStorage.LinkHit,
+    ["Rhythm"] = game.ReplicatedStorage.rhythmhit,
     ["Custom"] = game.ReplicatedStorage.CustomHit,
 
     
