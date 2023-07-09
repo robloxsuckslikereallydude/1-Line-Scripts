@@ -1249,25 +1249,21 @@ end
 })
 
 Tab3:AddToggle({
-                    Name = "Anti Ragdoll (Credits to R2O)",
+                    Name = "Anti Ragdoll (This will reset your character)",
                     Default = false,
-                    Callback = function(bool)
-antiRagdoll = bool
-        if bool == true then
-        task.wait()
-        game.Players.LocalPlayer.CharacterAdded:Connect(function()
-            local Character = game.Workspace[game.Players.LocalPlayer.Name]            
-            task.wait()
-            Character:WaitForChild("Ragdolled").Changed:Connect(function()
-                if Character:WaitForChild("Ragdolled").Value == true and antiRagdoll == true then
-                    repeat task.wait()
-                    Character.Torso.Anchored = true
-                    until Character:FindFirstChild("Torso") == nil or Character:WaitForChild("Ragdolled").Value == false
-                    Character.Torso.Anchored = false
-                end
-            end)
-        end)
-        end
+                    Callback = function(Value)
+if Value == true then
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end
+wait(4)
+game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
+if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and Value == true then
+repeat task.wait()
+game.Players.LocalPlayer.Character.Torso.Anchored = true
+until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
+game.Players.LocalPlayer.Character.Torso.Anchored = false
+end
+end)
                     end    
                 })
 
@@ -1374,6 +1370,21 @@ if Value == true then
         else
             game.Players.LocalPlayer.PlayerScripts.ConveyorVictimized.Enabled = true
         end
+                    end    
+                })
+
+               Tab3:AddToggle({
+                    Name = "Anti Brick",
+                    Default = false,
+                    Callback = function(Value)
+while Value == true do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "Union" then
+                        v.CanTouch = false
+                    end
+                end
+task.wait()
+end
                     end    
                 })
 
