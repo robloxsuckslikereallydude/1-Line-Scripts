@@ -783,19 +783,11 @@ if teleportFunc then
         end
         local localPlr = game:GetService("Players").LocalPlayer
         repeat wait() until localPlr
-        game:GetService("RunService").RenderStepped:Connect(function()
 game:GetService("GuiService"):ClearError()
-        end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
-                    end    
-                })
-
-Tab4:AddButton({
-	Name = "Testing Server Freecam",
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
                     end    
                 })
 
@@ -890,6 +882,18 @@ Tab4:AddButton({
 	Name = "Infinite Golden (Use in arena)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
+                    end    
+                })
+
+                Tab4:AddToggle({
+                    Name = "Infinite Reverse",
+                    Default = false,
+                    Callback = function(Value)
+_G.InfReverse = Value
+while _G.InfReverse do
+game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
+wait(6)
+end
                     end    
                 })
 
@@ -994,14 +998,7 @@ Tab8:AddButton({
 Tab8:AddButton({
 	Name = "R2O",
 	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R2O/main/LOADSTRING.lua"))()
-  	end    
-})
-
-Tab8:AddButton({
-	Name = "R2O Slap Royale",
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/R20%20Slap%20Royale"))()
+      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
   	end    
 })
 
@@ -1106,6 +1103,8 @@ end
 Tab5:AddButton({
 	Name = "Get Elude (Credit to R2O)",
 	Callback = function()
+Place = game.PlaceId
+Server = game.JobId
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
 if teleportFunc then
     teleportFunc([[
@@ -1117,6 +1116,7 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
         end)
+game:GetService("TeleportService"):TeleportToPlaceInstance(Place, Server, game.Players.LocalPlayer)
     ]])
 end
 game:GetService("TeleportService"):Teleport(11828384869)
@@ -1136,6 +1136,57 @@ if v:IsA("ClickDetector") then
 fireclickdetector(v)
 end
 end
+  	end    
+})
+
+Tab5:AddButton({
+	Name = "Get Chain (Credit to R2O)",
+	Callback = function()
+Place = game.PlaceId
+Server = game.JobId
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+local decal_codes = {
+    ["http://www.roblox.com/asset/?id=9648769161"] = "4",
+    ["http://www.roblox.com/asset/?id=9648765536"] = "2",
+    ["http://www.roblox.com/asset/?id=9648762863"] = "3",
+    ["http://www.roblox.com/asset/?id=9648759883"] = "9",
+    ["http://www.roblox.com/asset/?id=9648755440"] = "8",
+    ["http://www.roblox.com/asset/?id=9648752438"] = "2",
+    ["http://www.roblox.com/asset/?id=9648749145"] = "8",
+    ["http://www.roblox.com/asset/?id=9648745618"] = "3",
+    ["http://www.roblox.com/asset/?id=9648742013"] = "7",
+    ["http://www.roblox.com/asset/?id=9648738553"] = "8",
+    ["http://www.roblox.com/asset/?id=9648734698"] = "2",
+    ["http://www.roblox.com/asset/?id=9648730082"] = "6",
+    ["http://www.roblox.com/asset/?id=9648723237"] = "3",
+    ["http://www.roblox.com/asset/?id=9648718450"] = "6",
+    ["http://www.roblox.com/asset/?id=9648715920"] = "6",
+    ["http://www.roblox.com/asset/?id=9648712563"] = "2"
+}
+    for i,v in ipairs(game:GetService("Workspace").Map:WaitForChild("CodeBrick"):WaitForChild("SurfaceGui"):GetDescendants()) do
+        if v.Name == 'IMGTemplate' then
+            local decal_url = tostring(v.Image)
+            local code = decal_codes[decal_url]
+            if 0 < #game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Display.SurfaceGui.TextLabel.Text then
+                fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons.Reset.ClickDetector)
+            end
+            task.wait(.2)
+            fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons[code].ClickDetector)
+        end
+    end
+    task.wait(.2)
+    fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons.Enter.ClickDetector)
+game:GetService("TeleportService"):TeleportToPlaceInstance(Place, Server, game.Players.LocalPlayer)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9431156611)
   	end    
 })
 
