@@ -1,11 +1,324 @@
 -- if you have problems message Guy that exists#1915
-                    
+
                 repeat wait() until game:IsLoaded() wait()
                 spawn(function()
                 game:GetService("Players").LocalPlayer.Idled:connect(function()
                 game:GetService("VirtualUser"):ClickButton2(Vector2.new())
                 end)
                 end)
+
+if game.PlaceId == 9431156611 then
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.Ban then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.AdminGUI then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.WS then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Events.WS2 then
+            return
+        end
+        return bypass(method, ...)
+    end)
+
+local AntiLava = Instance.new("Part", workspace)
+AntiLava.Name = "AntiLava"
+AntiLava.Position = Vector3.new(-238, -43, 401)
+AntiLava.Size = Vector3.new(150,30,150)
+AntiLava.Anchored = true
+AntiLava.Transparency = 1
+AntiLava.CanCollide = false
+
+local AntiAcid = Instance.new("Part", workspace)
+AntiAcid.Position = Vector3.new(-70, -20, -725)
+AntiAcid.Name = "AntiAcid"
+AntiAcid.Size = Vector3.new(155, 35, 144)
+AntiAcid.Anchored = true
+AntiAcid.Transparency = 1
+AntiLava.CanCollide = false
+
+local Items = {"Potion of Strength", "Bull's essence", "Speed Potion", "Boba", "Frog Potion", "Strength Brew", "Frog Brew", "Speed Brew"}
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "Slap Royale hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab2 = Window:MakeTab({
+                    Name = "Antis",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+ 
+                local Tab3 = Window:MakeTab({
+                    Name = "Misc",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab4 = Window:MakeTab({
+                    Name = "Player",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab5 = Window:MakeTab({
+                    Name = "Hubs",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Tab2:AddToggle({
+	Name = "Anti Acid",
+	Default = false,
+	Callback = function(Value)
+AntiAcid.CanCollide = Value
+	end    
+})
+
+Tab2:AddToggle({
+	Name = "Anti Lava",
+	Default = false,
+	Callback = function(Value)
+AntiLava.CanCollide = Value
+	end    
+})
+
+Tab3:AddToggle({
+                    Name = "Slap Aura (Credits to R2O)",
+                    Default = false,
+                    Callback = function(bool)
+slapAura = bool
+		  if bool == true then
+		    while slapAura == true do
+				task.wait()
+				for _, L_8 in pairs(game.Players:GetPlayers()) do
+					if L_8 ~= game.Players.LocalPlayer then
+						if L_8.Character:FindFirstChild("HumanoidRootPart") ~= nil and L_8.Character:FindFirstChild("Humanoid") and not L_8.Character:FindFirstChild("Dead")  and not game.Players.LocalPlayer.Character:FindFirstChild("Dead")  then
+							local magnitude = (L_8.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+								if 25 >= magnitude then
+									game:GetService("ReplicatedStorage").Events.Slap:FireServer(L_8.Character.Torso)
+								end
+							end
+						end
+					end
+		    end
+end
+end
+                })
+
+Tab3:AddButton({
+	Name = "Get all items (Use in the lobby) (Credits to R2O)",
+	Callback = function()
+repeat task.wait()
+until game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true
+        if game.Players.LocalPlayer.Character.inMatch.Value and workspace:FindFirstChildWhichIsA("Tool") then
+            for _, Items in ipairs(game.Workspace:GetDescendants()) do
+                if Items:IsA("TouchTransmitter") and Items.Parent.Name == "Handle" then
+                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(Items.Parent.Parent)
+                end
+            end
+            game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+            end
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Bomb Bus (Use in the lobby)",
+	Callback = function()
+repeat task.wait()
+until game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true
+wait(0.33)
+            for i, v in ipairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                if v.Name == "Bomb" then
+                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                    v:Activate()
+                end
+            end
+			end
+})
+
+Tab3:AddButton({
+	Name = "Inf 250 power (Needs 2 True Powers) (Use before other items)",
+	Callback = function()
+for i = 1, 2 do
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["True Power"])
+ame.Players.LocalPlayer.Character["True Power"]:Activate()
+end
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "Use permanent items (Credits to R2O)",
+	Callback = function()
+for _, L_3 in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+            if L_3:IsA("Tool") and table.find(Items, L_3.Name) then
+                L_3.Parent = game.Players.LocalPlayer.Character
+            end
+        end
+            for _, L_4 in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                if L_4:IsA("Tool") then
+                    L_4:Activate()
+                end
+            end
+			end
+})
+
+Tab3:AddButton({
+	Name = "Get Lab Code (Credits to R2O)",
+	Callback = function()
+function code(decal)
+                if decal == "http://www.roblox.com/asset/?id=9648769161" then
+                    return 4
+                elseif decal == "http://www.roblox.com/asset/?id=9648765536" then
+                    return 2
+                elseif decal == "http://www.roblox.com/asset/?id=9648762863" then
+                    return 3
+                elseif decal == "http://www.roblox.com/asset/?id=9648759883" then
+                    return 9
+                elseif decal == "http://www.roblox.com/asset/?id=9648755440" then
+                    return 8
+                elseif decal == "http://www.roblox.com/asset/?id=9648752438" then
+                    return 2
+                elseif decal == "http://www.roblox.com/asset/?id=9648749145" then
+                    return 8
+                elseif decal == "http://www.roblox.com/asset/?id=9648745618" then
+                    return 3
+                elseif decal == "http://www.roblox.com/asset/?id=9648742013" then
+                    return 7
+                elseif decal == "http://www.roblox.com/asset/?id=9648738553" then
+                    return 8
+                elseif decal == "http://www.roblox.com/asset/?id=9648734698" then
+                    return 2
+                elseif decal == "http://www.roblox.com/asset/?id=9648730082" then
+                    return 6
+                elseif decal == "http://www.roblox.com/asset/?id=9648723237" then
+                    return 3
+                elseif decal == "http://www.roblox.com/asset/?id=9648718450" then
+                    return 6
+                elseif decal == "http://www.roblox.com/asset/?id=9648715920" then
+                    return 6
+                elseif decal == "http://www.roblox.com/asset/?id=9648712563" then
+                    return 2
+                end
+end
+            for i, v in ipairs(game:GetService("Workspace").Map.CodeBrick.SurfaceGui:GetDescendants()) do
+                if v.Name == "IMGTemplate" then
+                    Code = code(tostring(v.Image))
+                    game.StarterGui:SetCore("SendNotification", {
+                Title = tostring(Code);
+                Duration = 5;
+                Text = " ";
+            })
+                end
+            end
+                    end    
+                })
+
+Tab3:AddToggle({
+                    Name = "Remove Zone Color",
+                    Default = false,
+                    Callback = function(Value)
+game.Players.LocalPlayer.Character:WaitForChild("inZone").Changed:Connect(function()
+if Value == true then
+game.Players.LocalPlayer.Character:WaitForChild("inZone").Value = false
+end
+end)
+end
+                })
+
+Tab3:AddButton({
+	Name = "Free Emotes (Type /e emotename) (Credits to R2O)",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
+                    end    
+                })
+
+Tab4:AddSlider({
+	Name = "Walkspeed",
+	Min = 20,
+	Max = 1000,
+	Default = 20,
+	Color = Color3.fromRGB(0,162,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+Walkspeed = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Keep Walkspeed",
+	Default = false,
+	Callback = function(bool)
+autoSet1 = bool
+        if bool == true then
+            while autoSet1 do
+                task.wait()
+                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+                end
+            end
+        end
+	end    
+})
+
+Tab4:AddSlider({
+	Name = "Jumppower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(255,154,0),
+	Increment = 1,
+	ValueName = "JP",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+Jumppower = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Keep Jumppower",
+	Default = false,
+	Callback = function(bool)
+autoSet1 = bool
+        if bool == true then
+            while autoSet1 do
+                task.wait()
+                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Jumppower then
+                    Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                end
+            end
+        end
+	end    
+})
+
+Tab5:AddButton({
+	Name = "R2O",
+	Callback = function()
+      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
+  	end    
+})
+
+else
 
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
@@ -18,8 +331,6 @@ local bypass;
         end
         return bypass(method, ...)
     end)
-
-   local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/cheesynob39/R20-EXPLOITER/main/Files/Functions.lua"))()
 
    local function getGlove()
        return game.Players.LocalPlayer.leaderstats.Glove.Value
@@ -661,6 +972,18 @@ end
                 })
 
                 Tab2:AddToggle({
+                    Name = "Spam Error Sound (Works with all gloves)",
+                    Default = false,
+                    Callback = function(Value)
+_G.ErrorSoundSpam = Value
+while _G.ErrorSoundSpam do
+game.ReplicatedStorage.ErrorDeath:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab2:AddToggle({
                     Name = "Spam Slicer Sound",
                     Default = false,
                     Callback = function(Value)
@@ -716,18 +1039,6 @@ end
 _G.GoldenSoundSpam = Value
 while _G.GoldenSoundSpam do
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
-task.wait()
-end
-                    end    
-                })
-
-                Tab2:AddToggle({
-                    Name = "Spam Error Sound",
-                    Default = false,
-                    Callback = function(Value)
-_G.ErrorSoundSpam = Value
-while _G.ErrorSoundSpam do
-game.ReplicatedStorage.ErrorDeath:FireServer()
 task.wait()
 end
                     end    
@@ -845,20 +1156,56 @@ end
                 })
 
                 Tab4:AddToggle({
-                    Name = "Spam Rhythm Notes (Good with autoclicker)",
+                    Name = "Rhythm Note Spam + Auto Press (Equip Rhythm)",
                     Default = false,
                     Callback = function(Value)
 _G.RhythmNoteSpam = Value
 while _G.RhythmNoteSpam do
 game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = false
 game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = true
+game.Players.LocalPlayer.Character.Rhythm:Activate()
 task.wait()
 end
                     end    
                 })
 
+Tab4:AddToggle({
+                    Name = "Auto Enter Arena",
+                    Default = false,
+                    Callback = function(Value)
+local localPlr = game:GetService("Players").LocalPlayer
+getgenv().AutoEnterArena = Value
+      while getgenv().AutoEnterArena == true do
+       wait(.001)
+if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
+    end
+end
+end,
+                })
+
+Tab4:AddToggle({
+                    Name = "Remove Nametag (Breaks killstreak) (Credits to R2O)",
+                    Default = false,
+                    Callback = function(bool)
+Auto_Remove = bool
+        if bool == true then
+        game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+            task.wait()
+            game.Players.LocalPlayer.CharacterAdded:Connect(function()
+                if Auto_Remove == true then
+                repeat task.wait()
+                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
+                game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+                end
+            end)
+        end
+end
+                })
+
 Tab4:AddButton({
-	Name = "Free Emotes (To use just do /e emotename) (Credits to R2O)",
+	Name = "Free Emotes (Type /e emotename) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
                     end    
@@ -898,7 +1245,7 @@ end
                 })
 
 Tab4:AddToggle({
-                    Name = "Rainbow (Needs Golden)",
+                    Name = "Rainbow Character (Needs Golden)",
                     Default = false,
                     Callback = function(Value)
 _G.Rainbow = Value
@@ -915,48 +1262,11 @@ end
 end
                 })
 
-Tab4:AddToggle({
-                    Name = "Auto Enter Arena",
-                    Default = false,
-                    Callback = function(Value)
-local localPlr = game:GetService("Players").LocalPlayer
-getgenv().AutoEnterArena = Value
-      while getgenv().AutoEnterArena == true do
-       wait(.001)
-if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
-    end
-end
-end,
-                })
-
-Tab4:AddToggle({
-                    Name = "Auto Remove Nametag (Credits to R2O)",
-                    Default = false,
-                    Callback = function(bool)
-Auto_Remove = bool
-        if bool == true then
-        game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
-            task.wait()
-            game.Players.LocalPlayer.CharacterAdded:Connect(function()
-                if Auto_Remove == true then
-                repeat task.wait()
-                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
-                game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
-                end
-            end)
-        end
-end
-                })
-
 local function GetClosestPlayer()
    local bestdistance,player = nil,nil
-    
    pcall(function()
        for i,v in pairs(game.Players:GetPlayers()) do
            if v == game.Players.LocalPlayer then continue end
-           
            local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
            if bestdistance == nil and player == nil then
                bestdistance = distance
@@ -966,7 +1276,6 @@ local function GetClosestPlayer()
                bestdistance = distance
            end
        end
-       
        if bestdistance > radius then
           player = nil 
        end
@@ -1086,12 +1395,12 @@ if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlaye
 else 
 game.StarterGui:SetCore("SendNotification", {
                 Title = "Error";
-                Duration = 3;
+                Duration = 5;
                 Text = "You already have [ R E D A C T E D ]!";
             })
 game.StarterGui:SetCore("SendNotification", {
                 Title = "Error";
-                Duration = 3;
+                Duration = 5;
                 Text = "Or you don't have 5K slaps.";
             })
     print("You already have [ R E D A C T E D ]!")
@@ -1140,7 +1449,7 @@ end
 })
 
 Tab5:AddButton({
-	Name = "Get Chain (Credit to R2O)",
+	Name = "Get Chain (Needs 1k slaps) (Credit to R2O)",
 	Callback = function()
 Place = game.PlaceId
 Server = game.JobId
@@ -1597,3 +1906,4 @@ antiStun = bool
                 })
 local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
 Player = game.Players.LocalPlayer.Character.Name
+end
