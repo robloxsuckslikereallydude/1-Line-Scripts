@@ -594,7 +594,7 @@ end
 _G.ReplicaSpam = Value
 while _G.ReplicaSpam do
 game:GetService("ReplicatedStorage").Duplicate:FireServer()
-wait(5.1)
+wait(5.2)
 end
                     end    
                 })
@@ -1556,7 +1556,7 @@ bobFarm = bool
                     task.wait()
                     tick = os.time()
                     repeat task.wait()
-                    until os.time() - tick >= 5.1
+                    until os.time() - tick >= 5.2
                     end
             end
             else
