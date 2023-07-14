@@ -1095,7 +1095,11 @@ if teleportFunc then
         local localPlr = game:GetService("Players").LocalPlayer
         repeat wait() until localPlr
 game:GetService("GuiService"):ClearError()
+if game.Players.LocalPlayer.PlayerGui.MobileShiftLock.Button.Visible == true then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
+else
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+end
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
