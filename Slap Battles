@@ -1102,7 +1102,7 @@ game:GetService("TeleportService"):Teleport(9020359053)
                 })
 
 Tab4:AddButton({
-	Name = "View SR Testing Server (Good for glove leaking)",
+	Name = "View Slap Royale Testing Server",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
 if teleportFunc then
