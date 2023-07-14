@@ -1112,7 +1112,9 @@ if teleportFunc then
         end
         local localPlr = game:GetService("Players").LocalPlayer
         repeat wait() until localPlr
-game:GetService("GuiService"):ClearError()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
     ]])
 end
 game:GetService("TeleportService"):Teleport(9412268818)
