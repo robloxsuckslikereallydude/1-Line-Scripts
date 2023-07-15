@@ -206,8 +206,7 @@ Tab3:AddButton({
 	Name = "Bomb Bus (Use in the lobby)",
 	Callback = function()
 repeat task.wait()
-until game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true
-wait(0.33)
+until game.Players.LocalPlayer.Backpack:FindFirstChild("Bomb")
             for i, v in ipairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                 if v.Name == "Bomb" then
                     game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
