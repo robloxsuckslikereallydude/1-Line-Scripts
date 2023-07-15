@@ -126,7 +126,7 @@ end
 Tab3:AddButton({
 	Name = "Votekick Message (Wait until bus appears)",
 	Callback = function()
-game:GetService("ReplicatedStorage").Events.Votekick:FireServer(Reason, false, Reason)
+game:GetService("ReplicatedStorage").Events.Votekick:FireServer(Title, false, Reason)
 			end
 })
 
@@ -136,6 +136,15 @@ Tab3:AddTextbox({
 	TextDisappear = false,
 	Callback = function(Value)
 Reason = Value
+	end	  
+})
+
+Tab3:AddTextbox({
+	Name = "Votekick message title",
+	Default = "Reason",
+	TextDisappear = false,
+	Callback = function(Value)
+Title = Value
 	end	  
 })
 
