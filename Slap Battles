@@ -84,6 +84,17 @@ Tab:AddButton({
 })
 
 Tab2:AddToggle({
+	Name = "Anti Votekick",
+	Default = false,
+	Callback = function(Value)
+while Value == true do
+game:GetService("ReplicatedStorage").Events.Votekick:FireServer(game.Players.LocalPlayer.Name, true, false)
+task.wait()
+end
+	end    
+})
+
+Tab2:AddToggle({
 	Name = "Anti Acid",
 	Default = false,
 	Callback = function(Value)
@@ -97,6 +108,35 @@ Tab2:AddToggle({
 	Callback = function(Value)
 AntiLava.CanCollide = Value
 	end    
+})
+
+Tab3:AddTextbox({
+	Name = "Kick Player (Wait until bus appears)",
+	Default = "Player",
+	TextDisappear = true,
+	Callback = function(Kick)
+game:GetService("ReplicatedStorage").Events.Votekick:FireServer(Kick, false, Reason)
+for i = 1, 30 do
+game:GetService("ReplicatedStorage").Events.Votekick:FireServer(Kick, true, true)
+task.wait()
+end
+	end	  
+})
+
+Tab3:AddButton({
+	Name = "Votekick Message (Wait until bus appears)",
+	Callback = function()
+game:GetService("ReplicatedStorage").Events.Votekick:FireServer(Reason, false, Reason)
+			end
+})
+
+Tab3:AddTextbox({
+	Name = "Kick Reason",
+	Default = "Reason",
+	TextDisappear = false,
+	Callback = function(Value)
+Reason = Value
+	end	  
 })
 
 Tab3:AddToggle({
