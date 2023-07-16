@@ -217,6 +217,16 @@ until game.Players.LocalPlayer.Backpack:FindFirstChild("Bomb")
 })
 
 Tab3:AddButton({
+	Name = "Leave bus early",
+	Callback = function()
+game:GetService("ReplicatedStorage").Events.BusJumping:FireServer()
+repeat task.wait()
+until game.Players.LocalPlayer.PlayerGui:FindFirstChild("JumpPrompt")
+game.Players.LocalPlayer.PlayerGui.JumpPrompt:Destroy()
+			end
+})
+
+Tab3:AddButton({
 	Name = "Inf 250 power (Needs 2 True Powers) (Use before other items)",
 	Callback = function()
 for i = 1, 2 do
