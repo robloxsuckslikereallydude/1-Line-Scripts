@@ -146,7 +146,7 @@ game:GetService("ReplicatedStorage").Events.Votekick:FireServer(Title, false, Re
 })
 
 Tab3:AddTextbox({
-	Name = "Kick Reason",
+	Name = "Kick Reason (Has filter)",
 	Default = "Reason",
 	TextDisappear = false,
 	Callback = function(Value)
@@ -155,7 +155,7 @@ Reason = Value
 })
 
 Tab3:AddTextbox({
-	Name = "Votekick message title",
+	Name = "Votekick message title (Has no filter)",
 	Default = "Title",
 	TextDisappear = false,
 	Callback = function(Value)
