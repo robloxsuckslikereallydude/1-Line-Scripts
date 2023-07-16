@@ -111,34 +111,6 @@ AntiLava.CanCollide = Value
 })
 
 Tab3:AddButton({
-	Name = "Kick entire server",
-	Callback = function()
-for i,v in pairs(game.Players:GetPlayers()) do
-if v.Name ~= game.Players.LocalPlayer.Name then
-game:GetService("ReplicatedStorage").Events.Votekick:FireServer(v.Name, false, Reason)
-for i = 1, 30 do
-game:GetService("ReplicatedStorage").Events.Votekick:FireServer(v.Name, true, true)
-task.wait()
-end
-end
-end
-  	end    
-})
-
-Tab3:AddTextbox({
-	Name = "Kick Player (Wait until bus appears)",
-	Default = "Player",
-	TextDisappear = true,
-	Callback = function(Kick)
-game:GetService("ReplicatedStorage").Events.Votekick:FireServer(Kick, false, Reason)
-for i = 1, 30 do
-game:GetService("ReplicatedStorage").Events.Votekick:FireServer(Kick, true, true)
-task.wait()
-end
-	end	  
-})
-
-Tab3:AddButton({
 	Name = "Votekick Message (Wait until bus appears)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Events.Votekick:FireServer(Title, false, Reason)
