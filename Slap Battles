@@ -1592,18 +1592,18 @@ Tab5:AddButton({
 for i = 1, 200 do
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(1.15)
+wait(Random.new():NextNumber(1.05,1.30))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(1.15)
+wait(Random.new():NextNumber(1.05,1.30))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(1.15)
+wait(Random.new():NextNumber(1.05,1.30))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(1.15)
+wait(Random.new():NextNumber(1.05,1.30))
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
-wait(1.15)
+wait(Random.new():NextNumber(1.05,1.30))
 end
                     end    
                 })
