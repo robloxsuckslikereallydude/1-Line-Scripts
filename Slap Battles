@@ -976,6 +976,15 @@ end
                     end    
                 })
 
+Tab3:AddTextbox({
+	Name = "Equip Glove (Only use in lobby)",
+	Default = "Glove Name",
+	TextDisappear = true,
+	Callback = function(Value)
+		fireclickdetector(workspace.Lobby[Value].ClickDetector)
+	end	  
+})
+
 Tab3:AddButton({
 	Name = "TP to Safe spot",
 	Callback = function()
