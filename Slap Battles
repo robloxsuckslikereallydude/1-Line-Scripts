@@ -447,6 +447,47 @@ Tab2:AddLabel("A lot of these work in the lobby")
 Tab2:AddLabel("Don't manually use ability while the spam is running")
 
                 Tab2:AddToggle({
+                    Name = "Rojo Spam (WORKS WITH ALL GLOVES)",
+                    Default = false,
+                    Callback = function(Value)
+_G.RojoSpam = Value
+while _G.RojoSpam do
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[Person].Character.HumanoidRootPart.CFrame})
+task.wait()
+end
+                    end    
+                })
+
+Tab2:AddTextbox({
+	Name = "Make person use rojo spam (Me works as an identifier)",
+	Default = "Playername",
+	TextDisappear = false,
+	Callback = function(Value)
+if Value == "Me" or Value == "me" or Value == "Playername" or Value == "" then
+Person = game.Players.LocalPlayer.Name
+else
+Person = Value
+end
+	end	  
+})
+
+                Tab2:AddToggle({
+                    Name = "Rojo Spam All",
+                    Default = false,
+                    Callback = function(Value)
+_G.RojoSpam = Value
+while _G.RojoSpam do
+for i,v in pairs(game.Players:GetPlayers()) do
+if v.Name ~= game.Players.LocalPlayer.Name then
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[v.Name].Character.HumanoidRootPart.CFrame})
+end
+end
+task.wait()
+end
+                    end    
+                })
+
+                Tab2:AddToggle({
                     Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
                     Default = false,
                     Callback = function(Value)
@@ -457,6 +498,7 @@ task.wait()
 end
                     end    
                 })
+
                 Tab2:AddToggle({
                     Name = "Home Run Spam",
                     Default = false,
@@ -512,7 +554,7 @@ end
 _G.SlicerSpam = Value
 while _G.SlicerSpam do
 game:GetService("ReplicatedStorage").Slicer:FireServer("sword")
-game:GetService("ReplicatedStorage").Slicer:FireServer("slash", CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position) * CFrame.Angles(-5.66729e-11, 0.000832287, -1.10219e-10), Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Rotation))
+game:GetService("ReplicatedStorage").Slicer:FireServer("slash", game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
 wait(5.1)
 end
                     end    
@@ -1237,7 +1279,6 @@ Tab4:AddButton({
 	Callback = function()
 for i = 1, 20 do
         game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(x,false)
-wait()
 end
                     end    
                 })
@@ -1295,6 +1336,13 @@ Tab4:AddButton({
 	Name = "Free Emotes (Type /e emotename) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
+                    end    
+                })
+
+Tab4:AddButton({
+	Name = "Rojo Charge VFX (Will fling you if spammed)",
+	Callback = function()
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
                     end    
                 })
 
