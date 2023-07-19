@@ -519,10 +519,10 @@ end
 
 Tab3:AddTextbox({
 	Name = "Make person use rojo spam",
-	Default = "Playername",
+	Default = "Username",
 	TextDisappear = false,
 	Callback = function(Value)
-if Value == "Me" or Value == "me" or Value == "Playername" or Value == "" then
+if Value == "Me" or Value == "me" or Value == "Username" or Value == "" then
 Person = game.Players.LocalPlayer.Name
 else
 Person = Value
