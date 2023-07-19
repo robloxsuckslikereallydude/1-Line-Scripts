@@ -1287,6 +1287,27 @@ end
                 })
 
                 Tab4:AddToggle({
+                    Name = "Auto Tycoon Press",
+                    Default = false,
+                    Callback = function(Value)
+_G.AutoTycoon = Value
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "End" and v.ClassName == "Part" then
+            v.Size = Vector3.new(28, 0.3, 4)
+        end
+    end
+while _G.AutoTycoon do
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Click" and v:FindFirstChild("ClickDetector") then
+            fireclickdetector(v.ClickDetector)
+        end
+    end
+    task.wait()
+end
+                    end    
+                })
+
+                Tab4:AddToggle({
                     Name = "Rhythm Note Spam + Auto Press (Equip Rhythm)",
                     Default = false,
                     Callback = function(Value)
@@ -1389,37 +1410,25 @@ Tab4:AddToggle({
 _G.Rainbow = Value
 while _G.Rainbow do
 local randomnumber = math.random(1004, 1032)
-local args = {
-    [1] = false,
-    [2] = BrickColor.new(randomnumber)
-}
-
-game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Goldify:FireServer(false, BrickColor.new(randomnumber))
 task.wait(0.075)
 end
 end
                 })
 
-local function GetClosestPlayer()
-   local bestdistance,player = nil,nil
-   pcall(function()
-       for i,v in pairs(game.Players:GetPlayers()) do
-           if v == game.Players.LocalPlayer then continue end
-           local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
-           if bestdistance == nil and player == nil then
-               bestdistance = distance
-               player = v
-           elseif bestdistance > distance then
-               player = v
-               bestdistance = distance
-           end
-       end
-       if bestdistance > radius then
-          player = nil 
-       end
-   end)
-   return player
+Tab4:AddButton({
+	Name = "Destroy all tycoons",
+	Callback = function()
+for i = 1, 100 do
+ for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Destruct" and v:FindFirstChild("ClickDetector") then
+            fireclickdetector(v.ClickDetector)
+        end
+    end
+task.wait()
 end
+                    end    
+                })
 
 Tab4:AddButton({
 	Name = "TP to Safe spot",
