@@ -571,7 +571,7 @@ end
                 })
 
                 Tab3:AddToggle({
-                    Name = "Ability Spam",
+                    Name = "Ability Spam (Can work in lobby)",
                     Default = false,
                     Callback = function(Value)
 On = Value
