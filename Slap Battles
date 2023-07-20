@@ -1631,18 +1631,20 @@ Tab2:AddToggle({
                     Name = "Anti Ragdoll (This will reset your character)",
                     Default = false,
                     Callback = function(Value)
-if Value == true then
+_G.AntiRagdoll = Value
+if _G.AntiRagdoll then
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
-end
-wait(4)
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
 game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
-if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and Value == true then
+if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and _G.AntiRagdoll then
 repeat task.wait()
 game.Players.LocalPlayer.Character.Torso.Anchored = true
 until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
 game.Players.LocalPlayer.Character.Torso.Anchored = false
 end
 end)
+end)
+end
                     end    
                 })
 
@@ -1834,7 +1836,7 @@ getgenv().SlapAura = bool
                         for Index, Player in next, game.Players:GetPlayers() do
                             if Player ~= game.Players.LocalPlayer and Player.Character and Player.Character:FindFirstChild("entered") then
                                 if Player.Character:FindFirstChild("Head") then
-                                if Player.Character.Head:FindFirstChild("UnoReverseCard") == nil and Player.Character:FindFirstChild("rock") == nil then 
+                                if Player.Character.Head:FindFirstChild("UnoReverseCard") == nil and Player.Character:FindFirstChild("rock") == nil and Player.leaderstats.Glove ~= "Spectator" and Player.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller") then 
                                     if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
                                     local Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
                                     if 25 >= Magnitude then
