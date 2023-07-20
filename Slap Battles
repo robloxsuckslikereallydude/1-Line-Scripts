@@ -83,6 +83,13 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ion
 Tab:AddLabel("If you have problems then message Guy that exists#1915")
 
 Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+
+Tab:AddButton({
 	Name = "Destroy GUI",
 	Callback = function()
       		OrionLib:Destroy()
@@ -249,8 +256,9 @@ Tab3:AddToggle({
                     Name = "Remove Zone Color",
                     Default = false,
                     Callback = function(Value)
+_G.RemoveZone = Value
 game.Players.LocalPlayer.Character:WaitForChild("inZone").Changed:Connect(function()
-if Value == true then
+if _G.RemoveZone then
 game.Players.LocalPlayer.Character:WaitForChild("inZone").Value = false
 end
 end)
@@ -281,6 +289,459 @@ Walkspeed = Value
 Tab5:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
+	Callback = function(Value)
+_G.KeepWalkspeed = Value
+        if _G.KeepWalkspeed then
+            while _G.KeepWalkspeed do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+                end
+            end
+        end
+	end    
+})
+
+Tab5:AddSlider({
+	Name = "Jumppower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(255,154,0),
+	Increment = 1,
+	ValueName = "JP",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+Jumppower = Value
+	end    
+})
+
+Tab5:AddToggle({
+	Name = "Keep Jumppower",
+	Default = false,
+	Callback = function(bool)
+_G.KeepJumppower = Value
+        if _G.KeepJumppower then
+            while _G.KeepJumppower do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                end
+            end
+        end
+	end    
+})
+
+Tab5:AddButton({
+	Name = "R2O",
+	Callback = function()
+      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
+  	end    
+})
+
+elseif game.PlaceId == 11520107397 then
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
+            return
+        end
+        return bypass(method, ...)
+    end)
+
+local SafeSpot = Instance.new("Part", workspace)
+SafeSpot.Position = Vector3.new(-1500,100,-1500)
+SafeSpot.Name = "Spot"
+SafeSpot.Size = Vector3.new(500,60,500)
+SafeSpot.Anchored = true
+SafeSpot.Transparency = .75
+                
+                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles KS Only hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab2 = Window:MakeTab({
+                    Name = "Antis",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+ 
+                local Tab3 = Window:MakeTab({
+                    Name = "Misc",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab4 = Window:MakeTab({
+                    Name = "Badges",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab5 = Window:MakeTab({
+                    Name = "Player",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab6 = Window:MakeTab({
+                    Name = "Hubs",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+      		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "View Testing Server (Good for glove leaking)",
+	Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+game:GetService("GuiService"):ClearError()
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9020359053)
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "View Slap Royale Testing Server",
+	Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9412268818)
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "Testing Server Freecam",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "Testing Server Freecam (Mobile)",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "Slap Farm (This copies the script, put it in autoexec)",
+	Callback = function()
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
+                    end    
+                })
+
+Tab3:AddToggle({
+                    Name = "Slap Aura (Credits to R2O)",
+                    Default = false,
+                    Callback = function(bool)
+getgenv().SlapAura = bool
+            if bool == true then
+                while getgenv().SlapAura do
+                    task.wait(.005)
+                        pcall(function()
+                        for Index, Player in next, game.Players:GetPlayers() do
+                            if Player ~= game.Players.LocalPlayer and Player.Character and Player.Character:FindFirstChild("entered") then
+                                if Player.Character:FindFirstChild("Head") then
+                                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                                    local Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
+                                    if 25 >= Magnitude then
+                                        game:GetService("ReplicatedStorage"):WaitForChild("KSHit"):FireServer(Player.Character:WaitForChild("Head"))
+                                end
+                                    end
+                            end
+                                end
+                        end
+                    end)
+                end
+            end
+end
+                })
+
+Tab3:AddToggle({
+                    Name = "Rojo Spam (WORKS WITH ALL GLOVES)",
+                    Default = false,
+                    Callback = function(Value)
+if Person == nil then
+Person = game.Players.LocalPlayer.Name
+end
+_G.RojoSpam = Value
+while _G.RojoSpam do
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[Person].Character.HumanoidRootPart.CFrame})
+task.wait()
+end
+                    end    
+                })
+
+Tab3:AddTextbox({
+	Name = "Make person use rojo spam",
+	Default = "Username",
+	TextDisappear = false,
+	Callback = function(Value)
+if Value == "Me" or Value == "me" or Value == "Username" or Value == "" then
+Person = game.Players.LocalPlayer.Name
+else
+Person = Value
+end
+	end	  
+})
+
+                Tab3:AddToggle({
+                    Name = "Rojo Spam All",
+                    Default = false,
+                    Callback = function(Value)
+_G.RojoSpam = Value
+while _G.RojoSpam do
+for i,v in pairs(game.Players:GetPlayers()) do
+if v.Name ~= game.Players.LocalPlayer.Name then
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[v.Name].Character.HumanoidRootPart.CFrame})
+end
+end
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
+                    Default = false,
+                    Callback = function(Value)
+_G.RhythmSpam = Value
+while _G.RhythmSpam do
+game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Spam Error Sound (Works with all gloves)",
+                    Default = false,
+                    Callback = function(Value)
+_G.ErrorSoundSpam = Value
+while _G.ErrorSoundSpam do
+game.ReplicatedStorage.ErrorDeath:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Killstreak Soul Snatcher Spam",
+                    Default = false,
+                    Callback = function(Value)
+On = Value
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Killstreak" and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Kills") and game.Players.LocalPlayer.PlayerGui.Kills.Frame.TextLabel.Text >= "75" do
+game:GetService("ReplicatedStorage").KSABILI:FireServer()
+wait(6.05)
+end
+                    end   
+})
+
+Tab3:AddToggle({
+                    Name = "Auto Enter Arena",
+                    Default = false,
+                    Callback = function(Value)
+local localPlr = game:GetService("Players").LocalPlayer
+getgenv().AutoEnterArena = Value
+      while getgenv().AutoEnterArena == true do
+       wait(.001)
+if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
+    end
+end
+end,
+                })
+
+Tab3:AddToggle({
+                    Name = "Remove Nametag (Breaks killstreak)",
+                    Default = false,
+                    Callback = function(Value)
+_G.AutoRemoveNameTag = Value
+        if _G.AutoRemoveNameTag then
+        game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+            game.Players.LocalPlayer.CharacterAdded:Connect(function()
+                if _G.AutoRemoveNameTag then
+                repeat task.wait()
+                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
+                game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+                end
+            end)
+        end
+end
+                })
+
+Tab3:AddButton({
+	Name = "Free Emotes (Type /e emotename) (Credits to R2O)",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "TP to Safe spot",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "TP back to arena",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Rojo Charge VFX (Will fling you if spammed)",
+	Callback = function()
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Spam Space Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.SpaceSoundSpam = Value
+while _G.SpaceSoundSpam do
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Spam Thanos Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.ThanosSoundSpam = Value
+while _G.ThanosSoundSpam do
+game:GetService("ReplicatedStorage").Illbeback:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Spam Golden Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.GoldenSoundSpam = Value
+while _G.GoldenSoundSpam do
+game:GetService("ReplicatedStorage").Goldify:FireServer(true)
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Spam Ghost Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.GhostSoundSpam = Value
+while _G.GhostSoundSpam do
+game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
+game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+Tab6:AddButton({
+	Name = "CherryUi's Slap Battles GUI",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))()
+  	end    
+})
+
+Tab6:AddButton({
+	Name = "R2O",
+	Callback = function()
+      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
+  	end    
+})
+
+Tab6:AddButton({
+	Name = "dizzy hub",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/dizyhvh/rbx_scripts/main/dizzy_hub/scripts/slap_battles.lua"))()
+  	end    
+})
+
+Tab5:AddSlider({
+	Name = "Walkspeed",
+	Min = 20,
+	Max = 1000,
+	Default = 20,
+	Color = Color3.fromRGB(0,162,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+Walkspeed = Value
+	end    
+})
+
+Tab5:AddToggle({
+	Name = "Loop Walkspeed",
+	Default = false,
 	Callback = function(bool)
 autoSet1 = bool
         if bool == true then
@@ -310,7 +771,7 @@ Jumppower = Value
 })
 
 Tab5:AddToggle({
-	Name = "Keep Jumppower",
+	Name = "Loop Jumppower",
 	Default = false,
 	Callback = function(bool)
 autoSet1 = bool
@@ -326,12 +787,920 @@ autoSet1 = bool
 	end    
 })
 
-Tab5:AddButton({
-	Name = "R2O",
+Tab4:AddButton({
+                    Name = "Get [REDACTED] (Credits to R2O)",
+Callback = function()
+local Door = 1
+if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) and 5000 <= game.Players.LocalPlayer.leaderstats.Slaps.Value then
+    repeat
+    task.wait(.25)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.PocketDimension.Doors[Door].CFrame
+    Door = Door + 1
+    print(Door)
+    wait(5)
+    until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850)
+else 
+game.StarterGui:SetCore("SendNotification", {
+                Title = "Error";
+                Duration = 5;
+                Text = "You already have [ R E D A C T E D ]!";
+            })
+game.StarterGui:SetCore("SendNotification", {
+                Title = "Error";
+                Duration = 5;
+                Text = "Or you don't have 5K slaps.";
+            })
+    print("You already have [ R E D A C T E D ]!")
+    print("Or you don't have 5K slaps.")
+end
+end
+                    })
+
+Tab4:AddButton({
+	Name = "Get Elude (Credits to R2O)",
 	Callback = function()
-      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
+Place = game.PlaceId
+Server = game.JobId
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+        game:GetService("RunService").RenderStepped:Connect(function()
+            localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
+        end)
+game:GetService("TeleportService"):TeleportToPlaceInstance(Place, Server, game.Players.LocalPlayer)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(11828384869)
   	end    
 })
+
+Tab4:AddLabel("When in the elude maze there is a counter feature")
+
+Tab4:AddButton({
+	Name = "Get Chain (Needs 1k slaps) (Credits to R2O)",
+	Callback = function()
+Place = game.PlaceId
+Server = game.JobId
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+local decal_codes = {
+    ["http://www.roblox.com/asset/?id=9648769161"] = "4",
+    ["http://www.roblox.com/asset/?id=9648765536"] = "2",
+    ["http://www.roblox.com/asset/?id=9648762863"] = "3",
+    ["http://www.roblox.com/asset/?id=9648759883"] = "9",
+    ["http://www.roblox.com/asset/?id=9648755440"] = "8",
+    ["http://www.roblox.com/asset/?id=9648752438"] = "2",
+    ["http://www.roblox.com/asset/?id=9648749145"] = "8",
+    ["http://www.roblox.com/asset/?id=9648745618"] = "3",
+    ["http://www.roblox.com/asset/?id=9648742013"] = "7",
+    ["http://www.roblox.com/asset/?id=9648738553"] = "8",
+    ["http://www.roblox.com/asset/?id=9648734698"] = "2",
+    ["http://www.roblox.com/asset/?id=9648730082"] = "6",
+    ["http://www.roblox.com/asset/?id=9648723237"] = "3",
+    ["http://www.roblox.com/asset/?id=9648718450"] = "6",
+    ["http://www.roblox.com/asset/?id=9648715920"] = "6",
+    ["http://www.roblox.com/asset/?id=9648712563"] = "2"
+}
+    for i,v in ipairs(game:GetService("Workspace").Map:WaitForChild("CodeBrick"):WaitForChild("SurfaceGui"):GetDescendants()) do
+        if v.Name == 'IMGTemplate' then
+            local decal_url = tostring(v.Image)
+            local code = decal_codes[decal_url]
+            if 0 < #game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Display.SurfaceGui.TextLabel.Text then
+                fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons.Reset.ClickDetector)
+            end
+            task.wait(.2)
+            fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons[code].ClickDetector)
+        end
+    end
+    task.wait(.2)
+    fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons.Enter.ClickDetector)
+game:GetService("TeleportService"):TeleportToPlaceInstance(Place, Server, game.Players.LocalPlayer)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9431156611)
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get Tycoon (Credits to R2O)",
+	Callback = function()
+      		repeat task.wait(.005)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame * CFrame.new(0,-2,0)
+until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate Counter: 600"
+                    end    
+                })
+
+Tab4:AddButton({
+	Name = "Get Brazil badge",
+	Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.brazil.portal.CFrame
+                    end    
+                })
+
+Tab4:AddButton({
+	Name = "Get court evidence badge",
+	Callback = function()
+fireclickdetector(game.Workspace.Lobby.Scene.knofe.ClickDetector)
+                    end    
+                })
+
+Tab4:AddButton({
+	Name = "Get duck badge",
+	Callback = function()
+fireclickdetector(game.Workspace.Arena["default island"]["Rubber Ducky"].ClickDetector)
+                    end    
+                })
+
+Tab4:AddButton({
+	Name = "Get The Lone Orange badge",
+	Callback = function()
+fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
+                    end    
+                })
+
+Tab2:AddToggle({
+                    Name = "Anti Admins (Credits to R2O)",
+                    Default = false,
+                    Callback = function(bool)
+antiAdmins = bool
+    if bool == true then
+        game.Players.PlayerAdded:Connect(function(Plr)
+            if Plr:GetRankInGroup(9950771) and 2 <= Plr:GetRankInGroup(9950771) and antiAdmins then
+                game.Players.LocalPlayer:Kick("Admin/High Rank Player Detected")
+            end
+        end)
+    end
+end
+})
+
+Tab2:AddToggle({
+                    Name = "Anti Ragdoll (This will reset your character)",
+                    Default = false,
+                    Callback = function(Value)
+_G.AntiRagdoll = Value
+if _G.AntiRagdoll then
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
+if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and _G.AntiRagdoll then
+repeat task.wait()
+game.Players.LocalPlayer.Character.Torso.Anchored = true
+until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
+game.Players.LocalPlayer.Character.Torso.Anchored = false
+end
+end)
+end)
+end
+                    end    
+                })
+
+               Tab2:AddToggle({
+                    Name = "Anti Void",
+                    Default = false,
+                    Callback = function(Value)
+game.Workspace.dedBarrier.CanCollide = Value
+                    end    
+                })
+
+               Tab2:AddToggle({
+                    Name = "Anti Death Barriers",
+                    Default = false,
+                    Callback = function(Value)
+if Value == true then
+for i,v in pairs(game.Workspace.DEATHBARRIER:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == "BLOCK" then
+                        v.CanTouch = false
+                    end
+                end
+workspace.DEATHBARRIER.CanTouch = false
+workspace.DEATHBARRIER2.CanTouch = false
+workspace.dedBarrier.CanTouch = false
+workspace.ArenaBarrier.CanTouch = false
+workspace.AntiDefaultArena.CanTouch = false
+else
+for i,v in pairs(game.Workspace.DEATHBARRIER:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == "BLOCK" then
+                        v.CanTouch = true
+                    end
+                end
+workspace.DEATHBARRIER.CanTouch = true
+workspace.DEATHBARRIER2.CanTouch = true
+workspace.dedBarrier.CanTouch = true
+workspace.ArenaBarrier.CanTouch = true
+workspace.AntiDefaultArena.CanTouch = true
+end
+                    end    
+                })
+
+               Tab2:AddToggle({
+                    Name = "Anti Brazil",
+                    Default = false,
+                    Callback = function(Value)
+if Value == true then
+for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+                    if v.ClassName == "Part" then
+                        v.CanTouch = false
+                    end
+                end
+else
+for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+                    if v.ClassName == "Part" then
+                        v.CanTouch = true
+                    end
+                end
+end
+                    end    
+                })
+
+               Tab2:AddToggle({
+                    Name = "Anti Cube of Death",
+                    Default = false,
+                    Callback = function(Value)
+if Value == true then
+        workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = false
+        else
+                workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = true
+        end
+                    end    
+                })
+Player = game.Players.LocalPlayer.Character.Name
+
+elseif game.PlaceId == 11828384869 then
+                
+                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "Elude Maze hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+ 
+                local Tab2 = Window:MakeTab({
+                    Name = "Misc",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab3 = Window:MakeTab({
+                    Name = "Badges",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab4 = Window:MakeTab({
+                    Name = "Player",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Tab2:AddButton({
+	Name = "View Testing Server (Good for glove leaking)",
+	Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+game:GetService("GuiService"):ClearError()
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9020359053)
+                    end    
+                })
+
+Tab2:AddButton({
+	Name = "View Slap Royale Testing Server",
+	Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9412268818)
+                    end    
+                })
+
+Tab2:AddButton({
+	Name = "Testing Server Freecam",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+                    end    
+                })
+
+Tab2:AddButton({
+	Name = "Testing Server Freecam (Mobile)",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
+                    end    
+                })
+
+Tab2:AddButton({
+	Name = "Slap Farm (This copies the script, put it in autoexec)",
+	Callback = function()
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+                    end    
+                })
+
+Tab2:AddButton({
+	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
+                    end    
+                })
+
+Tab4:AddSlider({
+	Name = "Walkspeed",
+	Min = 20,
+	Max = 1000,
+	Default = 20,
+	Color = Color3.fromRGB(0,162,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+Walkspeed = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Loop Walkspeed",
+	Default = false,
+	Callback = function(bool)
+autoSet1 = bool
+        if bool == true then
+            while autoSet1 do
+                task.wait()
+                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+                end
+            end
+        end
+	end    
+})
+
+Tab4:AddSlider({
+	Name = "Jumppower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(255,154,0),
+	Increment = 1,
+	ValueName = "JP",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+Jumppower = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Loop Jumppower",
+	Default = false,
+	Callback = function(bool)
+autoSet1 = bool
+        if bool == true then
+            while autoSet1 do
+                task.wait()
+                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Jumppower then
+                    Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                end
+            end
+        end
+	end    
+})
+
+Tab3:AddButton({
+	Name = "Get Elude",
+	Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
+game:GetService("TeleportService"):Teleport(11828384869)
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Get Counter",
+	Callback = function()
+fireclickdetector(game.Workspace.CounterLever.ClickDetector)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
+wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+wait(121)
+for i,v in pairs(workspace.Maze:GetDescendants()) do
+if v:IsA("ClickDetector") then
+fireclickdetector(v)
+end
+end
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Get Chain (Needs 1k slaps) (Credits to R2O)",
+	Callback = function()
+Place = game.PlaceId
+Server = game.JobId
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+local decal_codes = {
+    ["http://www.roblox.com/asset/?id=9648769161"] = "4",
+    ["http://www.roblox.com/asset/?id=9648765536"] = "2",
+    ["http://www.roblox.com/asset/?id=9648762863"] = "3",
+    ["http://www.roblox.com/asset/?id=9648759883"] = "9",
+    ["http://www.roblox.com/asset/?id=9648755440"] = "8",
+    ["http://www.roblox.com/asset/?id=9648752438"] = "2",
+    ["http://www.roblox.com/asset/?id=9648749145"] = "8",
+    ["http://www.roblox.com/asset/?id=9648745618"] = "3",
+    ["http://www.roblox.com/asset/?id=9648742013"] = "7",
+    ["http://www.roblox.com/asset/?id=9648738553"] = "8",
+    ["http://www.roblox.com/asset/?id=9648734698"] = "2",
+    ["http://www.roblox.com/asset/?id=9648730082"] = "6",
+    ["http://www.roblox.com/asset/?id=9648723237"] = "3",
+    ["http://www.roblox.com/asset/?id=9648718450"] = "6",
+    ["http://www.roblox.com/asset/?id=9648715920"] = "6",
+    ["http://www.roblox.com/asset/?id=9648712563"] = "2"
+}
+    for i,v in ipairs(game:GetService("Workspace").Map:WaitForChild("CodeBrick"):WaitForChild("SurfaceGui"):GetDescendants()) do
+        if v.Name == 'IMGTemplate' then
+            local decal_url = tostring(v.Image)
+            local code = decal_codes[decal_url]
+            if 0 < #game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Display.SurfaceGui.TextLabel.Text then
+                fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons.Reset.ClickDetector)
+            end
+            task.wait(.2)
+            fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons[code].ClickDetector)
+        end
+    end
+    task.wait(.2)
+    fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons.Enter.ClickDetector)
+game:GetService("TeleportService"):TeleportToPlaceInstance(Place, Server, game.Players.LocalPlayer)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9431156611)
+  	end    
+})
+Player = game.Players.LocalPlayer.Character.Name
+
+elseif game.PlaceId == 13833961666 then
+
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
+            return
+        end
+        return bypass(method, ...)
+    end)
+
+   local function getGlove()
+       return game.Players.LocalPlayer.leaderstats.Glove.Value
+    end
+
+local SafeSpot = Instance.new("Part", workspace)
+SafeSpot.Position = Vector3.new(5, 100, -40)
+SafeSpot.Name = "Spot"
+SafeSpot.Size = Vector3.new(2048,5,2048)
+SafeSpot.Anchored = true
+SafeSpot.Transparency = .75
+
+local TpArena = Instance.new("Part", workspace)
+TpArena.Position = Vector3.new(5, 3, -75)
+TpArena.Name = "TpArena"
+TpArena.Size = Vector3.new(1,1,1)
+TpArena.Anchored = true
+TpArena.Transparency = 1
+TpArena.CanCollide = false
+                
+                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "The Dark Realm hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab2 = Window:MakeTab({
+                    Name = "Antis",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+ 
+                local Tab3 = Window:MakeTab({
+                    Name = "Misc",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab4 = Window:MakeTab({
+                    Name = "Badges",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+                local Tab5 = Window:MakeTab({
+                    Name = "Player",
+                    Icon = "http://www.roblox.com/asset/?id=",
+                    PremiumOnly = false
+                })
+
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Tab3:AddToggle({
+                    Name = "Auto Damage Bob",
+                    Default = false,
+                    Callback = function(Value)
+_G.DmgBob = Value
+while _G.DmgBob do
+game:GetService("Workspace").bobBoss.DamageEvent:FireServer()
+task.wait()
+end
+end
+                })
+
+                Tab3:AddToggle({
+                    Name = "Auto Click Tycoon",
+                    Default = false,
+                    Callback = function(Value)
+_G.AutoTycoon = Value
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "End" and v.ClassName == "Part" then
+            v.Size = Vector3.new(28, 0.3, 4)
+        end
+    end
+while _G.AutoTycoon do
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Click" and v:FindFirstChild("ClickDetector") then
+            fireclickdetector(v.ClickDetector)
+        end
+    end
+    task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Ability Spam",
+                    Default = false,
+                    Callback = function(Value)
+On = Value
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Killstreak" and game.Players.LocalPlayer.PlayerGui:FindFirstChild("Kills") and game.Players.LocalPlayer.PlayerGui.Kills.Frame.TextLabel.Text >= "75" do
+game:GetService("ReplicatedStorage").KSABILI:FireServer()
+wait(6.05)
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "God's Hand" do
+game:GetService("ReplicatedStorage").TimestopJump:FireServer()
+game:GetService("ReplicatedStorage").Timestopchoir:FireServer()
+game:GetService("ReplicatedStorage").Timestop:FireServer()
+wait(50.05)
+end
+                    end   
+})
+
+Tab3:AddToggle({
+                    Name = "Remove Nametag (Breaks killstreak)",
+                    Default = false,
+                    Callback = function(Value)
+_G.AutoRemoveNameTag = Value
+        if _G.AutoRemoveNameTag then
+        game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+            game.Players.LocalPlayer.CharacterAdded:Connect(function()
+                if _G.AutoRemoveNameTag then
+                repeat task.wait()
+                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
+                game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+                end
+            end)
+        end
+end
+                })
+
+Tab3:AddButton({
+	Name = "TP to Safe spot",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,10,0)
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "TP back to arena",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.TpArena.CFrame
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Destroy all tycoons",
+	Callback = function()
+for i = 1, 100 do
+ for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Destruct" and v:FindFirstChild("ClickDetector") then
+            fireclickdetector(v.ClickDetector)
+        end
+    end
+task.wait()
+end
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "View Testing Server (Good for glove leaking)",
+	Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+game:GetService("GuiService"):ClearError()
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9020359053)
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "View Slap Royale Testing Server",
+	Callback = function()
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9412268818)
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "Testing Server Freecam",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "Testing Server Freecam (Mobile)",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "Slap Farm (This copies the script, put it in autoexec)",
+	Callback = function()
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+                    end    
+                })
+
+Tab3:AddButton({
+	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
+	Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
+                    end    
+                })
+
+Tab5:AddSlider({
+	Name = "Walkspeed",
+	Min = 20,
+	Max = 1000,
+	Default = 20,
+	Color = Color3.fromRGB(0,162,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+Walkspeed = Value
+	end    
+})
+
+Tab5:AddToggle({
+	Name = "Loop Walkspeed",
+	Default = false,
+	Callback = function(bool)
+autoSet1 = bool
+        if bool == true then
+            while autoSet1 do
+                task.wait()
+                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+                end
+            end
+        end
+	end    
+})
+
+Tab5:AddSlider({
+	Name = "Jumppower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(255,154,0),
+	Increment = 1,
+	ValueName = "JP",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+Jumppower = Value
+	end    
+})
+
+Tab5:AddToggle({
+	Name = "Loop Jumppower",
+	Default = false,
+	Callback = function(bool)
+autoSet1 = bool
+        if bool == true then
+            while autoSet1 do
+                task.wait()
+                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Jumppower then
+                    Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                end
+            end
+        end
+	end    
+})
+
+Tab4:AddButton({
+	Name = "Get Elude (Credit to R2O)",
+	Callback = function()
+Place = game.PlaceId
+Server = game.JobId
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+        game:GetService("RunService").RenderStepped:Connect(function()
+            localPlr.Character.HumanoidRootPart.CFrame = CFrame.new(-502.336, 14.228, -179.597)
+        end)
+game:GetService("TeleportService"):TeleportToPlaceInstance(Place, Server, game.Players.LocalPlayer)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(11828384869)
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get Chain (Needs 1k slaps) (Credit to R2O)",
+	Callback = function()
+Place = game.PlaceId
+Server = game.JobId
+local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+local decal_codes = {
+    ["http://www.roblox.com/asset/?id=9648769161"] = "4",
+    ["http://www.roblox.com/asset/?id=9648765536"] = "2",
+    ["http://www.roblox.com/asset/?id=9648762863"] = "3",
+    ["http://www.roblox.com/asset/?id=9648759883"] = "9",
+    ["http://www.roblox.com/asset/?id=9648755440"] = "8",
+    ["http://www.roblox.com/asset/?id=9648752438"] = "2",
+    ["http://www.roblox.com/asset/?id=9648749145"] = "8",
+    ["http://www.roblox.com/asset/?id=9648745618"] = "3",
+    ["http://www.roblox.com/asset/?id=9648742013"] = "7",
+    ["http://www.roblox.com/asset/?id=9648738553"] = "8",
+    ["http://www.roblox.com/asset/?id=9648734698"] = "2",
+    ["http://www.roblox.com/asset/?id=9648730082"] = "6",
+    ["http://www.roblox.com/asset/?id=9648723237"] = "3",
+    ["http://www.roblox.com/asset/?id=9648718450"] = "6",
+    ["http://www.roblox.com/asset/?id=9648715920"] = "6",
+    ["http://www.roblox.com/asset/?id=9648712563"] = "2"
+}
+    for i,v in ipairs(game:GetService("Workspace").Map:WaitForChild("CodeBrick"):WaitForChild("SurfaceGui"):GetDescendants()) do
+        if v.Name == 'IMGTemplate' then
+            local decal_url = tostring(v.Image)
+            local code = decal_codes[decal_url]
+            if 0 < #game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Display.SurfaceGui.TextLabel.Text then
+                fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons.Reset.ClickDetector)
+            end
+            task.wait(.2)
+            fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons[code].ClickDetector)
+        end
+    end
+    task.wait(.2)
+    fireclickdetector(game:GetService("Workspace").Map:WaitForChild("OriginOffice").Door.Keypad.Buttons.Enter.ClickDetector)
+game:GetService("TeleportService"):TeleportToPlaceInstance(Place, Server, game.Players.LocalPlayer)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(9431156611)
+  	end    
+})
+
+Tab2:AddToggle({
+                    Name = "Anti Ragdoll (This will reset your character)",
+                    Default = false,
+                    Callback = function(Value)
+if Value == true then
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end
+wait(4)
+game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
+if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and Value == true then
+repeat task.wait()
+game.Players.LocalPlayer.Character.Torso.Anchored = true
+until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
+game.Players.LocalPlayer.Character.Torso.Anchored = false
+end
+end)
+                    end    
+                })
+
+               Tab2:AddToggle({
+                    Name = "Anti Void",
+                    Default = false,
+                    Callback = function(Value)
+game.Workspace.TheVoid.CanCollide = Value
+if Value == true then
+game.Workspace.TheVoid.CanTouch = false
+else
+game.Workspace.TheVoid.CanTouch = true
+end
+                    end    
+                })
+
+Player = game.Players.LocalPlayer.Character.Name
 
 else
 
@@ -399,6 +1768,20 @@ SafeSpot.Transparency = .75
                 })
 
 Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+      		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+  	end    
+})
 
 Tab:AddButton({
 	Name = "Destroy GUI",
@@ -767,23 +2150,6 @@ while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "ZZZZZZZ" do
 game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
 task.wait()
 end
-while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Space" do
-game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
-task.wait()
-end
-while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Ghost" do
-game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
-game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
-task.wait()
-end
-while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Thanos" do
-game:GetService("ReplicatedStorage").Illbeback:FireServer()
-task.wait()
-end
-while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Golden" do
-game:GetService("ReplicatedStorage").Goldify:FireServer(true)
-task.wait()
-end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Charge" do
 game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game:GetService("Players").LocalPlayer.Character.Charge)
 wait(3.05)
@@ -794,7 +2160,6 @@ wait(3.05)
 end
                     end   
 })
-
 
 Tab3:AddButton({
 	Name = "Kick player (Needs Za Hando) (Inconsistent)",
@@ -833,7 +2198,7 @@ end
                 })
 
                 Tab3:AddToggle({
-                    Name = "Auto Tycoon Press",
+                    Name = "Auto Click Tycoon",
                     Default = false,
                     Callback = function(Value)
 _G.AutoTycoon = Value
@@ -884,15 +2249,14 @@ end,
                 })
 
 Tab3:AddToggle({
-                    Name = "Remove Nametag (Breaks killstreak) (Credits to R2O)",
+                    Name = "Remove Nametag (Breaks killstreak)",
                     Default = false,
-                    Callback = function(bool)
-Auto_Remove = bool
-        if bool == true then
+                    Callback = function(Value)
+_G.AutoRemoveNameTag = Value
+        if _G.AutoRemoveNameTag then
         game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
-            task.wait()
             game.Players.LocalPlayer.CharacterAdded:Connect(function()
-                if Auto_Remove == true then
+                if _G.AutoRemoveNameTag then
                 repeat task.wait()
                 until game.Players.LocalPlayer.Character:FindFirstChild("Head")
                 game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
@@ -1112,7 +2476,7 @@ end
                     })
 
 Tab4:AddButton({
-	Name = "Get Elude (Credit to R2O)",
+	Name = "Get Elude (Credits to R2O)",
 	Callback = function()
 Place = game.PlaceId
 Server = game.JobId
@@ -1134,6 +2498,8 @@ game:GetService("TeleportService"):Teleport(11828384869)
   	end    
 })
 
+Tab4:AddLabel("When in the elude maze there is a counter feature")
+
 Tab4:AddButton({
 	Name = "Get Counter (Use when in maze)",
 	Callback = function()
@@ -1151,7 +2517,7 @@ end
 })
 
 Tab4:AddButton({
-	Name = "Get Chain (Needs 1k slaps) (Credit to R2O)",
+	Name = "Get Chain (Needs 1k slaps) (Credits to R2O)",
 	Callback = function()
 Place = game.PlaceId
 Server = game.JobId
@@ -1246,24 +2612,14 @@ end
 })
 
 Tab4:AddToggle({
-                    Name = "Bob Farm (Credits to R2O)",
+                    Name = "Bob Farm",
                     Default = false,
-                    Callback = function(bool)
-bobFarm = bool
-        if bool == true then
-            while bobFarm do
-                task.wait()
-                    if getGlove() == "Replica" and bobFarm and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2125950512) then
-                    game.ReplicatedStorage.Duplicate:FireServer()
-                    task.wait()
-                    tick = os.time()
-                    repeat task.wait()
-                    until os.time() - tick >= 5.2
-                    end
-            end
-            else
-            task.wait(10.2)
-        end
+                    Callback = function(Value)
+_G.BobFarm = Value
+while _G.BobFarm do
+game:GetService("ReplicatedStorage").Duplicate:FireServer()
+wait(5.05)
+end
                     end    
                 })
 
@@ -1314,18 +2670,20 @@ Tab2:AddToggle({
                     Name = "Anti Ragdoll (This will reset your character)",
                     Default = false,
                     Callback = function(Value)
-if Value == true then
+_G.AntiRagdoll = Value
+if _G.AntiRagdoll then
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
-end
-wait(4)
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
 game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
-if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and Value == true then
+if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and _G.AntiRagdoll then
 repeat task.wait()
 game.Players.LocalPlayer.Character.Torso.Anchored = true
 until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
 game.Players.LocalPlayer.Character.Torso.Anchored = false
 end
 end)
+end)
+end
                     end    
                 })
 
@@ -1439,7 +2797,8 @@ if Value == true then
                     Name = "Anti Brick",
                     Default = false,
                     Callback = function(Value)
-while Value == true do
+_G.AntiBrick = Value
+while _G.AntiBrick do
 for i,v in pairs(game.Workspace:GetChildren()) do
                     if v.Name == "Union" then
                         v.CanTouch = false
