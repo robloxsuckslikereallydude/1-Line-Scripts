@@ -2452,22 +2452,6 @@ game:GetService("TeleportService"):Teleport(11828384869)
 Tab4:AddLabel("When in the elude maze there is a counter feature")
 
 Tab4:AddButton({
-	Name = "Get Counter (Use when in maze)",
-	Callback = function()
-fireclickdetector(game.Workspace.CounterLever.ClickDetector)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,100,0)
-wait(0.2)
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-wait(121)
-for i,v in pairs(workspace.Maze:GetDescendants()) do
-if v:IsA("ClickDetector") then
-fireclickdetector(v)
-end
-end
-  	end    
-})
-
-Tab4:AddButton({
 	Name = "Get Chain (Needs 1k slaps) (Credits to R2O)",
 	Callback = function()
 Place = game.PlaceId
