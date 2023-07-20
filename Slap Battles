@@ -356,6 +356,13 @@ SafeSpot.Name = "Spot"
 SafeSpot.Size = Vector3.new(500,60,500)
 SafeSpot.Anchored = true
 SafeSpot.Transparency = .75
+
+local TournamentAntiVoid = Instance.new("Part", workspace)
+TournamentAntiVoid.Name = "TAntiVoid"
+TournamentAntiVoid.Size = Vector3.new(2048, 3, 2048)
+TournamentAntiVoid.Position = Vector3.new(3417, 72, 2)
+TournamentAntiVoid.CanCollide = false
+TournamentAntiVoid.Transparency = 1
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
@@ -921,6 +928,7 @@ end
                     Default = false,
                     Callback = function(Value)
 game.Workspace.dedBarrier.CanCollide = Value
+game.Workspace.TAntiVoid.CanCollide = Value
                     end    
                 })
 
@@ -1677,6 +1685,13 @@ SafeSpot.Name = "Spot"
 SafeSpot.Size = Vector3.new(500,60,500)
 SafeSpot.Anchored = true
 SafeSpot.Transparency = .75
+
+local TournamentAntiVoid = Instance.new("Part", workspace)
+TournamentAntiVoid.Name = "TAntiVoid"
+TournamentAntiVoid.Size = Vector3.new(2048, 3, 2048)
+TournamentAntiVoid.Position = Vector3.new(3417, 72, 2)
+TournamentAntiVoid.CanCollide = false
+TournamentAntiVoid.Transparency = 1
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
@@ -1938,7 +1953,7 @@ wait(0.01)
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Slicer" do
 game:GetService("ReplicatedStorage").Slicer:FireServer("sword")
-game:GetService("ReplicatedStorage").Slicer:FireServer("slash", CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position) * CFrame.Angles(-5.66729e-11, 0.000832287, -1.10219e-10), Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Rotation))
+game:GetService("ReplicatedStorage").Slicer:FireServer("slash", game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, Vector3.new())
 wait(5.05)
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Rob" do
@@ -2108,6 +2123,15 @@ end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Coil" do
 game:GetService("ReplicatedStorage"):WaitForChild("GeneralAbility"):FireServer(game:GetService("Players").LocalPlayer.Character.Coil)
 wait(3.05)
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Diamond" do
+game:GetService("ReplicatedStorage"):WaitForChild("Rockmode"):FireServer()
+task.wait()
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Excavator" do
+game:GetService("ReplicatedStorage"):WaitForChild("Excavator"):InvokeServer()
+game:GetService("ReplicatedStorage"):WaitForChild("ExcavatorCancel"):FireServer()
+wait(7.3)
 end
                     end   
 })
@@ -2627,6 +2651,7 @@ end
                     Default = false,
                     Callback = function(Value)
 game.Workspace.dedBarrier.CanCollide = Value
+game.Workspace.TAntiVoid.CanCollide = Value
                     end    
                 })
 
