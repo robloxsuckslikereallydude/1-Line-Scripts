@@ -655,55 +655,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Cha
                     end    
                 })
 
-                Tab3:AddToggle({
-                    Name = "Spam Space Sound",
-                    Default = false,
-                    Callback = function(Value)
-_G.SpaceSoundSpam = Value
-while _G.SpaceSoundSpam do
-game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
-task.wait()
-end
-                    end    
-                })
-
-                Tab3:AddToggle({
-                    Name = "Spam Thanos Sound",
-                    Default = false,
-                    Callback = function(Value)
-_G.ThanosSoundSpam = Value
-while _G.ThanosSoundSpam do
-game:GetService("ReplicatedStorage").Illbeback:FireServer()
-task.wait()
-end
-                    end    
-                })
-
-                Tab3:AddToggle({
-                    Name = "Spam Golden Sound",
-                    Default = false,
-                    Callback = function(Value)
-_G.GoldenSoundSpam = Value
-while _G.GoldenSoundSpam do
-game:GetService("ReplicatedStorage").Goldify:FireServer(true)
-task.wait()
-end
-                    end    
-                })
-
-                Tab3:AddToggle({
-                    Name = "Spam Ghost Sound",
-                    Default = false,
-                    Callback = function(Value)
-_G.GhostSoundSpam = Value
-while _G.GhostSoundSpam do
-game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
-game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
-task.wait()
-end
-                    end    
-                })
-
 Tab6:AddButton({
 	Name = "CherryUi's Slap Battles GUI",
 	Callback = function()
