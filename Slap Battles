@@ -2563,8 +2563,7 @@ Tab4:AddToggle({
 	Name = "Brick Farm (Use if the 20m version doesnt work)",
 	Default = false,
 	Callback = function(Value)
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = Value
-		_G.Brickfarm = Value
+_G.Brickfarm = Value
 while _G.Brickfarm do
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
 task.wait(5.01)
