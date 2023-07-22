@@ -2165,7 +2165,7 @@ for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
                     end    
                 })
 
-Tab4:AddButton({
+Tab3:AddButton({
 	Name = "Give reaper 20 kills (Use after they slap you)",
 	Callback = function()
 for i = 1, 20 do
