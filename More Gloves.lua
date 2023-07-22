@@ -111,6 +111,8 @@
     ["rob"] = game.ReplicatedStorage.robhit,
     ["Link"] = game.ReplicatedStorage.LinkHit,
     ["Rhythm"] = game.ReplicatedStorage.rhythmhit,
+    ["Hitman"] = game.ReplicatedStorage.HitmanHit,
+    ["Rojo"] = game.ReplicatedStorage.RojoHit,
     ["Custom"] = game.ReplicatedStorage.CustomHit,
 
     
