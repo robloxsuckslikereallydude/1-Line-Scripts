@@ -332,7 +332,7 @@ task.wait()
 	end    
 })
 
-Tab5:AddButton({
+Tab6:AddButton({
 	Name = "R2O",
 	Callback = function()
       		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
