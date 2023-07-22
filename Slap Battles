@@ -639,12 +639,20 @@ Tab3:AddButton({
   	end    
 })
 
-Tab3:AddButton({
+Tab3:AddDropdown({
 	Name = "Rojo Charge VFX (Will fling you if spammed)",
-	Callback = function()
+	Default = "1",
+	Options = {"Attack", "No Attack"},
+	Callback = function(Value)
+if Value == "Attack" then
 game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
-                    end    
-                })
+wait(6)
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame})
+elseif Value == "No Attack" then
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
+end
+	end    
+})
 
 Tab6:AddButton({
 	Name = "CherryUi's Slap Battles GUI",
@@ -1866,22 +1874,6 @@ end
 })
 
                 Tab3:AddToggle({
-                    Name = "Rojo Spam All",
-                    Default = false,
-                    Callback = function(Value)
-_G.RojoSpam = Value
-while _G.RojoSpam do
-for i,v in pairs(game.Players:GetPlayers()) do
-if v.Name ~= game.Players.LocalPlayer.Name then
-game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[v.Name].Character.HumanoidRootPart.CFrame})
-end
-end
-task.wait()
-end
-                    end    
-                })
-
-                Tab3:AddToggle({
                     Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
                     Default = false,
                     Callback = function(Value)
@@ -2234,12 +2226,20 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmo
                     end    
                 })
 
-Tab3:AddButton({
+Tab3:AddDropdown({
 	Name = "Rojo Charge VFX (Will fling you if spammed)",
-	Callback = function()
+	Default = "1",
+	Options = {"Attack", "No Attack"},
+	Callback = function(Value)
+if Value == "Attack" then
 game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
-                    end    
-                })
+wait(6)
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame})
+elseif Value == "No Attack" then
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
+end
+	end    
+})
 
 Tab3:AddButton({
 	Name = "Turn glove into a block (Doesn't work with all gloves)",
