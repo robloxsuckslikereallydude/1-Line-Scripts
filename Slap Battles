@@ -296,6 +296,7 @@ _G.KeepWalkspeed = Value
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
+task.wait()
             end
         end
 	end    
@@ -325,6 +326,7 @@ _G.KeepJumppower = Value
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
                 end
+task.wait()
             end
         end
 	end    
@@ -690,17 +692,16 @@ Walkspeed = Value
 })
 
 Tab5:AddToggle({
-	Name = "Loop Walkspeed",
+	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(bool)
-autoSet1 = bool
-        if bool == true then
-            while autoSet1 do
-                task.wait()
-                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Walkspeed then
-                    Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+_G.KeepWalkspeed = Value
+        if _G.KeepWalkspeed then
+            while _G.KeepWalkspeed do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
+task.wait()
             end
         end
 	end    
@@ -721,17 +722,16 @@ Jumppower = Value
 })
 
 Tab5:AddToggle({
-	Name = "Loop Jumppower",
+	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(bool)
-autoSet1 = bool
-        if bool == true then
-            while autoSet1 do
-                task.wait()
-                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Jumppower then
-                    Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+_G.KeepJumppower = Value
+        if _G.KeepJumppower then
+            while _G.KeepJumppower do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
                 end
+task.wait()
             end
         end
 	end    
@@ -1114,17 +1114,16 @@ Walkspeed = Value
 })
 
 Tab4:AddToggle({
-	Name = "Loop Walkspeed",
+	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(bool)
-autoSet1 = bool
-        if bool == true then
-            while autoSet1 do
-                task.wait()
-                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Walkspeed then
-                    Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+_G.KeepWalkspeed = Value
+        if _G.KeepWalkspeed then
+            while _G.KeepWalkspeed do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
+task.wait()
             end
         end
 	end    
@@ -1145,17 +1144,16 @@ Jumppower = Value
 })
 
 Tab4:AddToggle({
-	Name = "Loop Jumppower",
+	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(bool)
-autoSet1 = bool
-        if bool == true then
-            while autoSet1 do
-                task.wait()
-                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Jumppower then
-                    Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+_G.KeepJumppower = Value
+        if _G.KeepJumppower then
+            while _G.KeepJumppower do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
                 end
+task.wait()
             end
         end
 	end    
@@ -1498,17 +1496,16 @@ Walkspeed = Value
 })
 
 Tab5:AddToggle({
-	Name = "Loop Walkspeed",
+	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(bool)
-autoSet1 = bool
-        if bool == true then
-            while autoSet1 do
-                task.wait()
-                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Walkspeed then
-                    Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+_G.KeepWalkspeed = Value
+        if _G.KeepWalkspeed then
+            while _G.KeepWalkspeed do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
+task.wait()
             end
         end
 	end    
@@ -1529,17 +1526,16 @@ Jumppower = Value
 })
 
 Tab5:AddToggle({
-	Name = "Loop Jumppower",
+	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(bool)
-autoSet1 = bool
-        if bool == true then
-            while autoSet1 do
-                task.wait()
-                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Jumppower then
-                    Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+_G.KeepJumppower = Value
+        if _G.KeepJumppower then
+            while _G.KeepJumppower do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
                 end
+task.wait()
             end
         end
 	end    
@@ -2421,17 +2417,16 @@ Walkspeed = Value
 })
 
 Tab5:AddToggle({
-	Name = "Loop Walkspeed",
+	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(bool)
-autoSet1 = bool
-        if bool == true then
-            while autoSet1 do
-                task.wait()
-                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Walkspeed then
-                    Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+_G.KeepWalkspeed = Value
+        if _G.KeepWalkspeed then
+            while _G.KeepWalkspeed do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
+task.wait()
             end
         end
 	end    
@@ -2452,17 +2447,16 @@ Jumppower = Value
 })
 
 Tab5:AddToggle({
-	Name = "Loop Jumppower",
+	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(bool)
-autoSet1 = bool
-        if bool == true then
-            while autoSet1 do
-                task.wait()
-                local Character = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-                if Character:FindFirstChild("Humanoid") ~= nil and Character.Humanoid.WalkSpeed ~= Jumppower then
-                    Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+_G.KeepJumppower = Value
+        if _G.KeepJumppower then
+            while _G.KeepJumppower do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
                 end
+task.wait()
             end
         end
 	end    
