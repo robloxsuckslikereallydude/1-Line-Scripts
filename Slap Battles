@@ -520,6 +520,18 @@ getgenv().SlapAura = bool
 end
                 })
 
+                Tab3:AddToggle({
+                    Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
+                    Default = false,
+                    Callback = function(Value)
+_G.RhythmSpam = Value
+while _G.RhythmSpam do
+game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
+task.wait()
+end
+                    end    
+                })
+
 Tab3:AddToggle({
                     Name = "Rojo Spam (WORKS WITH ALL GLOVES)",
                     Default = false,
@@ -547,34 +559,6 @@ Person = Value
 end
 	end	  
 })
-
-                Tab3:AddToggle({
-                    Name = "Rojo Spam All",
-                    Default = false,
-                    Callback = function(Value)
-_G.RojoSpam = Value
-while _G.RojoSpam do
-for i,v in pairs(game.Players:GetPlayers()) do
-if v.Name ~= game.Players.LocalPlayer.Name then
-game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[v.Name].Character.HumanoidRootPart.CFrame})
-end
-end
-task.wait()
-end
-                    end    
-                })
-
-                Tab3:AddToggle({
-                    Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
-                    Default = false,
-                    Callback = function(Value)
-_G.RhythmSpam = Value
-while _G.RhythmSpam do
-game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
-task.wait()
-end
-                    end    
-                })
 
                 Tab3:AddToggle({
                     Name = "Spam Error Sound (Works with all gloves)",
@@ -2339,6 +2323,67 @@ Tab3:AddButton({
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
   	end    
 })
+
+                Tab3:AddToggle({
+                    Name = "Spam Space Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.SpaceSoundSpam = Value
+while _G.SpaceSoundSpam do
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Spam Thanos Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.ThanosSoundSpam = Value
+while _G.ThanosSoundSpam do
+game:GetService("ReplicatedStorage").Illbeback:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Spam Golden Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.GoldenSoundSpam = Value
+while _G.GoldenSoundSpam do
+game:GetService("ReplicatedStorage").Goldify:FireServer(true)
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Spam Ghost Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.GhostSoundSpam = Value
+while _G.GhostSoundSpam do
+game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
+game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab3:AddToggle({
+                    Name = "Spam Hitman Sound",
+                    Default = false,
+                    Callback = function(Value)
+_G.HitmanSoundSpam = Value
+while _G.HitmanSoundSpam do
+game:GetService("ReplicatedStorage"):WaitForChild("HitmanAbility"):FireServer("ReplicateGoldenRevolver",{0})
+task.wait()
+end
+                    end    
+                })
 
 Tab6:AddButton({
 	Name = "CherryUi's Slap Battles GUI",
