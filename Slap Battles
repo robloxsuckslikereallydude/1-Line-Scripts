@@ -2582,18 +2582,18 @@ Tab4:AddButton({
 for i = 1, 200 do
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.30))
+wait(Random.new():NextNumber(1.1,1.35))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.30))
+wait(Random.new():NextNumber(1.1,1.35))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.30))
+wait(Random.new():NextNumber(1.1,1.35))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.30))
+wait(Random.new():NextNumber(1.1,1.35))
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
-wait(Random.new():NextNumber(1.1,1.30))
+wait(Random.new():NextNumber(1.1,1.35))
 end
                     end    
                 })
@@ -2617,7 +2617,7 @@ Tab4:AddToggle({
 _G.BobFarm = Value
 while _G.BobFarm do
 game:GetService("ReplicatedStorage").Duplicate:FireServer()
-wait(5.1)
+wait(Random.new():NextNumber(5.1,5.35))
 end
                     end    
                 })
