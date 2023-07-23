@@ -1870,7 +1870,7 @@ end
 Tab3:AddButton({
 	Name = "Destroy all tycoons",
 	Callback = function()
-for i = 1, 100 do
+for i = 1, 110 do
  for i,v in pairs(workspace:GetDescendants()) do
         if v.Name == "Destruct" and v:FindFirstChild("ClickDetector") then
             fireclickdetector(v.ClickDetector)
