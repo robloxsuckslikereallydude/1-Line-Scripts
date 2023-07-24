@@ -319,7 +319,7 @@ Jumppower = Value
 Tab5:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
-	Callback = function(bool)
+	Callback = function(Value)
 _G.KeepJumppower = Value
         if _G.KeepJumppower then
             while _G.KeepJumppower do
@@ -694,7 +694,7 @@ Walkspeed = Value
 Tab5:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
-	Callback = function(bool)
+	Callback = function(Value)
 _G.KeepWalkspeed = Value
         if _G.KeepWalkspeed then
             while _G.KeepWalkspeed do
@@ -724,7 +724,7 @@ Jumppower = Value
 Tab5:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
-	Callback = function(bool)
+	Callback = function(Value)
 _G.KeepJumppower = Value
         if _G.KeepJumppower then
             while _G.KeepJumppower do
@@ -1116,7 +1116,7 @@ Walkspeed = Value
 Tab4:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
-	Callback = function(bool)
+	Callback = function(Value)
 _G.KeepWalkspeed = Value
         if _G.KeepWalkspeed then
             while _G.KeepWalkspeed do
@@ -1146,7 +1146,7 @@ Jumppower = Value
 Tab4:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
-	Callback = function(bool)
+	Callback = function(Value)
 _G.KeepJumppower = Value
         if _G.KeepJumppower then
             while _G.KeepJumppower do
@@ -2003,7 +2003,7 @@ Walkspeed = Value
 Tab5:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
-	Callback = function(bool)
+	Callback = function(Value)
 _G.KeepWalkspeed = Value
         if _G.KeepWalkspeed then
             while _G.KeepWalkspeed do
@@ -2033,7 +2033,7 @@ Jumppower = Value
 Tab5:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
-	Callback = function(bool)
+	Callback = function(Value)
 _G.KeepJumppower = Value
         if _G.KeepJumppower then
             while _G.KeepJumppower do
