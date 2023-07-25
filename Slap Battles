@@ -291,14 +291,12 @@ Tab5:AddToggle({
 	Default = false,
 	Callback = function(Value)
 _G.KeepWalkspeed = Value
-        if _G.KeepWalkspeed then
             while _G.KeepWalkspeed do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
 task.wait()
             end
-        end
 	end    
 })
 
@@ -321,14 +319,12 @@ Tab5:AddToggle({
 	Default = false,
 	Callback = function(Value)
 _G.KeepJumppower = Value
-        if _G.KeepJumppower then
             while _G.KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
                 end
 task.wait()
             end
-        end
 	end    
 })
 
@@ -696,14 +692,12 @@ Tab5:AddToggle({
 	Default = false,
 	Callback = function(Value)
 _G.KeepWalkspeed = Value
-        if _G.KeepWalkspeed then
             while _G.KeepWalkspeed do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
 task.wait()
             end
-        end
 	end    
 })
 
@@ -726,14 +720,12 @@ Tab5:AddToggle({
 	Default = false,
 	Callback = function(Value)
 _G.KeepJumppower = Value
-        if _G.KeepJumppower then
             while _G.KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
                 end
 task.wait()
             end
-        end
 	end    
 })
 
@@ -1118,14 +1110,12 @@ Tab4:AddToggle({
 	Default = false,
 	Callback = function(Value)
 _G.KeepWalkspeed = Value
-        if _G.KeepWalkspeed then
             while _G.KeepWalkspeed do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
 task.wait()
             end
-        end
 	end    
 })
 
@@ -1148,14 +1138,12 @@ Tab4:AddToggle({
 	Default = false,
 	Callback = function(Value)
 _G.KeepJumppower = Value
-        if _G.KeepJumppower then
             while _G.KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
                 end
 task.wait()
             end
-        end
 	end    
 })
 
@@ -2005,14 +1993,12 @@ Tab5:AddToggle({
 	Default = false,
 	Callback = function(Value)
 _G.KeepWalkspeed = Value
-        if _G.KeepWalkspeed then
             while _G.KeepWalkspeed do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
 task.wait()
             end
-        end
 	end    
 })
 
@@ -2035,14 +2021,12 @@ Tab5:AddToggle({
 	Default = false,
 	Callback = function(Value)
 _G.KeepJumppower = Value
-        if _G.KeepJumppower then
             while _G.KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
                 end
 task.wait()
             end
-        end
 	end    
 })
 
