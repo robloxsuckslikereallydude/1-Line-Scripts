@@ -1396,7 +1396,7 @@ getgenv().SlapAura = bool
                                     if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
                                     local Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
                                     if 25 >= Magnitude then
-                                        shared.gloveHits[getGlove()]:FireServer(Player.Character:WaitForChild("Head"))
+                                        shared.gloveHits[getGlove()]:FireServer(Player.Character:WaitForChild("Head"),true)
                                 end
                                     end
                             end
@@ -1844,9 +1844,10 @@ Tab3:AddToggle({
                     Callback = function(Value)
 _G.Rainbow = Value
 while _G.Rainbow do
-local randomnumber = math.random(1004, 1032)
-game:GetService("ReplicatedStorage").Goldify:FireServer(false, BrickColor.new(randomnumber))
-task.wait(0.075)
+for i = 0,1,0.001*25 do
+game:GetService("ReplicatedStorage").Goldify:FireServer(false, BrickColor.new(Color3.fromHSV(i,1,1)))
+task.wait()
+end
 end
 end
                 })
@@ -2230,7 +2231,7 @@ end
 })
 
 Tab2:AddToggle({
-                    Name = "Anti Ragdoll (This will reset your character)",
+                    Name = "Anti Ragdoll (Resets character)",
                     Default = false,
                     Callback = function(Value)
 _G.AntiRagdoll = Value
