@@ -1,11 +1,8 @@
 -- if you have problems message Guy that exists#1915
 
-                repeat wait() until game:IsLoaded() wait()
-                spawn(function()
-                game:GetService("Players").LocalPlayer.Idled:connect(function()
-                game:GetService("VirtualUser"):ClickButton2(Vector2.new())
-                end)
-                end)
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 
 if game.PlaceId == 9431156611 then
 local bypass;
