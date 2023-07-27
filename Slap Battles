@@ -586,16 +586,15 @@ Tab3:AddToggle({
                     Name = "Auto Enter Arena",
                     Default = false,
                     Callback = function(Value)
-local localPlr = game:GetService("Players").LocalPlayer
-getgenv().AutoEnterArena = Value
-      while getgenv().AutoEnterArena == true do
-       wait(.001)
-if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindFirstChild("HumanoidRootPart") then
+_G.AutoEnterArena = Value
+while _G.AutoEnterArena do
+if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
     end
+task.wait()
 end
-end,
+end
                 })
 
 Tab3:AddToggle({
@@ -2185,7 +2184,7 @@ Tab4:AddToggle({
 _G.BobFarm = Value
 while _G.BobFarm do
 game:GetService("ReplicatedStorage").Duplicate:FireServer()
-wait(Random.new():NextNumber(5.1,5.35))
+wait(Random.new():NextNumber(5.2,5.4))
 end
                     end    
                 })
