@@ -43,37 +43,37 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ion
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
                     PremiumOnly = false
                 })
 
                 local Tab2 = Window:MakeTab({
                     Name = "Antis",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=7734056608",
                     PremiumOnly = false
                 })
  
                 local Tab3 = Window:MakeTab({
                     Name = "Misc",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370318685",
                     PremiumOnly = false
                 })
 
                 local Tab4 = Window:MakeTab({
                     Name = "Badges",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4335482575",
                     PremiumOnly = false
                 })
 
                 local Tab5 = Window:MakeTab({
                     Name = "Player",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4335489011",
                     PremiumOnly = false
                 })
 
                 local Tab6 = Window:MakeTab({
                     Name = "Hubs",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370344717",
                     PremiumOnly = false
                 })
 
@@ -318,7 +318,7 @@ Tab5:AddToggle({
 _G.KeepJumppower = Value
             while _G.KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
-                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
                 end
 task.wait()
             end
@@ -365,37 +365,37 @@ TournamentAntiVoid.Transparency = 1
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
                     PremiumOnly = false
                 })
 
                 local Tab2 = Window:MakeTab({
                     Name = "Antis",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=7734056608",
                     PremiumOnly = false
                 })
  
                 local Tab3 = Window:MakeTab({
                     Name = "Misc",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370318685",
                     PremiumOnly = false
                 })
 
                 local Tab4 = Window:MakeTab({
                     Name = "Badges",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4335482575",
                     PremiumOnly = false
                 })
 
                 local Tab5 = Window:MakeTab({
                     Name = "Player",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4335489011",
                     PremiumOnly = false
                 })
 
                 local Tab6 = Window:MakeTab({
                     Name = "Hubs",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370344717",
                     PremiumOnly = false
                 })
 
@@ -718,7 +718,7 @@ Tab5:AddToggle({
 _G.KeepJumppower = Value
             while _G.KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
-                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
                 end
 task.wait()
             end
@@ -983,25 +983,25 @@ elseif game.PlaceId == 11828384869 then
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
                     PremiumOnly = false
                 })
  
                 local Tab2 = Window:MakeTab({
                     Name = "Misc",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370318685",
                     PremiumOnly = false
                 })
 
                 local Tab3 = Window:MakeTab({
                     Name = "Badges",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4335482575",
                     PremiumOnly = false
                 })
 
                 local Tab4 = Window:MakeTab({
                     Name = "Player",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4335489011",
                     PremiumOnly = false
                 })
 
@@ -1136,7 +1136,7 @@ Tab4:AddToggle({
 _G.KeepJumppower = Value
             while _G.KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
-                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
                 end
 task.wait()
             end
@@ -1257,37 +1257,37 @@ TournamentAntiVoid.Transparency = 1
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
                     PremiumOnly = false
                 })
 
                 local Tab2 = Window:MakeTab({
                     Name = "Antis",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=7734056608",
                     PremiumOnly = false
                 })
- 
+
                 local Tab3 = Window:MakeTab({
                     Name = "Misc",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370318685",
                     PremiumOnly = false
                 })
 
                 local Tab4 = Window:MakeTab({
                     Name = "Badges",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4335482575",
                     PremiumOnly = false
                 })
 
                 local Tab5 = Window:MakeTab({
                     Name = "Player",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4335489011",
                     PremiumOnly = false
                 })
 
                 local Tab6 = Window:MakeTab({
                     Name = "Hubs",
-                    Icon = "http://www.roblox.com/asset/?id=",
+                    Icon = "http://www.roblox.com/asset/?id=4370344717",
                     PremiumOnly = false
                 })
 
@@ -1675,6 +1675,10 @@ game:GetService("ReplicatedStorage"):WaitForChild("Excavator"):InvokeServer()
 game:GetService("ReplicatedStorage"):WaitForChild("ExcavatorCancel"):FireServer()
 wait(7.3)
 end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Thor" do
+game:GetService("ReplicatedStorage").ThorAbility:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+task.wait()
+end
                     end   
 })
 
@@ -2026,7 +2030,7 @@ Tab5:AddToggle({
 _G.KeepJumppower = Value
             while _G.KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
-                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
                 end
 task.wait()
             end
