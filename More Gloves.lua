@@ -113,6 +113,7 @@
     ["Rhythm"] = game.ReplicatedStorage.rhythmhit,
     ["Hitman"] = game.ReplicatedStorage.HitmanHit,
     ["Rojo"] = game.ReplicatedStorage.RojoHit,
+    ["Thor"] = game.ReplicatedStorage.ThorHit,
     ["Custom"] = game.ReplicatedStorage.CustomHit,
 
     
