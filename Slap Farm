@@ -11,6 +11,8 @@ if not localPlr.Character:FindFirstChild("entered") and localPlr.Character:FindF
         firetouchinterest(localPlr.Character.HumanoidRootPart, workspace.Lobby.Teleport1, 1)
     until localPlr.Character:FindFirstChild("entered") ~= nil
 end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Arena.island5.Union.CFrame * CFrame.new(0,-10,0)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 for _,v in pairs(workspace.Arena:GetDescendants()) do
     if string.find(v.Name, "Slapple") and v:FindFirstChild("Glove") and v.Glove:FindFirstChildOfClass("TouchTransmitter") then
         firetouchinterest(localPlr.Character.HumanoidRootPart, v.Glove, 0)
