@@ -133,16 +133,14 @@ end
                 })
 
 Tab3:AddButton({
-	Name = "Get all items (Use in bus) (Credits to R2O)",
+	Name = "Get all items (Use in bus)",
 	Callback = function()
 if game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true then
-        if game.Players.LocalPlayer.Character.inMatch.Value and workspace:FindFirstChildWhichIsA("Tool") then
-            for _, Items in ipairs(game.Workspace:GetDescendants()) do
-                if Items:IsA("TouchTransmitter") and Items.Parent.Name == "Handle" then
-                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(Items.Parent.Parent)
+            for i, v in ipairs(game.Workspace:GetChildren()) do
+                if v.ClassName == "Tool" then
+ game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
                 end
-            end
-            game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
             end
 end
   	end    
