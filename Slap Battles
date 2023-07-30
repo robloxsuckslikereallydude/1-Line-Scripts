@@ -1689,6 +1689,56 @@ getgenv().SlapAura = bool
 end
                 })
 
+Tab3:AddButton({
+	Name = "Godmode (Resets character) (Glove wont show for others)",
+	Callback = function()
+if game.Players.LocalPlayer.Character.isInArena.Value == false then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
+wait(0.5)
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v.ClassName == "Tool" then
+                        v.Parent = game.LogService
+                    end
+                end
+game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
+wait(4)
+for i,v in pairs(game.LogService:GetChildren()) do
+                    if v.ClassName == "Tool" then
+                        v.Parent = game.Players.LocalPlayer.Character
+                    end
+                end
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ClassName == "Tool" then
+                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                    end
+                end 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
+elseif game.Players.LocalPlayer.Character.isInArena.Value == true then
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v.ClassName == "Tool" then
+                        v.Parent = game.LogService
+                    end
+                end
+game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
+wait(4)
+for i,v in pairs(game.LogService:GetChildren()) do
+                    if v.ClassName == "Tool" then
+                        v.Parent = game.Players.LocalPlayer.Character
+                    end
+                end
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ClassName == "Tool" then
+                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                    end
+                end 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
+end
+                    end    
+                })
+
 Tab3:AddToggle({
                     Name = "Rojo Spam (WORKS WITH ALL GLOVES)",
                     Default = false,
@@ -2161,7 +2211,9 @@ Tab3:AddTextbox({
 	Default = "Glove Name",
 	TextDisappear = true,
 	Callback = function(Value)
+if game.Players.LocalPlayer.Character.isInArena.Value == false then
 		fireclickdetector(workspace.Lobby[Value].ClickDetector)
+end
 	end	  
 })
 
