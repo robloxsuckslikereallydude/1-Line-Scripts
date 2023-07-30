@@ -2864,7 +2864,7 @@ end
                Tab2:AddToggle({
                     Name = "Anti Megarock/Custom",
                     Default = false,
-                    Callback = function(bool)
+                    Callback = function(Value)
 _G.AntiRock = Value
 while _G.AntiRock do
 for i,v in pairs(game.Workspace:GetDescendants()) do
