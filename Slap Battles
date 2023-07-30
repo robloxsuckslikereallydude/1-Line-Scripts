@@ -4,6 +4,8 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
+game:GetService("GuiService"):ClearError()
+
 if game.PlaceId == 9431156611 then
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
@@ -705,7 +707,9 @@ if teleportFunc then
         end
         local localPlr = game:GetService("Players").LocalPlayer
         repeat wait() until localPlr
-game:GetService("GuiService"):ClearError()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
@@ -1304,7 +1308,9 @@ if teleportFunc then
         end
         local localPlr = game:GetService("Players").LocalPlayer
         repeat wait() until localPlr
-game:GetService("GuiService"):ClearError()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
@@ -1597,7 +1603,9 @@ if teleportFunc then
         end
         local localPlr = game:GetService("Players").LocalPlayer
         repeat wait() until localPlr
-game:GetService("GuiService"):ClearError()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
