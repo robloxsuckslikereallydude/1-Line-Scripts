@@ -104,24 +104,20 @@ AntiLava.CanCollide = Value
 })
 
 Tab3:AddToggle({
-                    Name = "Slap Aura (Credits to R2O)",
+                    Name = "Slap Aura",
                     Default = false,
-                    Callback = function(bool)
-slapAura = bool
-		  if bool == true then
-		    while slapAura == true do
-				task.wait()
-				for _, L_8 in pairs(game.Players:GetPlayers()) do
-					if L_8 ~= game.Players.LocalPlayer then
-						if L_8.Character:FindFirstChild("HumanoidRootPart") ~= nil and L_8.Character:FindFirstChild("Humanoid") and not L_8.Character:FindFirstChild("Dead")  and not game.Players.LocalPlayer.Character:FindFirstChild("Dead")  then
-							local magnitude = (L_8.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-								if 25 >= magnitude then
-									game:GetService("ReplicatedStorage").Events.Slap:FireServer(L_8.Character.Torso)
-								end
-							end
-						end
-					end
-		    end
+                    Callback = function(Value)
+_G.SlapAura = Value
+                while _G.SlapAura do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Dead") == nil then
+Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                        if 25 >= Magnitude then
+game.ReplicatedStorage.Events.Slap:FireServer(v.Character:WaitForChild("Head"))
+                    end
+end
+                end
+task.wait()
 end
 end
                 })
@@ -765,29 +761,21 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmo
                 })
 
 Tab3:AddToggle({
-                    Name = "Slap Aura (Credits to R2O)",
+                    Name = "Slap Aura",
                     Default = false,
-                    Callback = function(bool)
-getgenv().SlapAura = bool
-            if bool == true then
-                while getgenv().SlapAura do
-                    task.wait(.005)
-                        pcall(function()
-                        for Index, Player in next, game.Players:GetPlayers() do
-                            if Player ~= game.Players.LocalPlayer and Player.Character and Player.Character:FindFirstChild("entered") then
-                                if Player.Character:FindFirstChild("Head") then
-                                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                                    local Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
-                                    if 25 >= Magnitude then
-                                        game:GetService("ReplicatedStorage"):WaitForChild("KSHit"):FireServer(Player.Character:WaitForChild("Head"))
-                                end
-                                    end
-                            end
-                                end
-                        end
-                    end)
+                    Callback = function(Value)
+_G.SlapAura = Value
+                while _G.SlapAura do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer and v.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                        if 25 >= Magnitude then
+game.ReplicatedStorage.KSHit:FireServer(v.Character:WaitForChild("Head"))
+                    end
+end
                 end
-            end
+task.wait()
+end
 end
                 })
 
@@ -1711,31 +1699,25 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmo
                 })
 
 Tab3:AddToggle({
-                    Name = "Slap Aura (Credits to R2O)",
+                    Name = "Slap Aura",
                     Default = false,
-                    Callback = function(bool)
-getgenv().SlapAura = bool
-            if bool == true then
-                while getgenv().SlapAura do
-                    task.wait(.005)
-                        pcall(function()
-                        for Index, Player in next, game.Players:GetPlayers() do
-                            if Player ~= game.Players.LocalPlayer and Player.Character and Player.Character:FindFirstChild("entered") then
-                                if Player.Character:FindFirstChild("Head") then
-                                if Player.Character.Head:FindFirstChild("UnoReverseCard") == nil and Player.Character:FindFirstChild("rock") == nil and Player.leaderstats.Glove ~= "Spectator" and Player.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller") then 
-                                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                                    local Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
-                                    if 25 >= Magnitude then
-                                        shared.gloveHits[getGlove()]:FireServer(Player.Character:WaitForChild("Head"),true)
-                                end
-                                    end
-                            end
-                                end
-                        end
-                        end
-                    end)
+                    Callback = function(Value)
+_G.SlapAura = Value
+                while _G.SlapAura do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer and v.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+if v.Character:FindFirstChild("rock") == nil and v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller") then
+if v.Character.Head:FindFirstChild("UnoReverseCard") == nil or game.Players.LocalPlayer.leaderstats.Glove == "Error" then
+Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                        if 25 >= Magnitude then
+shared.gloveHits[getGlove()]:FireServer(v.Character:WaitForChild("Head"),true)
+                    end
+end
+end
+end
                 end
-            end
+task.wait()
+end
 end
                 })
 
