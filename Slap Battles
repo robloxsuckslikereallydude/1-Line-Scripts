@@ -129,14 +129,14 @@ end
 Tab3:AddButton({
 	Name = "Get all items (Use in bus)",
 	Callback = function()
-repeat task.wait()
-until game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true
+if game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true then
             for i, v in ipairs(game.Workspace:GetChildren()) do
                 if v.ClassName == "Tool" then
  game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
 game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
                 end
             end
+end
   	end    
 })
 
