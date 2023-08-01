@@ -1201,6 +1201,18 @@ end
 })
 
 Tab2:AddToggle({
+                    Name = "Anti Kick",
+                    Default = false,
+                    Callback = function(Value)
+_G.AntiKick = Value
+while _G.AntiKick do
+repeat task.wait() until game.CoreGui.RobloxPromptGui.promptOverlay:FindFirstChild("ErrorPrompt")
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+end
+end
+})
+
+Tab2:AddToggle({
                     Name = "Anti Ragdoll (This will reset your character)",
                     Default = false,
                     Callback = function(Value)
@@ -2605,6 +2617,18 @@ antiAdmins = bool
             end
         end)
     end
+end
+})
+
+Tab2:AddToggle({
+                    Name = "Anti Kick",
+                    Default = false,
+                    Callback = function(Value)
+_G.AntiKick = Value
+while _G.AntiKick do
+repeat task.wait() until game.CoreGui.RobloxPromptGui.promptOverlay:FindFirstChild("ErrorPrompt")
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+end
 end
 })
 
