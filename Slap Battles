@@ -2733,6 +2733,22 @@ if Value == true then
                 })
 
                Tab2:AddToggle({
+                    Name = "Anti Timestop",
+                    Default = false,
+                    Callback = function(Value)
+_G.AntiTimestop = Value
+while _G.AntiTimestop do
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v.ClassName == "Part" then
+                        v.Anchored = false
+                    end
+                end
+task.wait()
+end
+                    end    
+                })
+
+               Tab2:AddToggle({
                     Name = "Anti Squid",
                     Default = false,
                     Callback = function(Value)
