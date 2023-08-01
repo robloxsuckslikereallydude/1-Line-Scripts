@@ -769,7 +769,7 @@ Tab3:AddToggle({
 _G.SlapAura = Value
                 while _G.SlapAura do
 for i,v in pairs(game.Players:GetChildren()) do
-                    if v ~= game.Players.LocalPlayer and v.Character then
+                    if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
 if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") then
 Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
                         if 25 >= Magnitude then
@@ -1725,7 +1725,7 @@ Tab3:AddToggle({
 _G.SlapAura = Value
                 while _G.SlapAura do
 for i,v in pairs(game.Players:GetChildren()) do
-                    if v ~= game.Players.LocalPlayer and v.Character then
+                    if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
 if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("rock") == nil and v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller") then
 if v.Character.Head:FindFirstChild("UnoReverseCard") == nil or game.Players.LocalPlayer.leaderstats.Glove == "Error" then
 Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
