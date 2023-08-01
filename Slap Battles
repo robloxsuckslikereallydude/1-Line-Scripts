@@ -1206,8 +1206,12 @@ Tab2:AddToggle({
                     Callback = function(Value)
 _G.AntiKick = Value
 while _G.AntiKick do
-repeat task.wait() until game.CoreGui.RobloxPromptGui.promptOverlay:FindFirstChild("ErrorPrompt")
+for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
+                    if v.Name == "ErrorPrompt" then
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+                    end
+                end
+task.wait()
 end
 end
 })
@@ -2626,8 +2630,12 @@ Tab2:AddToggle({
                     Callback = function(Value)
 _G.AntiKick = Value
 while _G.AntiKick do
-repeat task.wait() until game.CoreGui.RobloxPromptGui.promptOverlay:FindFirstChild("ErrorPrompt")
+for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
+                    if v.Name == "ErrorPrompt" then
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+                    end
+                end
+task.wait()
 end
 end
 })
@@ -2803,10 +2811,14 @@ task.wait()
                     Callback = function(Value)
 _G.AntiReaper = Value
             while _G.AntiReaper do
-repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("DeathMark")
-                    game:GetService("ReplicatedStorage").ReaperGone:FireServer(game:GetService("Players").LocalPlayer.Character.DeathMark)
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                    if v.Name == "DeathMark" then
+                        game:GetService("ReplicatedStorage").ReaperGone:FireServer(game:GetService("Players").LocalPlayer.Character.DeathMark)
                     game:GetService("Lighting"):WaitForChild("DeathMarkColorCorrection"):Destroy() 
-        end
+                    end
+                end
+task.wait()
+end
                     end    
                 })
 
