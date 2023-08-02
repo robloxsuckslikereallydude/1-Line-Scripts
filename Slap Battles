@@ -1044,31 +1044,26 @@ task.wait()
 })
 
 Tab4:AddButton({
-                    Name = "Get [REDACTED] (Credits to R2O)",
+                    Name = "Get [REDACTED]",
 Callback = function()
-local Door = 1
-if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) and 5000 <= game.Players.LocalPlayer.leaderstats.Slaps.Value then
-    repeat
-    task.wait(.25)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.PocketDimension.Doors[Door].CFrame
-    Door = Door + 1
-    print(Door)
-    wait(5)
-    until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850)
-else 
-game.StarterGui:SetCore("SendNotification", {
-                Title = "Error";
-                Duration = 5;
-                Text = "You already have [ R E D A C T E D ]!";
-            })
-game.StarterGui:SetCore("SendNotification", {
-                Title = "Error";
-                Duration = 5;
-                Text = "Or you don't have 5K slaps.";
-            })
-    print("You already have [ R E D A C T E D ]!")
-    print("Or you don't have 5K slaps.")
+if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 5000 then
+Door = 0
+for i = 1, 10 do
+Door = Door + 1
+        if game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) then
+        else
+        firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 1)
+wait(4)
 end
+end
+else
+game.StarterGui:SetCore("SendNotification", {
+                Title = "Error";
+                Duration = 5;
+                Text = "You need 5000 slaps";
+            })
+            end
 end
                     })
 
@@ -2067,6 +2062,7 @@ end
 Tab3:AddButton({
 	Name = "Kick player (Needs Za Hando) (Inconsistent)",
 	Callback = function()
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Za Hando" then
 OGWS = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
 OGJP = game.Players.LocalPlayer.Character.Humanoid.JumpPower
 for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
@@ -2088,6 +2084,13 @@ for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
                         v.CanTouch = true
                     end
                 end
+else
+game.StarterGui:SetCore("SendNotification", {
+                Title = "Error";
+                Duration = 5;
+                Text = "You don't have Za Hando equipped";
+            })
+end
                     end    
                 })
 
@@ -2263,7 +2266,7 @@ Tab3:AddTextbox({
 	Default = "Glove Name",
 	TextDisappear = true,
 	Callback = function(Value)
-if game.Players.LocalPlayer.Character.isInArena.Value == false then
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
 		fireclickdetector(workspace.Lobby[Value].ClickDetector)
 end
 	end	  
@@ -2422,31 +2425,26 @@ task.wait()
 })
 
 Tab4:AddButton({
-                    Name = "Get [REDACTED] (Credits to R2O)",
+                    Name = "Get [REDACTED]",
 Callback = function()
-local Door = 1
-if not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) and 5000 <= game.Players.LocalPlayer.leaderstats.Slaps.Value then
-    repeat
-    task.wait(.25)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.PocketDimension.Doors[Door].CFrame
-    Door = Door + 1
-    print(Door)
-    wait(5)
-    until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850)
-else 
-game.StarterGui:SetCore("SendNotification", {
-                Title = "Error";
-                Duration = 5;
-                Text = "You already have [ R E D A C T E D ]!";
-            })
-game.StarterGui:SetCore("SendNotification", {
-                Title = "Error";
-                Duration = 5;
-                Text = "Or you don't have 5K slaps.";
-            })
-    print("You already have [ R E D A C T E D ]!")
-    print("Or you don't have 5K slaps.")
+if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 5000 then
+Door = 0
+for i = 1, 10 do
+Door = Door + 1
+        if game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) then
+        else
+        firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 1)
+wait(4)
 end
+end
+else
+game.StarterGui:SetCore("SendNotification", {
+                Title = "Error";
+                Duration = 5;
+                Text = "You need 5000 slaps";
+            })
+            end
 end
                     })
 
