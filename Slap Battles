@@ -48,24 +48,30 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ion
                 })
 
                 local Tab2 = Window:MakeTab({
+                    Name = "Combat",
+                    Icon = "http://www.roblox.com/asset/?id=7733674079",
+                    PremiumOnly = false
+                })
+
+                local Tab3 = Window:MakeTab({
                     Name = "Antis",
                     Icon = "http://www.roblox.com/asset/?id=7734056608",
                     PremiumOnly = false
                 })
  
-                local Tab3 = Window:MakeTab({
+                local Tab4 = Window:MakeTab({
                     Name = "Misc",
                     Icon = "http://www.roblox.com/asset/?id=4370318685",
                     PremiumOnly = false
                 })
 
-                local Tab4 = Window:MakeTab({
+                local Tab5 = Window:MakeTab({
                     Name = "Player",
                     Icon = "http://www.roblox.com/asset/?id=4335489011",
                     PremiumOnly = false
                 })
 
-                local Tab5 = Window:MakeTab({
+                local Tab6 = Window:MakeTab({
                     Name = "Hubs",
                     Icon = "http://www.roblox.com/asset/?id=4370344717",
                     PremiumOnly = false
@@ -87,7 +93,7 @@ Tab:AddButton({
   	end    
 })
 
-Tab2:AddToggle({
+Tab3:AddToggle({
 	Name = "Anti Acid",
 	Default = false,
 	Callback = function(Value)
@@ -95,7 +101,7 @@ AntiAcid.CanCollide = Value
 	end    
 })
 
-Tab2:AddToggle({
+Tab3:AddToggle({
 	Name = "Anti Lava",
 	Default = false,
 	Callback = function(Value)
@@ -103,7 +109,7 @@ AntiLava.CanCollide = Value
 	end    
 })
 
-Tab3:AddToggle({
+Tab2:AddToggle({
                     Name = "Slap Aura",
                     Default = false,
                     Callback = function(Value)
@@ -124,7 +130,7 @@ end
 end
                 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Get all items (Use in bus)",
 	Callback = function()
 if game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true then
@@ -138,7 +144,7 @@ end
   	end    
 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Bomb Bus (Use in the lobby)",
 	Callback = function()
 repeat task.wait()
@@ -152,7 +158,7 @@ until game.Players.LocalPlayer.Backpack:FindFirstChild("Bomb")
 			end
 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Leave bus early",
 	Callback = function()
 game:GetService("ReplicatedStorage").Events.BusJumping:FireServer()
@@ -162,7 +168,7 @@ game.Players.LocalPlayer.PlayerGui.JumpPrompt:Destroy()
 			end
 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Inf 250 power (Needs 2 True Powers) (Use before other items)",
 	Callback = function()
 for i = 1, 2 do
@@ -172,7 +178,7 @@ end
                     end    	
                 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Use permanent items",
 	Callback = function()
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
@@ -188,7 +194,7 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 			end
 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Get Lab Code",
 	Callback = function()
 if game.Workspace.Map.CodeBrick.SurfaceGui:FindFirstChild("IMGTemplate") then
@@ -350,7 +356,7 @@ game.StarterGui:SetCore("SendNotification", {Title = Code,Duration = 5,Text = " 
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Get Chain",
 	Callback = function()
 if game.Workspace.Map.CodeBrick.SurfaceGui:FindFirstChild("IMGTemplate") then
@@ -521,7 +527,7 @@ fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Enter.Clic
                     end    
                 })
 
-Tab3:AddToggle({
+Tab4:AddToggle({
                     Name = "Remove Zone Color",
                     Default = false,
                     Callback = function(Value)
@@ -534,14 +540,14 @@ end)
 end
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Free Emotes (Type /e emotename) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
                     end    
                 })
 
-Tab4:AddSlider({
+Tab5:AddSlider({
 	Name = "Walkspeed",
 	Min = 20,
 	Max = 1000,
@@ -555,7 +561,7 @@ Walkspeed = Value
 	end    
 })
 
-Tab4:AddToggle({
+Tab5:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(Value)
@@ -569,7 +575,7 @@ task.wait()
 	end    
 })
 
-Tab4:AddSlider({
+Tab5:AddSlider({
 	Name = "Jumppower",
 	Min = 50,
 	Max = 1000,
@@ -583,7 +589,7 @@ Jumppower = Value
 	end    
 })
 
-Tab4:AddToggle({
+Tab5:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(Value)
@@ -597,7 +603,7 @@ task.wait()
 	end    
 })
 
-Tab5:AddButton({
+Tab6:AddButton({
 	Name = "R2O",
 	Callback = function()
       		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
@@ -642,30 +648,36 @@ TournamentAntiVoid.Transparency = 1
                 })
 
                 local Tab2 = Window:MakeTab({
+                    Name = "Combat",
+                    Icon = "http://www.roblox.com/asset/?id=7733674079",
+                    PremiumOnly = false
+                })
+
+                local Tab3 = Window:MakeTab({
                     Name = "Antis",
                     Icon = "http://www.roblox.com/asset/?id=7734056608",
                     PremiumOnly = false
                 })
  
-                local Tab3 = Window:MakeTab({
+                local Tab4 = Window:MakeTab({
                     Name = "Misc",
                     Icon = "http://www.roblox.com/asset/?id=4370318685",
                     PremiumOnly = false
                 })
 
-                local Tab4 = Window:MakeTab({
+                local Tab5 = Window:MakeTab({
                     Name = "Badges",
                     Icon = "http://www.roblox.com/asset/?id=4335482575",
                     PremiumOnly = false
                 })
 
-                local Tab5 = Window:MakeTab({
+                local Tab6 = Window:MakeTab({
                     Name = "Player",
                     Icon = "http://www.roblox.com/asset/?id=4335489011",
                     PremiumOnly = false
                 })
 
-                local Tab6 = Window:MakeTab({
+                local Tab7 = Window:MakeTab({
                     Name = "Hubs",
                     Icon = "http://www.roblox.com/asset/?id=4370344717",
                     PremiumOnly = false
@@ -694,7 +706,7 @@ Tab:AddButton({
   	end    
 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "View Testing Server (Good for glove leaking)",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
@@ -714,7 +726,7 @@ game:GetService("TeleportService"):Teleport(9020359053)
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "View Slap Royale Testing Server",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
@@ -734,35 +746,35 @@ game:GetService("TeleportService"):Teleport(9412268818)
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Testing Server Freecam",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Testing Server Freecam (Mobile)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Slap Farm (This copies the script, put it in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
 	Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
                     end    
                 })
 
-Tab3:AddToggle({
+Tab2:AddToggle({
                     Name = "Slap Aura",
                     Default = false,
                     Callback = function(Value)
@@ -783,7 +795,7 @@ end
 end
                 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Godmode (Resets character) (Breaks killstreak)",
 	Callback = function()
 if game.Players.LocalPlayer.Character.isInArena.Value == false then
@@ -833,7 +845,7 @@ end
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab2:AddToggle({
                     Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
                     Default = false,
                     Callback = function(Value)
@@ -845,7 +857,7 @@ end
                     end    
                 })
 
-Tab3:AddToggle({
+Tab2:AddToggle({
                     Name = "Rojo Spam (WORKS WITH ALL GLOVES)",
                     Default = false,
                     Callback = function(Value)
@@ -860,7 +872,7 @@ end
                     end    
                 })
 
-Tab3:AddTextbox({
+Tab2:AddTextbox({
 	Name = "Make person use rojo spam",
 	Default = "Username",
 	TextDisappear = false,
@@ -873,7 +885,7 @@ end
 	end	  
 })
 
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Spam Error Sound (Works with all gloves)",
                     Default = false,
                     Callback = function(Value)
@@ -885,7 +897,7 @@ end
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab2:AddToggle({
                     Name = "Killstreak Soul Snatcher Spam",
                     Default = false,
                     Callback = function(Value)
@@ -897,7 +909,7 @@ end
                     end   
 })
 
-Tab3:AddToggle({
+Tab2:AddToggle({
                     Name = "Auto Enter Arena",
                     Default = false,
                     Callback = function(Value)
@@ -912,7 +924,7 @@ end
 end
                 })
 
-Tab3:AddToggle({
+Tab4:AddToggle({
                     Name = "Remove Nametag (Breaks killstreak)",
                     Default = false,
                     Callback = function(Value)
@@ -930,28 +942,28 @@ _G.AutoRemoveNameTag = Value
 end
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Free Emotes (Type /e emotename) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "TP to Safe spot",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
   	end    
 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "TP back to arena",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
   	end    
 })
 
-Tab3:AddDropdown({
+Tab4:AddDropdown({
 	Name = "Rojo Charge VFX (Will fling you if spammed)",
 	Default = "1",
 	Options = {"Attack", "No Attack"},
@@ -966,28 +978,28 @@ end
 	end    
 })
 
-Tab6:AddButton({
+Tab7:AddButton({
 	Name = "CherryUi's Slap Battles GUI",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))()
   	end    
 })
 
-Tab6:AddButton({
+Tab7:AddButton({
 	Name = "R2O",
 	Callback = function()
       		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
   	end    
 })
 
-Tab6:AddButton({
+Tab7:AddButton({
 	Name = "dizzy hub",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/dizyhvh/rbx_scripts/main/dizzy_hub/scripts/slap_battles.lua"))()
   	end    
 })
 
-Tab5:AddSlider({
+Tab6:AddSlider({
 	Name = "Walkspeed",
 	Min = 20,
 	Max = 1000,
@@ -1001,7 +1013,7 @@ Walkspeed = Value
 	end    
 })
 
-Tab5:AddToggle({
+Tab6:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(Value)
@@ -1015,7 +1027,7 @@ task.wait()
 	end    
 })
 
-Tab5:AddSlider({
+Tab6:AddSlider({
 	Name = "Jumppower",
 	Min = 50,
 	Max = 1000,
@@ -1029,7 +1041,7 @@ Jumppower = Value
 	end    
 })
 
-Tab5:AddToggle({
+Tab6:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(Value)
@@ -1043,7 +1055,7 @@ task.wait()
 	end    
 })
 
-Tab4:AddButton({
+Tab5:AddButton({
                     Name = "Get [REDACTED]",
 Callback = function()
 if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 5000 then
@@ -1067,7 +1079,7 @@ game.StarterGui:SetCore("SendNotification", {
 end
                     })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get Elude (Credits to R2O)",
 	Callback = function()
 Place = game.PlaceId
@@ -1090,9 +1102,9 @@ game:GetService("TeleportService"):Teleport(11828384869)
   	end    
 })
 
-Tab4:AddLabel("When in the elude maze there is a counter feature")
+Tab5:AddLabel("When in the elude maze there is a counter feature")
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get Chain (Needs 1k slaps) (Credits to R2O)",
 	Callback = function()
 Place = game.PlaceId
@@ -1143,7 +1155,7 @@ game:GetService("TeleportService"):Teleport(9431156611)
   	end    
 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get Tycoon",
 	Callback = function()
       		repeat task.wait()
@@ -1152,35 +1164,35 @@ until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate
                     end    
                 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get Brazil badge",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.brazil.portal.CFrame
                     end    
                 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get court evidence badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Lobby.Scene.knofe.ClickDetector)
                     end    
                 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get duck badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Arena["default island"]["Rubber Ducky"].ClickDetector)
                     end    
                 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get The Lone Orange badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
                     end    
                 })
 
-Tab2:AddToggle({
+Tab3:AddToggle({
                     Name = "Anti Admins (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -1195,7 +1207,7 @@ antiAdmins = bool
 end
 })
 
-Tab2:AddToggle({
+Tab3:AddToggle({
                     Name = "Anti Kick",
                     Default = false,
                     Callback = function(Value)
@@ -1211,7 +1223,7 @@ end
 end
 })
 
-Tab2:AddToggle({
+Tab3:AddToggle({
                     Name = "Anti Ragdoll (This will reset your character)",
                     Default = false,
                     Callback = function(Value)
@@ -1232,7 +1244,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Void",
                     Default = false,
                     Callback = function(Value)
@@ -1241,7 +1253,7 @@ game.Workspace.TAntiVoid.CanCollide = Value
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Death Barriers",
                     Default = false,
                     Callback = function(Value)
@@ -1271,7 +1283,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Brazil",
                     Default = false,
                     Callback = function(Value)
@@ -1291,7 +1303,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Cube of Death",
                     Default = false,
                     Callback = function(Value)
@@ -1593,30 +1605,36 @@ TournamentAntiVoid.Transparency = 1
                 })
 
                 local Tab2 = Window:MakeTab({
+                    Name = "Combat",
+                    Icon = "http://www.roblox.com/asset/?id=7733674079",
+                    PremiumOnly = false
+                })
+
+                local Tab3 = Window:MakeTab({
                     Name = "Antis",
                     Icon = "http://www.roblox.com/asset/?id=7734056608",
                     PremiumOnly = false
                 })
 
-                local Tab3 = Window:MakeTab({
+                local Tab4 = Window:MakeTab({
                     Name = "Misc",
                     Icon = "http://www.roblox.com/asset/?id=4370318685",
                     PremiumOnly = false
                 })
 
-                local Tab4 = Window:MakeTab({
+                local Tab5 = Window:MakeTab({
                     Name = "Badges",
                     Icon = "http://www.roblox.com/asset/?id=4335482575",
                     PremiumOnly = false
                 })
 
-                local Tab5 = Window:MakeTab({
+                local Tab6 = Window:MakeTab({
                     Name = "Player",
                     Icon = "http://www.roblox.com/asset/?id=4335489011",
                     PremiumOnly = false
                 })
 
-                local Tab6 = Window:MakeTab({
+                local Tab7 = Window:MakeTab({
                     Name = "Hubs",
                     Icon = "http://www.roblox.com/asset/?id=4370344717",
                     PremiumOnly = false
@@ -1645,7 +1663,7 @@ Tab:AddButton({
   	end    
 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "View Testing Server (Good for glove leaking)",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
@@ -1665,7 +1683,7 @@ game:GetService("TeleportService"):Teleport(9020359053)
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "View Slap Royale Testing Server",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
@@ -1685,35 +1703,35 @@ game:GetService("TeleportService"):Teleport(9412268818)
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Testing Server Freecam",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Testing Server Freecam (Mobile)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Slap Farm (This copies the script, put it in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
 	Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
                     end    
                 })
 
-Tab3:AddToggle({
+Tab2:AddToggle({
                     Name = "Slap Aura",
                     Default = false,
                     Callback = function(Value)
@@ -1736,7 +1754,7 @@ end
 end
                 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Godmode (Resets character) (Breaks ks & reaper)",
 	Callback = function()
 if game.Players.LocalPlayer.Character.isInArena.Value == false then
@@ -1786,7 +1804,19 @@ end
                     end    
                 })
 
-Tab3:AddToggle({
+                Tab2:AddToggle({
+                    Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
+                    Default = false,
+                    Callback = function(Value)
+_G.RhythmSpam = Value
+while _G.RhythmSpam do
+game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
+task.wait()
+end
+                    end    
+                })
+
+Tab2:AddToggle({
                     Name = "Rojo Spam (WORKS WITH ALL GLOVES)",
                     Default = false,
                     Callback = function(Value)
@@ -1801,7 +1831,7 @@ end
                     end    
                 })
 
-Tab3:AddTextbox({
+Tab2:AddTextbox({
 	Name = "Make person use rojo spam",
 	Default = "Username",
 	TextDisappear = false,
@@ -1814,19 +1844,7 @@ end
 	end	  
 })
 
-                Tab3:AddToggle({
-                    Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
-                    Default = false,
-                    Callback = function(Value)
-_G.RhythmSpam = Value
-while _G.RhythmSpam do
-game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
-task.wait()
-end
-                    end    
-                })
-
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Spam Error Sound (Works with all gloves)",
                     Default = false,
                     Callback = function(Value)
@@ -1838,7 +1856,7 @@ end
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab2:AddToggle({
                     Name = "Ability Spam (Can work in lobby)",
                     Default = false,
                     Callback = function(Value)
@@ -2059,7 +2077,7 @@ end
                     end   
 })
 
-Tab3:AddButton({
+Tab2:AddButton({
 	Name = "Kick player (Needs Za Hando) (Inconsistent)",
 	Callback = function()
 if game.Players.LocalPlayer.leaderstats.Glove.Value == "Za Hando" then
@@ -2094,7 +2112,7 @@ end
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Give reaper 20 kills (Use after they slap you)",
 	Callback = function()
 for i = 1, 20 do
@@ -2109,7 +2127,7 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Auto Click Tycoon",
                     Default = false,
                     Callback = function(Value)
@@ -2130,7 +2148,7 @@ end
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Rhythm Note Spam + Auto Press (Equip Rhythm)",
                     Default = false,
                     Callback = function(Value)
@@ -2144,7 +2162,7 @@ end
                     end    
                 })
 
-Tab3:AddToggle({
+Tab2:AddToggle({
                     Name = "Auto Enter Arena",
                     Default = false,
                     Callback = function(Value)
@@ -2160,7 +2178,7 @@ end
 end,
                 })
 
-Tab3:AddToggle({
+Tab4:AddToggle({
                     Name = "Remove Nametag (Breaks killstreak)",
                     Default = false,
                     Callback = function(Value)
@@ -2178,14 +2196,14 @@ _G.AutoRemoveNameTag = Value
 end
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Free Emotes (Type /e emotename) (Credits to R2O)",
 	Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Emotes"))()
                     end    
                 })
 
-Tab3:AddDropdown({
+Tab4:AddDropdown({
 	Name = "Rojo Charge VFX (Will fling you if spammed)",
 	Default = "1",
 	Options = {"Attack", "No Attack"},
@@ -2200,7 +2218,7 @@ end
 	end    
 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Turn glove into a block (Doesn't work with all gloves)",
 	Callback = function()
 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
@@ -2214,14 +2232,14 @@ end
                     end    
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Infinite Golden (Use in arena)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Infinite Reverse",
                     Default = false,
                     Callback = function(Value)
@@ -2233,7 +2251,7 @@ end
                     end    
                 })
 
-Tab3:AddToggle({
+Tab4:AddToggle({
                     Name = "Rainbow Character (Needs Golden)",
                     Default = false,
                     Callback = function(Value)
@@ -2247,7 +2265,7 @@ end
 end
                 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "Destroy all tycoons",
 	Callback = function()
 for i = 1, 110 do
@@ -2261,7 +2279,7 @@ end
                     end    
                 })
 
-Tab3:AddTextbox({
+Tab4:AddTextbox({
 	Name = "Equip Glove (Only use in lobby)",
 	Default = "Glove Name",
 	TextDisappear = true,
@@ -2272,21 +2290,21 @@ end
 	end	  
 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "TP to Safe spot",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
   	end    
 })
 
-Tab3:AddButton({
+Tab4:AddButton({
 	Name = "TP back to arena",
 	Callback = function()
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
   	end    
 })
 
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Spam Space Sound",
                     Default = false,
                     Callback = function(Value)
@@ -2298,7 +2316,7 @@ end
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Spam Thanos Sound",
                     Default = false,
                     Callback = function(Value)
@@ -2310,7 +2328,7 @@ end
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Spam Golden Sound",
                     Default = false,
                     Callback = function(Value)
@@ -2322,7 +2340,7 @@ end
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Spam Ghost Sound",
                     Default = false,
                     Callback = function(Value)
@@ -2335,7 +2353,7 @@ end
                     end    
                 })
 
-                Tab3:AddToggle({
+                Tab4:AddToggle({
                     Name = "Spam Hitman Sound",
                     Default = false,
                     Callback = function(Value)
@@ -2347,28 +2365,28 @@ end
                     end    
                 })
 
-Tab6:AddButton({
+Tab7:AddButton({
 	Name = "CherryUi's Slap Battles GUI",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))()
   	end    
 })
 
-Tab6:AddButton({
+Tab7:AddButton({
 	Name = "R2O",
 	Callback = function()
       		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
   	end    
 })
 
-Tab6:AddButton({
+Tab7:AddButton({
 	Name = "dizzy hub",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/dizyhvh/rbx_scripts/main/dizzy_hub/scripts/slap_battles.lua"))()
   	end    
 })
 
-Tab5:AddSlider({
+Tab6:AddSlider({
 	Name = "Walkspeed",
 	Min = 20,
 	Max = 1000,
@@ -2382,7 +2400,7 @@ Walkspeed = Value
 	end    
 })
 
-Tab5:AddToggle({
+Tab6:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(Value)
@@ -2396,7 +2414,7 @@ task.wait()
 	end    
 })
 
-Tab5:AddSlider({
+Tab6:AddSlider({
 	Name = "Jumppower",
 	Min = 50,
 	Max = 1000,
@@ -2410,7 +2428,7 @@ Jumppower = Value
 	end    
 })
 
-Tab5:AddToggle({
+Tab6:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(Value)
@@ -2424,7 +2442,7 @@ task.wait()
 	end    
 })
 
-Tab4:AddButton({
+Tab5:AddButton({
                     Name = "Get [REDACTED]",
 Callback = function()
 if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 5000 then
@@ -2448,7 +2466,7 @@ game.StarterGui:SetCore("SendNotification", {
 end
                     })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get Elude (Credits to R2O)",
 	Callback = function()
 Place = game.PlaceId
@@ -2471,9 +2489,9 @@ game:GetService("TeleportService"):Teleport(11828384869)
   	end    
 })
 
-Tab4:AddLabel("When in the elude maze there is a counter feature")
+Tab5:AddLabel("When in the elude maze there is a counter feature")
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get Chain (Needs 1k slaps) (Credits to R2O)",
 	Callback = function()
 Place = game.PlaceId
@@ -2524,7 +2542,7 @@ game:GetService("TeleportService"):Teleport(9431156611)
   	end    
 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get Tycoon",
 	Callback = function()
       		repeat task.wait()
@@ -2533,7 +2551,7 @@ until game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text == "Plate
                     end    
                 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get Trap (Only 20 mins)",
 	Callback = function()
 for i = 1, 200 do
@@ -2555,7 +2573,7 @@ end
                     end    
                 })
 
-Tab4:AddToggle({
+Tab5:AddToggle({
 	Name = "Brick Farm (Use if the 20m version doesnt work)",
 	Default = false,
 	Callback = function(Value)
@@ -2567,7 +2585,7 @@ end
 	end    
 })
 
-Tab4:AddToggle({
+Tab5:AddToggle({
                     Name = "Bob Farm",
                     Default = false,
                     Callback = function(Value)
@@ -2579,35 +2597,35 @@ end
                     end    
                 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get Brazil badge",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.brazil.portal.CFrame
                     end    
                 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get court evidence badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Lobby.Scene.knofe.ClickDetector)
                     end    
                 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get duck badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Arena["default island"]["Rubber Ducky"].ClickDetector)
                     end    
                 })
 
-Tab4:AddButton({
+Tab5:AddButton({
 	Name = "Get The Lone Orange badge",
 	Callback = function()
 fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
                     end    
                 })
 
-Tab2:AddToggle({
+Tab3:AddToggle({
                     Name = "Anti Admins (Credits to R2O)",
                     Default = false,
                     Callback = function(bool)
@@ -2622,7 +2640,7 @@ antiAdmins = bool
 end
 })
 
-Tab2:AddToggle({
+Tab3:AddToggle({
                     Name = "Anti Kick",
                     Default = false,
                     Callback = function(Value)
@@ -2638,7 +2656,7 @@ end
 end
 })
 
-Tab2:AddToggle({
+Tab3:AddToggle({
                     Name = "Anti Ragdoll (Resets character)",
                     Default = false,
                     Callback = function(Value)
@@ -2659,7 +2677,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Void",
                     Default = false,
                     Callback = function(Value)
@@ -2668,7 +2686,7 @@ game.Workspace.TAntiVoid.CanCollide = Value
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Death Barriers",
                     Default = false,
                     Callback = function(Value)
@@ -2698,7 +2716,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Brazil",
                     Default = false,
                     Callback = function(Value)
@@ -2718,7 +2736,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Cube of Death",
                     Default = false,
                     Callback = function(Value)
@@ -2730,7 +2748,7 @@ if Value == true then
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Timestop",
                     Default = false,
                     Callback = function(Value)
@@ -2746,7 +2764,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Squid",
                     Default = false,
                     Callback = function(Value)
@@ -2763,7 +2781,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Hallow Jack",
                     Default = false,
                     Callback = function(Value)
@@ -2771,7 +2789,7 @@ game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Disabled = Value
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Conveyor",
                     Default = false,
                     Callback = function(Value)
@@ -2779,7 +2797,7 @@ game.Players.LocalPlayer.PlayerScripts.ConveyorVictimized.Disabled = Value
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Brick",
                     Default = false,
                     Callback = function(Value)
@@ -2795,7 +2813,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti [REDACTED]",
                     Default = false,
                     Callback = function(Value)
@@ -2803,7 +2821,7 @@ game.Players.LocalPlayer.PlayerScripts.Well.Disabled = Value
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Za Hando",
                     Default = false,
                     Callback = function(Value)
@@ -2819,7 +2837,7 @@ task.wait()
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Reaper",
                     Default = false,
                     Callback = function(Value)
@@ -2836,7 +2854,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Pusher",
                     Default = false,
                     Callback = function(Value)
@@ -2852,7 +2870,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Booster",
                     Default = false,
                     Callback = function(Value)
@@ -2868,7 +2886,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Mail",
                     Default = false,
                     Callback = function(Value)
@@ -2883,7 +2901,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Stun",
                     Default = false,
                     Callback = function(Value)
@@ -2897,7 +2915,7 @@ end
                     end    
                 })
 
-               Tab2:AddToggle({
+               Tab3:AddToggle({
                     Name = "Anti Megarock/Custom",
                     Default = false,
                     Callback = function(Value)
