@@ -2848,7 +2848,7 @@ end
                     Callback = function(Value)
 _G.AntiStun = Value
 while _G.AntiStun do
-if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil then
+if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Workspace:FindFirstChild("Shockwave") then
 game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
 end
 task.wait()
