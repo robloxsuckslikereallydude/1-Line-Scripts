@@ -39,7 +39,7 @@ AntiLava.CanCollide = false
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
-                local Window = OrionLib:MakeWindow({Name = "Slap Royale hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Slap Royale hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -68,12 +68,6 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ion
                 local Tab5 = Window:MakeTab({
                     Name = "Player",
                     Icon = "http://www.roblox.com/asset/?id=4335489011",
-                    PremiumOnly = false
-                })
-
-                local Tab6 = Window:MakeTab({
-                    Name = "Hubs",
-                    Icon = "http://www.roblox.com/asset/?id=4370344717",
                     PremiumOnly = false
                 })
 
@@ -603,13 +597,6 @@ task.wait()
 	end    
 })
 
-Tab6:AddButton({
-	Name = "R2O",
-	Callback = function()
-      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
-  	end    
-})
-
 elseif game.PlaceId == 11520107397 then
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
@@ -639,7 +626,7 @@ TournamentAntiVoid.Transparency = 1
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
-                local Window = OrionLib:MakeWindow({Name = "Slap Battles KS Only hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles KS Only hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -674,12 +661,6 @@ TournamentAntiVoid.Transparency = 1
                 local Tab6 = Window:MakeTab({
                     Name = "Player",
                     Icon = "http://www.roblox.com/asset/?id=4335489011",
-                    PremiumOnly = false
-                })
-
-                local Tab7 = Window:MakeTab({
-                    Name = "Hubs",
-                    Icon = "http://www.roblox.com/asset/?id=4370344717",
                     PremiumOnly = false
                 })
 
@@ -976,27 +957,6 @@ elseif Value == "No Attack" then
 game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
 end
 	end    
-})
-
-Tab7:AddButton({
-	Name = "CherryUi's Slap Battles GUI",
-	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))()
-  	end    
-})
-
-Tab7:AddButton({
-	Name = "R2O",
-	Callback = function()
-      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
-  	end    
-})
-
-Tab7:AddButton({
-	Name = "dizzy hub",
-	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/dizyhvh/rbx_scripts/main/dizzy_hub/scripts/slap_battles.lua"))()
-  	end    
 })
 
 Tab6:AddSlider({
@@ -1320,7 +1280,7 @@ elseif game.PlaceId == 11828384869 then
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
-                local Window = OrionLib:MakeWindow({Name = "Elude Maze hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Elude Maze hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -1596,7 +1556,7 @@ TournamentAntiVoid.Transparency = 1
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
-                local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -1631,12 +1591,6 @@ TournamentAntiVoid.Transparency = 1
                 local Tab6 = Window:MakeTab({
                     Name = "Player",
                     Icon = "http://www.roblox.com/asset/?id=4335489011",
-                    PremiumOnly = false
-                })
-
-                local Tab7 = Window:MakeTab({
-                    Name = "Hubs",
-                    Icon = "http://www.roblox.com/asset/?id=4370344717",
                     PremiumOnly = false
                 })
 
@@ -2372,27 +2326,6 @@ task.wait()
 end
                     end    
                 })
-
-Tab7:AddButton({
-	Name = "CherryUi's Slap Battles GUI",
-	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomScriptr3/gggggggg/main/lolez.txt", true))()
-  	end    
-})
-
-Tab7:AddButton({
-	Name = "R2O",
-	Callback = function()
-      		loadstring(game:HttpGet(("https://raw.githubusercontent.com/cheesynob39/R2O/main/Main.lua")))()
-  	end    
-})
-
-Tab7:AddButton({
-	Name = "dizzy hub",
-	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/dizyhvh/rbx_scripts/main/dizzy_hub/scripts/slap_battles.lua"))()
-  	end    
-})
 
 Tab6:AddSlider({
 	Name = "Walkspeed",
