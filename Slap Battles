@@ -963,7 +963,7 @@ end
                 })
 
 Tab4:AddButton({
-	Name = "Free Emotes (Type /e emotename) (Credits to R2O)",
+	Name = "Free Emotes (Type /e emotename)",
 	Callback = function()
 Floss = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Floss, game.Players.LocalPlayer.Character.Humanoid)
 Groove = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Groove, game.Players.LocalPlayer.Character.Humanoid)
@@ -2261,7 +2261,7 @@ end
                 })
 
 Tab4:AddButton({
-	Name = "Free Emotes (Type /e emotename) (Credits to R2O)",
+	Name = "Free Emotes (Type /e emotename)",
 	Callback = function()
 Floss = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Floss, game.Players.LocalPlayer.Character.Humanoid)
 Groove = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Groove, game.Players.LocalPlayer.Character.Humanoid)
