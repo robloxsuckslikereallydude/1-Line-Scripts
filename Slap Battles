@@ -346,7 +346,7 @@ for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
                     end
                 end
 Code = first..second..third..fourth
-game.StarterGui:SetCore("SendNotification", {Title = Code,Duration = 5,Text = " ",})
+game.StarterGui:SetCore("SendNotification", {Title = Code,Duration = 5,Text = " "})
                     end    
                 })
 
@@ -781,20 +781,6 @@ game:GetService("TeleportService"):Teleport(9412268818)
                 })
 
 Tab4:AddButton({
-	Name = "Testing Server Freecam",
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
-                    end    
-                })
-
-Tab4:AddButton({
-	Name = "Testing Server Freecam (Mobile)",
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
-                    end    
-                })
-
-Tab4:AddButton({
 	Name = "Slap Farm (This copies the script, put it in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
@@ -1136,11 +1122,7 @@ wait(4)
 end
 end
 else
-game.StarterGui:SetCore("SendNotification", {
-                Title = "Error";
-                Duration = 5;
-                Text = "You need 5000 slaps";
-            })
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 5000 slaps"})
             end
 end
                     })
@@ -1469,20 +1451,6 @@ game:GetService("TeleportService"):Teleport(9412268818)
                 })
 
 Tab2:AddButton({
-	Name = "Testing Server Freecam",
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
-                    end    
-                })
-
-Tab2:AddButton({
-	Name = "Testing Server Freecam (Mobile)",
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
-                    end    
-                })
-
-Tab2:AddButton({
 	Name = "Slap Farm (This copies the script, put it in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
@@ -1628,6 +1596,52 @@ game:GetService("TeleportService"):Teleport(9431156611)
 })
 Player = game.Players.LocalPlayer.Character.Name
 
+elseif game.PlaceId == 9020359053 or game.PlaceId == 9412268818 then
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "SB Testing Server hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
+                    PremiumOnly = false
+                })
+
+Tab:AddButton({
+	Name = "Testing Server Freecam",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+                    end    
+                })
+
+Tab:AddButton({
+	Name = "Testing Server Freecam (Mobile)",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
+                    end    
+                })
+
+Tab:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+      		local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+if teleportFunc then
+    teleportFunc([[
+        if not game:IsLoaded() then
+            game.Loaded:Wait()
+        end
+        local localPlr = game:GetService("Players").LocalPlayer
+        repeat wait() until localPlr
+        game:GetService("RunService").RenderStepped:Connect(function()
+            game:GetService("GuiService"):ClearError()
+        end)
+    ]])
+end
+game:GetService("TeleportService"):Teleport(game.PlaceId)
+  	end    
+})
+
 else
 
 local bypass;
@@ -1760,20 +1774,6 @@ if teleportFunc then
     ]])
 end
 game:GetService("TeleportService"):Teleport(9412268818)
-                    end    
-                })
-
-Tab4:AddButton({
-	Name = "Testing Server Freecam",
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
-                    end    
-                })
-
-Tab4:AddButton({
-	Name = "Testing Server Freecam (Mobile)",
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
                     end    
                 })
 
@@ -2171,11 +2171,7 @@ for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
                     end
                 end
 else
-game.StarterGui:SetCore("SendNotification", {
-                Title = "Error";
-                Duration = 5;
-                Text = "You don't have Za Hando equipped";
-            })
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Za Hando equipped"})
 end
                     end    
                 })
@@ -2557,11 +2553,7 @@ wait(4)
 end
 end
 else
-game.StarterGui:SetCore("SendNotification", {
-                Title = "Error";
-                Duration = 5;
-                Text = "You need 5000 slaps";
-            })
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 5000 slaps"})
             end
 end
                     })
