@@ -107,8 +107,8 @@ Tab2:AddToggle({
                     Name = "Slap Aura",
                     Default = false,
                     Callback = function(Value)
-_G.SlapAura = Value
-                while _G.SlapAura do
+SlapAura = Value
+                while SlapAura do
 for i,v in pairs(game.Players:GetChildren()) do
                     if v ~= game.Players.LocalPlayer and v.Character then
 if v.Character:FindFirstChild("Dead") == nil and v.Character:FindFirstChild("HumanoidRootPart") then
@@ -525,9 +525,9 @@ Tab4:AddToggle({
                     Name = "Remove Zone Color",
                     Default = false,
                     Callback = function(Value)
-_G.RemoveZone = Value
+RemoveZone = Value
 game.Players.LocalPlayer.Character:WaitForChild("inZone").Changed:Connect(function()
-if _G.RemoveZone then
+if RemoveZone then
 game.Players.LocalPlayer.Character:WaitForChild("inZone").Value = false
 end
 end)
@@ -612,8 +612,8 @@ Tab5:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(Value)
-_G.KeepWalkspeed = Value
-            while _G.KeepWalkspeed do
+KeepWalkspeed = Value
+            while KeepWalkspeed do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
@@ -640,8 +640,8 @@ Tab5:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(Value)
-_G.KeepJumppower = Value
-            while _G.KeepJumppower do
+KeepJumppower = Value
+            while KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
                 end
@@ -798,8 +798,8 @@ Tab2:AddToggle({
                     Name = "Slap Aura",
                     Default = false,
                     Callback = function(Value)
-_G.SlapAura = Value
-                while _G.SlapAura do
+SlapAura = Value
+                while SlapAura do
 for i,v in pairs(game.Players:GetChildren()) do
                     if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
 if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") then
@@ -869,8 +869,8 @@ end
                     Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
                     Default = false,
                     Callback = function(Value)
-_G.RhythmSpam = Value
-while _G.RhythmSpam do
+RhythmSpam = Value
+while RhythmSpam do
 game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
 task.wait()
 end
@@ -884,8 +884,8 @@ Tab2:AddToggle({
 if Person == nil then
 Person = game.Players.LocalPlayer.Name
 end
-_G.RojoSpam = Value
-while _G.RojoSpam do
+RojoSpam = Value
+while RojoSpam do
 game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[Person].Character.HumanoidRootPart.CFrame})
 task.wait()
 end
@@ -909,8 +909,8 @@ end
                     Name = "Spam Error Sound (Works with all gloves)",
                     Default = false,
                     Callback = function(Value)
-_G.ErrorSoundSpam = Value
-while _G.ErrorSoundSpam do
+ErrorSoundSpam = Value
+while ErrorSoundSpam do
 game.ReplicatedStorage.ErrorDeath:FireServer()
 task.wait()
 end
@@ -933,8 +933,8 @@ Tab2:AddToggle({
                     Name = "Auto Enter Arena",
                     Default = false,
                     Callback = function(Value)
-_G.AutoEnterArena = Value
-while _G.AutoEnterArena do
+AutoEnterArena = Value
+while AutoEnterArena do
 if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
@@ -948,11 +948,11 @@ Tab4:AddToggle({
                     Name = "Remove Nametag (Breaks killstreak)",
                     Default = false,
                     Callback = function(Value)
-_G.AutoRemoveNameTag = Value
-        if _G.AutoRemoveNameTag then
+AutoRemoveNameTag = Value
+        if AutoRemoveNameTag then
         game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
             game.Players.LocalPlayer.CharacterAdded:Connect(function()
-                if _G.AutoRemoveNameTag then
+                if AutoRemoveNameTag then
                 repeat task.wait()
                 until game.Players.LocalPlayer.Character:FindFirstChild("Head")
                 game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
@@ -1069,8 +1069,8 @@ Tab6:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(Value)
-_G.KeepWalkspeed = Value
-            while _G.KeepWalkspeed do
+KeepWalkspeed = Value
+            while KeepWalkspeed do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
@@ -1097,8 +1097,8 @@ Tab6:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(Value)
-_G.KeepJumppower = Value
-            while _G.KeepJumppower do
+KeepJumppower = Value
+            while KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
                 end
@@ -1259,8 +1259,8 @@ Tab3:AddToggle({
                     Name = "Anti Kick",
                     Default = false,
                     Callback = function(Value)
-_G.AntiKick = Value
-while _G.AntiKick do
+AntiKick = Value
+while AntiKick do
 for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
                     if v.Name == "ErrorPrompt" then
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
@@ -1275,12 +1275,12 @@ Tab3:AddToggle({
                     Name = "Anti Ragdoll (This will reset your character)",
                     Default = false,
                     Callback = function(Value)
-_G.AntiRagdoll = Value
-if _G.AntiRagdoll then
+AntiRagdoll = Value
+if AntiRagdoll then
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
-if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and _G.AntiRagdoll then
+if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and AntiRagdoll then
 repeat task.wait()
 game.Players.LocalPlayer.Character.Torso.Anchored = true
 until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
@@ -1482,8 +1482,8 @@ Tab4:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(Value)
-_G.KeepWalkspeed = Value
-            while _G.KeepWalkspeed do
+KeepWalkspeed = Value
+            while KeepWalkspeed do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
@@ -1510,8 +1510,8 @@ Tab4:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(Value)
-_G.KeepJumppower = Value
-            while _G.KeepJumppower do
+KeepJumppower = Value
+            while KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
                 end
@@ -1795,8 +1795,8 @@ Tab2:AddToggle({
                     Name = "Slap Aura",
                     Default = false,
                     Callback = function(Value)
-_G.SlapAura = Value
-                while _G.SlapAura do
+SlapAura = Value
+                while SlapAura do
 for i,v in pairs(game.Players:GetChildren()) do
                     if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
 if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("rock") == nil and v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller") then
@@ -1868,8 +1868,8 @@ end
                     Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
                     Default = false,
                     Callback = function(Value)
-_G.RhythmSpam = Value
-while _G.RhythmSpam do
+RhythmSpam = Value
+while RhythmSpam do
 game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
 task.wait()
 end
@@ -1883,8 +1883,8 @@ Tab2:AddToggle({
 if Person == nil then
 Person = game.Players.LocalPlayer.Name
 end
-_G.RojoSpam = Value
-while _G.RojoSpam do
+RojoSpam = Value
+while RojoSpam do
 game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[Person].Character.HumanoidRootPart.CFrame})
 task.wait()
 end
@@ -1908,8 +1908,8 @@ end
                     Name = "Spam Error Sound (Works with all gloves)",
                     Default = false,
                     Callback = function(Value)
-_G.ErrorSoundSpam = Value
-while _G.ErrorSoundSpam do
+ErrorSoundSpam = Value
+while ErrorSoundSpam do
 game.ReplicatedStorage.ErrorDeath:FireServer()
 task.wait()
 end
@@ -2195,13 +2195,13 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                     Name = "Auto Click Tycoon",
                     Default = false,
                     Callback = function(Value)
-_G.AutoTycoon = Value
+AutoTycoon = Value
     for i,v in pairs(workspace:GetDescendants()) do
         if v.Name == "End" and v.ClassName == "Part" then
             v.Size = Vector3.new(28, 0.3, 4)
         end
     end
-while _G.AutoTycoon do
+while AutoTycoon do
     for i,v in pairs(workspace:GetDescendants()) do
         if v.Name == "Click" and v:FindFirstChild("ClickDetector") then
             fireclickdetector(v.ClickDetector)
@@ -2216,8 +2216,8 @@ end
                     Name = "Rhythm Note Spam + Auto Press (Equip Rhythm)",
                     Default = false,
                     Callback = function(Value)
-_G.RhythmNoteSpam = Value
-while _G.RhythmNoteSpam do
+RhythmNoteSpam = Value
+while RhythmNoteSpam do
 game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = false
 game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = true
 game.Players.LocalPlayer.Character.Rhythm:Activate()
@@ -2246,11 +2246,11 @@ Tab4:AddToggle({
                     Name = "Remove Nametag (Breaks killstreak)",
                     Default = false,
                     Callback = function(Value)
-_G.AutoRemoveNameTag = Value
-        if _G.AutoRemoveNameTag then
+AutoRemoveNameTag = Value
+        if AutoRemoveNameTag then
         game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
             game.Players.LocalPlayer.CharacterAdded:Connect(function()
-                if _G.AutoRemoveNameTag then
+                if AutoRemoveNameTag then
                 repeat task.wait()
                 until game.Players.LocalPlayer.Character:FindFirstChild("Head")
                 game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
@@ -2360,8 +2360,8 @@ game:GetService("ReplicatedStorage").Goldify:FireServer(true)
                     Name = "Infinite Reverse",
                     Default = false,
                     Callback = function(Value)
-_G.InfReverse = Value
-while _G.InfReverse do
+InfReverse = Value
+while InfReverse do
 game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
 wait(6)
 end
@@ -2372,12 +2372,48 @@ Tab4:AddToggle({
                     Name = "Rainbow Character (Needs Golden)",
                     Default = false,
                     Callback = function(Value)
-_G.Rainbow = Value
-while _G.Rainbow do
+Rainbow = Value
+while Rainbow do
 for i = 0,1,0.001*25 do
 game:GetService("ReplicatedStorage").Goldify:FireServer(false, BrickColor.new(Color3.fromHSV(i,1,1)))
 task.wait()
 end
+end
+end
+                })
+
+Tab4:AddToggle({
+                    Name = "Ping Pong Orbit",
+                    Default = false,
+                    Callback = function(Value)
+PingPongOrbit = Value
+game.Players.LocalPlayer.Character.Torso.RadioPart.Rotation = game.Players.LocalPlayer.Character.HumanoidRootPart.Rotation
+Orbit = "0"
+PingPongBall = game.Players.LocalPlayer.Name.."_PingPongBall"
+while PingPongOrbit do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+Orbit = Orbit + 5
+game.Players.LocalPlayer.Character.Torso.RadioPart.Rotation = Vector3.new(-180, Orbit, -180)
+if game.Players.LocalPlayer.Character.Torso.RadioPart:GetChildren()[2] then
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == PingPongBall then
+v.CFrame = game.Players.LocalPlayer.Character.Torso.RadioPart.CFrame * CFrame.new(0,0,-15)
+                    end
+                end
+for i,v in pairs(game.Players.LocalPlayer.Character.Torso.RadioPart:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == PingPongBall then
+                        v.CFrame = game.Players.LocalPlayer.Character.Torso.RadioPart.CFrame * CFrame.new(0,0,15) * CFrame.Angles(math.rad(180), math.rad(0), math.rad(0))
+                    end
+                end
+elseif game.Players.LocalPlayer.Character.Torso.RadioPart:GetChildren()[1] or game.Players.LocalPlayer.Character.Torso.RadioPart:GetChildren()[2] then
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.ClassName == "Part" and v.Name == PingPongBall then
+v.Parent = game.Players.LocalPlayer.Character.Torso.RadioPart
+break
+                    end
+                end
+end
+task.wait()
 end
 end
                 })
@@ -2425,8 +2461,8 @@ Tab4:AddButton({
                     Name = "Spam Space Sound",
                     Default = false,
                     Callback = function(Value)
-_G.SpaceSoundSpam = Value
-while _G.SpaceSoundSpam do
+SpaceSoundSpam = Value
+while SpaceSoundSpam do
 game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
 task.wait()
 end
@@ -2437,8 +2473,8 @@ end
                     Name = "Spam Thanos Sound",
                     Default = false,
                     Callback = function(Value)
-_G.ThanosSoundSpam = Value
-while _G.ThanosSoundSpam do
+ThanosSoundSpam = Value
+while ThanosSoundSpam do
 game:GetService("ReplicatedStorage").Illbeback:FireServer()
 task.wait()
 end
@@ -2449,8 +2485,8 @@ end
                     Name = "Spam Golden Sound",
                     Default = false,
                     Callback = function(Value)
-_G.GoldenSoundSpam = Value
-while _G.GoldenSoundSpam do
+GoldenSoundSpam = Value
+while GoldenSoundSpam do
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
 task.wait()
 end
@@ -2461,8 +2497,8 @@ end
                     Name = "Spam Ghost Sound",
                     Default = false,
                     Callback = function(Value)
-_G.GhostSoundSpam = Value
-while _G.GhostSoundSpam do
+GhostSoundSpam = Value
+while GhostSoundSpam do
 game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
 game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
 task.wait()
@@ -2474,8 +2510,8 @@ end
                     Name = "Spam Hitman Sound",
                     Default = false,
                     Callback = function(Value)
-_G.HitmanSoundSpam = Value
-while _G.HitmanSoundSpam do
+HitmanSoundSpam = Value
+while HitmanSoundSpam do
 game:GetService("ReplicatedStorage"):WaitForChild("HitmanAbility"):FireServer("ReplicateGoldenRevolver",{0})
 task.wait()
 end
@@ -2500,8 +2536,8 @@ Tab6:AddToggle({
 	Name = "Keep Walkspeed",
 	Default = false,
 	Callback = function(Value)
-_G.KeepWalkspeed = Value
-            while _G.KeepWalkspeed do
+KeepWalkspeed = Value
+            while KeepWalkspeed do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
                 end
@@ -2528,8 +2564,8 @@ Tab6:AddToggle({
 	Name = "Keep Jumppower",
 	Default = false,
 	Callback = function(Value)
-_G.KeepJumppower = Value
-            while _G.KeepJumppower do
+KeepJumppower = Value
+            while KeepJumppower do
                 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
                     game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
                 end
@@ -2649,18 +2685,18 @@ Tab5:AddButton({
 for i = 1, 200 do
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.35))
+wait(Random.new():NextNumber(1.1,1.4))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.35))
+wait(Random.new():NextNumber(1.1,1.4))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.35))
+wait(Random.new():NextNumber(1.1,1.4))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.35))
+wait(Random.new():NextNumber(1.1,1.4))
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
-wait(Random.new():NextNumber(1.1,1.35))
+wait(Random.new():NextNumber(1.1,1.4))
 end
                     end    
                 })
@@ -2669,8 +2705,8 @@ Tab5:AddToggle({
 	Name = "Brick Farm (Use if the 20m version doesnt work)",
 	Default = false,
 	Callback = function(Value)
-_G.Brickfarm = Value
-while _G.Brickfarm do
+Brickfarm = Value
+while Brickfarm do
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
 task.wait(5.01)
 end
@@ -2681,8 +2717,8 @@ Tab5:AddToggle({
                     Name = "Bob Farm",
                     Default = false,
                     Callback = function(Value)
-_G.BobFarm = Value
-while _G.BobFarm do
+BobFarm = Value
+while BobFarm do
 game:GetService("ReplicatedStorage").Duplicate:FireServer()
 wait(Random.new():NextNumber(5.2,5.4))
 end
@@ -2736,8 +2772,8 @@ Tab3:AddToggle({
                     Name = "Anti Kick",
                     Default = false,
                     Callback = function(Value)
-_G.AntiKick = Value
-while _G.AntiKick do
+AntiKick = Value
+while AntiKick do
 for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
                     if v.Name == "ErrorPrompt" then
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
@@ -2752,12 +2788,12 @@ Tab3:AddToggle({
                     Name = "Anti Ragdoll (Resets character)",
                     Default = false,
                     Callback = function(Value)
-_G.AntiRagdoll = Value
-if _G.AntiRagdoll then
+AntiRagdoll = Value
+if AntiRagdoll then
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
-if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and _G.AntiRagdoll then
+if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and AntiRagdoll then
 repeat task.wait()
 game.Players.LocalPlayer.Character.Torso.Anchored = true
 until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
@@ -2844,8 +2880,8 @@ if Value == true then
                     Name = "Anti Timestop",
                     Default = false,
                     Callback = function(Value)
-_G.AntiTimestop = Value
-while _G.AntiTimestop do
+AntiTimestop = Value
+while AntiTimestop do
                 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                     if v.ClassName == "Part" then
                         v.Anchored = false
@@ -2860,11 +2896,11 @@ end
                     Name = "Anti Squid",
                     Default = false,
                     Callback = function(Value)
-_G.AntiSquid = Value
-if _G.AntiSquid == false then
+AntiSquid = Value
+if AntiSquid == false then
         game.Players.LocalPlayer.PlayerGui.SquidInk.Enabled = true
         end
-while _G.AntiSquid do
+while AntiSquid do
 if game.Players.LocalPlayer.PlayerGui:FindFirstChild("SquidInk") then
         game.Players.LocalPlayer.PlayerGui.SquidInk.Enabled = false
 end
@@ -2893,8 +2929,8 @@ game.Players.LocalPlayer.PlayerScripts.ConveyorVictimized.Disabled = Value
                     Name = "Anti Brick",
                     Default = false,
                     Callback = function(Value)
-_G.AntiBrick = Value
-while _G.AntiBrick do
+AntiBrick = Value
+while AntiBrick do
 for i,v in pairs(game.Workspace:GetChildren()) do
                     if v.Name == "Union" then
                         v.CanTouch = false
@@ -2917,8 +2953,8 @@ game.Players.LocalPlayer.PlayerScripts.Well.Disabled = Value
                     Name = "Anti Za Hando",
                     Default = false,
                     Callback = function(Value)
-_G.AntiZaHando = Value
-            while _G.AntiZaHando do
+AntiZaHando = Value
+            while AntiZaHando do
                 for i,v in pairs(game.Workspace:GetChildren()) do
                     if v.ClassName == "Part" and v.Name == "Part" then
                         v:Destroy()
@@ -2933,8 +2969,8 @@ task.wait()
                     Name = "Anti Reaper",
                     Default = false,
                     Callback = function(Value)
-_G.AntiReaper = Value
-            while _G.AntiReaper do
+AntiReaper = Value
+            while AntiReaper do
 for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                     if v.Name == "DeathMark" then
                         game:GetService("ReplicatedStorage").ReaperGone:FireServer(game:GetService("Players").LocalPlayer.Character.DeathMark)
@@ -2950,8 +2986,8 @@ end
                     Name = "Anti Pusher",
                     Default = false,
                     Callback = function(Value)
-_G.AntiPusher = Value
-            while _G.AntiPusher do
+AntiPusher = Value
+            while AntiPusher do
 for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                     if v.Name == "wall" then
                         v.CanCollide = false
@@ -2966,8 +3002,8 @@ end
                     Name = "Anti Booster",
                     Default = false,
                     Callback = function(Value)
-_G.AntiBooster = Value
-while _G.AntiBooster do
+AntiBooster = Value
+while AntiBooster do
 for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                     if v.Name == "BoosterObject" then
                         v:Destroy()
@@ -2983,8 +3019,8 @@ end
                     Default = false,
                     Callback = function(Value)
 game.Players.LocalPlayer.Character.YouHaveGotMail.Disabled = Value
-_G.AntiMail = Value
-while _G.AntiMail do
+AntiMail = Value
+while AntiMail do
 if game.Players.LocalPlayer.Character:FindFirstChild("YouHaveGotMail") then
         game.Players.LocalPlayer.Character.YouHaveGotMail.Disabled = true
 end
@@ -2997,8 +3033,8 @@ end
                     Name = "Anti Stun",
                     Default = false,
                     Callback = function(Value)
-_G.AntiStun = Value
-while _G.AntiStun do
+AntiStun = Value
+while AntiStun do
 if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Workspace:FindFirstChild("Shockwave") then
 game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
 end
@@ -3011,8 +3047,8 @@ end
                     Name = "Anti Megarock/Custom",
                     Default = false,
                     Callback = function(Value)
-_G.AntiRock = Value
-while _G.AntiRock do
+AntiRock = Value
+while AntiRock do
 for i,v in pairs(game.Workspace:GetDescendants()) do
                     if v.Name == "rock" then
                         v.CanTouch = false
