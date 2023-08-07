@@ -818,7 +818,7 @@ end
 Tab2:AddButton({
 	Name = "Godmode (Resets character) (Breaks killstreak)",
 	Callback = function()
-if game.Players.LocalPlayer.Character.isInArena.Value == false then
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
 wait(0.5)
@@ -841,8 +841,9 @@ for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                     end
                 end 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
-elseif game.Players.LocalPlayer.Character.isInArena.Value == true then
-for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+elseif game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                     if v.ClassName == "Tool" then
                         v.Parent = game.LogService
                     end
@@ -2392,7 +2393,7 @@ Orbit = "0"
 PingPongBall = game.Players.LocalPlayer.Name.."_PingPongBall"
 while PingPongOrbit do
 game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-Orbit = Orbit + 5
+Orbit = Orbit + OrbitSpeed
 game.Players.LocalPlayer.Character.Torso.RadioPart.Rotation = Vector3.new(-180, Orbit, -180)
 if game.Players.LocalPlayer.Character.Torso.RadioPart:GetChildren()[2] then
 for i,v in pairs(game.Workspace:GetChildren()) do
@@ -2413,10 +2414,23 @@ break
                     end
                 end
 end
-task.wait()
+task.wait(0.01)
 end
 end
                 })
+
+Tab4:AddSlider({
+	Name = "Ping Pong Orbit Speed",
+	Min = 0,
+	Max = 50,
+	Default = 0,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Speed",
+	Callback = function(Value)
+		OrbitSpeed = Value
+	end    
+})
 
 Tab4:AddButton({
 	Name = "Destroy all tycoons",
