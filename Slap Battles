@@ -1624,6 +1624,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy
                 })
 
 Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+  	end    
+})
+
+Tab:AddButton({
 	Name = "Rejoin Server",
 	Callback = function()
       		local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
