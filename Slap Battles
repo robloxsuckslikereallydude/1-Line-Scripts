@@ -2525,6 +2525,31 @@ AutoRemoveNameTag = Value
 end
                 })
 
+Tab4:AddTextbox({
+	Name = "Equip Glove (Only use in lobby)",
+	Default = "Glove Name",
+	TextDisappear = true,
+	Callback = function(Value)
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
+		fireclickdetector(workspace.Lobby[Value].ClickDetector)
+end
+	end	  
+})
+
+Tab4:AddButton({
+	Name = "TP to Safe spot",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "TP back to arena",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
+  	end    
+})
+
 Tab4:AddButton({
 	Name = "Free Emotes (Type /e emotename)",
 	Callback = function()
@@ -2647,6 +2672,20 @@ end
 end
                 })
 
+Tab4:AddButton({
+	Name = "Destroy all tycoons",
+	Callback = function()
+for i = 1, 110 do
+ for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Destruct" and v:FindFirstChild("ClickDetector") then
+            fireclickdetector(v.ClickDetector)
+        end
+    end
+task.wait()
+end
+                    end    
+                })
+
 Tab4:AddToggle({
                     Name = "Ping Pong Orbit",
                     Default = false,
@@ -2662,12 +2701,12 @@ game.Players.LocalPlayer.Character.Torso.RadioPart.Rotation = Vector3.new(-180, 
 if game.Players.LocalPlayer.Character.Torso.RadioPart:GetChildren()[2] then
 for i,v in pairs(game.Workspace:GetChildren()) do
                     if v.ClassName == "Part" and v.Name == PingPongBall then
-v.CFrame = game.Players.LocalPlayer.Character.Torso.RadioPart.CFrame * CFrame.new(0,0,-15)
+v.CFrame = game.Players.LocalPlayer.Character.Torso.RadioPart.CFrame * CFrame.new(0,0,-15) * CFrame.Angles(math.rad(0), math.rad(-90), math.rad(0))
                     end
                 end
 for i,v in pairs(game.Players.LocalPlayer.Character.Torso.RadioPart:GetChildren()) do
                     if v.ClassName == "Part" and v.Name == PingPongBall then
-                        v.CFrame = game.Players.LocalPlayer.Character.Torso.RadioPart.CFrame * CFrame.new(0,0,15) * CFrame.Angles(math.rad(180), math.rad(0), math.rad(0))
+                        v.CFrame = game.Players.LocalPlayer.Character.Torso.RadioPart.CFrame * CFrame.new(0,0,15) * CFrame.Angles(math.rad(0), math.rad(90), math.rad(0))
                     end
                 end
 elseif game.Players.LocalPlayer.Character.Torso.RadioPart:GetChildren()[1] or game.Players.LocalPlayer.Character.Torso.RadioPart:GetChildren()[2] then
@@ -2687,52 +2726,13 @@ Tab4:AddSlider({
 	Name = "Ping Pong Orbit Speed",
 	Min = 0,
 	Max = 50,
-	Default = 0,
+	Default = 10,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "Speed",
 	Callback = function(Value)
 		OrbitSpeed = Value
 	end    
-})
-
-Tab4:AddButton({
-	Name = "Destroy all tycoons",
-	Callback = function()
-for i = 1, 110 do
- for i,v in pairs(workspace:GetDescendants()) do
-        if v.Name == "Destruct" and v:FindFirstChild("ClickDetector") then
-            fireclickdetector(v.ClickDetector)
-        end
-    end
-task.wait()
-end
-                    end    
-                })
-
-Tab4:AddTextbox({
-	Name = "Equip Glove (Only use in lobby)",
-	Default = "Glove Name",
-	TextDisappear = true,
-	Callback = function(Value)
-if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
-		fireclickdetector(workspace.Lobby[Value].ClickDetector)
-end
-	end	  
-})
-
-Tab4:AddButton({
-	Name = "TP to Safe spot",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
-  	end    
-})
-
-Tab4:AddButton({
-	Name = "TP back to arena",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
-  	end    
 })
 
                 Tab4:AddToggle({
