@@ -866,7 +866,7 @@ end
                 })
 
                 Tab2:AddToggle({
-                    Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
+                    Name = "Rhythm Explosion Spam (All gloves)",
                     Default = false,
                     Callback = function(Value)
 RhythmSpam = Value
@@ -877,8 +877,20 @@ end
                     end    
                 })
 
+                Tab2:AddToggle({
+                    Name = "Null Spam (All gloves) (Credits to lloyd#5746)",
+                    Default = false,
+                    Callback = function(Value)
+NullSpam = Value
+while NullSpam do
+game:GetService("ReplicatedStorage").NullAbility:FireServer()
+task.wait()
+end
+                    end    
+                })
+
 Tab2:AddToggle({
-                    Name = "Rojo Spam (WORKS WITH ALL GLOVES)",
+                    Name = "Rojo Spam (All gloves)",
                     Default = false,
                     Callback = function(Value)
 if Person == nil then
@@ -906,7 +918,7 @@ end
 })
 
                 Tab4:AddToggle({
-                    Name = "Spam Error Sound (Works with all gloves)",
+                    Name = "Spam Error Sound (All gloves)",
                     Default = false,
                     Callback = function(Value)
 ErrorSoundSpam = Value
@@ -2132,7 +2144,7 @@ end
                 })
 
                 Tab2:AddToggle({
-                    Name = "Rhythm Explosion Spam (WORKS WITH ALL GLOVES)",
+                    Name = "Rhythm Explosion Spam (All gloves)",
                     Default = false,
                     Callback = function(Value)
 RhythmSpam = Value
@@ -2143,8 +2155,20 @@ end
                     end    
                 })
 
+                Tab2:AddToggle({
+                    Name = "Null Spam (All gloves) (Credits to lloyd#5746)",
+                    Default = false,
+                    Callback = function(Value)
+NullSpam = Value
+while NullSpam do
+game:GetService("ReplicatedStorage").NullAbility:FireServer()
+task.wait()
+end
+                    end    
+                })
+
 Tab2:AddToggle({
-                    Name = "Rojo Spam (WORKS WITH ALL GLOVES)",
+                    Name = "Rojo Spam (All gloves)",
                     Default = false,
                     Callback = function(Value)
 if Person == nil then
@@ -2172,7 +2196,7 @@ end
 })
 
                 Tab4:AddToggle({
-                    Name = "Spam Error Sound (Works with all gloves)",
+                    Name = "Spam Error Sound (All gloves)",
                     Default = false,
                     Callback = function(Value)
 ErrorSoundSpam = Value
