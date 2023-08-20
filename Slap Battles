@@ -917,18 +917,6 @@ end
 	end	  
 })
 
-                Tab4:AddToggle({
-                    Name = "Spam Error Sound (All gloves)",
-                    Default = false,
-                    Callback = function(Value)
-ErrorSoundSpam = Value
-while ErrorSoundSpam do
-game.ReplicatedStorage.ErrorDeath:FireServer()
-task.wait()
-end
-                    end    
-                })
-
                 Tab2:AddToggle({
                     Name = "Killstreak Soul Snatcher Spam",
                     Default = false,
@@ -951,6 +939,25 @@ if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Pla
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
     end
+task.wait()
+end
+end
+                })
+
+Tab4:AddToggle({
+                    Name = "Null Slap Farm (All gloves)",
+                    Default = false,
+                    Callback = function(Value)
+NullSlapFarm = Value
+                while NullSlapFarm do
+game:GetService("ReplicatedStorage").NullAbility:FireServer()
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "Imp" then
+if v:FindFirstChild("Body") then
+shared.gloveHits[getGlove()]:FireServer(v.Body,true)
+end
+end
+                end
 task.wait()
 end
 end
@@ -1062,6 +1069,18 @@ game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Cha
 end
 	end    
 })
+
+                Tab4:AddToggle({
+                    Name = "Spam Error Sound (All gloves)",
+                    Default = false,
+                    Callback = function(Value)
+ErrorSoundSpam = Value
+while ErrorSoundSpam do
+game.ReplicatedStorage.ErrorDeath:FireServer()
+task.wait()
+end
+                    end    
+                })
 
 Tab6:AddSlider({
 	Name = "Walkspeed",
@@ -2195,18 +2214,6 @@ end
 	end	  
 })
 
-                Tab4:AddToggle({
-                    Name = "Spam Error Sound (All gloves)",
-                    Default = false,
-                    Callback = function(Value)
-ErrorSoundSpam = Value
-while ErrorSoundSpam do
-game.ReplicatedStorage.ErrorDeath:FireServer()
-task.wait()
-end
-                    end    
-                })
-
                 Tab2:AddToggle({
                     Name = "Ability Spam (Can work in lobby)",
                     Default = false,
@@ -2467,6 +2474,25 @@ end
                     end    
                 })
 
+Tab4:AddToggle({
+                    Name = "Null Slap Farm (All gloves)",
+                    Default = false,
+                    Callback = function(Value)
+NullSlapFarm = Value
+                while NullSlapFarm do
+game:GetService("ReplicatedStorage").NullAbility:FireServer()
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "Imp" then
+if v:FindFirstChild("Body") then
+shared.gloveHits[getGlove()]:FireServer(v.Body,true)
+end
+end
+                end
+task.wait()
+end
+end
+                })
+
 Tab4:AddButton({
 	Name = "Give reaper 20 kills (Use after they slap you)",
 	Callback = function()
@@ -2649,6 +2675,18 @@ game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Cha
 end
 	end    
 })
+
+                Tab4:AddToggle({
+                    Name = "Spam Error Sound (All gloves)",
+                    Default = false,
+                    Callback = function(Value)
+ErrorSoundSpam = Value
+while ErrorSoundSpam do
+game.ReplicatedStorage.ErrorDeath:FireServer()
+task.wait()
+end
+                    end    
+                })
 
 Tab4:AddButton({
 	Name = "Turn glove into a block (Doesn't work with all gloves)",
