@@ -954,7 +954,7 @@ game:GetService("ReplicatedStorage").NullAbility:FireServer()
 for i,v in pairs(game.Workspace:GetChildren()) do
                     if v.Name == "Imp" then
 if v:FindFirstChild("Body") then
-shared.gloveHits[getGlove()]:FireServer(v.Body,true)
+game.ReplicatedStorage.KSHit:FireServer(v.Body)
 end
 end
                 end
