@@ -1,0 +1,873 @@
+-- if you have problems message Guy that exists#1915
+                    
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+
+if game.PlaceId == 8260276694 then
+                
+                local AntiVoid = Instance.new("Part", workspace)
+AntiVoid.Position = Vector3.new(0,0,0)
+AntiVoid.Name = "AntiVoid"
+AntiVoid.Size = Vector3.new(2048, 30, 2048)
+AntiVoid.Anchored = true
+AntiVoid.Transparency = 1
+AntiVoid.CanCollide = false
+AntiVoid.Material = Enum.Material.Neon
+
+local SafeSpot = Instance.new("Part", workspace)
+SafeSpot.Position = Vector3.new(-1500,100,-1500)
+SafeSpot.Name = "Spot"
+SafeSpot.Size = Vector3.new(500,60,500)
+SafeSpot.Anchored = true
+SafeSpot.Transparency = .75
+                
+                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "Ability Wars hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
+                    PremiumOnly = false
+                })
+
+                local Tab2 = Window:MakeTab({
+                    Name = "Antis",
+                    Icon = "http://www.roblox.com/asset/?id=7734056608",
+                    PremiumOnly = false
+                })
+ 
+                local Tab3 = Window:MakeTab({
+                    Name = "Misc",
+                    Icon = "http://www.roblox.com/asset/?id=4370318685",
+                    PremiumOnly = false
+                })
+
+                local Tab4 = Window:MakeTab({
+                    Name = "Badges",
+                    Icon = "http://www.roblox.com/asset/?id=4335482575",
+                    PremiumOnly = false
+                })
+
+                local Tab5 = Window:MakeTab({
+                    Name = "Player",
+                    Icon = "http://www.roblox.com/asset/?id=4335489011",
+                    PremiumOnly = false
+                })
+                
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+      		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Tab2:AddToggle({
+                    Name = "Anti Kick",
+                    Default = false,
+                    Callback = function(Value)
+AntiKick = Value
+while AntiKick do
+for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
+                    if v.Name == "ErrorPrompt" then
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+                    end
+                end
+task.wait()
+end
+end
+})
+
+               Tab2:AddToggle({
+                    Name = "Anti Void",
+                    Default = false,
+                    Callback = function(Value)
+AntiVoid.CanCollide = Value
+if Value == true then
+AntiVoid.Transparency = 0.85
+else
+        AntiVoid.Transparency = 1
+        end
+                    end    
+                })
+                
+               Tab2:AddToggle({
+                    Name = "Anti Card",
+                    Default = false,
+                    Callback = function(Value)
+AntiCard = Value
+while AntiCard do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.ClassName == "Part" and v:FindFirstChild("TouchInterest") and v:FindFirstChild("Decal") then
+                        v.CanTouch = false
+                    end
+                end
+                task.wait()
+                end
+                    end    
+                })
+                
+               Tab2:AddToggle({
+                    Name = "Anti Barrier",
+                    Default = false,
+                    Callback = function(Value)
+AntiBarrier = Value
+while AntiBarrier do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "Barrier Wall" and v:FindFirstChild("TouchInterest") then
+                        v.CanTouch = false
+                        v.CanCollide = false
+                    end
+                end
+                task.wait()
+                end
+                    end    
+                })
+                
+               Tab2:AddToggle({
+                    Name = "Anti Soap",
+                    Default = false,
+                    Callback = function(Value)
+AntiSoap = Value
+while AntiSoap do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "Soap" and v:FindFirstChild("TouchInterest") then
+                        v.CanTouch = false
+                        v.CanCollide = false
+                    end
+                end
+                task.wait()
+                end
+                    end    
+                })
+                
+               Tab2:AddToggle({
+                    Name = "Anti Cauldron",
+                    Default = false,
+                    Callback = function(Value)
+if Value == true then
+game.Workspace.Main.Shop.Attic.Alchemy["Alchemist Cauldron"]["Character Kill"].CanTouch = false
+else
+game.Workspace.Main.Shop.Attic.Alchemy["Alchemist Cauldron"]["Character Kill"].CanTouch = true
+        end
+                    end    
+                })
+                
+Tab3:AddToggle({
+                    Name = "Punch Aura (Decent chance of kick)",
+                    Default = false,
+                    Callback = function(Value)
+PunchAura = Value
+                while PunchAura do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
+if v.Character:FindFirstChild("HumanoidRootPart") then
+if v.Character["Right Arm"]:FindFirstChild("SelectionBox") == nil and v.Character:FindFirstChild("Highlight") == nil then
+Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                        if 25 >= Magnitude then
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireServer(v.Character,Vector3.new,0,v.Character:FindFirstChild("Head"))
+                    end
+end
+end
+end
+                end
+wait(.5)
+end
+end
+                })
+                
+Tab3:AddToggle({
+                    Name = "Expand others' hitboxes",
+                    Default = false,
+                    Callback = function(Value)
+Hitbox = Value
+if Hitbox == false then
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer then
+                    if v.Character then
+                  if v.Character:FindFirstChild("HumanoidRootPart") then
+                        v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
+                        v.Character.HumanoidRootPart.Transparency = 1
+                    end
+                    end
+                    end
+                end
+end
+while Hitbox do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer then
+                    if v.Character then
+                  if v.Character:FindFirstChild("HumanoidRootPart") then
+                        v.Character.HumanoidRootPart.Size = Vector3.new(30,30,30)
+                        v.Character.HumanoidRootPart.Transparency = 0.75
+                    end
+                    end
+                end
+                end
+task.wait()
+end
+end
+                })
+                
+Tab3:AddToggle({
+                    Name = "Auto Kill Boss",
+                    Default = false,
+                    Callback = function(Value)
+if game.Workspace:FindFirstChild("Dog") then
+Boss = "Dog"
+   elseif game.Workspace:FindFirstChild("Cat") then
+Boss = "Cat"
+   elseif game.Workspace:FindFirstChild("Tree Lord") then
+Boss = "Tree Lord"
+   elseif game.Workspace:FindFirstChild("Mushroom King") then
+Boss = "Mushroom King"
+   elseif game.Workspace:FindFirstChild("Scarecrow") then
+Boss = "Scarecrow"
+end
+AutoKillBoss = Value
+if Boss ~= nil then
+                while AutoKillBoss do
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireServer(Boss,Vector3.new,0,Boss:FindFirstChild("Head"))
+wait(.1)
+end
+end
+end
+                })
+                
+Tab3:AddToggle({
+                    Name = "Auto Remove Nametag",
+                    Default = false,
+                    Callback = function(Value)
+AutoRemoveNameTag = Value
+        if AutoRemoveNameTag then
+        game.Players.LocalPlayer.Character:FindFirstChild("Head")["Name Tag"].TextLabel:Destroy()
+            game.Players.LocalPlayer.CharacterAdded:Connect(function()
+                if AutoRemoveNameTag then
+                repeat task.wait()
+                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
+                game.Players.LocalPlayer.Character:FindFirstChild("Head")["Name Tag"].TextLabel:Destroy()
+                end
+            end)
+        end
+end
+                })
+                
+Tab3:AddButton({
+	Name = "TP to Safe spot",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "TP back to arena",
+	Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-11,270,1)
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "Get Portal Mastery (Use in arena) (Resets character)",
+	Callback = function()
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Portal Facility"].Rift.Portal.Front.TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Portal Facility"].Rift.Portal.Front.TouchInterest.Parent, 1)
+  	end    
+})
+
+Tab3:AddTextbox({
+	Name = "Equip Ability (Only use in lobby)",
+	Default = "Ability Name",
+	TextDisappear = true,
+	Callback = function(Value)
+		fireclickdetector(workspace["Start Abilities"][Value].ClickDetector)
+	end	  
+})
+
+Tab3:AddButton({
+	Name = "Get 150 punches from quests (Needs at least 250 punches)",
+	Callback = function()
+      		game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").RequestQuestEvent:InvokeServer("Buy an Item from the Wood Shack")
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").BuyItem:FireServer("Gain Kick")
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").RequestQuestEvent:InvokeServer("Find The Backrooms")
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-122,21,-119)
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Location
+  	end    
+})
+
+Tab3:AddButton({
+	Name = "TP to Team Battles",
+	Callback = function()
+game:GetService("TeleportService"):Teleport(10626447503)
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get grocery shopping badge",
+	Callback = function()
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Burger.TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Burger.TouchInterest.Parent, 1)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Cake.TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Cake.TouchInterest.Parent, 1)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Pizza.TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Pizza.TouchInterest.Parent, 1)
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get cake badge",
+	Callback = function()
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Cake.TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Cake.TouchInterest.Parent, 1)
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get boing badge",
+	Callback = function()
+game:GetService("ReplicatedStorage"):WaitForChild("Remote Events"):WaitForChild("BigMushroomEvent"):FireServer()
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get Alchemist badge (Needs 750p and cake) (Use priv server)",
+	Callback = function()
+      		game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").AbilitySelect:FireServer("Soap")
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").ActivateStarted:FireServer("Normal")
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25,35,110)
+wait(0.25)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").AbilityEvent:FireServer(1)
+wait(0.1)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Respawn:FireServer()
+wait(3.75)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").AbilitySelect:FireServer("Cake")
+wait(0.1)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").ActivateStarted:FireServer("Normal")
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25,35,110)
+wait(0.25)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").AbilityEvent:FireServer(1)
+wait(0.1)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Respawn:FireServer()
+wait(3.75)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").AbilitySelect:FireServer("Glue")
+wait(0.1)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").ActivateStarted:FireServer("Normal")
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25,35,110)
+wait(0.25)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").AbilityEvent:FireServer(1)
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25,35,106)
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Get Gelatinous badge (Needs 1450p) (Use priv server)",
+	Callback = function()
+      		game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").ActivateStarted:FireServer("Normal")
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Gel.TouchInterest.Parent, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace["Map Items"].Gel.TouchInterest.Parent, 1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25.5,34,110)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Respawn:FireServer()
+wait(3.75)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").AbilitySelect:FireServer("Slime")
+wait(0.1)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").ActivateStarted:FireServer("Normal")
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25,35,110)
+wait(0.25)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").AbilityEvent:FireServer(1)
+wait(0.1)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Respawn:FireServer()
+wait(3.75)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").AbilitySelect:FireServer("Mushroom")
+wait(0.1)
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").ActivateStarted:FireServer("Normal")
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25,35,110)
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25,35,106)
+  	end    
+})
+
+Tab5:AddSlider({
+	Name = "Walkspeed",
+	Min = 20,
+	Max = 1000,
+	Default = 20,
+	Color = Color3.fromRGB(0,162,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+Walkspeed = Value
+	end    
+})
+
+Tab5:AddToggle({
+	Name = "Keep Walkspeed",
+	Default = false,
+	Callback = function(Value)
+KeepWalkspeed = Value
+            while KeepWalkspeed do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+                end
+task.wait()
+            end
+	end    
+})
+
+Tab5:AddSlider({
+	Name = "Jumppower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(255,154,0),
+	Increment = 1,
+	ValueName = "JP",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+Jumppower = Value
+	end    
+})
+
+Tab5:AddToggle({
+	Name = "Keep Jumppower",
+	Default = false,
+	Callback = function(Value)
+KeepJumppower = Value
+            while KeepJumppower do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                end
+task.wait()
+            end
+	end    
+})
+
+elseif game.PlaceId == 10626447503 then
+
+                local AntiVoid = Instance.new("Part", workspace)
+AntiVoid.Position = Vector3.new(0,0,0)
+AntiVoid.Name = "AntiVoid"
+AntiVoid.Size = Vector3.new(2048, 30, 2048)
+AntiVoid.Anchored = true
+AntiVoid.Transparency = 1
+AntiVoid.CanCollide = false
+AntiVoid.Material = Enum.Material.Neon
+                
+                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "Team Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
+                    PremiumOnly = false
+                })
+
+                local Tab2 = Window:MakeTab({
+                    Name = "Antis",
+                    Icon = "http://www.roblox.com/asset/?id=7734056608",
+                    PremiumOnly = false
+                })
+ 
+                local Tab3 = Window:MakeTab({
+                    Name = "Misc",
+                    Icon = "http://www.roblox.com/asset/?id=4370318685",
+                    PremiumOnly = false
+                })
+
+                local Tab4 = Window:MakeTab({
+                    Name = "Player",
+                    Icon = "http://www.roblox.com/asset/?id=4335489011",
+                    PremiumOnly = false
+                })
+                
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Tab2:AddToggle({
+                    Name = "Anti Kick",
+                    Default = false,
+                    Callback = function(Value)
+AntiKick = Value
+while AntiKick do
+for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
+                    if v.Name == "ErrorPrompt" then
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+                    end
+                end
+task.wait()
+end
+end
+})
+
+               Tab2:AddToggle({
+                    Name = "Anti Void",
+                    Default = false,
+                    Callback = function(Value)
+AntiVoid.CanCollide = Value
+if Value == true then
+AntiVoid.Transparency = 0.85
+else
+        AntiVoid.Transparency = 1
+        end
+                    end    
+                })
+                
+Tab3:AddToggle({
+                    Name = "Punch Aura",
+                    Default = false,
+                    Callback = function(Value)
+PunchAura = Value
+                while PunchAura do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
+if v.Character:FindFirstChild("HumanoidRootPart") then
+Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                        if 25 >= Magnitude then
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireServer(v.Character,Vector3.new,0,v.Character:FindFirstChild("Head"))
+                    end
+end
+end
+                end
+wait(.5)
+end
+end
+                })
+                
+Tab3:AddToggle({
+                    Name = "Expand others' hitboxes",
+                    Default = false,
+                    Callback = function(Value)
+Hitbox = Value
+if Hitbox == false then
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer then
+                        v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
+                        v.Character.HumanoidRootPart.Transparency = 1
+                    end
+                end
+end
+while Hitbox do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer then
+                        v.Character.HumanoidRootPart.Size = Vector3.new(30,30,30)
+                        v.Character.HumanoidRootPart.Transparency = 0.75
+                    end
+                end
+task.wait()
+end
+end
+                })
+                
+Tab3:AddButton({
+	Name = "Activate all C4s",
+	Callback = function()
+for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Detect" and v:FindFirstChild("TouchInterest") then
+            v.Size = Vector3.new(2048,2048,2048)
+            v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        end
+    end
+  	end    
+})
+                
+Tab3:AddToggle({
+                    Name = "Auto Remove Nametag",
+                    Default = false,
+                    Callback = function(Value)
+AutoRemoveNameTag = Value
+        if AutoRemoveNameTag then
+        game.Players.LocalPlayer.Character:FindFirstChild("Head")["Name Tag"].TextLabel:Destroy()
+            game.Players.LocalPlayer.CharacterAdded:Connect(function()
+                if AutoRemoveNameTag then
+                repeat task.wait()
+                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
+                game.Players.LocalPlayer.Character:FindFirstChild("Head")["Name Tag"].TextLabel:Destroy()
+                end
+            end)
+        end
+end
+                })
+
+Tab4:AddSlider({
+	Name = "Walkspeed",
+	Min = 20,
+	Max = 1000,
+	Default = 20,
+	Color = Color3.fromRGB(0,162,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+Walkspeed = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Keep Walkspeed",
+	Default = false,
+	Callback = function(Value)
+KeepWalkspeed = Value
+            while KeepWalkspeed do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+                end
+task.wait()
+            end
+	end    
+})
+
+Tab4:AddSlider({
+	Name = "Jumppower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(255,154,0),
+	Increment = 1,
+	ValueName = "JP",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+Jumppower = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Keep Jumppower",
+	Default = false,
+	Callback = function(Value)
+KeepJumppower = Value
+            while KeepJumppower do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                end
+task.wait()
+            end
+	end    
+})
+
+elseif game.PlaceId == 10201596675 then
+
+                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "Team Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
+                    PremiumOnly = false
+                })
+
+                local Tab2 = Window:MakeTab({
+                    Name = "Antis",
+                    Icon = "http://www.roblox.com/asset/?id=7734056608",
+                    PremiumOnly = false
+                })
+ 
+                local Tab3 = Window:MakeTab({
+                    Name = "Misc",
+                    Icon = "http://www.roblox.com/asset/?id=4370318685",
+                    PremiumOnly = false
+                })
+
+                local Tab4 = Window:MakeTab({
+                    Name = "Player",
+                    Icon = "http://www.roblox.com/asset/?id=4335489011",
+                    PremiumOnly = false
+                })
+                
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Tab2:AddToggle({
+                    Name = "Anti Kick",
+                    Default = false,
+                    Callback = function(Value)
+AntiKick = Value
+while AntiKick do
+for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
+                    if v.Name == "ErrorPrompt" then
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+                    end
+                end
+task.wait()
+end
+end
+})
+
+Tab2:AddToggle({
+                    Name = "Anti Storm",
+                    Default = false,
+                    Callback = function(Value)
+game.Workspace.Storm.CanCollide = Value
+end
+})
+                
+Tab3:AddToggle({
+                    Name = "Punch Aura",
+                    Default = false,
+                    Callback = function(Value)
+PunchAura = Value
+                while PunchAura do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
+if v.Character:FindFirstChild("HumanoidRootPart") then
+Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                        if 25 >= Magnitude then
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireServer(v.Character,Vector3.new,0,v.Character:FindFirstChild("Head"))
+                    end
+end
+end
+                end
+wait(.5)
+end
+end
+                })
+                
+Tab3:AddToggle({
+                    Name = "Expand others' hitboxes",
+                    Default = false,
+                    Callback = function(Value)
+Hitbox = Value
+if Hitbox == false then
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer then
+                        v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
+                        v.Character.HumanoidRootPart.Transparency = 1
+                    end
+                end
+end
+while Hitbox do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer then
+                        v.Character.HumanoidRootPart.Size = Vector3.new(30,30,30)
+                        v.Character.HumanoidRootPart.Transparency = 0.75
+                    end
+                end
+task.wait()
+end
+end
+                })
+                
+Tab3:AddToggle({
+                    Name = "Auto Remove Nametag",
+                    Default = false,
+                    Callback = function(Value)
+AutoRemoveNameTag = Value
+        if AutoRemoveNameTag then
+        game.Players.LocalPlayer.Character:FindFirstChild("Head")["Name Tag"].TextLabel:Destroy()
+            game.Players.LocalPlayer.CharacterAdded:Connect(function()
+                if AutoRemoveNameTag then
+                repeat task.wait()
+                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
+                game.Players.LocalPlayer.Character:FindFirstChild("Head")["Name Tag"].TextLabel:Destroy()
+                end
+            end)
+        end
+end
+                })
+
+Tab4:AddSlider({
+	Name = "Walkspeed",
+	Min = 20,
+	Max = 1000,
+	Default = 20,
+	Color = Color3.fromRGB(0,162,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+Walkspeed = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Keep Walkspeed",
+	Default = false,
+	Callback = function(Value)
+KeepWalkspeed = Value
+            while KeepWalkspeed do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+                end
+task.wait()
+            end
+	end    
+})
+
+Tab4:AddSlider({
+	Name = "Jumppower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(255,154,0),
+	Increment = 1,
+	ValueName = "JP",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+Jumppower = Value
+	end    
+})
+
+Tab4:AddToggle({
+	Name = "Keep Jumppower",
+	Default = false,
+	Callback = function(Value)
+KeepJumppower = Value
+            while KeepJumppower do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Jumppower
+                end
+task.wait()
+            end
+	end    
+})
+end
