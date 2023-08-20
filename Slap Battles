@@ -958,7 +958,7 @@ shared.gloveHits[getGlove()]:FireServer(v.Body,true)
 end
 end
                 end
-task.wait()
+wait()
 end
 end
                 })
@@ -2488,7 +2488,7 @@ shared.gloveHits[getGlove()]:FireServer(v.Body,true)
 end
 end
                 end
-task.wait()
+wait()
 end
 end
                 })
