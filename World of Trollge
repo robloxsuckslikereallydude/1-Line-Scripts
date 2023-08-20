@@ -1,0 +1,233 @@
+-- if you have problems message Guy that exists#1915
+
+if game.PlaceId == 13574267145 then
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "Trading Center hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
+                    PremiumOnly = false
+                })
+
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+      		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Trade Random People",
+	Callback = function()
+for i,v in pairs(game.Workspace:GetDescendants()) do
+                    if v.Name == "pres1" or v.Name == "pres2" then
+OGL = v.CFrame
+task.wait()
+v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+task.wait()
+v.CFrame = OGL
+                    end
+                end
+  	end    
+})
+
+else
+
+OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+                
+                local Window = OrionLib:MakeWindow({Name = "World of Trollge hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+
+                local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
+                    PremiumOnly = false
+                })
+
+                local Tab2 = Window:MakeTab({
+                    Name = "Main",
+                    Icon = "http://www.roblox.com/asset/?id=4335482575",
+                    PremiumOnly = false
+                })
+                
+                local Tab3 = Window:MakeTab({
+                    Name = "Player",
+                    Icon = "http://www.roblox.com/asset/?id=4335489011",
+                    PremiumOnly = false
+                })
+
+Tab:AddLabel("If you have problems then message Guy that exists#1915")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+      		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+
+Tab2:AddToggle({
+                    Name = "Auto Collect Cups/Relics",
+                    Default = false,
+                    Callback = function(Value)
+AutoCups = Value
+while AutoCups do
+for i, v in ipairs(game.Workspace:GetChildren()) do
+                if v:IsA("Tool") and v:FindFirstChild("Pick up",true) then
+                if v.Handle.Anchored == false then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                end
+            end
+            end
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+            task.wait()
+            end
+end
+})
+
+Tab2:AddToggle({
+                    Name = "Quick Craft Cups",
+                    Default = false,
+                    Callback = function(Value)
+AutoCraft = Value
+if AutoCraft == true then
+OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+while AutoCraft do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-289,6,-90)
+for i, v in ipairs(workspace["The J"].Forging:GetDescendants()) do
+                if v.ClassName == "Part" and v:FindFirstChild("ProximityPrompt") then
+fireproximityprompt(v.ProximityPrompt,0)
+                end
+            end
+task.wait()
+end
+end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
+end
+})
+
+Tab2:AddDropdown({
+	Name = "TP to cup spot",
+	Default = "1",
+	Options = {"Water Cup", "Hearty Cup", "Super Oil", "Fighting Spirit", "Empty Cup", "Dark Orb", "Night's essence cup", "sploinky cup", "Flaming oil", "Oil, blood, and sorrow cup"},
+	Callback = function(Value)
+if Value == "Empty Cup" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The J"]["The hole"].Part.CFrame
+elseif Value == "Water Cup" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Red tree dimension"]["Water Obby"].Water["Water cup"].CFrame
+elseif Value == "Hearty Cup" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Red tree dimension"].HeartyArea.HeartyStand.HeartyCupPart.CFrame
+elseif Value == "Oil, blood, and sorrow cup" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-289,6,-90)
+elseif Value == "Night's essence cup" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The J"]["Night's anvil plate"].Part.CFrame
+elseif Value == "Dark Orb" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The J"].OrbCrafter.Part.CFrame
+elseif Value == "Flaming oil" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-274,6,185)
+elseif Value == "Super Oil" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Oil-man's Base"].Interior.anvil.Part.CFrame
+elseif Value == "sploinky cup" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Toilet.CFrame
+elseif Value == "Fighting Spirit" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Red tree dimension"].BlueArea.Statue.Part.CFrame
+end
+	end    
+})
+
+Tab2:AddButton({
+	Name = "TP to secret wip obby",
+	Callback = function()
+      		game:GetService("TeleportService"):Teleport(12900816202)
+  	end    
+})
+
+Tab3:AddSlider({
+	Name = "Walkspeed",
+	Min = 16,
+	Max = 1000,
+	Default = 16,
+	Color = Color3.fromRGB(0,162,255),
+	Increment = 1,
+	ValueName = "WS",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+Walkspeed = Value
+	end    
+})
+
+Tab3:AddToggle({
+	Name = "Keep Walkspeed",
+	Default = false,
+	Callback = function(Value)
+KeepWalkspeed = Value
+            while KeepWalkspeed do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
+                end
+task.wait()
+            end
+	end    
+})
+
+Tab3:AddSlider({
+	Name = "Jumppower",
+	Min = 50,
+	Max = 1000,
+	Default = 50,
+	Color = Color3.fromRGB(255,154,0),
+	Increment = 1,
+	ValueName = "JP",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+Jumppower = Value
+	end    
+})
+
+Tab3:AddToggle({
+	Name = "Keep Jumppower",
+	Default = false,
+	Callback = function(Value)
+KeepJumppower = Value
+            while KeepJumppower do
+                if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Jumppower then
+                    game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
+                end
+task.wait()
+            end
+	end    
+})
+end
