@@ -945,25 +945,6 @@ end
                 })
 
 Tab4:AddToggle({
-                    Name = "Null Slap Farm (All gloves)",
-                    Default = false,
-                    Callback = function(Value)
-NullSlapFarm = Value
-                while NullSlapFarm do
-game:GetService("ReplicatedStorage").NullAbility:FireServer()
-for i,v in pairs(game.Workspace:GetChildren()) do
-                    if v.Name == "Imp" then
-if v:FindFirstChild("Body") then
-game.ReplicatedStorage.KSHit:FireServer(v.Body)
-end
-end
-                end
-wait()
-end
-end
-                })
-
-Tab4:AddToggle({
                     Name = "Remove Nametag (Breaks killstreak)",
                     Default = false,
                     Callback = function(Value)
@@ -2472,26 +2453,7 @@ else
 game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Za Hando equipped"})
 end
                     end    
-                })
-
-Tab4:AddToggle({
-                    Name = "Null Slap Farm (All gloves)",
-                    Default = false,
-                    Callback = function(Value)
-NullSlapFarm = Value
-                while NullSlapFarm do
-game:GetService("ReplicatedStorage").NullAbility:FireServer()
-for i,v in pairs(game.Workspace:GetChildren()) do
-                    if v.Name == "Imp" then
-if v:FindFirstChild("Body") then
-shared.gloveHits[getGlove()]:FireServer(v.Body,true)
-end
-end
-                end
-wait()
-end
-end
-                })
+                }) 
 
 Tab4:AddButton({
 	Name = "Give reaper 20 kills (Use after they slap you)",
