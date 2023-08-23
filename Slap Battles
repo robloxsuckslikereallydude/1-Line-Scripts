@@ -2089,6 +2089,8 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmo
                     end    
                 })
 
+Tab4:AddLabel("When in KS only there is a null farm feature")
+
 Tab2:AddToggle({
                     Name = "Slap Aura",
                     Default = false,
