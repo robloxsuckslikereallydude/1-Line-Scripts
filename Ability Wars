@@ -244,7 +244,7 @@ end
 AutoKillBoss = Value
 if Boss ~= nil then
                 while AutoKillBoss do
-game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireServer(Boss,Vector3.new,0,Boss:FindFirstChild("Head"))
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireServer(workspace:WaitForChild(Boss),Vector3.new,0,Boss:FindFirstChild("Right Leg"))
 wait(.1)
 end
 end
@@ -303,6 +303,7 @@ Tab3:AddTextbox({
 Tab3:AddButton({
 	Name = "Get 150 punches from quests (Needs at least 250 punches)",
 	Callback = function()
+	Location = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
       		game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").RequestQuestEvent:InvokeServer("Buy an Item from the Wood Shack")
 game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").BuyItem:FireServer("Gain Kick")
 game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").RequestQuestEvent:InvokeServer("Find The Backrooms")
