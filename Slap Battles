@@ -964,7 +964,7 @@ end
                 })
 
 Tab4:AddToggle({
-                    Name = "Remove Nametag (Breaks killstreak)",
+                    Name = "Remove Nametag (Breaks killstreak) (Clientside)",
                     Default = false,
                     Callback = function(Value)
 AutoRemoveNameTag = Value
@@ -2540,7 +2540,7 @@ end
                 })
 
 Tab4:AddToggle({
-                    Name = "Remove Nametag (Breaks killstreak)",
+                    Name = "Remove Nametag (Breaks killstreak) (Clientside)",
                     Default = false,
                     Callback = function(Value)
 AutoRemoveNameTag = Value
