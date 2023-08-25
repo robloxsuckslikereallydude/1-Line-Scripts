@@ -944,6 +944,13 @@ end
 end
                 })
 
+Tab4:AddButton({
+	Name = "Spawn cloud (All gloves)",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").CloudAbility:FireServer()
+  	end    
+})
+
 Tab4:AddToggle({
                     Name = "Remove Nametag (Breaks killstreak) (Clientside)",
                     Default = false,
@@ -2070,8 +2077,6 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmo
                     end    
                 })
 
-Tab4:AddLabel("When in KS only there is a null farm feature")
-
 Tab2:AddToggle({
                     Name = "Slap Aura",
                     Default = false,
@@ -2521,6 +2526,13 @@ task.wait()
 end
 end
                 })
+
+Tab4:AddButton({
+	Name = "Spawn cloud (All gloves)",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").CloudAbility:FireServer()
+  	end    
+})
 
 Tab4:AddToggle({
                     Name = "Remove Nametag (Breaks killstreak) (Clientside)",
