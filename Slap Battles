@@ -945,25 +945,6 @@ end
                 })
 
 Tab4:AddToggle({
-                    Name = "Null Slap Farm (All gloves)",
-                    Default = false,
-                    Callback = function(Value)
-NullSlapFarm = Value
-                while NullSlapFarm do
-game:GetService("ReplicatedStorage").NullAbility:FireServer()
-for i,v in pairs(game.Workspace:GetChildren()) do
-                    if v.Name == "Imp" then
-if v:FindFirstChild("Body") then
-game.ReplicatedStorage.KSHit:FireServer(v.Body)
-end
-end
-                end
-wait()
-end
-end
-                })
-
-Tab4:AddToggle({
                     Name = "Remove Nametag (Breaks killstreak) (Clientside)",
                     Default = false,
                     Callback = function(Value)
