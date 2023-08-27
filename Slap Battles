@@ -951,6 +951,13 @@ Tab4:AddButton({
   	end    
 })
 
+Tab4:AddButton({
+	Name = "Spawn nimbus cloud (All gloves)",
+	Callback = function()
+      		game.ReplicatedStorage.NimbusAbility:FireServer()
+  	end    
+})
+
 Tab4:AddToggle({
                     Name = "Remove Nametag (Breaks killstreak) (Clientside)",
                     Default = false,
@@ -2531,6 +2538,13 @@ Tab4:AddButton({
 	Name = "Spawn cloud (All gloves)",
 	Callback = function()
       		game:GetService("ReplicatedStorage").CloudAbility:FireServer()
+  	end    
+})
+
+Tab4:AddButton({
+	Name = "Spawn nimbus cloud (All gloves)",
+	Callback = function()
+      		game.ReplicatedStorage.NimbusAbility:FireServer()
   	end    
 })
 
