@@ -959,20 +959,19 @@ Tab4:AddButton({
 })
 
 Tab4:AddToggle({
-                    Name = "Remove Nametag (Breaks killstreak) (Clientside)",
+                    Name = "Auto Remove Nametag (Breaks killstreak) (Clientside)",
                     Default = false,
                     Callback = function(Value)
 AutoRemoveNameTag = Value
-        if AutoRemoveNameTag then
-        game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+        if AutoRemoveNameTag and game.Players.LocalPlayer.Character:FindFirstChild("Nametag",true) then
+        game.Players.LocalPlayer.Character.Head.Nametag:Destroy()
+end
             game.Players.LocalPlayer.CharacterAdded:Connect(function()
                 if AutoRemoveNameTag then
-                repeat task.wait()
-                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
-                game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("Nametag",true)
+                game.Players.LocalPlayer.Character.Head.Nametag:Destroy()
                 end
             end)
-        end
 end
                 })
 
@@ -1438,8 +1437,7 @@ game.Players.LocalPlayer.Character.Humanoid.Health = 0
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
 if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and AntiRagdoll then
-repeat task.wait()
-game.Players.LocalPlayer.Character.Torso.Anchored = true
+repeat task.wait() game.Players.LocalPlayer.Character.Torso.Anchored = true
 until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
 game.Players.LocalPlayer.Character.Torso.Anchored = false
 end
@@ -2549,20 +2547,19 @@ Tab4:AddButton({
 })
 
 Tab4:AddToggle({
-                    Name = "Remove Nametag (Breaks killstreak) (Clientside)",
+                    Name = "Auto Remove Nametag (Breaks killstreak) (Clientside)",
                     Default = false,
                     Callback = function(Value)
 AutoRemoveNameTag = Value
-        if AutoRemoveNameTag then
-        game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+        if AutoRemoveNameTag and game.Players.LocalPlayer.Character:FindFirstChild("Nametag",true) then
+        game.Players.LocalPlayer.Character.Head.Nametag:Destroy()
+end
             game.Players.LocalPlayer.CharacterAdded:Connect(function()
                 if AutoRemoveNameTag then
-                repeat task.wait()
-                until game.Players.LocalPlayer.Character:FindFirstChild("Head")
-                game.Players.LocalPlayer.Character:FindFirstChild("Head").Nametag.TextLabel:Destroy()
+repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("Nametag",true)
+                game.Players.LocalPlayer.Character.Head.Nametag:Destroy()
                 end
             end)
-        end
 end
                 })
 
@@ -3256,8 +3253,7 @@ game.Players.LocalPlayer.Character.Humanoid.Health = 0
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
 game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Changed:Connect(function()
 if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and AntiRagdoll then
-repeat task.wait()
-game.Players.LocalPlayer.Character.Torso.Anchored = true
+repeat task.wait() game.Players.LocalPlayer.Character.Torso.Anchored = true
 until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
 game.Players.LocalPlayer.Character.Torso.Anchored = false
 end
