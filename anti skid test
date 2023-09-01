@@ -1,1 +1,6 @@
-print("worked")
+if game.PlaceId == 9431156611 or game.PlaceId == 11520107397 or game.PlaceId == 11828384869 or game.PlaceId == 9020359053 or game.PlaceId == 9412268818 then
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+elseif game.PlaceId == 8260276694 or game.PlaceId == 10626447503 or if game.PlaceId == 10201596675 then
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Ability%20Wars')))()
+end
+end
