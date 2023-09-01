@@ -1,0 +1,7 @@
+if game.PlaceId == 6403373529 or game.PlaceId == 9431156611 or game.PlaceId == 11520107397 or game.PlaceId == 11828384869 or game.PlaceId == 9020359053 or game.PlaceId == 9412268818 then
+setclipboard("loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles')))()")
+game.Players.LocalPlayer:Kick("Whoever you got this script from has stolen it, original script copied. loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles')))()")
+elseif game.PlaceId == 8260276694 or game.PlaceId == 10626447503 or game.PlaceId == 10201596675 then
+setclipboard("loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Ability%20Wars')))()")
+game.Players.LocalPlayer:Kick("Whoever you got this script from has stolen it, original script copied. loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Ability%20Wars')))()")
+end
