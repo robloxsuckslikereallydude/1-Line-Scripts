@@ -877,18 +877,6 @@ end
                     end    
                 })
 
-                Tab2:AddToggle({
-                    Name = "Null Spam (All gloves) (Credits to lloyd#5746)",
-                    Default = false,
-                    Callback = function(Value)
-NullSpam = Value
-while NullSpam do
-game:GetService("ReplicatedStorage").NullAbility:FireServer()
-task.wait()
-end
-                    end    
-                })
-
 Tab2:AddToggle({
                     Name = "Rojo Spam (All gloves)",
                     Default = false,
@@ -915,6 +903,39 @@ else
 Person = Value
 end
 	end	  
+})
+
+                Tab2:AddToggle({
+                    Name = "Null Spam (All gloves) (Credits to lloyd#5746)",
+                    Default = false,
+                    Callback = function(Value)
+NullSpam = Value
+while NullSpam do
+game:GetService("ReplicatedStorage").NullAbility:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab2:AddToggle({
+                    Name = "Retro Spam (All gloves)",
+                    Default = false,
+                    Callback = function(Value)
+RetroSpam = Value
+while RetroSpam do
+game:GetService("ReplicatedStorage").RetroAbility:FireServer(RetroAbility)
+task.wait()
+end
+                    end    
+                })
+
+Tab2:AddDropdown({
+	Name = "Retro Ability",
+	Default = "Rocket Launcher",
+	Options = {"Rocket Launcher", "Ban Hammer", "Bomb"},
+	Callback = function(Value)
+RetroAbility = Value
+	end    
 })
 
                 Tab2:AddToggle({
@@ -2167,18 +2188,6 @@ end
                     end    
                 })
 
-                Tab2:AddToggle({
-                    Name = "Null Spam (All gloves) (Credits to lloyd#5746)",
-                    Default = false,
-                    Callback = function(Value)
-NullSpam = Value
-while NullSpam do
-game:GetService("ReplicatedStorage").NullAbility:FireServer()
-task.wait()
-end
-                    end    
-                })
-
 Tab2:AddToggle({
                     Name = "Rojo Spam (All gloves)",
                     Default = false,
@@ -2205,6 +2214,39 @@ else
 Person = Value
 end
 	end	  
+})
+
+                Tab2:AddToggle({
+                    Name = "Null Spam (All gloves) (Credits to lloyd#5746)",
+                    Default = false,
+                    Callback = function(Value)
+NullSpam = Value
+while NullSpam do
+game:GetService("ReplicatedStorage").NullAbility:FireServer()
+task.wait()
+end
+                    end    
+                })
+
+                Tab2:AddToggle({
+                    Name = "Retro Spam (All gloves)",
+                    Default = false,
+                    Callback = function(Value)
+RetroSpam = Value
+while RetroSpam do
+game:GetService("ReplicatedStorage").RetroAbility:FireServer(RetroAbility)
+task.wait()
+end
+                    end    
+                })
+
+Tab2:AddDropdown({
+	Name = "Retro Ability",
+	Default = "Rocket Launcher",
+	Options = {"Rocket Launcher", "Ban Hammer", "Bomb"},
+	Callback = function(Value)
+RetroAbility = Value
+	end    
 })
 
                 Tab2:AddToggle({
@@ -2431,6 +2473,10 @@ wait(7.3)
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Thor" do
 game:GetService("ReplicatedStorage").ThorAbility:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+task.wait()
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Quake" do
+game:GetService("ReplicatedStorage"):WaitForChild("QuakeQuake"):FireServer({["start"] = true})
 task.wait()
 end
                     end   
