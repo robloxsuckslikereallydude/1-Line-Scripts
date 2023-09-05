@@ -6,6 +6,28 @@ end
 
 game:GetService("GuiService"):ClearError()
 
+if game.PlaceId == 11520107397 or game.PlaceId == 6403373529 then
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
+            return
+        end
+        return bypass(method, ...)
+    end)
+if workspace:FindFirstChild("Spot") == nil then
+local SafeSpot = Instance.new("Part", workspace)
+SafeSpot.Position = Vector3.new(math.random(-25000,-2500),100,math.random(-25000,-2500))
+SafeSpot.Name = "Spot"
+SafeSpot.Size = Vector3.new(500,50,500)
+SafeSpot.Anchored = true
+SafeSpot.Transparency = .5
+end
+end
+
 if game.PlaceId == 9431156611 then
 local bypass;
     bypass = hookmetamethod(game, "__namecall", function(method, ...) 
@@ -179,11 +201,7 @@ Tab2:AddButton({
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                     if v.Name == "Bull's essence" or v.Name == "Potion of Strength" or v.Name == "Boba" or v.Name == "Speed Potion" or v.Name == "Frog Potion" or v.Name == "Strength Brew" or v.Name == "Frog Brew" or v.Name == "Speed Brew" then
                         game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v.Name == "Bull's essence" or v.Name == "Potion of Strength" or v.Name == "Boba" or v.Name == "Speed Potion" or v.Name == "Frog Potion" or v.Name == "Strength Brew" or v.Name == "Frog Brew" or v.Name == "Speed Brew" then
                         v:Activate()
-                    end
-                end
                     end
                 end
 			end
@@ -652,31 +670,15 @@ task.wait()
 })
 
 elseif game.PlaceId == 11520107397 then
-local bypass;
-    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
-        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
-            return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
-            return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
-            return
-        end
-        return bypass(method, ...)
-    end)
 
-local SafeSpot = Instance.new("Part", workspace)
-SafeSpot.Position = Vector3.new(-1500,100,-1500)
-SafeSpot.Name = "Spot"
-SafeSpot.Size = Vector3.new(500,60,500)
-SafeSpot.Anchored = true
-SafeSpot.Transparency = .75
-
+if workspace:FindFirstChild("TAntiVoid") == nil then
 local TournamentAntiVoid = Instance.new("Part", workspace)
 TournamentAntiVoid.Name = "TAntiVoid"
 TournamentAntiVoid.Size = Vector3.new(2048, 3, 2048)
 TournamentAntiVoid.Position = Vector3.new(3417, 72, 2)
 TournamentAntiVoid.CanCollide = false
 TournamentAntiVoid.Transparency = 1
+end
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
@@ -858,9 +860,6 @@ Tab2:AddToggle({
                     Name = "Rojo Spam (All gloves)",
                     Default = false,
                     Callback = function(Value)
-if Person == nil then
-Person = game.Players.LocalPlayer.Name
-end
 RojoSpam = Value
 while RojoSpam do
 game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[Person].Character.HumanoidRootPart.CFrame})
@@ -881,6 +880,7 @@ Person = Value
 end
 	end	  
 })
+Person = game.Players.LocalPlayer.Name
 
                 Tab2:AddToggle({
                     Name = "Null Spam (All gloves) (Credits to lloyd#5746)",
@@ -916,7 +916,7 @@ RetroAbility = Value
 })
 
                 Tab2:AddToggle({
-                    Name = "Killstreak Soul Snatcher Spam",
+                    Name = "Killstreak Orb Spam",
                     Default = false,
                     Callback = function(Value)
 On = Value
@@ -933,7 +933,7 @@ Tab2:AddToggle({
                     Callback = function(Value)
 AutoEnterArena = Value
 while AutoEnterArena do
-if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 0)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 1)
     end
@@ -1036,7 +1036,7 @@ end)
 Tab4:AddButton({
 	Name = "TP to Safe spot",
 	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,40,0)
   	end    
 })
 
@@ -1490,15 +1490,11 @@ end
                     Callback = function(Value)
 if Value == true then
 for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
-                    if v.ClassName == "Part" then
                         v.CanTouch = false
-                    end
                 end
 else
 for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
-                    if v.ClassName == "Part" then
                         v.CanTouch = true
-                    end
                 end
 end
                     end    
@@ -1935,35 +1931,16 @@ game:GetService("TeleportService"):Teleport(game.PlaceId)
 
 else
 
-local bypass;
-    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
-        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
-            return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
-            return
-        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
-            return
-        end
-        return bypass(method, ...)
-    end)
+Glove = game.Players.LocalPlayer.leaderstats.Glove.Value
 
-   local function getGlove()
-       return game.Players.LocalPlayer.leaderstats.Glove.Value
-    end
-
-local SafeSpot = Instance.new("Part", workspace)
-SafeSpot.Position = Vector3.new(-1500,100,-1500)
-SafeSpot.Name = "Spot"
-SafeSpot.Size = Vector3.new(500,60,500)
-SafeSpot.Anchored = true
-SafeSpot.Transparency = .75
-
+if workspace:FindFirstChild("TAntiVoid") == nil then
 local TournamentAntiVoid = Instance.new("Part", workspace)
 TournamentAntiVoid.Name = "TAntiVoid"
 TournamentAntiVoid.Size = Vector3.new(2048, 3, 2048)
 TournamentAntiVoid.Position = Vector3.new(3417, 72, 2)
 TournamentAntiVoid.CanCollide = false
 TournamentAntiVoid.Transparency = 1
+end
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
@@ -2092,7 +2069,7 @@ if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("Humanoi
 if v.Character.Head:FindFirstChild("UnoReverseCard") == nil or game.Players.LocalPlayer.leaderstats.Glove == "Error" then
 Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
                         if 25 >= Magnitude then
-shared.gloveHits[getGlove()]:FireServer(v.Character:WaitForChild("Head"),true)
+shared.gloveHits[Glove]:FireServer(v.Character:WaitForChild("Head"),true)
                     end
 end
 end
@@ -2147,9 +2124,6 @@ Tab2:AddToggle({
                     Name = "Rojo Spam (All gloves)",
                     Default = false,
                     Callback = function(Value)
-if Person == nil then
-Person = game.Players.LocalPlayer.Name
-end
 RojoSpam = Value
 while RojoSpam do
 game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players[Person].Character.HumanoidRootPart.CFrame})
@@ -2170,6 +2144,7 @@ Person = Value
 end
 	end	  
 })
+Person = game.Players.LocalPlayer.Name
 
                 Tab2:AddToggle({
                     Name = "Null Spam (All gloves) (Credits to lloyd#5746)",
@@ -2205,7 +2180,7 @@ RetroAbility = Value
 })
 
                 Tab2:AddToggle({
-                    Name = "Ability Spam (Can work in lobby)",
+                    Name = "Glove Ability Spam (Can work in lobby)",
                     Default = false,
                     Callback = function(Value)
 On = Value
@@ -2444,9 +2419,7 @@ if game.Players.LocalPlayer.leaderstats.Glove.Value == "Za Hando" then
 OGWS = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
 OGJP = game.Players.LocalPlayer.Character.Humanoid.JumpPower
 for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
-                    if v.ClassName == "Part" then
                         v.CanTouch = false
-                    end
                 end
 game:GetService("ReplicatedStorage").Erase:FireServer()
 wait(0.47)
@@ -2458,9 +2431,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Aren
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = OGWS
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = OGJP
 for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
-                    if v.ClassName == "Part" then
                         v.CanTouch = true
-                    end
                 end
 else
 game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Za Hando equipped"})
@@ -2476,7 +2447,7 @@ for i = 1, 20 do
 end
 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                     if v.Name == "DeathMark" then
-                    game:GetService("ReplicatedStorage").ReaperGone:FireServer(game.Players.LocalPlayer.Character.DeathMark)
+                    game.ReplicatedStorage.ReaperGone:FireServer(v)
                     game:GetService("Lighting"):WaitForChild("DeathMarkColorCorrection"):Destroy() 
                     end 
                 end
@@ -2524,7 +2495,7 @@ Tab2:AddToggle({
                     Callback = function(Value)
 AutoEnterArena = Value
 while AutoEnterArena do
-if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 0)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 1)
     end
@@ -2564,7 +2535,7 @@ end
 Tab4:AddButton({
 	Name = "TP to Safe spot",
 	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,40,0)
   	end    
 })
 
@@ -2759,65 +2730,42 @@ Tab4:AddSlider({
 })
 
                 Tab4:AddToggle({
-                    Name = "Spam Space Sound",
+                    Name = "Spam Glove Sound",
                     Default = false,
                     Callback = function(Value)
-SpaceSoundSpam = Value
-while SpaceSoundSpam do
-game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
-task.wait()
-end
-                    end    
-                })
-
-                Tab4:AddToggle({
-                    Name = "Spam Thanos Sound",
-                    Default = false,
-                    Callback = function(Value)
-ThanosSoundSpam = Value
-while ThanosSoundSpam do
-game:GetService("ReplicatedStorage").Illbeback:FireServer()
-task.wait()
-end
-                    end    
-                })
-
-                Tab4:AddToggle({
-                    Name = "Spam Golden Sound",
-                    Default = false,
-                    Callback = function(Value)
-GoldenSoundSpam = Value
-while GoldenSoundSpam do
-game:GetService("ReplicatedStorage").Goldify:FireServer(true)
-task.wait()
-end
-                    end    
-                })
-
-                Tab4:AddToggle({
-                    Name = "Spam Ghost Sound",
-                    Default = false,
-                    Callback = function(Value)
-GhostSoundSpam = Value
-while GhostSoundSpam do
+GloveSoundSpam = Value
+while GloveSoundSpam and GloveSound == "Ghost" do
 game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
 game.ReplicatedStorage.Ghostinvisibilitydeactivated:FireServer()
 task.wait()
 end
-                    end    
-                })
-
-                Tab4:AddToggle({
-                    Name = "Spam Hitman Sound",
-                    Default = false,
-                    Callback = function(Value)
-HitmanSoundSpam = Value
-while HitmanSoundSpam do
+while GloveSoundSpam and GloveSound == "Thanos" do
+game:GetService("ReplicatedStorage").Illbeback:FireServer()
+task.wait()
+end
+while GloveSoundSpam and GloveSound == "Space" do
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+task.wait()
+end
+while GloveSoundSpam and GloveSound == "Golden" do
+game:GetService("ReplicatedStorage").Goldify:FireServer(true)
+task.wait()
+end
+while GloveSoundSpam and GloveSound == "Hitman" do
 game:GetService("ReplicatedStorage"):WaitForChild("HitmanAbility"):FireServer("ReplicateGoldenRevolver",{0})
 task.wait()
 end
                     end    
                 })
+
+Tab4:AddDropdown({
+	Name = "Glove Sound",
+	Default = "Ghost",
+	Options = {"Ghost", "Thanos", "Space", "Golden", "Hitman"},
+	Callback = function(Value)
+GloveSound = Value
+	end    
+})
 
 Tab6:AddSlider({
 	Name = "Walkspeed",
@@ -3281,15 +3229,11 @@ end
                     Callback = function(Value)
 if Value == true then
 for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
-                    if v.ClassName == "Part" then
                         v.CanTouch = false
-                    end
                 end
 else
 for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
-                    if v.ClassName == "Part" then
                         v.CanTouch = true
-                    end
                 end
 end
                     end    
@@ -3404,7 +3348,7 @@ AntiReaper = Value
             while AntiReaper do
 for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                     if v.Name == "DeathMark" then
-                        game:GetService("ReplicatedStorage").ReaperGone:FireServer(game.Players.LocalPlayer.Character.DeathMark)
+                        game:GetService("ReplicatedStorage").ReaperGone:FireServer(v)
                     game:GetService("Lighting"):WaitForChild("DeathMarkColorCorrection"):Destroy() 
                     end
                 end
