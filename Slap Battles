@@ -818,50 +818,27 @@ Tab2:AddButton({
 	Name = "Godmode (Resets character) (Breaks killstreak)",
 	Callback = function()
 if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
-wait(0.5)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 1)
+end
+repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool") or game.Players.LocalPlayer.Backpack:FindFirstChildWhichIsA("Tool")
 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
                     if v.ClassName == "Tool" then
                         v.Parent = game.LogService
                     end
                 end
-game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
-wait(4)
-for i,v in pairs(game.LogService:GetChildren()) do
-                    if v.ClassName == "Tool" then
-                        v.Parent = game.Players.LocalPlayer.Character
-                    end
-                end
-game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ClassName == "Tool" then
-                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-                    end
-                end 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
-elseif game.Players.LocalPlayer.Character:FindFirstChild("entered") then
-game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ClassName == "Tool" then
                         v.Parent = game.LogService
-                    end
                 end
 game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
-wait(4)
+wait(3.75)
 for i,v in pairs(game.LogService:GetChildren()) do
-                    if v.ClassName == "Tool" then
-                        v.Parent = game.Players.LocalPlayer.Character
-                    end
+                        v.Parent = game.Players.LocalPlayer.Backpack
                 end
-game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ClassName == "Tool" then
                         game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-                    end
                 end 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
-end
                     end    
                 })
 
@@ -957,8 +934,8 @@ Tab2:AddToggle({
 AutoEnterArena = Value
 while AutoEnterArena do
 if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 1)
     end
 task.wait()
 end
@@ -1378,9 +1355,9 @@ for i = 1, 10 do
 Door = Door + 1
         if game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) then
         else
-        firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 0)
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 1)
-wait(4)
+        firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door], 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door], 1)
+wait(3.75)
 end
 end
 else
@@ -2129,50 +2106,28 @@ end
 Tab2:AddButton({
 	Name = "Godmode (Resets character) (Breaks ks & reaper)",
 	Callback = function()
-if game.Players.LocalPlayer.Character.isInArena.Value == false then
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
-wait(0.5)
-for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v.ClassName == "Tool" then
-                        v.Parent = game.LogService
-                    end
-                end
-game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
-wait(4)
-for i,v in pairs(game.LogService:GetChildren()) do
-                    if v.ClassName == "Tool" then
-                        v.Parent = game.Players.LocalPlayer.Character
-                    end
-                end
-game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ClassName == "Tool" then
-                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-                    end
-                end 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
-elseif game.Players.LocalPlayer.Character.isInArena.Value == true then
-for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v.ClassName == "Tool" then
-                        v.Parent = game.LogService
-                    end
-                end
-game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
-wait(4)
-for i,v in pairs(game.LogService:GetChildren()) do
-                    if v.ClassName == "Tool" then
-                        v.Parent = game.Players.LocalPlayer.Character
-                    end
-                end
-game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                    if v.ClassName == "Tool" then
-                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-                    end
-                end 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 1)
 end
+repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool") or game.Players.LocalPlayer.Backpack:FindFirstChildWhichIsA("Tool")
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v.ClassName == "Tool" then
+                        v.Parent = game.LogService
+                    end
+                end
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        v.Parent = game.LogService
+                end
+game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
+wait(3.75)
+for i,v in pairs(game.LogService:GetChildren()) do
+                        v.Parent = game.Players.LocalPlayer.Backpack
+                end
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                end 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Origo.CFrame
                     end    
                 })
 
@@ -2498,7 +2453,7 @@ wait(0.47)
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = 0
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(1022,213.8,1498)
-wait(3.5)
+wait(3.75)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Rock.CFrame
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = OGWS
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = OGJP
@@ -2570,8 +2525,8 @@ Tab2:AddToggle({
 AutoEnterArena = Value
 while AutoEnterArena do
 if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 1)
     end
 task.wait()
 end
@@ -2703,20 +2658,6 @@ ErrorSoundSpam = Value
 while ErrorSoundSpam do
 game.ReplicatedStorage.ErrorDeath:FireServer()
 task.wait()
-end
-                    end    
-                })
-
-Tab4:AddButton({
-	Name = "Turn glove into a block (Doesn't work with all gloves)",
-	Callback = function()
-for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-if v:IsA("Tool") then
-if v.Glove.Mesh or v.Glove.Cuff.Mesh then
-v.Glove.Mesh:Destroy()
-v.Glove.Cuff.Mesh:Destroy()
-end
-end
 end
                     end    
                 })
@@ -3159,9 +3100,9 @@ for i = 1, 10 do
 Door = Door + 1
         if game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) then
         else
-        firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 0)
-firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 1)
-wait(4)
+        firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door], 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door], 1)
+wait(3.75)
 end
 end
 else
