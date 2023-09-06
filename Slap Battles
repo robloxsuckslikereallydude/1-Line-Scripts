@@ -1511,7 +1511,22 @@ if Value == true then
         end
                     end    
                 })
-Player = game.Players.LocalPlayer.Character.Name
+
+               Tab3:AddToggle({
+                    Name = "Anti Null",
+                    Default = false,
+                    Callback = function(Value)
+AntiNull = Value
+while AntiNull do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "Imp" and v:FindFirstChild("Body") then
+shared.gloveHits[Glove]:FireServer(v.Body,true)
+end
+end
+task.wait()
+end
+                    end    
+                })
 
 elseif game.PlaceId == 11828384869 then
                 
@@ -1875,7 +1890,6 @@ game:GetService("TeleportService"):Teleport(9431156611)
 end
   	end    
 })
-Player = game.Players.LocalPlayer.Character.Name
 
 elseif game.PlaceId == 9020359053 or game.PlaceId == 9412268818 then
 
@@ -3317,6 +3331,22 @@ end
                 })
 
                Tab3:AddToggle({
+                    Name = "Anti Null",
+                    Default = false,
+                    Callback = function(Value)
+AntiNull = Value
+while AntiNull do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "Imp" and v:FindFirstChild("Body") then
+shared.gloveHits[Glove]:FireServer(v.Body,true)
+end
+end
+task.wait()
+end
+                    end    
+                })
+
+               Tab3:AddToggle({
                     Name = "Anti [REDACTED]",
                     Default = false,
                     Callback = function(Value)
@@ -3436,5 +3466,4 @@ end
                 })
 
 local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
-Player = game.Players.LocalPlayer.Character.Name
 end
