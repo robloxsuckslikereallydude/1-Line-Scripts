@@ -4,9 +4,9 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-if game.PlaceId == 8260276694 then
-                
-                local AntiVoid = Instance.new("Part", workspace)
+if game.PlaceId == 8260276694 or game.PlaceId == 10626447503 then 
+if workspace:FindFirstChild("AntiVoid") == nil then   
+local AntiVoid = Instance.new("Part", workspace)
 AntiVoid.Position = Vector3.new(0,0,0)
 AntiVoid.Name = "AntiVoid"
 AntiVoid.Size = Vector3.new(2048, 30, 2048)
@@ -14,13 +14,18 @@ AntiVoid.Anchored = true
 AntiVoid.Transparency = 1
 AntiVoid.CanCollide = false
 AntiVoid.Material = Enum.Material.Neon
+end
 
+if game.PlaceId == 8260276694 then
+
+if workspace:FindFirstChild("Spot") == nil then   
 local SafeSpot = Instance.new("Part", workspace)
-SafeSpot.Position = Vector3.new(-1500,100,-1500)
+SafeSpot.Position = Vector3.new(math.random(-25000,-2500),100,math.random(-25000,-2500))
 SafeSpot.Name = "Spot"
-SafeSpot.Size = Vector3.new(500,60,500)
+SafeSpot.Size = Vector3.new(500,50,500)
 SafeSpot.Anchored = true
-SafeSpot.Transparency = .75
+SafeSpot.Transparency = .5
+end
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
@@ -467,15 +472,6 @@ task.wait()
 })
 
 elseif game.PlaceId == 10626447503 then
-
-                local AntiVoid = Instance.new("Part", workspace)
-AntiVoid.Position = Vector3.new(0,0,0)
-AntiVoid.Name = "AntiVoid"
-AntiVoid.Size = Vector3.new(2048, 30, 2048)
-AntiVoid.Anchored = true
-AntiVoid.Transparency = 1
-AntiVoid.CanCollide = false
-AntiVoid.Material = Enum.Material.Neon
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
