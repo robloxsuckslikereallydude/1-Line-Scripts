@@ -26,6 +26,15 @@ SafeSpot.Size = Vector3.new(500,50,500)
 SafeSpot.Anchored = true
 SafeSpot.Transparency = .5
 end
+if workspace:FindFirstChild("TAntiVoid") == nil then
+local TournamentAntiVoid = Instance.new("Part", workspace)
+TournamentAntiVoid.Name = "TAntiVoid"
+TournamentAntiVoid.Size = Vector3.new(2048, 15, 2048)
+TournamentAntiVoid.Position = Vector3.new(3420, 70, 3)
+TournamentAntiVoid.CanCollide = false
+TournamentAntiVoid.Transparency = 1
+TournamentAntiVoid.Anchored = true
+end
 end
 
 if game.PlaceId == 9431156611 then
@@ -670,15 +679,6 @@ task.wait()
 })
 
 elseif game.PlaceId == 11520107397 then
-
-if workspace:FindFirstChild("TAntiVoid") == nil then
-local TournamentAntiVoid = Instance.new("Part", workspace)
-TournamentAntiVoid.Name = "TAntiVoid"
-TournamentAntiVoid.Size = Vector3.new(2048, 3, 2048)
-TournamentAntiVoid.Position = Vector3.new(3417, 72, 2)
-TournamentAntiVoid.CanCollide = false
-TournamentAntiVoid.Transparency = 1
-end
                 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
@@ -1947,15 +1947,6 @@ else
 
 Glove = game.Players.LocalPlayer.leaderstats.Glove.Value
 
-if workspace:FindFirstChild("TAntiVoid") == nil then
-local TournamentAntiVoid = Instance.new("Part", workspace)
-TournamentAntiVoid.Name = "TAntiVoid"
-TournamentAntiVoid.Size = Vector3.new(2048, 3, 2048)
-TournamentAntiVoid.Position = Vector3.new(3417, 72, 2)
-TournamentAntiVoid.CanCollide = false
-TournamentAntiVoid.Transparency = 1
-end
-                
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
                 local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
@@ -2317,7 +2308,7 @@ game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
 wait(4.1)
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Stun" do
-game:GetService("ReplicatedStorage").StunR:FireServer(game.Players.LocalPlayer.Character.Stun)
+game.ReplicatedStorage.StunR:FireServer(game.Players.LocalPlayer.Character.Stun)
 wait(10.1)
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "STOP" do
@@ -2355,8 +2346,15 @@ game:GetService("ReplicatedStorage").funnyTree:FireServer(game.Players.LocalPlay
 wait(3.1)
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Kinetic" do
+OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+for i = 1,100 do
+game.ReplicatedStorage.SelfKnockback:FireServer({["Force"] = 0,["Direction"] = Vector3.new(0,0.01,0)})
+wait(0.05)
+end
+wait(0.1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
 game:GetService("ReplicatedStorage").KineticExpl:FireServer(game.Players.LocalPlayer.Character.Kinetic, game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
-wait(9.1)
+wait(4)
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Dominance" do
 game:GetService("ReplicatedStorage").DominanceAc:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
@@ -3076,6 +3074,7 @@ end
 Tab5:AddButton({
 	Name = "Get Trap (Only 20 mins)",
 	Callback = function()
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Brick" then
 for i = 1, 200 do
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
@@ -3092,6 +3091,9 @@ wait(Random.new():NextNumber(1.1,1.4))
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
 wait(Random.new():NextNumber(1.1,1.4))
 end
+else
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Brick equipped"})
+end
                     end    
                 })
 
@@ -3100,9 +3102,13 @@ Tab5:AddToggle({
 	Default = false,
 	Callback = function(Value)
 Brickfarm = Value
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Brick" then
 while Brickfarm do
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
-task.wait(5.01)
+task.wait(5.05)
+end
+elseif Value == true then
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Brick equipped"})
 end
 	end    
 })
@@ -3112,9 +3118,13 @@ Tab5:AddToggle({
                     Default = false,
                     Callback = function(Value)
 BobFarm = Value
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica" then
 while BobFarm do
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
 wait(5.05)
+end
+elseif Value == true then
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Replica equipped"})
 end
                     end    
                 })
