@@ -15,6 +15,7 @@ AntiVoid.Transparency = 1
 AntiVoid.CanCollide = false
 AntiVoid.Material = Enum.Material.Neon
 end
+end
 
 if game.PlaceId == 8260276694 then
 
@@ -104,11 +105,11 @@ end
                     Name = "Anti Void",
                     Default = false,
                     Callback = function(Value)
-AntiVoid.CanCollide = Value
+workspace.AntiVoid.CanCollide = Value
 if Value == true then
-AntiVoid.Transparency = 0.85
+workspace.AntiVoid.Transparency = 0.85
 else
-        AntiVoid.Transparency = 1
+        workspace.AntiVoid.Transparency = 1
         end
                     end    
                 })
@@ -537,11 +538,11 @@ end
                     Name = "Anti Void",
                     Default = false,
                     Callback = function(Value)
-AntiVoid.CanCollide = Value
+workspace.AntiVoid.CanCollide = Value
 if Value == true then
-AntiVoid.Transparency = 0.85
+workspace.AntiVoid.Transparency = 0.85
 else
-        AntiVoid.Transparency = 1
+        workspace.AntiVoid.Transparency = 1
         end
                     end    
                 })
