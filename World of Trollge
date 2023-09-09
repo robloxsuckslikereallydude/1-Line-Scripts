@@ -142,7 +142,7 @@ end
 Tab2:AddDropdown({
 	Name = "TP to cup spot",
 	Default = "1",
-	Options = {"Water Cup", "Hearty Cup", "Super Oil", "Fighting Spirit", "Empty Cup", "Dark Orb", "Night's essence cup", "sploinky cup", "Flaming oil", "Oil, blood, and sorrow cup"},
+	Options = {"Water Cup", "Hearty Cup", "Super Oil", "Fighting Spirit", "Empty Cup", "Flared essence", "Dark Orb", "Night's essence cup", "sploinky cup", "Flaming oil", "Oil, blood, and sorrow cup"},
 	Callback = function(Value)
 if Value == "Empty Cup" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The J"]["The hole"].Part.CFrame
@@ -154,6 +154,8 @@ elseif Value == "Oil, blood, and sorrow cup" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-289,6,-90)
 elseif Value == "Night's essence cup" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The J"]["Night's anvil plate"].Part.CFrame
+elseif Value == "Flared essence" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.FlaredEssenceAltar.NewAltar.AltarTop.NeonPartTop.CFrame
 elseif Value == "Dark Orb" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The J"].OrbCrafter.Part.CFrame
 elseif Value == "Flaming oil" then
