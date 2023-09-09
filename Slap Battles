@@ -1952,10 +1952,6 @@ game:GetService("TeleportService"):Teleport(game.PlaceId)
 
 else
 
-   local function getGlove()
-       return game.Players.LocalPlayer.leaderstats.Glove.Value
-    end
-
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
                 local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
