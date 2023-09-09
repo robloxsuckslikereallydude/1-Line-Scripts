@@ -1527,7 +1527,7 @@ AntiNull = Value
 while AntiNull do
 for i,v in pairs(game.Workspace:GetChildren()) do
                     if v.Name == "Imp" and v:FindFirstChild("Body") then
-shared.gloveHits[Glove]:FireServer(v.Body,true)
+game.ReplicatedStorage.KSHit:FireServer(v.Body,true)
 end
 end
 task.wait()
@@ -1952,7 +1952,9 @@ game:GetService("TeleportService"):Teleport(game.PlaceId)
 
 else
 
-Glove = game.Players.LocalPlayer.leaderstats.Glove.Value
+   local function getGlove()
+       return game.Players.LocalPlayer.leaderstats.Glove.Value
+    end
 
                 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
                 
@@ -2081,7 +2083,7 @@ if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("Humanoi
 if v.Character.Head:FindFirstChild("UnoReverseCard") == nil or game.Players.LocalPlayer.leaderstats.Glove == "Error" then
 Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
                         if 25 >= Magnitude then
-shared.gloveHits[Glove]:FireServer(v.Character:WaitForChild("Head"),true)
+shared.gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Character:WaitForChild("Head"),true)
                     end
 end
 end
