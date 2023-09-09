@@ -25,6 +25,7 @@ shared.gloveHits = {
     "Flamarang" = game.ReplicatedStorage.GeneralHit,
     "Kinetic" = game.ReplicatedStorage.GeneralHit,
     "Berserk" = game.ReplicatedStorage.GeneralHit,
+    "Sparky" = game.ReplicatedStorage.GeneralHit,
     "Rattlebones" = game.ReplicatedStorage.GeneralHit,
     "Chain" = game.ReplicatedStorage.GeneralHit,
     "Ping Pong" = game.ReplicatedStorage.GeneralHit,
