@@ -1368,7 +1368,7 @@ wait(3.75)
 end
 end
 else
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 5000 slaps"})
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 5000+ slaps"})
             end
 end
                     })
@@ -2076,7 +2076,7 @@ SlapAura = Value
 for i,v in pairs(game.Players:GetChildren()) do
                     if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
 if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("rock") == nil and v.Character.HumanoidRootPart.BrickColor ~= BrickColor.new("New Yeller") then
-if v.Character.Head:FindFirstChild("UnoReverseCard") == nil or game.Players.LocalPlayer.leaderstats.Glove == "Error" then
+if v.Character.Head:FindFirstChild("UnoReverseCard") == nil or game.Players.LocalPlayer.leaderstats.Glove.Value == "Error" then
 Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
                         if 25 >= Magnitude then
 shared.gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Character:WaitForChild("Head"),true)
@@ -2090,9 +2090,12 @@ end
 end
                 })
 
-Tab2:AddButton({
-	Name = "Godmode (Resets character) (Breaks ks & reaper)",
-	Callback = function()
+Tab2:AddDropdown({
+	Name = "Godmode",
+	Default = "1",
+	Options = {"Godmode", "Godmode + Invisibility"},
+	Callback = function(Value)
+if Value == "Godmode" then
 if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 0)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 1)
@@ -2115,8 +2118,40 @@ for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                         game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
                 end 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0,-5,0)
-                    end    
-                })
+elseif Value == "Godmode + Invisibility" then
+if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 666 then
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1, 1)
+end
+repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool") or game.Players.LocalPlayer.Backpack:FindFirstChildWhichIsA("Tool")
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v.ClassName == "Tool" then
+                        v.Parent = game.LogService
+                    end
+                end
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        v.Parent = game.LogService
+                end
+game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
+wait(3.75)
+OGlove = game.Players.LocalPlayer.leaderstats.Glove.Value
+fireclickdetector(workspace.Lobby.Ghost.ClickDetector)
+game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
+fireclickdetector(workspace.Lobby[OGlove].ClickDetector)
+for i,v in pairs(game.LogService:GetChildren()) do
+                        v.Parent = game.Players.LocalPlayer.Backpack
+                end
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                end 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0,-5,0)
+else
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 666+ slaps"})
+end
+end
+	end    
+})
 
                 Tab2:AddToggle({
                     Name = "Rhythm Explosion Spam (All gloves)",
@@ -2356,7 +2391,7 @@ end
 wait(1.5)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
 game:GetService("ReplicatedStorage").KineticExpl:FireServer(game.Players.LocalPlayer.Character.Kinetic, game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
-wait(2.65)
+wait(2.7)
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Dominance" do
 game:GetService("ReplicatedStorage").DominanceAc:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
@@ -2643,14 +2678,16 @@ end
 	end    
 })
 
-                Tab4:AddToggle({
-                    Name = "Spam Error Sound (All gloves)",
-                    Default = false,
-                    Callback = function(Value)
-ErrorSoundSpam = Value
-while ErrorSoundSpam do
-game.ReplicatedStorage.ErrorDeath:FireServer()
-task.wait()
+Tab4:AddButton({
+	Name = "Infinite Invisibility (Use in lobby) (Glove still visible)",
+	Callback = function()
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil and game.Players.LocalPlayer.leaderstats.Slaps.Value >= 666 then
+OGlove = game.Players.LocalPlayer.leaderstats.Glove.Value
+fireclickdetector(workspace.Lobby.Ghost.ClickDetector)
+game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
+fireclickdetector(workspace.Lobby[OGlove].ClickDetector)
+else
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need to be in lobby and have 666+ slaps"})
 end
                     end    
                 })
@@ -2750,6 +2787,18 @@ Tab4:AddSlider({
 		OrbitSpeed = Value
 	end    
 })
+
+                Tab4:AddToggle({
+                    Name = "Spam Error Sound (All gloves)",
+                    Default = false,
+                    Callback = function(Value)
+ErrorSoundSpam = Value
+while ErrorSoundSpam do
+game.ReplicatedStorage.ErrorDeath:FireServer()
+task.wait()
+end
+                    end    
+                })
 
                 Tab4:AddToggle({
                     Name = "Spam Glove Sound",
@@ -3076,7 +3125,7 @@ wait(3.75)
 end
 end
 else
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 5000 slaps"})
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 5000+ slaps"})
             end
 end
                     })
