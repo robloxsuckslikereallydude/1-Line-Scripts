@@ -23,7 +23,6 @@
     ["Voodoo"] = game.ReplicatedStorage.GeneralHit,
     ["Leash"] = game.ReplicatedStorage.GeneralHit,
     ["Flamarang"] = game.ReplicatedStorage.GeneralHit,
-    ["Kinetic"] = game.ReplicatedStorage.GeneralHit,
     ["Berserk"] = game.ReplicatedStorage.GeneralHit,
     ["Sparky"] = game.ReplicatedStorage.GeneralHit,
     ["Rattlebones"] = game.ReplicatedStorage.GeneralHit,
@@ -123,6 +122,7 @@
     ----------------------------------------
     ["Boogie"] = game.ReplicatedStorage.HtStun,
     ["Balloony"] = game.ReplicatedStorage.HtStun,
+    ["Kinetic"] = game.ReplicatedStorage.HtStun,
     ----------------------------------------
     ["OVERKILL"] = game.ReplicatedStorage.Overkillhit,
     ["The Flex"] = game.ReplicatedStorage.FlexHit,
