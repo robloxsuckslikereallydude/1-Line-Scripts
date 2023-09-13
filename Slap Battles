@@ -788,13 +788,6 @@ setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyus
                     end    
                 })
 
-Tab4:AddButton({
-	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
-	Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
-                    end    
-                })
-
 Tab2:AddToggle({
                     Name = "Slap Aura",
                     Default = false,
@@ -942,20 +935,6 @@ end
 end
                 })
 
-Tab4:AddButton({
-	Name = "Spawn cloud (All gloves)",
-	Callback = function()
-      		game:GetService("ReplicatedStorage").CloudAbility:FireServer()
-  	end    
-})
-
-Tab4:AddButton({
-	Name = "Spawn nimbus cloud (All gloves)",
-	Callback = function()
-      		game.ReplicatedStorage.NimbusAbility:FireServer()
-  	end    
-})
-
 Tab4:AddToggle({
                     Name = "Auto Remove Nametag (Breaks killstreak) (Clientside)",
                     Default = false,
@@ -970,6 +949,44 @@ repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("Name
                 game.Players.LocalPlayer.Character.Head.Nametag:Destroy()
                 end
             end)
+end
+                })
+
+Tab4:AddDropdown({
+	Name = "Teleport",
+	Default = "",
+	Options = {"Safe spot", "Arena", "Moai Island", "Slapple Island", "Plate", "Tournament"},
+	Callback = function(Value)
+if Value == "Safe spot" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,40,0)
+elseif Value == "Arena" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0,-5,0)
+elseif Value == "Moai Island" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(215, -15.5, 0.5)
+elseif Value == "Slapple Island" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.island5.Union.CFrame * CFrame.new(0,3.25,0)
+elseif Value == "Plate" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame * CFrame.new(0,2,0)
+elseif Value == "Tournament" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
+end
+	end    
+})
+
+Tab4:AddToggle({
+                    Name = "Slapple Farm",
+                    Default = false,
+                    Callback = function(Value)
+SlappleFarm = Value
+while SlappleFarm do
+for i, v in ipairs(workspace.Arena.island5.Slapples:GetDescendants()) do
+                if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character:FindFirstChild("entered") and v.Name == "Glove" and v:FindFirstChildWhichIsA("TouchTransmitter") then
+                    firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+                end
+            end
+task.wait()
+end
 end
                 })
 
@@ -1032,27 +1049,6 @@ end
 end)
                     end    
                 })
-
-Tab4:AddDropdown({
-	Name = "Teleport",
-	Default = "",
-	Options = {"Safe spot", "Arena", "Moai Island", "Slapple Island", "Plate", "Tournament"},
-	Callback = function(Value)
-if Value == "Safe spot" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,40,0)
-elseif Value == "Arena" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0,-5,0)
-elseif Value == "Moai Island" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(215, -15.5, 0.5)
-elseif Value == "Slapple Island" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.island5.Union.CFrame * CFrame.new(0,3.25,0)
-elseif Value == "Plate" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame * CFrame.new(0,2,0)
-elseif Value == "Tournament" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
-end
-	end    
-})
 
 Tab4:AddDropdown({
 	Name = "Rojo Charge VFX (Will fling you if spammed)",
@@ -1626,13 +1622,6 @@ setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyus
                     end    
                 })
 
-Tab2:AddButton({
-	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
-	Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
-                    end    
-                })
-
 Tab4:AddSlider({
 	Name = "Walkspeed",
 	Min = 20,
@@ -2057,13 +2046,6 @@ Tab4:AddButton({
 	Name = "Slap Farm (This copies the script, put it in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
-                    end    
-                })
-
-Tab4:AddButton({
-	Name = "Start Slap Farm (Take the script out of autoexec to stop)",
-	Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()
                     end    
                 })
 
@@ -2571,17 +2553,6 @@ repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("Name
 end
                 })
 
-Tab4:AddTextbox({
-	Name = "Equip Glove (Only use in lobby)",
-	Default = "Glove Name",
-	TextDisappear = true,
-	Callback = function(Value)
-if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
-		fireclickdetector(workspace.Lobby[Value].ClickDetector)
-end
-	end	  
-})
-
 Tab4:AddDropdown({
 	Name = "Teleport",
 	Default = "",
@@ -2601,6 +2572,34 @@ elseif Value == "Tournament" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
 end
 	end    
+})
+
+Tab4:AddToggle({
+                    Name = "Slapple Farm",
+                    Default = false,
+                    Callback = function(Value)
+SlappleFarm = Value
+while SlappleFarm do
+for i, v in ipairs(workspace.Arena.island5.Slapples:GetDescendants()) do
+                if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character:FindFirstChild("entered") and v.Name == "Glove" and v:FindFirstChildWhichIsA("TouchTransmitter") then
+                    firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+                end
+            end
+task.wait()
+end
+end
+                })
+
+Tab4:AddTextbox({
+	Name = "Equip Glove (Only use in lobby)",
+	Default = "Glove Name",
+	TextDisappear = true,
+	Callback = function(Value)
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
+		fireclickdetector(workspace.Lobby[Value].ClickDetector)
+end
+	end	  
 })
 
 Tab4:AddButton({
