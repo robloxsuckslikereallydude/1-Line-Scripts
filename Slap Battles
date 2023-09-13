@@ -1398,17 +1398,19 @@ fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
                 })
 
 Tab3:AddToggle({
-                    Name = "Anti Admins (Credits to R2O)",
+                    Name = "Anti Admins",
                     Default = false,
                     Callback = function(bool)
-antiAdmins = bool
-    if bool == true then
-        game.Players.PlayerAdded:Connect(function(Plr)
-            if Plr:GetRankInGroup(9950771) and 2 <= Plr:GetRankInGroup(9950771) and antiAdmins then
-                game.Players.LocalPlayer:Kick("Admin/High Rank Player Detected")
-            end
-        end)
-    end
+AntiAdmins = Value
+while AntiAdmins do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v:GetRankInGroup(9950771) >= 2 then
+                        game.Players.LocalPlayer:Kick("High Rank Player Detected.".." ("..v.Name..")")
+                        break
+                    end
+                end
+task.wait()
+end
 end
 })
 
@@ -3261,17 +3263,19 @@ fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
                 })
 
 Tab3:AddToggle({
-                    Name = "Anti Admins (Credits to R2O)",
+                    Name = "Anti Admins",
                     Default = false,
-                    Callback = function(bool)
-antiAdmins = bool
-    if bool == true then
-        game.Players.PlayerAdded:Connect(function(Plr)
-            if Plr:GetRankInGroup(9950771) and 2 <= Plr:GetRankInGroup(9950771) and antiAdmins then
-                game.Players.LocalPlayer:Kick("Admin/High Rank Player Detected")
-            end
-        end)
-    end
+                    Callback = function(Value)
+AntiAdmins = Value
+while AntiAdmins do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v:GetRankInGroup(9950771) >= 2 then
+                        game.Players.LocalPlayer:Kick("High Rank Player Detected.".." ("..v.Name..")")
+                        break
+                    end
+                end
+task.wait()
+end
 end
 })
 
