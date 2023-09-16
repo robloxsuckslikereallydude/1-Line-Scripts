@@ -38,6 +38,7 @@
     ["Home Run"] = game.ReplicatedStorage.GeneralHit,
     ["Gravity"] = game.ReplicatedStorage.GeneralHit,
     ["Jebaited"] = game.ReplicatedStorage.GeneralHit,
+    ["Meteor"] = game.ReplicatedStorage.GeneralHit,
     ----------------------------------------
     ["Diamond"] = game.ReplicatedStorage.DiamondHit,
     ["ZZZZZZZ"] = game.ReplicatedStorage.ZZZZZZZHit,
