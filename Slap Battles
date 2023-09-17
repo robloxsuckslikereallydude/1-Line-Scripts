@@ -2518,24 +2518,6 @@ end
                     end    
                 })
 
-                Tab4:AddToggle({
-                    Name = "Rhythm Note Spam + Auto Press (Equip Rhythm)",
-                    Default = false,
-                    Callback = function(Value)
-RhythmNoteSpam = Value
-if game.Players.LocalPlayer.leaderstats.Glove.Value == "Rhythm" then
-while RhythmNoteSpam do
-game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = false
-game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = true
-game.Players.LocalPlayer.Character.Rhythm:Activate()
-task.wait()
-end
-elseif RhythmNoteSpam == true then
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Rhythm equipped"})
-end
-                    end    
-                })
-
 Tab2:AddToggle({
                     Name = "Auto Enter Arena",
                     Default = false,
@@ -2630,6 +2612,24 @@ if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
 end
 	end	  
 })
+
+                Tab4:AddToggle({
+                    Name = "Rhythm Note Spam + Auto Press (Equip Rhythm)",
+                    Default = false,
+                    Callback = function(Value)
+RhythmNoteSpam = Value
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Rhythm" then
+while RhythmNoteSpam do
+game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = false
+game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = true
+game.Players.LocalPlayer.Character.Rhythm:Activate()
+task.wait()
+end
+elseif RhythmNoteSpam == true then
+game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Rhythm equipped"})
+end
+                    end    
+                })
 
 Tab4:AddButton({
 	Name = "Free Emotes (Type /e emotename)",
@@ -3177,12 +3177,29 @@ end
                     })
 
 Tab5:AddToggle({
+	Name = "Jet Farm",
+	Default = false,
+	Callback = function(Value)
+Jetfarm = Value
+while Jetfarm do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "JetOrb" and v:FindFirstChild("TouchInterest") then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 1)
+                    end
+                end
+task.wait()
+end
+	end    
+})
+
+Tab5:AddToggle({
 	Name = "Phase Farm",
 	Default = false,
 	Callback = function(Value)
 Phasefarm = Value
 while Phasefarm do
-for i,v in pairs(game.Workspacey:GetChildren()) do
+for i,v in pairs(game.Workspace:GetChildren()) do
                     if v.Name == "PhaseOrb" and v:FindFirstChild("TouchInterest") then
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 0)
 firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 1)
@@ -3606,7 +3623,7 @@ end
 local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
 end
 for i,v in pairs(gethui().Orion:GetDescendants()) do
-                    if v.ClassName == "Frame" and v.BackgroundTransparency < 0.5 then
+                    if v.ClassName == "Frame" and v.BackgroundTransparency < 0.3 then
 v.BackgroundTransparency = 0.05
                     end
                 end
