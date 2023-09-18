@@ -421,7 +421,7 @@ Tab5:AddSlider({
 	Min = 20,
 	Max = 1000,
 	Default = 20,
-	Color = Color3.fromRGB(0,162,255),
+	Color = Color3.fromRGB(140, 185, 255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
@@ -449,7 +449,7 @@ Tab5:AddSlider({
 	Min = 50,
 	Max = 1000,
 	Default = 50,
-	Color = Color3.fromRGB(255,154,0),
+	Color = Color3.fromRGB(255, 185, 140),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
@@ -628,7 +628,7 @@ Tab4:AddSlider({
 	Min = 20,
 	Max = 1000,
 	Default = 20,
-	Color = Color3.fromRGB(0,162,255),
+	Color = Color3.fromRGB(140, 185, 255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
@@ -656,7 +656,7 @@ Tab4:AddSlider({
 	Min = 50,
 	Max = 1000,
 	Default = 50,
-	Color = Color3.fromRGB(255,154,0),
+	Color = Color3.fromRGB(255, 185, 140),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
@@ -818,7 +818,7 @@ Tab4:AddSlider({
 	Min = 20,
 	Max = 1000,
 	Default = 20,
-	Color = Color3.fromRGB(0,162,255),
+	Color = Color3.fromRGB(140, 185, 255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
@@ -846,7 +846,7 @@ Tab4:AddSlider({
 	Min = 50,
 	Max = 1000,
 	Default = 50,
-	Color = Color3.fromRGB(255,154,0),
+	Color = Color3.fromRGB(255, 185, 140),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
