@@ -2547,7 +2547,7 @@ for i, v in ipairs(game.Players:GetChildren()) do
 end
 while GloveESP do
 for i, v in ipairs(game.Players:GetChildren()) do
-                if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Head") and v.Character.Head:FindFirstChild("GloveEsp") == nil then
+                if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Head") and v.Character:FindFirstChild("entered") and v.Character.IsInDefaultArena.Value == false and v.Character.Head:FindFirstChild("GloveEsp") == nil then
 GloveEsp = Instance.new("BillboardGui", v.Character.Head)
 GloveEsp.Adornee = v.Character.Head
 GloveEsp.Name = "GloveEsp"
@@ -3214,7 +3214,7 @@ end
                     })
 
 Tab5:AddToggle({
-	Name = "Jet/Glitch Farm",
+	Name = "Jet Farm",
 	Default = false,
 	Callback = function(Value)
 Jetfarm = Value
