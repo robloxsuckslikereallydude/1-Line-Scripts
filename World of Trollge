@@ -182,7 +182,7 @@ Tab3:AddSlider({
 	Min = 16,
 	Max = 1000,
 	Default = 16,
-	Color = Color3.fromRGB(0,162,255),
+	Color = Color3.fromRGB(140, 185, 255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
@@ -210,7 +210,7 @@ Tab3:AddSlider({
 	Min = 50,
 	Max = 1000,
 	Default = 50,
-	Color = Color3.fromRGB(255,154,0),
+	Color = Color3.fromRGB(255, 185, 140),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
