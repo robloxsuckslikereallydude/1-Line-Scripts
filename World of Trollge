@@ -170,13 +170,6 @@ end
 	end    
 })
 
-Tab2:AddButton({
-	Name = "TP to secret wip obby",
-	Callback = function()
-      		game:GetService("TeleportService"):Teleport(12900816202)
-  	end    
-})
-
 Tab3:AddSlider({
 	Name = "Walkspeed",
 	Min = 16,
