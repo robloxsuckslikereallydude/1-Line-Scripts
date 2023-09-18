@@ -1,4 +1,4 @@
--- if you have issues message Guy that exists#1915
+-- Message Guy that exists#1915 if you have issues
 
 if not game:IsLoaded() then
     game.Loaded:Wait()
@@ -102,7 +102,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ion
                     PremiumOnly = false
                 })
 
-Tab:AddLabel("If you have issues then message Guy that exists#1915")
+Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 
 Tab:AddButton({
 	Name = "Infinite Yield",
@@ -587,25 +587,25 @@ Laugh = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.Replicate
 Parker = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Parker, game.Players.LocalPlayer.Character.Humanoid)
 Spasm = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Spasm, game.Players.LocalPlayer.Character.Humanoid)
 Thriller = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Thriller, game.Players.LocalPlayer.Character.Humanoid)
-if string.lower(msg) == "/e Floss" or string.lower(msg) == "/e floss" then
+if string.lower(msg) == "/e floss" then
 Floss:Play()
-elseif string.lower(msg) == "/e Groove" or string.lower(msg) == "/e groove" then
+elseif string.lower(msg) == "/e groove" then
 Groove:Play()
-elseif string.lower(msg) == "/e Headless" or string.lower(msg) == "/e headless" then
+elseif string.lower(msg) == "/e headless" then
 Headless:Play()
-elseif string.lower(msg) == "/e Helicopter" or string.lower(msg) == "/e helicopter" then
+elseif string.lower(msg) == "/e helicopter" then
 Helicopter:Play()
-elseif string.lower(msg) == "/e Kick" or string.lower(msg) == "/e kick" then
+elseif string.lower(msg) == "/e kick" then
 Kick:Play()
-elseif string.lower(msg) == "/e L" or string.lower(msg) == "/e l" then
+elseif string.lower(msg) == "/e l" then
 L:Play()
-elseif string.lower(msg) == "/e Laugh" or string.lower(msg) == "/e laugh" then
+elseif string.lower(msg) == "/e laugh" then
 Laugh:Play()
-elseif string.lower(msg) == "/e Parker" or string.lower(msg) == "/e parker" then
+elseif string.lower(msg) == "/e parker" then
 Parker:Play()
-elseif string.lower(msg) == "/e Spasm" or string.lower(msg) == "/e spasm" then
+elseif string.lower(msg) == "/e spasm" then
 Spasm:Play()
-elseif string.lower(msg) == "/e Thriller" or string.lower(msg) == "/e thriller" then
+elseif string.lower(msg) == "/e thriller" then
 Thriller:Play()
 end
 EP = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
@@ -627,7 +627,7 @@ Tab5:AddSlider({
 	Min = 20,
 	Max = 1000,
 	Default = 20,
-	Color = Color3.fromRGB(0,162,255),
+	Color = Color3.fromRGB(140, 185, 255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
@@ -655,7 +655,7 @@ Tab5:AddSlider({
 	Min = 50,
 	Max = 1000,
 	Default = 50,
-	Color = Color3.fromRGB(255,154,0),
+	Color = Color3.fromRGB(255, 185, 140),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
@@ -720,7 +720,7 @@ elseif game.PlaceId == 11520107397 then
                     PremiumOnly = false
                 })
 
-Tab:AddLabel("If you have issues then message Guy that exists#1915")
+Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 
 Tab:AddButton({
 	Name = "Infinite Yield",
@@ -1015,25 +1015,25 @@ Laugh = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.Replicate
 Parker = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Parker, game.Players.LocalPlayer.Character.Humanoid)
 Spasm = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Spasm, game.Players.LocalPlayer.Character.Humanoid)
 Thriller = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Thriller, game.Players.LocalPlayer.Character.Humanoid)
-if string.lower(msg) == "/e Floss" or string.lower(msg) == "/e floss" then
+if string.lower(msg) == "/e floss" then
 Floss:Play()
-elseif string.lower(msg) == "/e Groove" or string.lower(msg) == "/e groove" then
+elseif string.lower(msg) == "/e groove" then
 Groove:Play()
-elseif string.lower(msg) == "/e Headless" or string.lower(msg) == "/e headless" then
+elseif string.lower(msg) == "/e headless" then
 Headless:Play()
-elseif string.lower(msg) == "/e Helicopter" or string.lower(msg) == "/e helicopter" then
+elseif string.lower(msg) == "/e helicopter" then
 Helicopter:Play()
-elseif string.lower(msg) == "/e Kick" or string.lower(msg) == "/e kick" then
+elseif string.lower(msg) == "/e kick" then
 Kick:Play()
-elseif string.lower(msg) == "/e L" or string.lower(msg) == "/e l" then
+elseif string.lower(msg) == "/e l" then
 L:Play()
-elseif string.lower(msg) == "/e Laugh" or string.lower(msg) == "/e laugh" then
+elseif string.lower(msg) == "/e laugh" then
 Laugh:Play()
-elseif string.lower(msg) == "/e Parker" or string.lower(msg) == "/e parker" then
+elseif string.lower(msg) == "/e parker" then
 Parker:Play()
-elseif string.lower(msg) == "/e Spasm" or string.lower(msg) == "/e spasm" then
+elseif string.lower(msg) == "/e spasm" then
 Spasm:Play()
-elseif string.lower(msg) == "/e Thriller" or string.lower(msg) == "/e thriller" then
+elseif string.lower(msg) == "/e thriller" then
 Thriller:Play()
 end
 EP = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
@@ -1052,7 +1052,7 @@ end)
 
 Tab4:AddDropdown({
 	Name = "Rojo Charge VFX (Will fling you if spammed)",
-	Default = "1",
+	Default = "",
 	Options = {"Attack", "No Attack"},
 	Callback = function(Value)
 if Value == "Attack" then
@@ -1082,7 +1082,7 @@ Tab6:AddSlider({
 	Min = 20,
 	Max = 1000,
 	Default = 20,
-	Color = Color3.fromRGB(0,162,255),
+	Color = Color3.fromRGB(140, 185, 255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
@@ -1110,7 +1110,7 @@ Tab6:AddSlider({
 	Min = 50,
 	Max = 1000,
 	Default = 50,
-	Color = Color3.fromRGB(255,154,0),
+	Color = Color3.fromRGB(255, 185, 140),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
@@ -1563,7 +1563,7 @@ elseif game.PlaceId == 11828384869 then
                     PremiumOnly = false
                 })
 
-Tab:AddLabel("If you have issues then message Guy that exists#1915")
+Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 
 Tab:AddButton({
 	Name = "Infinite Yield",
@@ -1629,7 +1629,7 @@ Tab4:AddSlider({
 	Min = 20,
 	Max = 1000,
 	Default = 20,
-	Color = Color3.fromRGB(0,162,255),
+	Color = Color3.fromRGB(140, 185, 255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
@@ -1657,7 +1657,7 @@ Tab4:AddSlider({
 	Min = 50,
 	Max = 1000,
 	Default = 50,
-	Color = Color3.fromRGB(255,154,0),
+	Color = Color3.fromRGB(255, 185, 140),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
@@ -1983,7 +1983,7 @@ else
                     PremiumOnly = false
                 })
 
-Tab:AddLabel("If you have issues then message Guy that exists#1915")
+Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 
 Tab:AddButton({
 	Name = "Infinite Yield",
@@ -2075,8 +2075,8 @@ end
                 })
 
 Tab2:AddDropdown({
-	Name = "Godmode",
-	Default = "1",
+	Name = "Godmode (Resets character) (Breaks killstreak)",
+	Default = "",
 	Options = {"Godmode", "Godmode + Invisibility"},
 	Callback = function(Value)
 if Value == "Godmode" then
@@ -2294,7 +2294,7 @@ while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Jet" do
 local players = game.Players:GetChildren()
 local RandomPlayer = players[math.random(1, #players)]
 repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= game.Players.LocalPlayer
-repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer.Character:FindFirstChild("entered") and RandomPlayer.Character:FindFirstChild("rock") == nil and RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil
+repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer.Character:FindFirstChild("entered") and RandomPlayer.Character:FindFirstChild("rock") == nil
 Target = RandomPlayer
 game:GetService("ReplicatedStorage").AirStrike:FireServer(Target.Character)
 wait(5.1)
@@ -2533,6 +2533,43 @@ end
 end
                 })
 
+Tab2:AddToggle({
+                    Name = "Glove ESP",
+                    Default = false,
+                    Callback = function(Value)
+GloveESP = Value
+if GloveESP == false then
+for i, v in ipairs(game.Players:GetChildren()) do
+                if v.Character and v.Character:FindFirstChild("Head") and v.Character.Head:FindFirstChild("GloveEsp") then
+ v.Character.Head.GloveEsp:Destroy()
+                end
+            end
+end
+while GloveESP do
+for i, v in ipairs(game.Players:GetChildren()) do
+                if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Head") and v.Character.Head:FindFirstChild("GloveEsp") == nil then
+GloveEsp = Instance.new("BillboardGui", v.Character.Head)
+GloveEsp.Adornee = v.Character.Head
+GloveEsp.Name = "GloveEsp"
+GloveEsp.Size = UDim2.new(0, 100, 0, 150)
+GloveEsp.StudsOffset = Vector3.new(0, 1, 0)
+GloveEsp.AlwaysOnTop = true
+GloveEsp.StudsOffset = Vector3.new(0, 3, 0)
+GloveEspText = Instance.new("TextLabel", GloveEsp)
+GloveEspText.BackgroundTransparency = 1
+GloveEspText.Size = UDim2.new(0, 100, 0, 100)
+GloveEspText.TextSize = 25
+GloveEspText.Font = Enum.Font.SourceSansSemibold
+GloveEspText.TextColor3 = Color3.new(255, 255, 255)
+GloveEspText.TextStrokeTransparency = 0
+GloveEspText.Text = v.leaderstats.Glove.Value
+                end
+            end
+task.wait()
+end
+end
+                })
+
 Tab4:AddToggle({
                     Name = "Auto Remove Nametag (Breaks killstreak) (Clientside)",
                     Default = false,
@@ -2656,25 +2693,25 @@ Laugh = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.Replicate
 Parker = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Parker, game.Players.LocalPlayer.Character.Humanoid)
 Spasm = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Spasm, game.Players.LocalPlayer.Character.Humanoid)
 Thriller = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Thriller, game.Players.LocalPlayer.Character.Humanoid)
-if string.lower(msg) == "/e Floss" or string.lower(msg) == "/e floss" then
+if string.lower(msg) == "/e floss" then
 Floss:Play()
-elseif string.lower(msg) == "/e Groove" or string.lower(msg) == "/e groove" then
+elseif string.lower(msg) == "/e groove" then
 Groove:Play()
-elseif string.lower(msg) == "/e Headless" or string.lower(msg) == "/e headless" then
+elseif string.lower(msg) == "/e headless" then
 Headless:Play()
-elseif string.lower(msg) == "/e Helicopter" or string.lower(msg) == "/e helicopter" then
+elseif string.lower(msg) == "/e helicopter" then
 Helicopter:Play()
-elseif string.lower(msg) == "/e Kick" or string.lower(msg) == "/e kick" then
+elseif string.lower(msg) == "/e kick" then
 Kick:Play()
-elseif string.lower(msg) == "/e L" or string.lower(msg) == "/e l" then
+elseif string.lower(msg) == "/e l" then
 L:Play()
-elseif string.lower(msg) == "/e Laugh" or string.lower(msg) == "/e laugh" then
+elseif string.lower(msg) == "/e laugh" then
 Laugh:Play()
-elseif string.lower(msg) == "/e Parker" or string.lower(msg) == "/e parker" then
+elseif string.lower(msg) == "/e parker" then
 Parker:Play()
-elseif string.lower(msg) == "/e Spasm" or string.lower(msg) == "/e spasm" then
+elseif string.lower(msg) == "/e spasm" then
 Spasm:Play()
-elseif string.lower(msg) == "/e Thriller" or string.lower(msg) == "/e thriller" then
+elseif string.lower(msg) == "/e thriller" then
 Thriller:Play()
 end
 EP = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
@@ -2693,7 +2730,7 @@ end)
 
 Tab4:AddDropdown({
 	Name = "Rojo Charge VFX (Will fling you if spammed)",
-	Default = "1",
+	Default = "",
 	Options = {"Attack", "No Attack"},
 	Callback = function(Value)
 if Value == "Attack" then
@@ -2861,7 +2898,7 @@ Tab6:AddSlider({
 	Min = 20,
 	Max = 1000,
 	Default = 20,
-	Color = Color3.fromRGB(0,162,255),
+	Color = Color3.fromRGB(140, 185, 255),
 	Increment = 1,
 	ValueName = "WS",
 	Callback = function(Value)
@@ -2889,7 +2926,7 @@ Tab6:AddSlider({
 	Min = 50,
 	Max = 1000,
 	Default = 50,
-	Color = Color3.fromRGB(255,154,0),
+	Color = Color3.fromRGB(255, 185, 140),
 	Increment = 1,
 	ValueName = "JP",
 	Callback = function(Value)
@@ -3177,7 +3214,7 @@ end
                     })
 
 Tab5:AddToggle({
-	Name = "Jet Farm",
+	Name = "Jet/Glitch Farm",
 	Default = false,
 	Callback = function(Value)
 Jetfarm = Value
@@ -3627,3 +3664,9 @@ for i,v in pairs(gethui().Orion:GetDescendants()) do
 v.BackgroundTransparency = 0.05
                     end
                 end
+for i,v in pairs(gethui().Orion:GetDescendants()) do
+                    if v.ClassName == "Frame" and v.BackgroundTransparency < 0.3 and v.BackgroundColor3 == Color3.fromRGB(32, 32, 42) then
+v.BackgroundTransparency = 1
+                    end
+                end
+gethui().Orion.Name = "OrionEdited"
