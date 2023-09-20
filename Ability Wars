@@ -4,6 +4,8 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+
 if game.PlaceId == 8260276694 or game.PlaceId == 10626447503 then 
 if workspace:FindFirstChild("AntiVoid") == nil then   
 local AntiVoid = Instance.new("Part", workspace)
@@ -28,9 +30,7 @@ SafeSpot.Anchored = true
 SafeSpot.Transparency = .5
 end
                 
-                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
-                
-                local Window = OrionLib:MakeWindow({Name = "Ability Wars hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Ability Wars hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -474,9 +474,7 @@ task.wait()
 
 elseif game.PlaceId == 10626447503 then
                 
-                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
-                
-                local Window = OrionLib:MakeWindow({Name = "Team Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Team Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -681,9 +679,7 @@ task.wait()
 
 elseif game.PlaceId == 10201596675 then
 
-                local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
-                
-                local Window = OrionLib:MakeWindow({Name = "Team Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Team Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -869,6 +865,7 @@ task.wait()
 	end    
 })
 end
+OrionLib:Init()
 for i,v in pairs(gethui().Orion:GetDescendants()) do
                     if v.ClassName == "Frame" and v.BackgroundTransparency < 0.3 then
 v.BackgroundTransparency = 0.05
