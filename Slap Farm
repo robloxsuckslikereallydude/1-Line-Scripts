@@ -6,7 +6,7 @@ if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
     repeat task.wait()
         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Lobby.Teleport1, 0)
         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Lobby.Teleport1, 1)
-    until game.Players.LocalPlayer.Character:FindFirstChild("entered") ~= nil
+    until game.Players.LocalPlayer.Character:FindFirstChild("entered")
 end
 for i, v in ipairs(workspace.Arena.island5.Slapples:GetDescendants()) do
                 if v.Name == "Glove" and v:FindFirstChildWhichIsA("TouchTransmitter") then
