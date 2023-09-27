@@ -953,7 +953,7 @@ end
 Tab4:AddDropdown({
 	Name = "Teleport",
 	Default = "",
-	Options = {"Safe spot", "Arena", "Moai Island", "Slapple Island", "Plate", "Tournament"},
+	Options = {"Safe spot", "Arena",  "Default Arena", "Tournament", "Moai Island", "Slapple Island", "Plate"},
 	Callback = function(Value)
 if Value == "Safe spot" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,40,0)
@@ -967,6 +967,8 @@ elseif Value == "Plate" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame * CFrame.new(0,2,0)
 elseif Value == "Tournament" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
+elseif Value == "Default Arena" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120,360,-3)
 end
 	end    
 })
@@ -1448,6 +1450,7 @@ end
                     end    
                 })
 
+game.Workspace.dedBarrier.Position =  Vector3.new(15, -17, 41.5)
                Tab3:AddToggle({
                     Name = "Anti Void",
                     Default = false,
@@ -2597,7 +2600,7 @@ end
 Tab4:AddDropdown({
 	Name = "Teleport",
 	Default = "",
-	Options = {"Safe spot", "Arena", "Moai Island", "Slapple Island", "Plate", "Tournament"},
+	Options = {"Safe spot", "Arena",  "Default Arena", "Tournament", "Moai Island", "Slapple Island", "Plate"},
 	Callback = function(Value)
 if Value == "Safe spot" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,40,0)
@@ -2611,6 +2614,8 @@ elseif Value == "Plate" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.Plate.CFrame * CFrame.new(0,2,0)
 elseif Value == "Tournament" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
+elseif Value == "Default Arena" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120,360,-3)
 end
 	end    
 })
@@ -3383,6 +3388,7 @@ end
                     end    
                 })
 
+game.Workspace.dedBarrier.Position =  Vector3.new(15, -17, 41.5)
                Tab3:AddToggle({
                     Name = "Anti Void",
                     Default = false,
@@ -3652,7 +3658,6 @@ end
 
 local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
 end
-OrionLib:Init()
 for i,v in pairs(gethui().Orion:GetDescendants()) do
                     if v.ClassName == "Frame" and v.BackgroundTransparency < 0.3 then
 v.BackgroundTransparency = 0.05
