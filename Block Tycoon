@@ -1,0 +1,108 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+local Window = OrionLib:MakeWindow({Name = "Block Tycoon hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+                    Name = "Home",
+                    Icon = "http://www.roblox.com/asset/?id=4370345144",
+                    PremiumOnly = false
+                })
+                
+local Tab2 = Window:MakeTab({
+                    Name = "Main",
+                    Icon = "http://www.roblox.com/asset/?id=4370318685",
+                    PremiumOnly = false
+                })
+                
+Tab:AddLabel("Message Guy that exists#1915 if you have issues")
+
+Tab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+      		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		OrionLib:Destroy()
+  	end    
+})
+                
+Tab2:AddToggle({
+	Name = "Half Price Items (Turn off to use Free Pickaxe)",
+	Default = false,
+	Callback = function(Value)
+HP = Value
+	end    
+})
+local HalfPrice;
+    HalfPrice = hookmetamethod(game, "__namecall", function(remote, ...) 
+        if HP == true and getnamecallmethod() == "FireServer" and remote == game.ReplicatedStorage.ShopE then
+Args = {...}
+if Args[2][2] ~= .5 then
+return
+end
+end
+return HalfPrice(remote, ...)
+    end)
+game.Players.LocalPlayer.PlayerGui.MainGui.ShopFrame.BuyButton.MouseButton1Click:Connect(function()
+    if HP == true then
+    for i = 1, game.Players.LocalPlayer.PlayerGui.MainGui.ShopFrame.MultiPanel.MultiNum.Text do
+        game.ReplicatedStorage.ShopE:FireServer(1, {game.Players.LocalPlayer.PlayerGui.MainGui.ShopFrame.SelectedListing.Value, 0.5})
+        end
+    end
+end)
+    
+Tab2:AddDropdown({
+	Name = "Free Pickaxe (Dissapears when you leave)",
+	Default = "",
+	Options = {"Diamond", "Ruby (Needs life 2)"},
+	Callback = function(Value)
+if Value == "Diamond" then
+game.ReplicatedStorage.ShopE:FireServer(1, {"DiamondPick", .000001})
+elseif Value == "Ruby (Needs life 2)" then
+game.ReplicatedStorage.ShopE:FireServer(1, {"RubyPick", .0000001})
+end
+	end    
+})
+
+Tab2:AddButton({
+	Name = "$10K + Cash Block (Works once per life)",
+	Callback = function()
+OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+firetouchinterest(game.Players.LocalPlayer.Character.Head, game.Workspace.CaveObbyComplete, 0)
+firetouchinterest(game.Players.LocalPlayer.Character.Head, game.Workspace.CaveObbyComplete, 1)
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
+                    end    
+                })
+
+Tab2:AddButton({
+	Name = "$100K + Underworld Trophy (Cash works once per life)",
+	Callback = function()
+OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+firetouchinterest(game.Players.LocalPlayer.Character.Head, game.Workspace["THE BACKROOMS"].ExitStraight.TeleporterLeaveBackrooms, 0)
+firetouchinterest(game.Players.LocalPlayer.Character.Head, game.Workspace["THE BACKROOMS"].ExitStraight.TeleporterLeaveBackrooms, 1)
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
+                    end    
+                })
+
+for i,v in pairs(gethui().Orion:GetDescendants()) do
+                    if v.ClassName == "Frame" and v.BackgroundTransparency < 0.3 then
+v.BackgroundTransparency = 0.05
+                    end
+                end
+for i,v in pairs(gethui().Orion:GetDescendants()) do
+                    if v.ClassName == "Frame" and v.BackgroundTransparency < 0.3 and v.BackgroundColor3 == Color3.fromRGB(32, 32, 42) then
+v.BackgroundTransparency = 1
+                    end
+                end
+gethui().Orion.Name = "OrionEdited"
