@@ -1938,6 +1938,13 @@ game:GetService("TeleportService"):Teleport(game.PlaceId)
   	end    
 })
 
+Tab:AddButton({
+	Name = "TP back to Slap Battles",
+	Callback = function()
+      		game:GetService("TeleportService"):Teleport(6403373529)
+  	end    
+})
+
 else
                 
                 local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
@@ -2369,14 +2376,14 @@ for i = 1,100 do
 game.ReplicatedStorage.SelfKnockback:FireServer({["Force"] = 0,["Direction"] = Vector3.new(0,0.01,0)})
 wait(0.05)
 end
-wait(1.5)
+wait(2)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
 if game.Players.LocalPlayer.Backpack:FindFirstChild("Kinetic") then
 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Kinetic)
 end
 game:GetService("ReplicatedStorage").KineticExpl:FireServer(game.Players.LocalPlayer.Character.Kinetic, game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
 game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-wait(2.7)
+wait(2.2)
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Dominance" do
 game:GetService("ReplicatedStorage").DominanceAc:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
