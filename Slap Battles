@@ -1369,6 +1369,40 @@ game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text =
 end
                     })
 
+Tab5:AddToggle({
+	Name = "Jet Farm",
+	Default = false,
+	Callback = function(Value)
+Jetfarm = Value
+while Jetfarm do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "JetOrb" and v:FindFirstChild("TouchInterest") then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 1)
+                    end
+                end
+task.wait()
+end
+	end    
+})
+
+Tab5:AddToggle({
+	Name = "Phase Farm",
+	Default = false,
+	Callback = function(Value)
+Phasefarm = Value
+while Phasefarm do
+for i,v in pairs(game.Workspace:GetChildren()) do
+                    if v.Name == "PhaseOrb" and v:FindFirstChild("TouchInterest") then
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 0)
+firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 1)
+                    end
+                end
+task.wait()
+end
+	end    
+})
+
 Tab5:AddButton({
 	Name = "Get Brazil badge",
 	Callback = function()
@@ -1400,7 +1434,7 @@ fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
 Tab3:AddToggle({
                     Name = "Anti Admins",
                     Default = false,
-                    Callback = function(bool)
+                    Callback = function(Value)
 AntiAdmins = Value
 while AntiAdmins do
 for i,v in pairs(game.Players:GetChildren()) do
