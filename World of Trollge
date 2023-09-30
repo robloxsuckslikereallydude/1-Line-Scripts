@@ -105,7 +105,7 @@ Tab2:AddToggle({
 AutoCups = Value
 while AutoCups do
 for i, v in ipairs(game.Workspace:GetChildren()) do
-                if v:IsA("Tool") and v:FindFirstChild("Pick up",true) then
+                if v:IsA("Tool") and v:FindFirstChild("Pick up",true) and v.Name ~= "delicous!!" then
                 if v.Handle.Anchored == false then
 game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
                 end
@@ -126,8 +126,8 @@ if AutoCraft == true then
 OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
 while AutoCraft do
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-289,6,-90)
-for i, v in ipairs(workspace["The J"].Forging:GetDescendants()) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-360,27,-322)
+for i, v in ipairs(workspace.Map.GreenLevel.Spawn.ForgingCenter.Forging:GetDescendants()) do
                 if v.ClassName == "Part" and v:FindFirstChild("ProximityPrompt") then
 fireproximityprompt(v.ProximityPrompt,0)
                 end
@@ -142,30 +142,26 @@ end
 Tab2:AddDropdown({
 	Name = "TP to cup spot",
 	Default = "1",
-	Options = {"Water Cup", "Hearty Cup", "Super Oil", "Fighting Spirit", "Empty Cup", "Flared essence", "Dark Orb", "Night's essence cup", "sploinky cup", "Flaming oil", "Oil, blood, and sorrow cup"},
+	Options = {"Water Cup", "Hearty Cup", "Super Oil", "Fighting Spirit", "Empty Cup", "Flared essence", "Dark Orb", "sploinky cup", "Oil, blood, sorrow, night's essence, and flaming oil cup"},
 	Callback = function(Value)
 if Value == "Empty Cup" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The J"]["The hole"].Part.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.GreenLevel.Spawn.ForgingCenter["The hole"].Part.CFrame
 elseif Value == "Water Cup" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Red tree dimension"]["Water Obby"].Water["Water cup"].CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Red tree dimension"].Hub.WaterObby.Water["Water cup"].CFrame
 elseif Value == "Hearty Cup" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Red tree dimension"].HeartyArea.HeartyStand.HeartyCupPart.CFrame
-elseif Value == "Oil, blood, and sorrow cup" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-289,6,-90)
-elseif Value == "Night's essence cup" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The J"]["Night's anvil plate"].Part.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Red tree dimension"].Hub.HeartyArea.HeartyStand["Parts - Neon"].Part.CFrame
+elseif Value == "Oil, blood, sorrow, night's essence, and flaming oil cup" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-360,27,-322)
 elseif Value == "Flared essence" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.FlaredEssenceAltar.NewAltar.AltarTop.NeonPartTop.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.YellowLevelRight.MISC.FlaredEssenceAltar.NewAltar.ProximityPromptPart.CFrame
 elseif Value == "Dark Orb" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["The J"].OrbCrafter.Part.CFrame
-elseif Value == "Flaming oil" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-274,6,185)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.BlueLevel.MISC.DarkAltar.DarkOrbAltar.ProximityPromptPart.CFrame
 elseif Value == "Super Oil" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Oil-man's Base"].Interior.anvil.Part.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Oil-man's Base"].anvil.Part.CFrame
 elseif Value == "sploinky cup" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Toilet.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.GreenLevel.Buildings["Ki-Bank"].Toilet.CFrame
 elseif Value == "Fighting Spirit" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Red tree dimension"].BlueArea.Statue.Part.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace["Red tree dimension"].Hub.BlueTreeArea.Statue.Part.CFrame
 end
 	end    
 })
