@@ -40,6 +40,9 @@
     ["Gravity"] = game.ReplicatedStorage.GeneralHit,
     ["Jebaited"] = game.ReplicatedStorage.GeneralHit,
     ["Meteor"] = game.ReplicatedStorage.GeneralHit,
+    ["Guardian Angel"] = game.ReplicatedStorage.GeneralHit,
+    ["Tinkerer"] = game.ReplicatedStorage.GeneralHit,
+    ["Sun"] = game.ReplicatedStorage.GeneralHit,
     ----------------------------------------
     ["Diamond"] = game.ReplicatedStorage.DiamondHit,
     ["ZZZZZZZ"] = game.ReplicatedStorage.ZZZZZZZHit,
