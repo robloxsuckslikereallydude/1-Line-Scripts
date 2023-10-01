@@ -161,7 +161,7 @@ Player.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, p in pairs(Words) do
-if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("disco") or v:lower():match("disc")  then
+if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") then
 AntiKick = false
 game.Players.LocalPlayer:Kick("Player Recording Detected.".." ("..Player.Name..")")
 end
@@ -1467,7 +1467,18 @@ fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
                     end    
                 })
 
+if game.Workspace:FindFirstChild("Value") == nil then
+local NoChanged = Instance.new("BoolValue", workspace)
+end
 Tab3:AddToggle({
+                    Name = "Toggle All Antis",
+                    Default = false,
+                    Callback = function(Value)
+game.Workspace.Value.Value = Value
+end
+})
+
+AA = Tab3:AddToggle({
                     Name = "Anti Admins",
                     Default = false,
                     Callback = function(Value)
@@ -1485,7 +1496,7 @@ end
 end
 })
 
-Tab3:AddToggle({
+AK = Tab3:AddToggle({
                     Name = "Anti Kick",
                     Default = false,
                     Callback = function(Value)
@@ -1493,6 +1504,7 @@ AntiKick = Value
 while AntiKick do
 for i,v in pairs(game.CoreGui.RobloxPromptGui.promptOverlay:GetDescendants()) do
                     if v.Name == "ErrorPrompt" then
+AK:Set(false)
 game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
                     end
                 end
@@ -1501,7 +1513,7 @@ end
 end
 })
 
-Tab3:AddToggle({
+AR = Tab3:AddToggle({
                     Name = "Anti Ragdoll (This will reset your character)",
                     Default = false,
                     Callback = function(Value)
@@ -1522,7 +1534,7 @@ end
                 })
 
 game.Workspace.dedBarrier.Position =  Vector3.new(15, -17, 41.5)
-               Tab3:AddToggle({
+AV = Tab3:AddToggle({
                     Name = "Anti Void",
                     Default = false,
                     Callback = function(Value)
@@ -1531,7 +1543,7 @@ game.Workspace.TAntiVoid.CanCollide = Value
                     end    
                 })
 
-               Tab3:AddToggle({
+ADB = Tab3:AddToggle({
                     Name = "Anti Death Barriers",
                     Default = false,
                     Callback = function(Value)
@@ -1561,7 +1573,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+AB = Tab3:AddToggle({
                     Name = "Anti Brazil",
                     Default = false,
                     Callback = function(Value)
@@ -1577,7 +1589,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+ACOD = Tab3:AddToggle({
                     Name = "Anti Cube of Death",
                     Default = false,
                     Callback = function(Value)
@@ -1589,7 +1601,7 @@ if Value == true then
                     end    
                 })
 
-               Tab3:AddToggle({
+AN = Tab3:AddToggle({
                     Name = "Anti Null",
                     Default = false,
                     Callback = function(Value)
@@ -1605,7 +1617,7 @@ end
                     end    
                 })
 
-Tab3:AddToggle({
+AREC = Tab3:AddToggle({
                     Name = "Anti Record (Detects chat msgs)",
                     Default = false,
                     Callback = function(Value)
@@ -1618,8 +1630,8 @@ p.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("disco") or v:lower():match("disc")  then
-AntiKick = false
+if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") then
+AK:Set(false)
 game.Players.LocalPlayer:Kick("Player Recording Detected.".." ("..p.Name..")")
 end
 end
@@ -1639,6 +1651,50 @@ end
 end
 end
 end)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+AA:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.05)
+AK:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.1)
+AR:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.15)
+AV:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.2)
+ADB:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.25)
+AB:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.3)
+ACOD:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.35)
+AN:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.4)
+AREC:Set(game.Workspace.Value.Value)
 end)
 
 elseif game.PlaceId == 11828384869 then
@@ -3449,7 +3505,18 @@ fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector)
                     end    
                 })
 
+if game.Workspace:FindFirstChild("Value") == nil then
+local NoChanged = Instance.new("BoolValue", workspace)
+end
 Tab3:AddToggle({
+                    Name = "Toggle All Antis",
+                    Default = false,
+                    Callback = function(Value)
+game.Workspace.Value.Value = Value
+end
+})
+
+AA = Tab3:AddToggle({
                     Name = "Anti Admins",
                     Default = false,
                     Callback = function(Value)
@@ -3457,7 +3524,7 @@ AntiAdmins = Value
 while AntiAdmins do
 for i,v in pairs(game.Players:GetChildren()) do
                     if v:GetRankInGroup(9950771) >= 2 then
-AntiKick = false
+AK:Set(false)
                         game.Players.LocalPlayer:Kick("High Rank Player Detected.".." ("..v.Name..")")
                         break
                     end
@@ -3467,7 +3534,7 @@ end
 end
 })
 
-Tab3:AddToggle({
+AK = Tab3:AddToggle({
                     Name = "Anti Kick",
                     Default = false,
                     Callback = function(Value)
@@ -3483,7 +3550,7 @@ end
 end
 })
 
-Tab3:AddToggle({
+AR = Tab3:AddToggle({
                     Name = "Anti Ragdoll (Resets character)",
                     Default = false,
                     Callback = function(Value)
@@ -3504,7 +3571,7 @@ end
                 })
 
 game.Workspace.dedBarrier.Position =  Vector3.new(15, -17, 41.5)
-               Tab3:AddToggle({
+               AV = Tab3:AddToggle({
                     Name = "Anti Void",
                     Default = false,
                     Callback = function(Value)
@@ -3513,7 +3580,7 @@ game.Workspace.TAntiVoid.CanCollide = Value
                     end    
                 })
 
-               Tab3:AddToggle({
+               ADB = Tab3:AddToggle({
                     Name = "Anti Death Barriers",
                     Default = false,
                     Callback = function(Value)
@@ -3543,7 +3610,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               AB = Tab3:AddToggle({
                     Name = "Anti Brazil",
                     Default = false,
                     Callback = function(Value)
@@ -3559,7 +3626,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               ACOD = Tab3:AddToggle({
                     Name = "Anti Cube of Death",
                     Default = false,
                     Callback = function(Value)
@@ -3571,7 +3638,7 @@ if Value == true then
                     end    
                 })
 
-               Tab3:AddToggle({
+               AT = Tab3:AddToggle({
                     Name = "Anti Timestop",
                     Default = false,
                     Callback = function(Value)
@@ -3587,7 +3654,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               AS = Tab3:AddToggle({
                     Name = "Anti Squid",
                     Default = false,
                     Callback = function(Value)
@@ -3604,7 +3671,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               AHJ = Tab3:AddToggle({
                     Name = "Anti Hallow Jack",
                     Default = false,
                     Callback = function(Value)
@@ -3612,7 +3679,7 @@ game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Disabled = Value
                     end    
                 })
 
-               Tab3:AddToggle({
+               AC = Tab3:AddToggle({
                     Name = "Anti Conveyor",
                     Default = false,
                     Callback = function(Value)
@@ -3620,7 +3687,7 @@ game.Players.LocalPlayer.PlayerScripts.ConveyorVictimized.Disabled = Value
                     end    
                 })
 
-               Tab3:AddToggle({
+               ABK = Tab3:AddToggle({
                     Name = "Anti Brick",
                     Default = false,
                     Callback = function(Value)
@@ -3636,7 +3703,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               AN = Tab3:AddToggle({
                     Name = "Anti Null",
                     Default = false,
                     Callback = function(Value)
@@ -3652,7 +3719,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               ARD = Tab3:AddToggle({
                     Name = "Anti [REDACTED]",
                     Default = false,
                     Callback = function(Value)
@@ -3660,7 +3727,7 @@ game.Players.LocalPlayer.PlayerScripts.Well.Disabled = Value
                     end    
                 })
 
-               Tab3:AddToggle({
+               AZ = Tab3:AddToggle({
                     Name = "Anti Za Hando",
                     Default = false,
                     Callback = function(Value)
@@ -3676,7 +3743,7 @@ task.wait()
                     end    
                 })
 
-               Tab3:AddToggle({
+               ARR = Tab3:AddToggle({
                     Name = "Anti Reaper",
                     Default = false,
                     Callback = function(Value)
@@ -3693,7 +3760,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               AP = Tab3:AddToggle({
                     Name = "Anti Pusher",
                     Default = false,
                     Callback = function(Value)
@@ -3709,7 +3776,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               ABR = Tab3:AddToggle({
                     Name = "Anti Booster",
                     Default = false,
                     Callback = function(Value)
@@ -3725,7 +3792,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               AM = Tab3:AddToggle({
                     Name = "Anti Mail",
                     Default = false,
                     Callback = function(Value)
@@ -3740,7 +3807,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+              ASN = Tab3:AddToggle({
                     Name = "Anti Stun",
                     Default = false,
                     Callback = function(Value)
@@ -3754,7 +3821,7 @@ end
                     end    
                 })
 
-               Tab3:AddToggle({
+               AMC = Tab3:AddToggle({
                     Name = "Anti Megarock/Custom",
                     Default = false,
                     Callback = function(Value)
@@ -3771,7 +3838,7 @@ end
                     end    
                 })
 
-Tab3:AddToggle({
+AREC = Tab3:AddToggle({
                     Name = "Anti Record (Detects chat msgs)",
                     Default = false,
                     Callback = function(Value)
@@ -3784,8 +3851,8 @@ p.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("disco") or v:lower():match("disc")  then
-AntiKick = false
+if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") then
+AK:Set(false)
 game.Players.LocalPlayer:Kick("Player Recording Detected.".." ("..p.Name..")")
 end
 end
@@ -3799,12 +3866,121 @@ Words = message:split(" ")
 if AntiRecord == true then
 for i, p in pairs(Words) do
 if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("disco") or v:lower():match("disc")  then
-AntiKick = false
+AK:Set(false)
 game.Players.LocalPlayer:Kick("Player Recording Detected.".." ("..Player.Name..")")
 end
 end
 end
 end)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+AA:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.05)
+AK:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.1)
+AR:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.15)
+AV:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.2)
+ADB:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.25)
+AB:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.3)
+ACOD:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.35)
+AT:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.4)
+AS:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.45)
+AHJ:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.5)
+AC:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.55)
+ABK:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.6)
+AN:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.65)
+ARD:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.7)
+AZ:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.75)
+ARR:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.8)
+AP:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.85)
+ABR:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.9)
+AM:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.95)
+ASN:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(1)
+AMC:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(1.05)
+AREC:Set(game.Workspace.Value.Value)
 end)
 
 local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
