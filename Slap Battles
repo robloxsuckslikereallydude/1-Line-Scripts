@@ -2812,6 +2812,31 @@ end
 end
                 })
 
+Tab4:AddToggle({
+                    Name = "Baller Farm",
+                    Default = false,
+                    Callback = function(Value)
+BallerFarm = Value
+if BallerFarm == true then
+coroutine.wrap(SpamBaller)()
+end
+while BallerFarm do
+for i, v in pairs(workspace:GetChildren()) do
+                if string.find(v.Name, "Baller") then
+game:GetService("ReplicatedStorage").GeneralHit:FireServer(v:WaitForChild("Head"))
+                end
+            end
+task.wait()
+                       end
+end
+                })
+function SpamBaller()
+while BallerFarm do
+                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+                       wait(30.05)
+                       end
+end
+
 Tab4:AddTextbox({
 	Name = "Equip Glove (Only use in lobby)",
 	Default = "Glove Name",
