@@ -625,7 +625,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	MakeDraggable(DragPoint, MainWindow)
 
 	AddConnection(CloseBtn.MouseButton1Up, function()
-		Orion.Visible = false
+		Orion.Enabled = false
 		UIHidden = true
 		OrionLib:MakeNotification({
 			Name = "Interface Hidden",
@@ -637,7 +637,7 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	AddConnection(UserInputService.InputBegan, function(Input)
 		if Input.KeyCode == Enum.KeyCode.RightControl and UIHidden == true then
-			Orion.Visible = true
+			Orion.Enabled = true
 		end
 	end)
 
