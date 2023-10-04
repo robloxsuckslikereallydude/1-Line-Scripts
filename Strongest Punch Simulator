@@ -1,0 +1,47 @@
+function Kick()
+task.wait(Random.new():NextNumber(1,1.25))
+game.Players.LocalPlayer:Kick("Kicked to prevent anticheat from banning you")
+local serverList = {}
+for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+	if v.playing and type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+		serverList[#serverList + 1] = v.id
+	end
+end
+if #serverList > 0 then
+	game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, serverList[math.random(1, #serverList)])
+else
+    error("No servers found")
+end
+end
+repeat game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer({"WarpPlrToOtherMap","Next"})
+task.wait()
+until game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") and game.Players.LocalPlayer.PlayerGui.ScreenGui.Noti_Frame.Visible == true
+wait()
+game.Players.LocalPlayer.PlayerGui.ScreenGui.Noti_Frame.Visible = false
+repeat game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer({"UpgradeCurrentPet"})
+task.wait()
+until game.Players.LocalPlayer.PlayerGui.ScreenGui.Noti_Frame.Visible == true
+repeat task.wait() until game.Players.LocalPlayer.Character
+repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+coroutine.wrap(Kick)()
+repeat
+for i,v in pairs(game.Workspace.Map.Stages.Boosts[game.Players.LocalPlayer.leaderstats.WORLD.Value]:GetDescendants()) do
+if v:FindFirstChild("TouchInterest") then
+   firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,v.TouchInterest.Parent,0)
+   firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,v.TouchInterest.Parent,1)
+end
+end
+task.wait()
+until game:GetService("Workspace").Map.Stages.Boosts[game.Players.LocalPlayer.leaderstats.WORLD.Value]:FindFirstChild("TouchInterest",true) == nil
+game.Players.LocalPlayer:Kick("Kicked to prevent anticheat from banning you")
+local serverList = {}
+for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+	if v.playing and type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+		serverList[#serverList + 1] = v.id
+	end
+end
+if #serverList > 0 then
+	game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, serverList[math.random(1, #serverList)])
+else
+    error("No servers found")
+end
