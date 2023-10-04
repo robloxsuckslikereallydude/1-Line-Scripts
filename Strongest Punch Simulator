@@ -13,7 +13,7 @@ else
     error("No servers found")
 end
 end
-repeat game.ReplicatedStorage.RemoteEvent:FireServer({"WarpPlrToOtherMap","Next"}) task.wait()
+repeat game.ReplicatedStorage:WaitForChild("RemoteEvent"):FireServer({"WarpPlrToOtherMap","Next"}) task.wait()
 until game.Players.LocalPlayer.PlayerGui:FindFirstChild("ScreenGui") and game.Players.LocalPlayer.PlayerGui.ScreenGui.Noti_Frame.Visible == true
 wait()
 game.Players.LocalPlayer.PlayerGui.ScreenGui.Noti_Frame.Visible = false
