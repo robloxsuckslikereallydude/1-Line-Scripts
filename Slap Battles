@@ -816,7 +816,7 @@ game:GetService("TeleportService"):Teleport(9412268818)
                 })
 
 Tab4:AddButton({
-	Name = "Slap Farm (Copies script, put in autoexec)",
+	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
                     end    
@@ -1513,6 +1513,25 @@ end
 end
 })
 
+APL = Tab3:AddToggle({
+                    Name = "Anti Portal",
+                    Default = false,
+                    Callback = function(Value)
+AntiPortal = Value
+if AntiPortal == true then
+workspace.Lobby.Teleport2.CanTouch = false
+workspace.Lobby.Teleport3.CanTouch = false
+workspace.Lobby.Teleport4.CanTouch = false
+workspace.Lobby.Teleport6.CanTouch = false
+else
+workspace.Lobby.Teleport2.CanTouch = true
+workspace.Lobby.Teleport3.CanTouch = true
+workspace.Lobby.Teleport4.CanTouch = true
+workspace.Lobby.Teleport6.CanTouch = true
+end
+end
+})
+
 AR = Tab3:AddToggle({
                     Name = "Anti Ragdoll (This will reset your character)",
                     Default = false,
@@ -1535,7 +1554,7 @@ end
 
 game.Workspace.dedBarrier.Position =  Vector3.new(15, -17, 41.5)
 AV = Tab3:AddToggle({
-                    Name = "Anti Void",
+                    Name = "Anti Void (Works in tournament)",
                     Default = false,
                     Callback = function(Value)
 game.Workspace.dedBarrier.CanCollide = Value
@@ -1664,36 +1683,41 @@ end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.1)
-AR:Set(game.Workspace.Value.Value)
+APL:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.15)
-AV:Set(game.Workspace.Value.Value)
+AR:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.2)
-ADB:Set(game.Workspace.Value.Value)
+AV:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.25)
-AB:Set(game.Workspace.Value.Value)
+ADB:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.3)
-ACOD:Set(game.Workspace.Value.Value)
+AB:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.35)
-AN:Set(game.Workspace.Value.Value)
+ACOD:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.4)
+AN:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(.45)
 AREC:Set(game.Workspace.Value.Value)
 end)
 
@@ -1780,7 +1804,7 @@ game:GetService("TeleportService"):Teleport(9412268818)
                 })
 
 Tab2:AddButton({
-	Name = "Slap Farm (Copies script, put in autoexec)",
+	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
                     end    
@@ -2210,7 +2234,7 @@ game:GetService("TeleportService"):Teleport(9412268818)
                 })
 
 Tab4:AddButton({
-	Name = "Slap Farm (Copies script, put in autoexec)",
+	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
                     end    
@@ -2615,11 +2639,23 @@ game:GetService("ReplicatedStorage"):WaitForChild("QuakeQuake"):FireServer({["fi
 task.wait()
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Meteor" do
-game:GetService("ReplicatedStorage"):WaitForChild("GeneralAbility"):FireServer()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
 task.wait()
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Sun" do
 game:GetService("ReplicatedStorage").GeneralAbility:FireServer("Cast")
+task.wait()
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse" do
+game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
+wait(6)
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Gravity" do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+task.wait()
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Whirlwind" do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
 task.wait()
 end
                     end   
@@ -2945,18 +2981,6 @@ Tab4:AddButton({
 	Name = "Infinite Golden (Use in arena)",
 	Callback = function()
 game:GetService("ReplicatedStorage").Goldify:FireServer(true)
-                    end    
-                })
-
-                Tab4:AddToggle({
-                    Name = "Infinite Reverse",
-                    Default = false,
-                    Callback = function(Value)
-InfReverse = Value
-while InfReverse do
-game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
-wait(6)
-end
                     end    
                 })
 
@@ -3451,18 +3475,18 @@ if game.Players.LocalPlayer.leaderstats.Glove.Value == "Brick" then
 for i = 1, 200 do
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.4))
+wait(Random.new():NextNumber(1.5,1.75))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.4))
+wait(Random.new():NextNumber(1.5,1.75))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.4))
+wait(Random.new():NextNumber(1.5,1.75))
 game:GetService("ReplicatedStorage").lbrick:FireServer()
 game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text = game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel.Text + 1;
-wait(Random.new():NextNumber(1.1,1.4))
+wait(Random.new():NextNumber(1.5,1.75))
 game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
-wait(Random.new():NextNumber(1.1,1.4))
+wait(Random.new():NextNumber(1.5,1.75))
 end
 else
 game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Brick equipped"})
@@ -3579,6 +3603,25 @@ end
 end
 })
 
+APL = Tab3:AddToggle({
+                    Name = "Anti Portal",
+                    Default = false,
+                    Callback = function(Value)
+AntiPortal = Value
+if AntiPortal == true then
+workspace.Lobby.Teleport2.CanTouch = false
+workspace.Lobby.Teleport3.CanTouch = false
+workspace.Lobby.Teleport4.CanTouch = false
+workspace.Lobby.Teleport6.CanTouch = false
+else
+workspace.Lobby.Teleport2.CanTouch = true
+workspace.Lobby.Teleport3.CanTouch = true
+workspace.Lobby.Teleport4.CanTouch = true
+workspace.Lobby.Teleport6.CanTouch = true
+end
+end
+})
+
 AR = Tab3:AddToggle({
                     Name = "Anti Ragdoll (Resets character)",
                     Default = false,
@@ -3601,7 +3644,7 @@ end
 
 game.Workspace.dedBarrier.Position =  Vector3.new(15, -17, 41.5)
                AV = Tab3:AddToggle({
-                    Name = "Anti Void",
+                    Name = "Anti Void (Works in tournament)",
                     Default = false,
                     Callback = function(Value)
 game.Workspace.dedBarrier.CanCollide = Value
@@ -3914,101 +3957,106 @@ end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.1)
-AR:Set(game.Workspace.Value.Value)
+APL:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.15)
-AV:Set(game.Workspace.Value.Value)
+AR:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.2)
-ADB:Set(game.Workspace.Value.Value)
+AV:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.25)
-AB:Set(game.Workspace.Value.Value)
+ADB:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.3)
-ACOD:Set(game.Workspace.Value.Value)
+AB:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.35)
-AT:Set(game.Workspace.Value.Value)
+ACOD:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.4)
-AS:Set(game.Workspace.Value.Value)
+AT:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.45)
-AHJ:Set(game.Workspace.Value.Value)
+AS:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.5)
-AC:Set(game.Workspace.Value.Value)
+AHJ:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.55)
-ABK:Set(game.Workspace.Value.Value)
+AC:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.6)
-AN:Set(game.Workspace.Value.Value)
+ABK:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.65)
-ARD:Set(game.Workspace.Value.Value)
+AN:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.7)
-AZ:Set(game.Workspace.Value.Value)
+ARD:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.75)
-ARR:Set(game.Workspace.Value.Value)
+AZ:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.8)
-AP:Set(game.Workspace.Value.Value)
+ARR:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.85)
-ABR:Set(game.Workspace.Value.Value)
+AP:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.9)
-AM:Set(game.Workspace.Value.Value)
+ABR:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(.95)
-ASN:Set(game.Workspace.Value.Value)
+AM:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(1)
-AMC:Set(game.Workspace.Value.Value)
+ASN:Set(game.Workspace.Value.Value)
 end)
 
 game.Workspace.Value.Changed:Connect(function()
 wait(1.05)
+AMC:Set(game.Workspace.Value.Value)
+end)
+
+game.Workspace.Value.Changed:Connect(function()
+wait(1.1)
 AREC:Set(game.Workspace.Value.Value)
 end)
 
