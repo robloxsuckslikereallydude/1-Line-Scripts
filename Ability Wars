@@ -52,7 +52,7 @@ end
 
                 local Tab4 = Window:MakeTab({
                     Name = "Badges",
-                    Icon = "http://www.roblox.com/asset/?id=4335482575",
+                    Icon = "http://www.roblox.com/asset/?id=7733673987",
                     PremiumOnly = false
                 })
 
