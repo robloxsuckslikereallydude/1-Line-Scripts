@@ -3171,7 +3171,7 @@ task.wait()
 	end    
 })
 
-Tab5:AddButton({gf
+Tab5:AddButton({
 	Name = "Get Elude",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
