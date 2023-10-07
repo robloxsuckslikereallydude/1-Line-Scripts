@@ -10,8 +10,7 @@ if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
 end
 for i, v in pairs(workspace.CandyCorns:GetChildren()) do
                 if v:FindFirstChildWhichIsA("TouchTransmitter") then
-                    firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 0)
-        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v, 1)
+v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
                 end
             end
 local serverList = {}
