@@ -147,7 +147,7 @@ p.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") then
+if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match("clip") or v:lower():match("proof") or v:lower():match("evidence") then
 AK:Set(false)
 game.Players.LocalPlayer:Kick("Possible player recording detected.".." ("..p.Name..")".." ("..message..")")
 end
@@ -410,7 +410,7 @@ for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
                     end
                 end
 Code = first..second..third..fourth
-game.StarterGui:SetCore("SendNotification", {Title = Code,Duration = 5,Text = " "})
+OrionLib:MakeNotification({Name = Code,Content = "",Image = "rbxassetid://7733919105",Time = 5})
                     end    
                 })
 
@@ -744,7 +744,7 @@ elseif game.PlaceId == 11520107397 then
 
                 local Tab5 = Window:MakeTab({
                     Name = "Badges",
-                    Icon = "http://www.roblox.com/asset/?id=4335482575",
+                    Icon = "http://www.roblox.com/asset/?id=7733673987",
                     PremiumOnly = false
                 })
 
@@ -819,6 +819,13 @@ Tab4:AddButton({
 	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+                    end    
+                })
+
+Tab4:AddButton({
+	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
+	Callback = function()
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
                     end    
                 })
 
@@ -1008,6 +1015,22 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120,360,
 end
 	end    
 })
+
+Tab4:AddToggle({
+                    Name = "Candy Corn Farm",
+                    Default = false,
+                    Callback = function(Value)
+CandyCornFarm = Value
+while CandyCornFarm do
+for i, v in pairs(workspace.CandyCorns:GetChildren()) do
+                if v:FindFirstChildWhichIsA("TouchTransmitter") then
+v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                end
+            end
+task.wait()
+end
+end
+                })
 
 Tab4:AddToggle({
                     Name = "Slapple Farm",
@@ -1400,7 +1423,7 @@ wait(3.75)
 end
 end
 else
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 5000+ slaps"})
+OrionLib:MakeNotification({Name = "Error",Content = "You need 5000+ slaps.",Image = "rbxassetid://7733658504",Time = 5})
             end
 end
                     })
@@ -1649,7 +1672,7 @@ p.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") then
+if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match("clip") or v:lower():match("proof") or v:lower():match("evidence") then
 AK:Set(false)
 game.Players.LocalPlayer:Kick("Possible player recording detected.".." ("..p.Name..")".." ("..message..")")
 end
@@ -1739,7 +1762,7 @@ elseif game.PlaceId == 11828384869 then
 
                 local Tab3 = Window:MakeTab({
                     Name = "Badges",
-                    Icon = "http://www.roblox.com/asset/?id=4335482575",
+                    Icon = "http://www.roblox.com/asset/?id=7733673987",
                     PremiumOnly = false
                 })
 
@@ -1807,6 +1830,13 @@ Tab2:AddButton({
 	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+                    end    
+                })
+
+Tab4:AddButton({
+	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
+	Callback = function()
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
                     end    
                 })
 
@@ -2095,7 +2125,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmo
 Tab:AddButton({
 	Name = "Testing Server Freecam (Mobile)",
 	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/zephyr10101/CameraSpy/main/Script", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/Freecam", true))()
                     end    
                 })
 
@@ -2134,6 +2164,16 @@ Tab:AddButton({
 
 else
                 
+if workspace:FindFirstChild("VoidPart") == nil then
+local VoidPart = Instance.new("Part", workspace)
+VoidPart.Position = Vector3.new(0,-50027.5,0)
+VoidPart.Name = "VoidPart"
+VoidPart.Size = Vector3.new(2048,50,2048)
+VoidPart.Anchored = true
+VoidPart.Transparency = 1
+VoidPart.CanCollide = false
+end
+
                 local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
@@ -2162,7 +2202,7 @@ else
 
                 local Tab5 = Window:MakeTab({
                     Name = "Badges",
-                    Icon = "http://www.roblox.com/asset/?id=4335482575",
+                    Icon = "http://www.roblox.com/asset/?id=7733673987",
                     PremiumOnly = false
                 })
 
@@ -2237,6 +2277,13 @@ Tab4:AddButton({
 	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+                    end    
+                })
+
+Tab4:AddButton({
+	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
+	Callback = function()
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
                     end    
                 })
 
@@ -2320,7 +2367,7 @@ for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                 end 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0,-5,0)
 else
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 666+ slaps"})
+OrionLib:MakeNotification({Name = "Error",Content = "You need 666+ slaps.",Image = "rbxassetid://7733658504",Time = 5})
 end
 end
 	end    
@@ -2684,10 +2731,66 @@ for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
                         v.CanTouch = true
                 end
 else
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Za Hando equipped"})
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Za Hando equipped.",Image = "rbxassetid://7733658504",Time = 5})
 end
                     end    
                 })
+
+Cancel = false
+Tab2:AddTextbox({
+	Name = "Punish player (Needs swapper) (1 plr at a time)",
+	Default = "Username",
+	TextDisappear = false,
+	Callback = function(Value)
+if game.Players.LocalPlayer.Character:FindFirstChild("Swapper") or game.Players.LocalPlayer.Backpack:FindFirstChild("Swapper") then
+OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Workspace.VoidPart.CanCollide = true
+Timer = 0
+repeat
+if Cancel == true then
+break
+end
+if workspace[Value]:FindFirstChild("HumanoidRootPart") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace[Value].HumanoidRootPart.Position.X,-50000,workspace[Value].HumanoidRootPart.Position.Z)
+end
+NewDistance = math.huge
+for i,v in pairs(game.Players:GetChildren()) do
+	if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+		Distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
+if Distance < NewDistance then
+	NewDistance = Distance
+	Closest = v
+end
+end
+end
+task.wait(0.01)
+if Timer < 1 then
+Timer = Timer + 0.01
+end
+until workspace[Value].Ragdolled.Value == false and workspace[Value]:FindFirstChild("HumanoidRootPart") and workspace[Value]:FindFirstChild("entered") and Closest == game.Players[Value] and Timer >= 1
+if Cancel == false then
+game:GetService("ReplicatedStorage").SLOC:FireServer()
+end
+wait(.25)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
+game.Workspace.VoidPart.CanCollide = false
+if game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Part",true) == nil then
+game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
+end
+else
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Swapper equipped, or you aren't in the arena.",Image = "rbxassetid://7733658504",Time = 5})
+end
+	end	  
+})
+
+Tab2:AddButton({
+	Name = "Cancel punish player",
+	Callback = function()
+Cancel = true
+wait(0.1)
+Cancel = false
+  	end    
+})
 
 Tab4:AddButton({
 	Name = "Give reaper 20 kills (Use after they slap you)",
@@ -2803,7 +2906,7 @@ fireclickdetector(workspace.Lobby.Ghost.ClickDetector)
 game.ReplicatedStorage.Ghostinvisibilityactivated:FireServer()
 fireclickdetector(workspace.Lobby[OGlove].ClickDetector)
 else
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need to be in lobby and have 666+ slaps"})
+OrionLib:MakeNotification({Name = "Error",Content = "You need to be in lobby and have 666+ slaps.",Image = "rbxassetid://7733658504",Time = 5})
 end
                     end    
                 })
@@ -2832,6 +2935,22 @@ end
 })
 
 Tab4:AddToggle({
+                    Name = "Candy Corn Farm",
+                    Default = false,
+                    Callback = function(Value)
+CandyCornFarm = Value
+while CandyCornFarm do
+for i, v in pairs(workspace.CandyCorns:GetChildren()) do
+                if v:FindFirstChildWhichIsA("TouchTransmitter") then
+v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                end
+            end
+task.wait()
+end
+end
+                })
+
+Tab4:AddToggle({
                     Name = "Slapple Farm",
                     Default = false,
                     Callback = function(Value)
@@ -2849,28 +2968,36 @@ end
                 })
 
 Tab4:AddToggle({
-                    Name = "Baller Farm",
+                    Name = "Replica Slap Farm (Use in default arena)",
                     Default = false,
                     Callback = function(Value)
-BallerFarm = Value
-if BallerFarm == true then
-coroutine.wrap(SpamBaller)()
+ReplicaFarm = Value
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica" and game.Players.LocalPlayer.Character.IsInDefaultArena.Value == true then
+if ReplicaFarm == true then
+coroutine.wrap(SpamReplica)()
 end
-while BallerFarm do
+while ReplicaFarm do
 for i, v in pairs(workspace:GetChildren()) do
-                if string.find(v.Name, "Baller") then
-game:GetService("ReplicatedStorage").GeneralHit:FireServer(v:WaitForChild("Head"))
+                if v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart") then
+game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"))
                 end
             end
 task.wait()
                        end
+elseif ReplicaFarm == true then
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Replica equipped, or you aren't in the Default arena.",Image = "rbxassetid://7733658504",Time = 5})
+end
 end
                 })
-function SpamBaller()
-while BallerFarm do
-                           game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-                       wait(30.05)
+function SpamReplica()
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica" and game.Players.LocalPlayer.Character.IsInDefaultArena.Value == true then
+while ReplicaFarm do
+                           game:GetService("ReplicatedStorage").Duplicate:FireServer()
+                       wait(19.9)
                        end
+elseif ReplicaFarm == true then
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Replica equipped, or you aren't in the Default arena.",Image = "rbxassetid://7733658504",Time = 5})
+end
 end
 
 Tab4:AddTextbox({
@@ -2880,6 +3007,8 @@ Tab4:AddTextbox({
 	Callback = function(Value)
 if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
 		fireclickdetector(workspace.Lobby[Value].ClickDetector)
+else
+OrionLib:MakeNotification({Name = "Error",Content = "You aren't in the lobby.",Image = "rbxassetid://7733658504",Time = 5})
 end
 	end	  
 })
@@ -2897,7 +3026,7 @@ game.Players.LocalPlayer.Character.Rhythm:Activate()
 task.wait()
 end
 elseif RhythmNoteSpam == true then
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Rhythm equipped"})
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Rhythm equipped.",Image = "rbxassetid://7733658504",Time = 5})
 end
                     end    
                 })
@@ -3047,7 +3176,7 @@ end
 task.wait(0.01)
 end
 elseif Value == true then
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Ping Pong equipped"})
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Ping Pong equipped.",Image = "rbxassetid://7733658504",Time = 5})
 end
 end
                 })
@@ -3402,7 +3531,7 @@ wait(3.75)
 end
 end
 else
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You need 5000+ slaps"})
+OrionLib:MakeNotification({Name = "Error",Content = "You need 5000+ slaps.",Image = "rbxassetid://7733658504",Time = 5})
             end
 end
                     })
@@ -3429,7 +3558,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
 wait(9.9)
 until game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") and game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value >= 50
 else
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Stun equipped"})
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Stun equipped.",Image = "rbxassetid://7733658504",Time = 5})
 end
 end
                     })
@@ -3489,7 +3618,7 @@ game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
 wait(Random.new():NextNumber(1.5,1.75))
 end
 else
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Brick equipped"})
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Brick equipped.",Image = "rbxassetid://7733658504",Time = 5})
 end
                     end    
                 })
@@ -3505,7 +3634,7 @@ game:GetService('VirtualInputManager'):SendKeyEvent(true,'E',false,x)
 task.wait(5.05)
 end
 elseif Value == true then
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Brick equipped"})
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Brick equipped.",Image = "rbxassetid://7733658504",Time = 5})
 end
 	end    
 })
@@ -3525,7 +3654,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(gam
 wait(3.5)
 end
 elseif Value == true then
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Duration = 5,Text = "You don't have Replica equipped"})
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Replica equipped.",Image = "rbxassetid://7733658504",Time = 5})
 end
                     end    
                 })
@@ -3923,7 +4052,7 @@ p.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") then
+if v:lower():match("recording") or v:lower():match("rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match("clip") or v:lower():match("proof") or v:lower():match("evidence") then
 AK:Set(false)
 game.Players.LocalPlayer:Kick("Possible player recording detected.".." ("..p.Name..")".." ("..message..")")
 end
