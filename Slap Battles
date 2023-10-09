@@ -790,6 +790,7 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
@@ -809,6 +810,7 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9412268818)
@@ -1123,6 +1125,18 @@ game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Cha
 end
 	end    
 })
+
+                Tab4:AddToggle({
+                    Name = "Spam Zombie Sound (All gloves)",
+                    Default = false,
+                    Callback = function(Value)
+ZombieSoundSpam = Value
+while ZombieSoundSpam do
+game:GetService("ReplicatedStorage").b:FireServer("ReplicateSound_Zombie")
+task.wait()
+end
+                    end    
+                })
 
                 Tab4:AddToggle({
                     Name = "Spam Error Sound (All gloves)",
@@ -1801,6 +1815,7 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
@@ -1820,6 +1835,7 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9412268818)
@@ -2149,6 +2165,7 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(game.PlaceId)
@@ -2248,6 +2265,7 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
@@ -2267,6 +2285,7 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9412268818)
@@ -2708,6 +2727,63 @@ end
                     end   
 })
 
+Cancel = false
+Tab2:AddTextbox({
+	Name = "Punish player (Needs swapper) (1 plr at a time)",
+	Default = "Username",
+	TextDisappear = false,
+	Callback = function(Value)
+if game.Players.LocalPlayer.Character:FindFirstChild("Swapper") or game.Players.LocalPlayer.Backpack:FindFirstChild("Swapper") then
+OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Workspace.VoidPart.CanCollide = true
+Timer = 0
+repeat
+if Cancel == true then
+break
+end
+if workspace[Value]:FindFirstChild("HumanoidRootPart") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace[Value].HumanoidRootPart.Position.X,-50000,workspace[Value].HumanoidRootPart.Position.Z)
+end
+NewDistance = math.huge
+for i,v in pairs(game.Players:GetChildren()) do
+	if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+		Distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
+if Distance < NewDistance then
+	NewDistance = Distance
+	Closest = v
+task.wait()
+end
+end
+end
+task.wait(0.01)
+if Timer < 1 then
+Timer = Timer + 0.01
+end
+until game.Players[Value].Character and workspace[Value]:FindFirstChild("HumanoidRootPart") and workspace[Value]:FindFirstChild("entered") and workspace[Value].Ragdolled.Value == false and Closest == game.Players[Value] and Timer >= 1
+if Cancel == false then
+game:GetService("ReplicatedStorage").SLOC:FireServer()
+end
+wait(.25)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
+game.Workspace.VoidPart.CanCollide = false
+if game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Part",true) == nil then
+game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
+end
+else
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Swapper equipped, or you aren't in the arena.",Image = "rbxassetid://7733658504",Time = 5})
+end
+	end	  
+})
+
+Tab2:AddButton({
+	Name = "Cancel punish player",
+	Callback = function()
+Cancel = true
+wait(0.1)
+Cancel = false
+  	end    
+})
+
 Tab2:AddButton({
 	Name = "Kick player (Needs Za Hando) (Inconsistent)",
 	Callback = function()
@@ -2735,62 +2811,6 @@ OrionLib:MakeNotification({Name = "Error",Content = "You don't have Za Hando equ
 end
                     end    
                 })
-
-Cancel = false
-Tab2:AddTextbox({
-	Name = "Punish player (Needs swapper) (1 plr at a time)",
-	Default = "Username",
-	TextDisappear = false,
-	Callback = function(Value)
-if game.Players.LocalPlayer.Character:FindFirstChild("Swapper") or game.Players.LocalPlayer.Backpack:FindFirstChild("Swapper") then
-OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-game.Workspace.VoidPart.CanCollide = true
-Timer = 0
-repeat
-if Cancel == true then
-break
-end
-if workspace[Value]:FindFirstChild("HumanoidRootPart") then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace[Value].HumanoidRootPart.Position.X,-50000,workspace[Value].HumanoidRootPart.Position.Z)
-end
-NewDistance = math.huge
-for i,v in pairs(game.Players:GetChildren()) do
-	if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
-		Distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
-if Distance < NewDistance then
-	NewDistance = Distance
-	Closest = v
-end
-end
-end
-task.wait(0.01)
-if Timer < 1 then
-Timer = Timer + 0.01
-end
-until workspace[Value].Ragdolled.Value == false and workspace[Value]:FindFirstChild("HumanoidRootPart") and workspace[Value]:FindFirstChild("entered") and Closest == game.Players[Value] and Timer >= 1
-if Cancel == false then
-game:GetService("ReplicatedStorage").SLOC:FireServer()
-end
-wait(.25)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
-game.Workspace.VoidPart.CanCollide = false
-if game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Part",true) == nil then
-game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
-end
-else
-OrionLib:MakeNotification({Name = "Error",Content = "You don't have Swapper equipped, or you aren't in the arena.",Image = "rbxassetid://7733658504",Time = 5})
-end
-	end	  
-})
-
-Tab2:AddButton({
-	Name = "Cancel punish player",
-	Callback = function()
-Cancel = true
-wait(0.1)
-Cancel = false
-  	end    
-})
 
 Tab4:AddButton({
 	Name = "Give reaper 20 kills (Use after they slap you)",
@@ -3193,6 +3213,18 @@ Tab4:AddSlider({
 		OrbitSpeed = Value
 	end    
 })
+
+                Tab4:AddToggle({
+                    Name = "Spam Zombie Sound (All gloves)",
+                    Default = false,
+                    Callback = function(Value)
+ZombieSoundSpam = Value
+while ZombieSoundSpam do
+game:GetService("ReplicatedStorage").b:FireServer("ReplicateSound_Zombie")
+task.wait()
+end
+                    end    
+                })
 
                 Tab4:AddToggle({
                     Name = "Spam Error Sound (All gloves)",
