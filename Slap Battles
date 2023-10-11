@@ -191,10 +191,13 @@ end
 end
                 })
 
-Tab2:AddButton({
-	Name = "Get all items (Use in bus)",
-	Callback = function()
+Tab2:AddToggle({
+                    Name = "Get all items (Use after bus spawns)",
+                    Default = false,
+                    Callback = function(Value)
+GetAllItems = Value
 if game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true then
+                while GetAllItems do
             for i, v in ipairs(game.Workspace:GetChildren()) do
                 if v.ClassName == "Tool" then
  game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
@@ -202,9 +205,13 @@ if game.Players.LocalPlayer.Character:WaitForChild("inMatch").Value == true then
             end
 repeat task.wait() until game.Workspace:FindFirstChildWhichIsA("Tool") == nil
 game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+task.wait()
 end
-  	end    
-})
+elseif GetAllItems == true then
+OrionLib:MakeNotification({Name = "Error",Content = "Match hasn't started yet.",Image = "rbxassetid://7733658504",Time = 5})
+end
+end
+                })
 
 Tab2:AddButton({
 	Name = "Bomb Bus (Use in the lobby)",
@@ -251,6 +258,43 @@ for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                 end
 			end
 })
+
+Tab2:AddToggle({
+                    Name = "Glove ESP",
+                    Default = false,
+                    Callback = function(Value)
+GloveESP = Value
+if GloveESP == false then
+for i, v in ipairs(game.Players:GetChildren()) do
+                if v.Character and v.Character:FindFirstChild("Head") and v.Character.Head:FindFirstChild("GloveEsp") then
+ v.Character.Head.GloveEsp:Destroy()
+                end
+            end
+end
+while GloveESP do
+for i, v in ipairs(game.Players:GetChildren()) do
+                if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("Head") and v.Character.inMatch.Value == true and v.Character.Head:FindFirstChild("GloveEsp") == nil then
+GloveEsp = Instance.new("BillboardGui", v.Character.Head)
+GloveEsp.Adornee = v.Character.Head
+GloveEsp.Name = "GloveEsp"
+GloveEsp.Size = UDim2.new(0, 100, 0, 150)
+GloveEsp.StudsOffset = Vector3.new(0, 1, 0)
+GloveEsp.AlwaysOnTop = true
+GloveEsp.StudsOffset = Vector3.new(0, 3, 0)
+GloveEspText = Instance.new("TextLabel", GloveEsp)
+GloveEspText.BackgroundTransparency = 1
+GloveEspText.Size = UDim2.new(0, 100, 0, 100)
+GloveEspText.TextSize = 25
+GloveEspText.Font = Enum.Font.SourceSansSemibold
+GloveEspText.TextColor3 = Color3.new(255, 255, 255)
+GloveEspText.TextStrokeTransparency = 0
+GloveEspText.Text = v.Glove.Value
+                end
+            end
+task.wait()
+end
+end
+                })
 
 Tab4:AddButton({
 	Name = "Get Lab Code",
