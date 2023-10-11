@@ -2227,7 +2227,7 @@ else
                 
 if workspace:FindFirstChild("VoidPart") == nil then
 local VoidPart = Instance.new("Part", workspace)
-VoidPart.Position = Vector3.new(0,-50027.5,0)
+VoidPart.Position = Vector3.new(0,-50026.5,0)
 VoidPart.Name = "VoidPart"
 VoidPart.Size = Vector3.new(2048,50,2048)
 VoidPart.Anchored = true
@@ -2786,24 +2786,13 @@ if Cancel == true then
 break
 end
 if workspace[Value]:FindFirstChild("HumanoidRootPart") then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace[Value].HumanoidRootPart.Position.X,-50000,workspace[Value].HumanoidRootPart.Position.Z)
-end
-NewDistance = math.huge
-for i,v in pairs(game.Players:GetChildren()) do
-	if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
-		Distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
-if Distance < NewDistance then
-	NewDistance = Distance
-	Closest = v
-task.wait()
-end
-end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(workspace[Value].HumanoidRootPart.Position.X,-49999,workspace[Value].HumanoidRootPart.Position.Z)
 end
 task.wait(0.01)
 if Timer < 1 then
 Timer = Timer + 0.01
 end
-until game.Players[Value].Character and workspace[Value]:FindFirstChild("HumanoidRootPart") and workspace[Value]:FindFirstChild("entered") and workspace[Value].Ragdolled.Value == false and Closest == game.Players[Value] and Timer >= 1
+until game.Players[Value].Character and workspace[Value]:FindFirstChild("HumanoidRootPart") and workspace[Value]:FindFirstChild("entered") and workspace[Value].Ragdolled.Value == false and Timer >= 1
 if Cancel == false then
 game:GetService("ReplicatedStorage").SLOC:FireServer()
 end
