@@ -44,6 +44,7 @@
     ["Tinkerer"] = game.ReplicatedStorage.GeneralHit,
     ["Sun"] = game.ReplicatedStorage.GeneralHit,
     ["Necromancer"] = game.ReplicatedStorage.GeneralHit,
+    ["Dual"] = game.ReplicatedStorage.GeneralHit,
     ----------------------------------------
     ["Diamond"] = game.ReplicatedStorage.DiamondHit,
     ["ZZZZZZZ"] = game.ReplicatedStorage.ZZZZZZZHit,
