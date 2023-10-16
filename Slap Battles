@@ -70,7 +70,7 @@ AntiAcid.Anchored = true
 AntiAcid.Transparency = 1
 AntiLava.CanCollide = false
                 
-                local Window = OrionLib:MakeWindow({Name = "Slap Royale hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists | Slap Royale", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -762,7 +762,7 @@ task.wait()
 
 elseif game.PlaceId == 11520107397 then
                 
-                local Window = OrionLib:MakeWindow({Name = "Slap Battles KS Only hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists | Killstreak Only", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -867,13 +867,6 @@ Tab4:AddButton({
 	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
-                    end    
-                })
-
-Tab4:AddButton({
-	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
-	Callback = function()
-setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
                     end    
                 })
 
@@ -1065,22 +1058,6 @@ end
 })
 
 Tab4:AddToggle({
-                    Name = "Candy Corn Farm",
-                    Default = false,
-                    Callback = function(Value)
-CandyCornFarm = Value
-while CandyCornFarm do
-for i, v in pairs(workspace.CandyCorns:GetChildren()) do
-                if v:FindFirstChildWhichIsA("TouchTransmitter") then
-v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                end
-            end
-task.wait()
-end
-end
-                })
-
-Tab4:AddToggle({
                     Name = "Slapple Farm",
                     Default = false,
                     Callback = function(Value)
@@ -1251,6 +1228,29 @@ task.wait()
             end
 	end    
 })
+
+Tab5:AddButton({
+	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
+	Callback = function()
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
+                    end    
+                })
+
+Tab5:AddToggle({
+                    Name = "Candy Corn Farm",
+                    Default = false,
+                    Callback = function(Value)
+CandyCornFarm = Value
+while CandyCornFarm do
+for i, v in pairs(workspace.CandyCorns:GetChildren()) do
+                if v:FindFirstChildWhichIsA("TouchTransmitter") then
+v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                end
+            end
+task.wait()
+end
+end
+                })
 
 Tab5:AddButton({
 	Name = "Get Elude",
@@ -1806,7 +1806,7 @@ end)
 
 elseif game.PlaceId == 11828384869 then
                 
-                local Window = OrionLib:MakeWindow({Name = "Elude Maze hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists | Elude Maze", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -1892,13 +1892,6 @@ Tab2:AddButton({
 	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
 setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
-                    end    
-                })
-
-Tab4:AddButton({
-	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
-	Callback = function()
-setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
                     end    
                 })
 
@@ -2169,7 +2162,7 @@ end
 
 elseif game.PlaceId == 9020359053 or game.PlaceId == 9412268818 then
                 
-                local Window = OrionLib:MakeWindow({Name = "SB Testing Server hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Slap Battles hub that exists | Testing Server", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -2345,12 +2338,6 @@ setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyus
                     end    
                 })
 
-Tab4:AddButton({
-	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
-	Callback = function()
-setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
-                    end    
-                })
 
 Tab2:AddToggle({
                     Name = "Slap Aura",
@@ -2833,7 +2820,7 @@ game:GetService("ReplicatedStorage").Erase:FireServer()
 wait(0.47)
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = 0
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-485,310,-2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-725,310,-2)
 wait(3.75)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = OGWS
@@ -2988,22 +2975,6 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120,360,
 end
 	end    
 })
-
-Tab4:AddToggle({
-                    Name = "Candy Corn Farm",
-                    Default = false,
-                    Callback = function(Value)
-CandyCornFarm = Value
-while CandyCornFarm do
-for i, v in pairs(workspace.CandyCorns:GetChildren()) do
-                if v:FindFirstChildWhichIsA("TouchTransmitter") then
-v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                end
-            end
-task.wait()
-end
-end
-                })
 
 Tab4:AddToggle({
                     Name = "Slapple Farm",
@@ -3370,6 +3341,29 @@ task.wait()
             end
 	end    
 })
+
+Tab5:AddButton({
+	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
+	Callback = function()
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
+                    end    
+                })
+
+Tab5:AddToggle({
+                    Name = "Candy Corn Farm",
+                    Default = false,
+                    Callback = function(Value)
+CandyCornFarm = Value
+while CandyCornFarm do
+for i, v in pairs(workspace.CandyCorns:GetChildren()) do
+                if v:FindFirstChildWhichIsA("TouchTransmitter") then
+v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                end
+            end
+task.wait()
+end
+end
+                })
 
 Tab5:AddButton({
 	Name = "Get Elude",
