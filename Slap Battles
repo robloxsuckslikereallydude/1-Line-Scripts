@@ -147,7 +147,7 @@ p.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match(" rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match("clip") or v:lower():match("proof") or v:lower():match("evidence") then
+if v:lower():match("recording") or v:lower():match(" rec ") or v:lower():match("record") or v:lower():match("discor") or v:lower():match(" disco ") or v:lower():match(" disc ") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds ") or v:lower():match(" dc ") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match(" clip ") or v:lower():match("proof") or v:lower():match("evidence") then
 AK:Set(false)
 game.Players.LocalPlayer:Kick("Possible player recording detected.".." ("..p.Name..")".." ("..message..")")
 end
@@ -161,7 +161,7 @@ Player.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match(" rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match("clip") or v:lower():match("proof") or v:lower():match("evidence") then
+if v:lower():match("recording") or v:lower():match(" rec ") or v:lower():match("record") or v:lower():match("discor") or v:lower():match(" disco ") or v:lower():match(" disc ") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds ") or v:lower():match(" dc ") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match(" clip ") or v:lower():match("proof") or v:lower():match("evidence") then
 AK:Set(false)
 game.Players.LocalPlayer:Kick("Possible player recording detected.".." ("..Player.Name..")".." ("..message..")")
 end
@@ -191,7 +191,7 @@ end
 end
                 })
 
-Tab2:AddToggle({
+GAI = Tab2:AddToggle({
                     Name = "Get all items (Use after bus spawns)",
                     Default = false,
                     Callback = function(Value)
@@ -209,6 +209,8 @@ task.wait()
 end
 elseif GetAllItems == true then
 OrionLib:MakeNotification({Name = "Error",Content = "Match hasn't started yet.",Image = "rbxassetid://7733658504",Time = 5})
+wait(0.05)
+GAI:Set(false)
 end
 end
                 })
@@ -1730,7 +1732,7 @@ p.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match(" rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match("clip") or v:lower():match("proof") or v:lower():match("evidence") then
+if v:lower():match("recording") or v:lower():match(" rec ") or v:lower():match("record") or v:lower():match("discor") or v:lower():match(" disco ") or v:lower():match(" disc ") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds ") or v:lower():match(" dc ") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match(" clip ") or v:lower():match("proof") or v:lower():match("evidence") then
 AK:Set(false)
 game.Players.LocalPlayer:Kick("Possible player recording detected.".." ("..p.Name..")".." ("..message..")")
 end
@@ -1744,7 +1746,7 @@ Player.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match(" rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match("clip") or v:lower():match("proof") or v:lower():match("evidence") then
+if v:lower():match("recording") or v:lower():match(" rec ") or v:lower():match("record") or v:lower():match("discor") or v:lower():match(" disco ") or v:lower():match(" disc ") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds ") or v:lower():match(" dc ") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match(" clip ") or v:lower():match("proof") or v:lower():match("evidence") then
 AK:Set(false)
 game.Players.LocalPlayer:Kick("Possible player recording detected.".." ("..Player.Name..")".." ("..message..")")
 end
@@ -3020,7 +3022,7 @@ end
 end
                 })
 
-Tab4:AddToggle({
+RSF = Tab4:AddToggle({
                     Name = "Replica Slap Farm (Use in default arena)",
                     Default = false,
                     Callback = function(Value)
@@ -3039,6 +3041,8 @@ task.wait()
                        end
 elseif ReplicaFarm == true then
 OrionLib:MakeNotification({Name = "Error",Content = "You don't have Replica equipped, or you aren't in the Default arena.",Image = "rbxassetid://7733658504",Time = 5})
+wait(0.05)
+RSF:Set(false)
 end
 end
                 })
@@ -3048,8 +3052,6 @@ while ReplicaFarm do
                            game:GetService("ReplicatedStorage").Duplicate:FireServer()
                        wait(19.9)
                        end
-elseif ReplicaFarm == true then
-OrionLib:MakeNotification({Name = "Error",Content = "You don't have Replica equipped, or you aren't in the Default arena.",Image = "rbxassetid://7733658504",Time = 5})
 end
 end
 
@@ -3066,7 +3068,7 @@ end
 	end	  
 })
 
-                Tab4:AddToggle({
+RNS = Tab4:AddToggle({
                     Name = "Rhythm Note Spam + Auto Press (Equip Rhythm)",
                     Default = false,
                     Callback = function(Value)
@@ -3080,6 +3082,8 @@ task.wait()
 end
 elseif RhythmNoteSpam == true then
 OrionLib:MakeNotification({Name = "Error",Content = "You don't have Rhythm equipped.",Image = "rbxassetid://7733658504",Time = 5})
+wait(0.05)
+RNS:Set(false)
 end
                     end    
                 })
@@ -3194,7 +3198,7 @@ end
                     end    
                 })
 
-Tab4:AddToggle({
+PPO = Tab4:AddToggle({
                     Name = "Ping Pong Orbit",
                     Default = false,
                     Callback = function(Value)
@@ -3230,6 +3234,8 @@ task.wait(0.01)
 end
 elseif Value == true then
 OrionLib:MakeNotification({Name = "Error",Content = "You don't have Ping Pong equipped.",Image = "rbxassetid://7733658504",Time = 5})
+wait(0.05)
+PPO:Set(false)
 end
 end
                 })
@@ -3688,8 +3694,8 @@ end
                     end    
                 })
 
-Tab5:AddToggle({
-	Name = "Brick Farm (Use if the 20m version doesnt work)",
+BF = Tab5:AddToggle({
+	Name = "Brick Farm (Use if the fast version doesnt work)",
 	Default = false,
 	Callback = function(Value)
 Brickfarm = Value
@@ -3700,11 +3706,13 @@ task.wait(5.05)
 end
 elseif Value == true then
 OrionLib:MakeNotification({Name = "Error",Content = "You don't have Brick equipped.",Image = "rbxassetid://7733658504",Time = 5})
+wait(0.05)
+BF:Set(false)
 end
 	end    
 })
 
-Tab5:AddToggle({
+BOB = Tab5:AddToggle({
                     Name = "Bob Farm",
                     Default = false,
                     Callback = function(Value)
@@ -3720,6 +3728,8 @@ wait(3.5)
 end
 elseif Value == true then
 OrionLib:MakeNotification({Name = "Error",Content = "You don't have Replica equipped.",Image = "rbxassetid://7733658504",Time = 5})
+wait(0.05)
+BOB:Set(false)
 end
                     end    
                 })
@@ -4117,7 +4127,7 @@ p.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match(" rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match("clip") or v:lower():match("proof") or v:lower():match("evidence") then
+if v:lower():match("recording") or v:lower():match(" rec ") or v:lower():match("record") or v:lower():match("discor") or v:lower():match(" disco ") or v:lower():match(" disc ") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds ") or v:lower():match(" dc ") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match(" clip ") or v:lower():match("proof") or v:lower():match("evidence") then
 AK:Set(false)
 game.Players.LocalPlayer:Kick("Possible player recording detected.".." ("..p.Name..")".." ("..message..")")
 end
@@ -4131,7 +4141,7 @@ Player.Chatted:Connect(function(message)
 Words = message:split(" ")
 if AntiRecord == true then
 for i, v in pairs(Words) do
-if v:lower():match("recording") or v:lower():match(" rec") or v:lower():match("record") or v:lower():match("discor") or v:lower():match("disco") or v:lower():match("disc") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds") or v:lower():match(" dc") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match("clip") or v:lower():match("proof") or v:lower():match("evidence") then
+if v:lower():match("recording") or v:lower():match(" rec ") or v:lower():match("record") or v:lower():match("discor") or v:lower():match(" disco ") or v:lower():match(" disc ") or v:lower():match("ticket") or v:lower():match("tickets") or v:lower():match(" ds ") or v:lower():match(" dc ") or v:lower():match("dizzy") or v:lower():match("dizzycord") or v:lower():match(" clip ") or v:lower():match("proof") or v:lower():match("evidence") then
 AK:Set(false)
 game.Players.LocalPlayer:Kick("Possible player recording detected.".." ("..Player.Name..")".." ("..message..")")
 end
