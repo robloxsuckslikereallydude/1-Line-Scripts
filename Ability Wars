@@ -1,4 +1,4 @@
--- if you have problems message Guy that exists#1915
+-- Message Guy that exists#1915 if you have issues
                     
 if not game:IsLoaded() then
     game.Loaded:Wait()
@@ -62,7 +62,7 @@ end
                     PremiumOnly = false
                 })
                 
-Tab:AddLabel("If you have problems then message Guy that exists#1915")
+Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 
 Tab:AddButton({
 	Name = "Infinite Yield",
@@ -177,29 +177,6 @@ game.Workspace.Main.Shop.Attic.Alchemy["Alchemist Cauldron"]["Character Kill"].C
                 })
                 
 Tab3:AddToggle({
-                    Name = "Punch Aura (Decent chance of kick)",
-                    Default = false,
-                    Callback = function(Value)
-PunchAura = Value
-                while PunchAura do
-for i,v in pairs(game.Players:GetChildren()) do
-                    if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
-if v.Character:FindFirstChild("HumanoidRootPart") then
-if v.Character["Right Arm"]:FindFirstChild("SelectionBox") == nil and v.Character:FindFirstChild("Highlight") == nil then
-Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
-                        if 25 >= Magnitude then
-game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireServer(v.Character,Vector3.new,0,v.Character:FindFirstChild("Head"))
-                    end
-end
-end
-end
-                end
-wait(.5)
-end
-end
-                })
-                
-Tab3:AddToggle({
                     Name = "Expand others' hitboxes",
                     Default = false,
                     Callback = function(Value)
@@ -231,6 +208,29 @@ task.wait()
 end
 end
                 })
+
+Tab3:AddToggle({
+                    Name = "Punch Aura (Decent chance of kick)",
+                    Default = false,
+                    Callback = function(Value)
+PunchAura = Value
+                while PunchAura do
+for i,v in pairs(game.Players:GetChildren()) do
+                    if v ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character then
+if v.Character:FindFirstChild("HumanoidRootPart") then
+if v.Character["Right Arm"]:FindFirstChild("SelectionBox") == nil and v.Character:FindFirstChild("Highlight") == nil then
+Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                        if 25 >= Magnitude then
+game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireServer(v.Character,Vector3.new,0,v.Character:FindFirstChild("Head"))
+                    end
+end
+end
+end
+                end
+wait(.5)
+end
+end
+                })
                 
 Tab3:AddToggle({
                     Name = "Auto Kill Boss",
@@ -250,7 +250,7 @@ end
 AutoKillBoss = Value
 if Boss ~= nil then
                 while AutoKillBoss do
-game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireServer(workspace:WaitForChild(Boss),Vector3.new,0,Boss:FindFirstChild("Right Leg"))
+game.ReplicatedStorage["Remote Events"].Punch:FireServer(workspace:WaitForChild(Boss),Vector3.new,0,workspace[Boss]:FindFirstChild("Right Leg"))
 wait(.1)
 end
 end
@@ -474,7 +474,7 @@ task.wait()
 
 elseif game.PlaceId == 10626447503 then
                 
-                local Window = OrionLib:MakeWindow({Name = "Team Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Ability Wars hub that exists | Team Battles", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -500,7 +500,7 @@ elseif game.PlaceId == 10626447503 then
                     PremiumOnly = false
                 })
                 
-Tab:AddLabel("If you have problems then message Guy that exists#1915")
+Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 
 Tab:AddButton({
 	Name = "Infinite Yield",
@@ -561,7 +561,7 @@ game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireS
 end
 end
                 end
-wait(.5)
+wait(.4)
 end
 end
                 })
@@ -679,7 +679,7 @@ task.wait()
 
 elseif game.PlaceId == 10201596675 then
 
-                local Window = OrionLib:MakeWindow({Name = "Team Battles hub that exists", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+                local Window = OrionLib:MakeWindow({Name = "Ability Wars hub that exists | Duels", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
                 local Tab = Window:MakeTab({
                     Name = "Home",
@@ -705,7 +705,7 @@ elseif game.PlaceId == 10201596675 then
                     PremiumOnly = false
                 })
                 
-Tab:AddLabel("If you have problems then message Guy that exists#1915")
+Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 
 Tab:AddButton({
 	Name = "Infinite Yield",
@@ -761,7 +761,7 @@ game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch:FireS
 end
 end
                 end
-wait(.5)
+wait(.4)
 end
 end
                 })
