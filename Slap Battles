@@ -3169,17 +3169,35 @@ GodmodePlayer = Value
 	end	  
 })
 
-Tab4:AddButton({
-	Name = "Collect all alchemist ingredients",
-	Callback = function()
+GAAI = Tab4:AddToggle({
+                    Name = "Get all alchemist ingredients",
+                    Default = false,
+                    Callback = function(Value)
+AlchemistIngredients = Value
 if game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist" then
- for i,v in pairs(workspace["Alchemist_Ingredients_"]:GetDescendants()) do
-        if v:IsA("ClickDetector") then
-            fireclickdetector(v)
-        end
-    end
-else
+while AlchemistIngredients do
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Mushroom")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Glowing Mushroom")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Fire Flower")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Winter Rose")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Dark Root")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Dire Flower")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Autumn Sprout")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Elder Wood")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Hazel Lily")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Wild Vine")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Jade Stone")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Lamp Grass")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Plane Flower")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Blood Rose")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Red Crystal")
+game.ReplicatedStorage.AlchemistEvent:FireServer("AddItem","Blue Crystal")
+task.wait()
+end
+elseif AlchemistIngredients == true then
 OrionLib:MakeNotification({Name = "Error",Content = "You don't have Alchemist equipped.",Image = "rbxassetid://7733658504",Time = 5})
+task.wait()
+GAAI:Set(false)
 end
                     end    
                 })
