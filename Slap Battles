@@ -2759,6 +2759,10 @@ while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Whirlwind" do
 game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
 task.wait()
 end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Guardian Angel" do
+game.ReplicatedStorage.GeneralAbility:FireServer(game.Players.LocalPlayer)
+task.wait()
+end
                     end   
 })
 
@@ -2836,42 +2840,6 @@ end
                     end    
                 })
 
-Tab4:AddButton({
-	Name = "Give reaper 20 kills (Use after they slap you)",
-	Callback = function()
-for i = 1, 20 do
-        game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(x,false)
-end
-for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-                    if v.Name == "DeathMark" then
-                    game.ReplicatedStorage.ReaperGone:FireServer(v)
-                    game:GetService("Lighting"):WaitForChild("DeathMarkColorCorrection"):Destroy() 
-                    end 
-                end
-                    end    
-                })
-
-                Tab4:AddToggle({
-                    Name = "Auto Click Tycoon",
-                    Default = false,
-                    Callback = function(Value)
-AutoTycoon = Value
-    for i,v in pairs(workspace:GetDescendants()) do
-        if v.Name == "End" and v.ClassName == "Part" then
-            v.Size = Vector3.new(28, 0.3, 4)
-        end
-    end
-while AutoTycoon do
-    for i,v in pairs(workspace:GetDescendants()) do
-        if v.Name == "Click" and v:FindFirstChild("ClickDetector") then
-            fireclickdetector(v.ClickDetector)
-        end
-    end
-    task.wait()
-end
-                    end    
-                })
-
 Tab2:AddToggle({
                     Name = "Auto Enter Arena",
                     Default = false,
@@ -2922,6 +2890,21 @@ GloveEspText.Text = v.leaderstats.Glove.Value
 task.wait()
 end
 end
+                })
+
+Tab4:AddButton({
+	Name = "Give reaper 20 kills (Use after they slap you)",
+	Callback = function()
+for i = 1, 20 do
+        game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(x,false)
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                    if v.Name == "DeathMark" then
+                    game.ReplicatedStorage.ReaperGone:FireServer(v)
+                    game:GetService("Lighting"):WaitForChild("DeathMarkColorCorrection"):Destroy() 
+                    end 
+                end
+                    end    
                 })
 
 Tab4:AddToggle({
@@ -3092,26 +3075,6 @@ end
 	end	  
 })
 
-RNS = Tab4:AddToggle({
-                    Name = "Rhythm Note Spam + Auto Press (Equip Rhythm)",
-                    Default = false,
-                    Callback = function(Value)
-RhythmNoteSpam = Value
-if game.Players.LocalPlayer.leaderstats.Glove.Value == "Rhythm" then
-while RhythmNoteSpam do
-game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = false
-game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = true
-game.Players.LocalPlayer.Character.Rhythm:Activate()
-task.wait()
-end
-elseif RhythmNoteSpam == true then
-OrionLib:MakeNotification({Name = "Error",Content = "You don't have Rhythm equipped.",Image = "rbxassetid://7733658504",Time = 5})
-wait(0.05)
-RNS:Set(false)
-end
-                    end    
-                })
-
 Tab4:AddButton({
 	Name = "Free Emotes (Type /e emotename)",
 	Callback = function()
@@ -3172,21 +3135,6 @@ end)
                     end    
                 })
 
-Tab4:AddDropdown({
-	Name = "Rojo Charge VFX (Will fling you if spammed)",
-	Default = "",
-	Options = {"Attack", "No Attack"},
-	Callback = function(Value)
-if Value == "Attack" then
-game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
-wait(6)
-game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame})
-elseif Value == "No Attack" then
-game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
-end
-	end    
-})
-
 Tab4:AddButton({
 	Name = "Infinite Golden (Use in arena)",
 	Callback = function()
@@ -3194,30 +3142,85 @@ game:GetService("ReplicatedStorage").Goldify:FireServer(true)
                     end    
                 })
 
-Tab4:AddToggle({
-                    Name = "Rainbow Character (Needs Golden)",
-                    Default = false,
-                    Callback = function(Value)
-Rainbow = Value
-while Rainbow do
-for i = 0,1,0.001*25 do
-game:GetService("ReplicatedStorage").Goldify:FireServer(false, BrickColor.new(Color3.fromHSV(i,1,1)))
+GG = Tab4:AddToggle({
+	Name = "Give godmode (Needs guardian angel)",
+	Default = false,
+	Callback = function(Value)
+GiveGodmode = Value
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Guardian Angel" then
+while GiveGodmode do
+game.ReplicatedStorage.GeneralAbility:FireServer(game.Players[GodmodePlayer])
 task.wait()
 end
+elseif GiveGodmode == true then
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Guardian Angel equipped.",Image = "rbxassetid://7733658504",Time = 5})
+wait(0.05)
+GG:Set(false)
 end
-end
-                })
+	end    
+})
+
+Tab4:AddTextbox({
+	Name = "Player to give godmode to",
+	Default = "Username",
+	TextDisappear = false,
+	Callback = function(Value)
+GodmodePlayer = Value
+	end	  
+})
 
 Tab4:AddButton({
-	Name = "Destroy all tycoons",
+	Name = "Collect all alchemist ingredients",
 	Callback = function()
-for i = 1, 110 do
- for i,v in pairs(workspace:GetDescendants()) do
-        if v.Name == "Destruct" and v:FindFirstChild("ClickDetector") then
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Alchemist" then
+ for i,v in pairs(workspace["Alchemist_Ingredients_"]:GetDescendants()) do
+        if v:IsA("ClickDetector") then
+            fireclickdetector(v)
+        end
+    end
+else
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Alchemist equipped.",Image = "rbxassetid://7733658504",Time = 5})
+end
+                    end    
+                })
+
+RNS = Tab4:AddToggle({
+                    Name = "Rhythm Note Spam + Auto Press (Equip Rhythm)",
+                    Default = false,
+                    Callback = function(Value)
+RhythmNoteSpam = Value
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Rhythm" then
+while RhythmNoteSpam do
+game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = false
+game.Players.LocalPlayer.PlayerGui.Rhythm.LocalScript.Disabled = true
+game.Players.LocalPlayer.Character.Rhythm:Activate()
+task.wait()
+end
+elseif RhythmNoteSpam == true then
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Rhythm equipped.",Image = "rbxassetid://7733658504",Time = 5})
+wait(0.05)
+RNS:Set(false)
+end
+                    end    
+                })
+
+                Tab4:AddToggle({
+                    Name = "Auto Click Tycoon",
+                    Default = false,
+                    Callback = function(Value)
+AutoTycoon = Value
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "End" and v.ClassName == "Part" then
+            v.Size = Vector3.new(28, 0.3, 4)
+        end
+    end
+while AutoTycoon do
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Click" and v:FindFirstChild("ClickDetector") then
             fireclickdetector(v.ClickDetector)
         end
     end
-task.wait()
+    task.wait()
 end
                     end    
                 })
@@ -3276,6 +3279,49 @@ Tab4:AddSlider({
 		OrbitSpeed = Value
 	end    
 })
+
+Tab4:AddToggle({
+                    Name = "Rainbow Character (Needs Golden)",
+                    Default = false,
+                    Callback = function(Value)
+Rainbow = Value
+while Rainbow do
+for i = 0,1,0.001*25 do
+game:GetService("ReplicatedStorage").Goldify:FireServer(false, BrickColor.new(Color3.fromHSV(i,1,1)))
+task.wait()
+end
+end
+end
+                })
+
+Tab4:AddDropdown({
+	Name = "Rojo Charge VFX (Will fling you if spammed)",
+	Default = "",
+	Options = {"Attack", "No Attack"},
+	Callback = function(Value)
+if Value == "Attack" then
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
+wait(6)
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame})
+elseif Value == "No Attack" then
+game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
+end
+	end    
+})
+
+Tab4:AddButton({
+	Name = "Destroy all tycoons",
+	Callback = function()
+for i = 1, 110 do
+ for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Destruct" and v:FindFirstChild("ClickDetector") then
+            fireclickdetector(v.ClickDetector)
+        end
+    end
+task.wait()
+end
+                    end    
+                })
 
                 Tab4:AddToggle({
                     Name = "Spam Zombie Sound (All gloves)",
