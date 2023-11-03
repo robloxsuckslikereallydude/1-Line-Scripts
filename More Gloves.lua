@@ -46,6 +46,7 @@
     ["Necromancer"] = game.ReplicatedStorage.GeneralHit,
     ["Dual"] = game.ReplicatedStorage.GeneralHit,
     ["Alchemist"] = game.ReplicatedStorage.GeneralHit,
+    ["Parry"] = game.ReplicatedStorage.GeneralHit,
     ----------------------------------------
     ["Diamond"] = game.ReplicatedStorage.DiamondHit,
     ["ZZZZZZZ"] = game.ReplicatedStorage.ZZZZZZZHit,
