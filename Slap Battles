@@ -2815,6 +2815,14 @@ while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Cheeky" do
 game:GetService("ReplicatedStorage").Spherify:FireServer()
 task.wait()
 end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Parry" do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+task.wait()
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Druid" do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+task.wait()
+end
                     end   
 })
 
