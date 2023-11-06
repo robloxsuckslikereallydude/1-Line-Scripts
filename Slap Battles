@@ -1045,12 +1045,10 @@ Tab4:AddToggle({
                     Callback = function(Value)
 AutoChangeNameTag = Value
         if AutoChangeNameTag == true and game.Players.LocalPlayer.Character:FindFirstChild("Nametag",true) then
-print(workspace.NametagChanged.Value)
         game.Players.LocalPlayer.Character.Head.Nametag.TextLabel.Text = workspace.NametagChanged.Value
 end
 workspace.NametagChanged.Changed:Connect(function()
         if AutoChangeNameTag == true and game.Players.LocalPlayer.Character:FindFirstChild("Nametag",true) then
-print(workspace.NametagChanged.Value)
         game.Players.LocalPlayer.Character.Head.Nametag.TextLabel.Text = workspace.NametagChanged.Value
 end
 end)
@@ -1251,29 +1249,6 @@ task.wait()
             end
 	end    
 })
-
-Tab5:AddButton({
-	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
-	Callback = function()
-setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
-                    end    
-                })
-
-Tab5:AddToggle({
-                    Name = "Candy Corn Farm",
-                    Default = false,
-                    Callback = function(Value)
-CandyCornFarm = Value
-while CandyCornFarm do
-for i, v in pairs(workspace.CandyCorns:GetChildren()) do
-                if v:FindFirstChildWhichIsA("TouchTransmitter") then
-v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                end
-            end
-task.wait()
-end
-end
-                })
 
 Tab5:AddButton({
 	Name = "Get Elude",
@@ -2978,12 +2953,10 @@ Tab4:AddToggle({
                     Callback = function(Value)
 AutoChangeNameTag = Value
         if AutoChangeNameTag == true and game.Players.LocalPlayer.Character:FindFirstChild("Nametag",true) then
-print(workspace.NametagChanged.Value)
         game.Players.LocalPlayer.Character.Head.Nametag.TextLabel.Text = workspace.NametagChanged.Value
 end
 workspace.NametagChanged.Changed:Connect(function()
         if AutoChangeNameTag == true and game.Players.LocalPlayer.Character:FindFirstChild("Nametag",true) then
-print(workspace.NametagChanged.Value)
         game.Players.LocalPlayer.Character.Head.Nametag.TextLabel.Text = workspace.NametagChanged.Value
 end
 end)
@@ -3467,29 +3440,6 @@ task.wait()
             end
 	end    
 })
-
-Tab6:AddButton({
-	Name = "Fast Candy Corn Farm (Copies script, put in autoexec)",
-	Callback = function()
-setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Candy%20Corn%20Farm'))()")
-                    end    
-                })
-
-Tab6:AddToggle({
-                    Name = "Candy Corn Farm",
-                    Default = false,
-                    Callback = function(Value)
-CandyCornFarm = Value
-while CandyCornFarm do
-for i, v in pairs(workspace.CandyCorns:GetChildren()) do
-                if v:FindFirstChildWhichIsA("TouchTransmitter") then
-v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                end
-            end
-task.wait()
-end
-end
-                })
 
 Tab6:AddButton({
 	Name = "Get Elude",
