@@ -48,6 +48,11 @@
     ["Alchemist"] = game.ReplicatedStorage.GeneralHit,
     ["Parry"] = game.ReplicatedStorage.GeneralHit,
     ["Druid"] = game.ReplicatedStorage.GeneralHit,
+    ["Oven"] = game.ReplicatedStorage.GeneralHit,
+    ["Jester"] = game.ReplicatedStorage.GeneralHit,
+    ["Ferryman"] = game.ReplicatedStorage.GeneralHit,
+    ["Scythe"] = game.ReplicatedStorage.GeneralHit,
+    ["Blackhole"] = game.ReplicatedStorage.GeneralHit,
     ----------------------------------------
     ["Diamond"] = game.ReplicatedStorage.DiamondHit,
     ["ZZZZZZZ"] = game.ReplicatedStorage.ZZZZZZZHit,
