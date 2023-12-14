@@ -826,7 +826,7 @@ Tab:AddButton({
 Tab4:AddButton({
 	Name = "View Testing Server (Good for glove leaking)",
 	Callback = function()
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -847,7 +847,7 @@ game:GetService("TeleportService"):Teleport(9020359053)
 Tab4:AddButton({
 	Name = "View Slap Royale Testing Server",
 	Callback = function()
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -1255,7 +1255,7 @@ task.wait()
 Tab5:AddButton({
 	Name = "Get Elude",
 	Callback = function()
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -1278,7 +1278,7 @@ Tab5:AddButton({
 	Name = "Get Chain (Needs 1k slaps)",
 	Callback = function()
 if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 1000 then
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -1852,7 +1852,7 @@ Tab:AddButton({
 Tab2:AddButton({
 	Name = "View Testing Server (Good for glove leaking)",
 	Callback = function()
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -1873,7 +1873,7 @@ game:GetService("TeleportService"):Teleport(9020359053)
 Tab2:AddButton({
 	Name = "View Slap Royale Testing Server",
 	Callback = function()
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -1982,7 +1982,7 @@ Tab3:AddButton({
 	Name = "Get Chain (Needs 1k slaps)",
 	Callback = function()
 if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 1000 then
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -2197,7 +2197,7 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Rejoin Server",
 	Callback = function()
-      		local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+      		local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -2303,7 +2303,7 @@ Tab:AddButton({
 Tab4:AddButton({
 	Name = "View Testing Server (Good for glove leaking)",
 	Callback = function()
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -2324,7 +2324,7 @@ game:GetService("TeleportService"):Teleport(9020359053)
 Tab4:AddButton({
 	Name = "View Slap Royale Testing Server",
 	Callback = function()
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -2801,6 +2801,28 @@ game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
 task.wait()
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Druid" do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+task.wait()
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Oven" do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+task.wait()
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Jester" do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("Ability1")
+task.wait()
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Ferryman" do
+game.Players.LocalPlayer.Character.FerrymanStaff.StaffConfig.AbilityEvent:FireServer("Leap")
+wait(1.85)
+game.Players.LocalPlayer.Character.FerrymanStaff.StaffConfig.AbilityEvent:FireServer( "FinishLeap",game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+wait(1.7)
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Scythe" do
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+task.wait()
+end
+while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Blackhole" do
 game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
 task.wait()
 end
@@ -3450,7 +3472,7 @@ task.wait()
 Tab6:AddButton({
 	Name = "Get Elude",
 	Callback = function()
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
@@ -3473,7 +3495,7 @@ Tab6:AddButton({
 	Name = "Get Chain (Needs 1k slaps)",
 	Callback = function()
 if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 1000 then
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
+local teleportFunc = queueonteleport or queue_on_teleport
 if teleportFunc then
     teleportFunc([[
         if not game:IsLoaded() then
