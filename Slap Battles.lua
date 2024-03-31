@@ -2997,6 +2997,19 @@ repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild("Name
 end
                 })
 
+Tab4:AddToggle({
+			Name = "Invis + godmode"
+			Default = false
+			Callback = function(Value)
+invisandgod = Value
+	if invisandgod == true then
+		workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
+end
+	if invisandgod == false then
+		workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
+end
+})
+
 Tab4:AddTextbox({
 	Name = "Auto Change Nametag (Clientside)",
 	Default = "Nametag",
