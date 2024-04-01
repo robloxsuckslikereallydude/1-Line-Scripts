@@ -6,7 +6,7 @@ end
 
 game:GetService("GuiService"):ClearError()
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 
 if game.PlaceId == 11520107397 or game.PlaceId == 6403373529 or game.PlaceId == 9015014224 then
 local bypass;
@@ -107,7 +107,7 @@ Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 Tab:AddButton({
 	Name = "Infinite Yield",
 	Callback = function()
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
   	end    
 })
 
@@ -805,7 +805,7 @@ Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 Tab:AddButton({
 	Name = "Infinite Yield",
 	Callback = function()
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
   	end    
 })
 
@@ -837,7 +837,7 @@ if teleportFunc then
             game:GetService("GuiService"):ClearError()
 game.CoreGui:WaitForChild("RobloxLoadingGUI"):Destroy()
         end)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
@@ -858,7 +858,7 @@ if teleportFunc then
             game:GetService("GuiService"):ClearError()
 game.CoreGui:WaitForChild("RobloxLoadingGUI"):Destroy()
         end)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9412268818)
@@ -868,7 +868,7 @@ game:GetService("TeleportService"):Teleport(9412268818)
 Tab4:AddButton({
 	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
-setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Farm'))()")
                     end    
                 })
 
@@ -1838,7 +1838,7 @@ Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 Tab:AddButton({
 	Name = "Infinite Yield",
 	Callback = function()
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
   	end    
 })
 
@@ -1863,7 +1863,7 @@ if teleportFunc then
             game:GetService("GuiService"):ClearError()
 game.CoreGui:WaitForChild("RobloxLoadingGUI"):Destroy()
         end)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
@@ -1884,7 +1884,7 @@ if teleportFunc then
             game:GetService("GuiService"):ClearError()
 game.CoreGui:WaitForChild("RobloxLoadingGUI"):Destroy()
         end)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9412268818)
@@ -1894,7 +1894,7 @@ game:GetService("TeleportService"):Teleport(9412268818)
 Tab2:AddButton({
 	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
-setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Farm'))()")
                     end    
                 })
 
@@ -2176,7 +2176,7 @@ elseif game.PlaceId == 9020359053 or game.PlaceId == 9412268818 then
 Tab:AddButton({
 	Name = "Testing Server Freecam",
 	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/SB%20Freecam"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/SB%20Freecam"))()
                     end    
                 })
 
@@ -2190,7 +2190,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/Freecam
 Tab:AddButton({
 	Name = "Infinite Yield",
 	Callback = function()
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
   	end    
 })
 
@@ -2207,7 +2207,7 @@ if teleportFunc then
         game:GetService("RunService").RenderStepped:Connect(function()
             game:GetService("GuiService"):ClearError()
         end)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(game.PlaceId)
@@ -2282,7 +2282,7 @@ Tab:AddLabel("Message Guy that exists#1915 if you have issues")
 Tab:AddButton({
 	Name = "Infinite Yield",
 	Callback = function()
-      		loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Infinite%20Yield%20but%20with%20secure%20dex'))()
   	end    
 })
 
@@ -2314,7 +2314,7 @@ if teleportFunc then
             game:GetService("GuiService"):ClearError()
 game.CoreGui:WaitForChild("RobloxLoadingGUI"):Destroy()
         end)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
@@ -2335,7 +2335,7 @@ if teleportFunc then
             game:GetService("GuiService"):ClearError()
 game.CoreGui:WaitForChild("RobloxLoadingGUI"):Destroy()
         end)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Battles")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Battles")))()
     ]])
 end
 game:GetService("TeleportService"):Teleport(9412268818)
@@ -2345,7 +2345,7 @@ game:GetService("TeleportService"):Teleport(9412268818)
 Tab4:AddButton({
 	Name = "Fast Slapple Farm (Copies script, put in autoexec)",
 	Callback = function()
-setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Slap%20Farm'))()")
+setclipboard("loadstring(game:HttpGet('https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/Slap%20Farm'))()")
                     end    
                 })
 
@@ -4376,7 +4376,7 @@ wait(1.1)
 AREC:Set(game.Workspace.NoChanged.Value)
 end)
 
-local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/More%20Gloves.lua"))()
+local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/robloxsuckslikereallydude/1-Line-Scripts/main/More%20Gloves.lua"))()
 end
 for i,v in pairs(gethui().Orion:GetDescendants()) do
                     if v.ClassName == "Frame" and v.BackgroundTransparency < 0.3 then
