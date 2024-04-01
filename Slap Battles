@@ -2998,14 +2998,14 @@ end
                 })
 
 Tab4:AddToggle({
-			Name = "Invis + godmode"
-			Default = false
+			Name = "Invis + godmode",
+			Default = false,
 			Callback = function(Value)
 invisandgod = Value
-	if invisandgod == true then
+	if invisandgod = true then
 		workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
 end
-	if invisandgod == false then
+	if invisandgod = false then
 		workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
 end
 })
