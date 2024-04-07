@@ -3543,25 +3543,13 @@ task.wait()
 Tab6:AddButton({
 	Name = "Get iceskate (use default glove)",
 	Callback = function()
-
-
-if game.Players.localPlayer.leaderstats.Glove.Value == "Iceskate" then
-game:GetService("StarterGui"):SetCore("SendNotification",{
-	Title = "You already have ice", -- Required
-	Text = "you already have iceskate", -- Required
-})
-
-if game.Players.LocalPlayer.leaderstats.Glove.Value == "Default" then
     local args = {
         [1] = "Freeze"
     }
     
-    game:GetService("ReplicatedStorage"):WaitForChild("IceSkate"):FireServer(unpack(args))    
-end
-end
+    game:GetService("ReplicatedStorage"):WaitForChild("IceSkate"):FireServer(unpack(args))
 end
 })
-
 
 Tab6:AddButton({
 	Name = "Get Elude",
