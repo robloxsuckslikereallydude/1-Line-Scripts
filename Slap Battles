@@ -950,19 +950,19 @@ end
                     end    
                 })
 
-                Tab2:AddToggle({
-                    Name = "godmode and invis",
-                    Default = false,
-                    Callback = function(Value)
-                        godmodeandinvis = Value
-                        if godmodeandinvis == true then
-                            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
-                        end
-                        if godmodeandinvis == false then
-                            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
-                        end
-                    end
-                })
+Tab2:AddToggle({
+    Name = "godmode and invis",
+    Default = false,
+    Callback = function(Value)
+        godmodeandinvis = Value
+        if godmodeandinvis == true then
+            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
+        elseif false then
+            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
+        end
+    end
+})
+
 Tab2:AddToggle({
                     Name = "Rojo Spam (All gloves)",
                     Default = false,
@@ -1183,6 +1183,28 @@ elseif Value == "No Attack" then
 game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Charge")
 end
 	end    
+})
+
+Tab5:AddButton({
+	Name = "Get iceskate (use default glove)",
+	Callback = function()
+
+
+if game.Players.localPlayer.leaderstats.Glove.Value == "Iceskate" then
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "You already have ice", -- Required
+	Text = "you already have iceskate", -- Required
+})
+
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Default" then
+    local args = {
+        [1] = "Freeze"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("IceSkate"):FireServer(unpack(args))    
+end
+end
+end
 })
 
                 Tab4:AddToggle({
@@ -1470,6 +1492,28 @@ end
 game:GetService("TeleportService"):Teleport(9431156611)
 end
   	end    
+})
+
+Tab5:AddButton({
+	Name = "Get iceskate (use default glove)",
+	Callback = function()
+
+
+if game.Players.localPlayer.leaderstats.Glove.Value == "Iceskate" then
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "You already have ice", -- Required
+	Text = "you already have iceskate", -- Required
+})
+
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Default" then
+    local args = {
+        [1] = "Freeze"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("IceSkate"):FireServer(unpack(args))    
+end
+end
+end
 })
 
 Tab5:AddButton({
