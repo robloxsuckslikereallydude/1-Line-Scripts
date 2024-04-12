@@ -957,7 +957,8 @@ Tab2:AddToggle({
         godmodeandinvis = Value
         if godmodeandinvis == true then
             workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
-        elseif false then
+	end
+        if godmodeandinvis == false then
             workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
         end
     end
