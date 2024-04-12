@@ -3198,7 +3198,7 @@ for i, v in pairs(workspace:GetChildren()) do
 game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"))
                 end
             end
-task.wait()
+task.wait(0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
                        end
 elseif ReplicaFarm == true then
 OrionLib:MakeNotification({Name = "Error",Content = "You don't have Replica equipped, or you aren't in the Default arena.",Image = "rbxassetid://7733658504",Time = 5})
