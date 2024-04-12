@@ -951,18 +951,16 @@ end
                 })
 
 Tab2:AddToggle({
-                    Name = "godmode and invis",
-                    Default = false,
-                    Callback = function(Value)
-                        godmodeandinvis2 = Value
-                        if godmodeandinvis2 == true then
-                            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
-                        end
-                        if godmodeandinvis2 == false then
-                            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
-                        end
-                    end
-		end
+    Name = "godmode and invis",
+    Default = false,
+    Callback = function(Value)
+        godmodeandinvis = Value
+        if godmodeandinvis == true then
+            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
+        elseif false then
+            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
+        end
+    end
 })
 
 Tab2:AddToggle({
@@ -976,6 +974,21 @@ task.wait()
 end
                     end    
                 })
+
+                Tab2:AddToggle({
+                    Name = "godmode and invis",
+                    Default = false,
+                    Callback = function(Value)
+                        godmodeandinvis = Value
+                        if godmodeandinvis == true then
+                            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
+                        end
+                        if godmodeandinvis == false then
+                            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
+                        end
+                    end
+                })
+
 
 Tab2:AddTextbox({
 	Name = "Make person use rojo spam",
