@@ -950,18 +950,19 @@ end
                     end    
                 })
 
-Tab2:AddToggle({
-    Name = "godmode and invis",
-    Default = false,
-    Callback = function(Value)
-        godmodeandinvis = Value
-        if godmodeandinvis == true then
-            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
-        elseif false then
-            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
-        end
-    end
-})
+                Tab2:AddToggle({
+                    Name = "godmode and invis",
+                    Default = false,
+                    Callback = function(Value)
+                        godmodeandinvis = Value
+                        if godmodeandinvis == true then
+                            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("OpenRemote"):InvokeServer()
+                        end
+                        if godmodeandinvis == false then
+                            workspace:WaitForChild("BountyHunterRoom"):WaitForChild("BountyHunterBooth"):WaitForChild("_configPart"):WaitForChild("LeaveRemote"):FireServer()
+                        end
+                    end
+                })
 
 Tab2:AddToggle({
                     Name = "Rojo Spam (All gloves)",
