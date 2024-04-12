@@ -3132,6 +3132,22 @@ end
 	end    
 })
 
+Tab5:AddToggle({
+	Name = "reverse godmode",
+	Default = false,
+	Callback = function(Value)
+reversegod = Value
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Reverse" then
+if reversegod == true then
+
+while reversegod do task.wait(6)
+game:GetService("ReplicatedStorage"):WaitForChild("ReverseAbility"):FireServer()
+end
+end
+end
+end
+})
+
 RBSF = Tab5:AddToggle({
                     Name = "Replica & Baller Slap Farm (Equip Baller)",
                     Default = false,
