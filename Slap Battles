@@ -2463,6 +2463,17 @@ end
                 })
 
 Tab2:AddToggle({
+    Name = "Infinite reverse",
+    Default = false,
+    Callback = function(Value)
+        godreverse = Value
+            while godreverse do task.wait(6)
+                    game:GetService("ReplicatedStorage"):WaitForChild("ReverseAbility"):FireServer()
+            end
+    end
+})
+
+Tab2:AddToggle({
     Name = "Hell with shukuchi",
     Default = false,
     Callback = function(Value)
