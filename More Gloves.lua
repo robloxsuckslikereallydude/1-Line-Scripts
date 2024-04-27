@@ -85,6 +85,7 @@ shared.gloveHits = {
     ["Brick"] = game.ReplicatedStorage.BrickHit,
     ["Snow"] = game.ReplicatedStorage.SnowHit,
     ["Pull"] = game.ReplicatedStorage.PullHit,
+    ["Frostbite"] = game.ReplicatedStorage.GeneralHit,
     ["Flash"] = game.ReplicatedStorage.FlashHit,
     ["Spring"] = game.ReplicatedStorage.springhit,
     ["Swapper"] = game.ReplicatedStorage.HitSwapper,
