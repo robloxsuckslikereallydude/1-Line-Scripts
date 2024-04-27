@@ -131,7 +131,7 @@
     ["Cloud"] = game.ReplicatedStorage.CloudHit,
     ["Retro"] = game.ReplicatedStorage.RetroHit,
     ["Null"] = game.ReplicatedStorage.NullHit,
-    ["Knockoff"] = game.ReplicatedStorage.GeneralHit
+    ["Knockoff"] = game.ReplicatedStorage.GeneralHit,
     ----------------------------------------
     ["Mitten"] = game.ReplicatedStorage.MittenHit,
     ["Hallow Jack"] = game.ReplicatedStorage.HallowHIT,
