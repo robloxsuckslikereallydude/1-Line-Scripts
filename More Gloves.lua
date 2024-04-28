@@ -1,4 +1,4 @@
-shared.gloveHits = {
+_G.gloveHits = {
     ["Default"] = game.ReplicatedStorage.b,
     ["Extended"] = game.ReplicatedStorage.b,
     -----------// Glove Hit General Or New Glove \\-----------
